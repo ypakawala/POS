@@ -868,6 +868,8 @@ Public Class frmSales
                     Else
                         'Me.txtPrice.Value = CType(br.Substring(7, 5), Decimal)
                         Me.txtPrice.Value = CType(br.Substring(ChrWeightPriceStart, ChrWeightPriceLength), Decimal)
+
+                        '1 is in case if they dont consider Sales Price in DB else below formula will work for calculating qty 
                         Me.txtQuantity.Value = 1 'Math.Round((CType(Me.txtPrice.Value, Decimal) / (CLS_Item.SalesPrice * 1000)), 3)
                         DY_Price = True
                     End If
