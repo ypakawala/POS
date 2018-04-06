@@ -1,0 +1,84 @@
+--------------------------------EDEE------------------------------------
+
+OK. credit payment bill : balance dosenot include current bill
+OK. Check : by default show all pending bill - date=nothing
+. employee Salary form same like subscription
+		employee form
+		generate salary
+		pay payment salary
+		cancel payment
+OK. hold bill with remark
+--------------------------------CENTURY BAZAAR---------------------------
+
+OK. if Allow_Sale_Detail_Delete=false allow alteast 2 delete. Delete_Count_Limit 
+.sales search - dose not show knet sales
+.new field in item card: calculate CP based on Percentage & SP
+.item sales calculate CP based on percentage
+
+--------------------------------ZAHARA BAKALA-----------UP=175767589----------------
+
+OK. credit sales bill : balamnce dosenot match statement of acc after editing bill
+OK. Zahra Bakala Item List : hide only notes,UMC,sub Category,Stock Min.
+OK. item card : search by barcode 1st
+OK. report default date=today
+OK. new suplier payment report : payment report by date for all supplier
+OK. credit sales bill : show previous month, current month balance also
+OK. remark in sales
+.supplier balance same like customer rotation
+13/10/2011
+OK.recipt edit - 200 +1 = 201 shows 195
+OK.supplier balnce  remove 0
+OK.supplier balance - toDate
+OK.customer paid,balance & rotation: Sr#, order by name
+OK.sales daily summry  - load error
+ok.new months balance report - Criteria:month,year. Report Field:Sr#,customer Name,Balance
+OK.Purchase Search: Add Sr#,Move code at last, change color
+OK.purchase payment report  - payment date is missing
+
+.supplier balance from-to
+.sup chapra irani balance wrong
+OK.purchase payment: group by supplier, sub report
+
+.Item Movement Summery by item not by category - load takes time
+.your expense report date from to receipt print 
+OK.same bill nub on hold, first bill del
+
+11/DEC/2011: 15KD
+OK.customer payment print 2 copy
+OK.exp report with from-to, exp(optional)
+OK.Sales search - show return in column
+OK.Purchase Main- show return total
+OK.item list also edit - barcode, barcode 2 & Item Name
+OK.purchase main- show serial
+OK.Purchase Search - show Discount & Return Column
+OK.dont show item with CP=0 in sales & Purchase
+OK.purchase - save also SP & % of item
+
+7 march 2012
+OK.bill copy - show remark
+OK.customer monthly balance
+.edit last bill
+
+15 March 2012
+.Default Printer
+OK.Edit Bill		-Current Month Balance & Total shows next bill also
+OK.Open Last BIll
+.Purchase Report F8 	- Duration for Purchase, Paid & Return
+			-Supplier 1 Return in Paid
+.Daily Summery		-Cash Counter=Cash Sale + Credit Sale = Total - Supply Pay = Net Total
+.Weight Item CP Calculation
+.Item Card		-New - Cost Method  - Cost of margin
+.Supplier Pay 		-Acc type cash - should not ask for check #
+.customer pay 		-delete last month and current month
+.supplier return	-suplier = 7
+			-return item = 99231000
+OK.cutomer pay discount
+.customer pay discount report
+
+
+--------------------------------MOVE N PICK----------------------------------
+OK. card item
+OK. 7 digit scale
+OK. Return Bill
+OK. PRINT button
+.CASH DRAW OPENING

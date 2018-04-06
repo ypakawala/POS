@@ -1,0 +1,62 @@
+
+'#'OPEN CASH BOX
+'#Dim intFileNo2 As Integer = FreeFile()
+'#FileOpen(1, "c:\escapes2.txt", OpenMode.Output)
+'#'PrintLine(1, Chr(27) & Chr(112))
+'#PrintLine(1, Chr(27) & Chr(112) & Chr(0) & Chr(25) & Chr(250))
+
+'#FileClose(1)
+'#Shell("print /d:lpt1 c:\escapes2.txt", vbNormalFocus)
+
+''---------------------------
+''Opening the Cash Drawer:
+
+''The next example shows how to open the desired cash drawer at the desired speed.
+
+'Printer.FontSize = 10 'Set up the control font.
+'Printer.FontName = "control"
+'Printer.Print("A")  'Use special-function character to open the cash drawer.
+'Printer.EndDoc()
+
+'A: Open drawer 1 at 50ms.
+'B: Open drawer 1 at 100ms.
+'C: Open drawer 1 at 150ms.
+'D: Open drawer 1 at 200ms.
+'E: Open drawer 1 at 250ms.
+'a: Open drawer 2 at 50ms.
+'b: Open drawer 2 at 100ms.
+'c: Open drawer 2 at 150ms.
+'d: Open drawer 2 at 200ms.
+'e: Open drawer 2 at 250ms.
+__________________________________________________________________________________
+__________________________________________________________________________________
+
+'If Not CLS_Config.BigReceiprPrinter And Printer_On Then
+''CUT PAGE
+'Printer.Print()
+'Printer.EndDoc()
+'Dim intFileNo As Integer = FreeFile()
+'FileOpen(1, "c:\escapes.txt", OpenMode.Output)
+'PrintLine(1, Chr(27) & Chr(105))
+
+'FileClose(1)
+'Shell("print /d:lpt1 c:\escapes.txt", vbNormalFocus)
+'End If
+__________________________________________________________________________________
+__________________________________________________________________________________
+
+
+__________________________________________________________________________________
+__________________________________________________________________________________
+
+
+
+__________________________________________________________________________________
+__________________________________________________________________________________
+
+
+
+__________________________________________________________________________________
+__________________________________________________________________________________
+
+

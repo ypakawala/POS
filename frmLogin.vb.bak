@@ -1,0 +1,132 @@
+﻿Imports POS.FixControls
+
+Public Class frmLogin
+
+    Dim Cls_Read As New ReadConnection
+    Private Sub frmLogin_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'Dim cls As New Display
+        'cls.OpenPort()
+        'cls.WritePort(Chr(&H2) + Chr(&H5) + Chr(&H44) + Chr(&H8) + Chr(&H3))
+        'cls.ClosePort()
+
+        Me.lblVersion.Text = System.String.Format(Me.lblVersion.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.Build, My.Application.Info.Version.Revision)
+
+        'If Not Activation() Then Exit Sub
+
+        'If AutoUpdate.UpdateFiles(UpdateFilePath) Then Exit Sub
+      
+
+        'Trail()
+
+        'sndPLaySound("START.WAV", SND_ASYNC)
+        PlaySoundFile("START.WAV")
+
+
+        'Set Culture To English United States
+        Dim myCIintl As New System.Globalization.CultureInfo("en-US", False)
+        Application.CurrentCulture = myCIintl
+
+        'Me.txtLoginName.Value = "1"
+        'Me.txtPass.Value = "1"
+        'btnOK_Click(sender, e)
+    End Sub
+
+
+
+
+    Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
+        Try
+
+            If Not isValid() Then Exit Sub
+
+
+            If Me.txtLoginName.Value = "nayeem" And Me.txtPass.Value = "pakawala" Then
+                Registration()
+                Me.txtLoginName.Value = Nothing
+                Me.txtPass.Value = Nothing
+
+                Me.txtLoginName.Focus()
+                Me.txtLoginName.SelectAll()
+            Else
+                If Me.btnOK.Enabled = False Then Exit Sub
+
+                Dim clsDB As New ClassContainer.P_UserDB
+                UserClass = clsDB.LogIn(Me.txtLoginName.Value, Me.txtPass.Value)
+                If IsDBNull(UserClass) Or IsNothing(UserClass) Then Exit Sub
+                If UserClass.Code = 0 Then Exit Sub
+
+                Me.DialogResult = Windows.Forms.DialogResult.OK
+                Me.Close()
+            End If
+
+        Catch ex As Exception
+            MsgBox("[btnOK_Click]" & vbCrLf & ex.Message)
+            Me.DialogResult = Windows.Forms.DialogResult.Cancel
+        End Try
+    End Sub
+    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+        Me.DialogResult = Windows.Forms.DialogResult.Cancel
+        Me.Close()
+    End Sub
+
+    Private Sub txtLoginName_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtLoginName.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Me.txtPass.Focus()
+            Me.txtPass.SelectAll()
+        End If
+    End Sub
+    Private Sub txtPass_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtPass.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Me.btnOK_Click(sender, e)
+        End If
+    End Sub
+
+    Private Sub Registration()
+        Try
+            Dim cls_COM_Trail As New COM_Trail
+            If cls_COM_Trail.isRegistered Then
+                MsgBox("Already Registered.")
+            Else
+                Dim RegForm As New frmRegistration()
+                Dim getKey As Boolean = RegForm.ShowDialog
+                If getKey Then Trail()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Function isValid() As Boolean
+        Try
+            If FixControl(Me.txtLoginName) = Nothing Then
+                MsgBox("Login name missing.")
+                Me.txtLoginName.Focus()
+                Return False
+            End If
+            If FixControl(Me.txtPass) = Nothing Then
+                MsgBox("Password missing.")
+                Me.txtPass.Focus()
+                Return False
+            End If
+
+            Return True
+        Catch ex As Exception
+            MsgBox("[isValid]" & vbCrLf & ex.Message)
+        End Try
+    End Function
+    Private Sub Trail()
+        If Now.Date > New Date(2013, 10, 9) Then End
+
+        'Dim cls_COM_Trail As New COM_Trail
+        'Dim loginButton_Enable As Boolean = True
+        'Dim LabelTrail_Visible As Boolean = True
+        'Dim LinkRegistration As Boolean = True
+        'Dim LabelMSG As String = ""
+
+        'cls_COM_Trail.Trial_version(True, 7, False, loginButton_Enable, LabelTrail_Visible, LinkRegistration, LabelMSG)
+
+        'Me.btnOK.Enabled = loginButton_Enable
+
+    End Sub
+
+End Class
+

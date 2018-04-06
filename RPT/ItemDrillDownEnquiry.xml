@@ -1,0 +1,488 @@
+<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Body>
+<a1:UltraGridDisplayLayout id="ref-1" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<BorderStyle>4</BorderStyle>
+<GroupByBox href="#ref-4"/>
+<_x0030_ href="#ref-5"/>
+<MaxColScrollRegions>1</MaxColScrollRegions>
+<MaxRowScrollRegions>1</MaxRowScrollRegions>
+<Override href="#ref-6"/>
+<ScrollStyle>1</ScrollStyle>
+<Bands href="#ref-7"/>
+<ScrollBounds>0</ScrollBounds>
+<CaptionVisible>2</CaptionVisible>
+</a1:UltraGridDisplayLayout>
+<a1:GroupByBox id="ref-4" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<BorderStyle>4</BorderStyle>
+<AppearanceHolder href="#ref-8"/>
+<BandLabelAppearance href="#ref-9"/>
+<PromptAppearance href="#ref-10"/>
+</a1:GroupByBox>
+<a2:AppearanceHolder id="ref-5" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-11"/>
+</a2:AppearanceHolder>
+<a1:UltraGridOverride id="ref-6" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<AllowUpdate>2</AllowUpdate>
+<BorderStyleRow>2</BorderStyleRow>
+<BorderStyleCell>2</BorderStyleCell>
+<CellClickAction>4</CellClickAction>
+<CellPadding>0</CellPadding>
+<HeaderClickAction>3</HeaderClickAction>
+<RowSelectorWidth>25</RowSelectorWidth>
+<FilterUIType>2</FilterUIType>
+<HeaderStyle>2</HeaderStyle>
+<RowSelectorNumberStyle>4</RowSelectorNumberStyle>
+<_x0030_ href="#ref-12"/>
+<_x0031_ href="#ref-13"/>
+<_x0032_ href="#ref-14"/>
+<_x0034_ href="#ref-15"/>
+<_x0035_ href="#ref-16"/>
+<_x0036_ href="#ref-17"/>
+<_x0039_ href="#ref-18"/>
+<_x0031_3 href="#ref-19"/>
+<_x0031_6 href="#ref-20"/>
+<_x0033_0 href="#ref-21"/>
+</a1:UltraGridOverride>
+<a1:BandsCollection id="ref-7" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Count>1</Count>
+<_x0030_ href="#ref-22"/>
+</a1:BandsCollection>
+<a2:AppearanceHolder id="ref-8" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-23"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-9" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-24"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-10" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-25"/>
+</a2:AppearanceHolder>
+<a2:Appearance id="ref-11" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>24</knownColor>
+<state>1</state>
+</BackColor>
+<BorderColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>17</knownColor>
+<state>1</state>
+</BorderColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:AppearanceHolder id="ref-12" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-27"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-13" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-28"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-14" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-29"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-15" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-30"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-16" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-31"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-17" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-32"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-18" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-33"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-19" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-34"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-20" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-35"/>
+</a2:AppearanceHolder>
+<a2:AppearanceHolder id="ref-21" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Appearance href="#ref-36"/>
+</a2:AppearanceHolder>
+<a1:UltraGridBand id="ref-22" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key id="ref-37"></Key>
+<Columns href="#ref-38"/>
+</a1:UltraGridBand>
+<a2:Appearance id="ref-23" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>1</knownColor>
+<state>1</state>
+</BackColor>
+<BackColor2 xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>6</knownColor>
+<state>1</state>
+</BackColor2>
+<BackGradientStyle>2</BackGradientStyle>
+<BorderColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>24</knownColor>
+<state>1</state>
+</BorderColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-24" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<ForeColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>12</knownColor>
+<state>1</state>
+</ForeColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-25" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>9</knownColor>
+<state>1</state>
+</BackColor>
+<BackColor2 xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>5</knownColor>
+<state>1</state>
+</BackColor2>
+<BackGradientStyle>3</BackGradientStyle>
+<ForeColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>12</knownColor>
+<state>1</state>
+</ForeColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-27" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>13</knownColor>
+<state>1</state>
+</BackColor>
+<ForeColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>14</knownColor>
+<state>1</state>
+</ForeColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-28" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>24</knownColor>
+<state>1</state>
+</BackColor>
+<ForeColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>10</knownColor>
+<state>1</state>
+</ForeColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-29" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BorderColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>150</knownColor>
+<state>1</state>
+</BorderColor>
+<TextTrimming>3</TextTrimming>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-30" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<TextHAlign>1</TextHAlign>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-31" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>24</knownColor>
+<state>1</state>
+</BackColor>
+<BorderColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>150</knownColor>
+<state>1</state>
+</BorderColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-32" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>28</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-33" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<FontData href="#ref-39"/>
+<ForeColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>37</knownColor>
+<state>1</state>
+</ForeColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-34" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>5</knownColor>
+<state>1</state>
+</BackColor>
+<BackColor2 xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>6</knownColor>
+<state>1</state>
+</BackColor2>
+<BackGradientAlignment>1</BackGradientAlignment>
+<BackGradientStyle>3</BackGradientStyle>
+<BorderColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>24</knownColor>
+<state>1</state>
+</BorderColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-35" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>24</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a2:Appearance>
+<a2:Appearance id="ref-36" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<BackColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>8</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a2:Appearance>
+<a1:ColumnsCollection id="ref-38" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Count>17</Count>
+<_x0030_ href="#ref-40"/>
+<_x0031_ href="#ref-41"/>
+<_x0032_ href="#ref-42"/>
+<_x0033_ href="#ref-43"/>
+<_x0034_ href="#ref-44"/>
+<_x0035_ href="#ref-45"/>
+<_x0036_ href="#ref-46"/>
+<_x0037_ href="#ref-47"/>
+<_x0038_ href="#ref-48"/>
+<_x0039_ href="#ref-49"/>
+<_x0031_0 href="#ref-50"/>
+<_x0031_1 href="#ref-51"/>
+<_x0031_2 href="#ref-52"/>
+<_x0031_3 href="#ref-53"/>
+<_x0031_4 href="#ref-54"/>
+<_x0031_5 href="#ref-55"/>
+<_x0031_6 href="#ref-56"/>
+</a1:ColumnsCollection>
+<a2:FontData id="ref-39" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<Bold>1</Bold>
+</a2:FontData>
+<a1:UltraGridColumn id="ref-40" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-57"/>
+<Hidden>true</Hidden>
+<Key id="ref-58">TransectionCode</Key>
+<Width>50</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-41" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-59"/>
+<Key id="ref-60">TransectionType</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-42" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-61"/>
+<Hidden>true</Hidden>
+<Key id="ref-62">Code</Key>
+<Width>50</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-43" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-63"/>
+<Key id="ref-64">EffectiveDate</Key>
+<MaskInput id="ref-65">{LOC}dd/mm/yyyy</MaskInput>
+<Width>150</Width>
+<Format id="ref-66">dd/MM/yyyy</Format>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-44" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-67"/>
+<Key id="ref-68">InvoiceNum</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-45" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-69"/>
+<Key id="ref-70">ItemName</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-46" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-71"/>
+<Key id="ref-72">Barcode</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-47" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-73"/>
+<Key id="ref-74">ItemCategory</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-48" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-75"/>
+<Key id="ref-76">SubCategory</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-49" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-77"/>
+<Key id="ref-78">UnitPrice</Key>
+<MaskInput id="ref-79">{double:-9.3}</MaskInput>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-50" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-80"/>
+<Key id="ref-81">Quantity</Key>
+<MaskInput href="#ref-79"/>
+<Width>100</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-51" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-82"/>
+<Key id="ref-83">TotalPrice</Key>
+<MaskInput href="#ref-79"/>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-52" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-84"/>
+<Key id="ref-85">AccountName</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-53" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-86"/>
+<Key id="ref-87">SerailNum</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-54" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-88"/>
+<Key id="ref-89">Notes</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-55" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<Header href="#ref-90"/>
+<Key id="ref-91">UserName</Key>
+<Width>150</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-56" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Header href="#ref-92"/>
+<Key id="ref-93">Stock</Key>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:ColumnHeader id="ref-57" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-94">Transection Code</Caption>
+<VisiblePosition>0</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-59" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-95">Transection Type</Caption>
+<VisiblePosition>1</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-61" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<VisiblePosition>2</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-63" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-96">Effective Date</Caption>
+<VisiblePosition>3</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-67" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-97">Invoice Num</Caption>
+<VisiblePosition>4</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-69" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<VisiblePosition>5</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-71" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<VisiblePosition>6</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-73" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<VisiblePosition>7</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-75" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<VisiblePosition>8</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-77" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-98">Unit Price</Caption>
+<VisiblePosition>9</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-80" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<VisiblePosition>10</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-82" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-99">Total Price</Caption>
+<VisiblePosition>11</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-84" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-100">Account Name</Caption>
+<VisiblePosition>12</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-86" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-101">Serail Num</Caption>
+<VisiblePosition>13</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-88" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<VisiblePosition>14</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-90" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-102">User Name</Caption>
+<VisiblePosition>15</VisiblePosition>
+</a1:ColumnHeader>
+<a1:ColumnHeader id="ref-92" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<VisiblePosition>16</VisiblePosition>
+</a1:ColumnHeader>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
