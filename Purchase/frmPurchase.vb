@@ -245,10 +245,15 @@ Public Class frmPurchase
             End If
             If FixCellBoolean(Me.grdList.ActiveRow.Cells("Posted")) = False Then Exit Sub
 
-            'If FixCellNumber(Me.grdList.ActiveRow.Cells("PaidAmount")) > 0 Then
-            '    MsgBox("Payment has been maid for the selected purchase.Can not be unposted.")
-            '    Exit Sub
-            'End If
+            If FixCellNumber(Me.grdList.ActiveRow.Cells("PaidAmount")) > 0 Then
+                MsgBox("Payment has been maid for the selected purchase.Can not be unposted.")
+                Exit Sub
+            End If
+
+            If FixCellNumber(Me.grdList.ActiveRow.Cells("Returned")) > 0 Then
+                MsgBox("Returned has been maid for the selected purchase.Can not be unposted.")
+                Exit Sub
+            End If
 
             Dim PARA As New ArrayList
             PARA.Add(Me.grdList.ActiveRow.Cells("Code").Value)
@@ -316,6 +321,8 @@ Public Class frmPurchase
             Me.grdList.DataBind()
             Me.grdList.DisplayLayout.Override.HeaderClickAction = HeaderClickAction.SortSingle
             Me.grdList.DisplayLayout.Bands(0).Columns("EffectiveDate").SortIndicator = Infragistics.Win.UltraWinGrid.SortIndicator.Descending
+
+            Me.grdList.DisplayLayout.Bands(0).Columns("DiscountAtPay").Hidden = True
 
             'Set Grid's Columns Order (Arrnage) 
             Me.grdList.DisplayLayout.Bands(0).Columns("Code").Header.VisiblePosition = 0
@@ -498,8 +505,10 @@ Public Class frmPurchase
             ElseIf Me.grdList.ActiveRow.IsFilteredOut = True Then
                 MsgBox("Please select the record.")
                 Exit Sub
+            ElseIf TrimBoolean(Me.grdList.ActiveRow.Cells("Posted").Value) = False Then
+                MsgBox("Purchase is not posted yet.")
+                Exit Sub
             End If
-
             frmPurchase_ReturnIns = Nothing
             frmPurchase_ReturnIns = New frmPurchase_Return(CInt(Me.DropSupplier.SelectedRow.Cells("Code").Value), Me.grdList.ActiveRow.Cells("Code").Value)
             frmPurchase_ReturnIns.ShowDialog()

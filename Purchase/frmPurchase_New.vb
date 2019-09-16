@@ -46,6 +46,19 @@ Public Class frmPurchase_New
             Me.grdList.DataSource = DT
             Me.grdList.DataBind()
             SetLayout()
+
+            If Not TrimBoolean(CLS_Config.AddPurchaseDetail) Then
+                Me.btnPost.Visible = False
+                Me.btnPost.Enabled = False
+
+                Me.btnDelete.Visible = False
+                Me.btnDelete.Enabled = False
+
+                Me.btnAdd.Visible = False
+                Me.btnAdd.Enabled = False
+
+            End If
+
         Catch ex As Exception
             MsgBox("New" & vbCrLf & ex.Message)
         End Try
@@ -124,6 +137,8 @@ Public Class frmPurchase_New
             txtUnitPrice.MaskInput = Mask_Amount5
             txtSalesPrice.MaskInput = Mask_Amount5
 
+            FillDropWithCondition(Me.DropSupplier, "Title", "AccountNum", Table.Account, "Code", , , , " WHERE AccountType = " & AccountType.Supplier)
+
             If CLS_Config.SearchByBarcode Then
                 If CLS_Config.Company = ZAHRABAKALA Then
                     FillDropByQuery(Me.DropItem, "ItemName", "Code", "SELECT Code, COALESCE(BarCode,'') + ' - ' + COALESCE(ItemName,'') AS ItemName,CostPrice,LastPurchaseCost,SalesPrice,BarCode,BarCode2,ItemType FROM ITEM  WHERE (COALESCE(CostPrice, 0) > 0) AND  COALESCE(Discontinued,0)=0  ORDER BY BarCode,ItemName")
@@ -165,6 +180,7 @@ Public Class frmPurchase_New
             If CLS_Config.AddPurchaseDetail Then
                 Me.txtAmount.Enabled = False
                 Me.txtAmount.TabStop = False
+                Me.WindowState = FormWindowState.Maximized
             Else
                 Me.pnlItem.Visible = False
             End If
@@ -263,7 +279,12 @@ Public Class frmPurchase_New
     End Sub
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         Try
-            Save(False)
+            If TrimBoolean(CLS_Config.AddPurchaseDetail) Then
+                Save(False)
+            Else
+                Save(True)
+            End If
+
         Catch ex As Exception
             MsgBox("btnSave_Click" & vbCrLf & ex.Message)
         End Try
@@ -420,6 +441,20 @@ Public Class frmPurchase_New
             MsgBox("isValid" & vbCrLf & ex.Message)
         End Try
     End Function
+    Public Function isPurchaseInvoiceNumUsed(Code As Integer, InvoiceNum As String) As Boolean
+        Try
+            Using CONTEXT As New POSEntities()
+                Dim _Purchase As New Purchase_
+                _Purchase = (From q In CONTEXT.Purchase_Set Where q.Code <> Code AndAlso q.InvoiceNum = InvoiceNum AndAlso q.SupplierCode = SupplierCode Select q).SingleOrDefault
+
+                If Not IsDBNull(_Purchase) AndAlso Not IsNothing(_Purchase) Then Return True
+            End Using
+            Return False
+        Catch ex As Exception
+            MsgBox("isPurchaseDocNumUsed" & vbCrLf & vbCrLf & ex.Message)
+            If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
+        End Try
+    End Function
     Private Function isValid() As Boolean
         Try
             If IsDBNull(Me.txtEffectiveDate.Value) Or IsNothing(Me.txtEffectiveDate.Value) Then
@@ -445,6 +480,12 @@ Public Class frmPurchase_New
             ElseIf Me.txtInvoiceNum.Value = Nothing Then
                 Me.txtInvoiceNum.Focus()
                 MsgBox("InvoiceNum Date missing.")
+                Return False
+            End If
+
+            If isPurchaseInvoiceNumUsed(TrimInt(Me.txtCode.Value), TrimStr(Me.txtInvoiceNum.Value)) Then
+                Me.txtInvoiceNum.Focus()
+                MsgBox("InvoiceNum already in use.")
                 Return False
             End If
 

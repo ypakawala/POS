@@ -111,30 +111,30 @@ Partial Class frmPurchase_Pay
         '
         'UltraGroupBox1
         '
+        Me.UltraGroupBox1.Controls.Add(Me.txtDiscountAtPay)
+        Me.UltraGroupBox1.Controls.Add(Me.UltraLabel8)
         Me.UltraGroupBox1.Controls.Add(Me.DropPaymentAccount)
-        Me.UltraGroupBox1.Controls.Add(Me.grdList)
         Me.UltraGroupBox1.Controls.Add(Me.txtCheckNum)
         Me.UltraGroupBox1.Controls.Add(Me.UltraLabel2)
-        Me.UltraGroupBox1.Controls.Add(Me.txtTotallDueAmount)
-        Me.UltraGroupBox1.Controls.Add(Me.txtDiscountAtPay)
-        Me.UltraGroupBox1.Controls.Add(Me.txtPaidAmount)
         Me.UltraGroupBox1.Controls.Add(Me.txtCheckDate)
+        Me.UltraGroupBox1.Controls.Add(Me.UltraLabel6)
+        Me.UltraGroupBox1.Controls.Add(Me.txtNotes)
+        Me.UltraGroupBox1.Controls.Add(Me.UltraLabel10)
+        Me.UltraGroupBox1.Controls.Add(Me.UltraLabel9)
+        Me.UltraGroupBox1.Controls.Add(Me.grdList)
+        Me.UltraGroupBox1.Controls.Add(Me.txtTotallDueAmount)
+        Me.UltraGroupBox1.Controls.Add(Me.txtPaidAmount)
         Me.UltraGroupBox1.Controls.Add(Me.txtPaymentDate)
         Me.UltraGroupBox1.Controls.Add(Me.txtRefNum)
         Me.UltraGroupBox1.Controls.Add(Me.UltraLabel7)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraLabel8)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraLabel6)
         Me.UltraGroupBox1.Controls.Add(Me.UltraLabel5)
-        Me.UltraGroupBox1.Controls.Add(Me.txtNotes)
         Me.UltraGroupBox1.Controls.Add(Me.UltraLabel4)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraLabel10)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraLabel9)
         Me.UltraGroupBox1.Controls.Add(Me.UltraLabel3)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 62)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 90)
         Me.UltraGroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(1048, 429)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(1048, 401)
         Me.UltraGroupBox1.TabIndex = 0
         Me.UltraGroupBox1.Text = "Search"
         Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
@@ -197,7 +197,7 @@ Partial Class frmPurchase_Pay
         Me.DropPaymentAccount.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.DropPaymentAccount.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.DropPaymentAccount.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.DropPaymentAccount.Location = New System.Drawing.Point(164, 237)
+        Me.DropPaymentAccount.Location = New System.Drawing.Point(164, 199)
         Me.DropPaymentAccount.Name = "DropPaymentAccount"
         Me.DropPaymentAccount.Size = New System.Drawing.Size(168, 29)
         Me.DropPaymentAccount.TabIndex = 5
@@ -279,14 +279,14 @@ Partial Class frmPurchase_Pay
         Me.grdList.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.grdList.Location = New System.Drawing.Point(338, 23)
         Me.grdList.Name = "grdList"
-        Me.grdList.Size = New System.Drawing.Size(707, 403)
+        Me.grdList.Size = New System.Drawing.Size(707, 375)
         Me.grdList.TabIndex = 9
         Me.grdList.Text = "UltraGrid1"
         '
         'txtCheckNum
         '
         Me.txtCheckNum.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtCheckNum.Location = New System.Drawing.Point(164, 274)
+        Me.txtCheckNum.Location = New System.Drawing.Point(164, 236)
         Me.txtCheckNum.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtCheckNum.Name = "txtCheckNum"
         Me.txtCheckNum.Size = New System.Drawing.Size(167, 28)
@@ -296,7 +296,7 @@ Partial Class frmPurchase_Pay
         '
         Appearance6.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel2.Appearance = Appearance6
-        Me.UltraLabel2.Location = New System.Drawing.Point(7, 274)
+        Me.UltraLabel2.Location = New System.Drawing.Point(7, 236)
         Me.UltraLabel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel2.Name = "UltraLabel2"
         Me.UltraLabel2.Size = New System.Drawing.Size(167, 25)
@@ -320,13 +320,14 @@ Partial Class frmPurchase_Pay
         'txtDiscountAtPay
         '
         Me.txtDiscountAtPay.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtDiscountAtPay.Location = New System.Drawing.Point(164, 201)
+        Me.txtDiscountAtPay.Location = New System.Drawing.Point(593, 263)
         Me.txtDiscountAtPay.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtDiscountAtPay.MaskInput = "{double:9.3}"
         Me.txtDiscountAtPay.Name = "txtDiscountAtPay"
         Me.txtDiscountAtPay.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Double]
         Me.txtDiscountAtPay.Size = New System.Drawing.Size(167, 28)
         Me.txtDiscountAtPay.TabIndex = 4
+        Me.txtDiscountAtPay.Visible = False
         '
         'txtPaidAmount
         '
@@ -342,7 +343,7 @@ Partial Class frmPurchase_Pay
         'txtCheckDate
         '
         Me.txtCheckDate.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtCheckDate.Location = New System.Drawing.Point(164, 312)
+        Me.txtCheckDate.Location = New System.Drawing.Point(164, 274)
         Me.txtCheckDate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtCheckDate.MaskInput = "{LOC}dd/mm/yyyy"
         Me.txtCheckDate.Name = "txtCheckDate"
@@ -383,18 +384,19 @@ Partial Class frmPurchase_Pay
         '
         Appearance22.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel8.Appearance = Appearance22
-        Me.UltraLabel8.Location = New System.Drawing.Point(7, 201)
+        Me.UltraLabel8.Location = New System.Drawing.Point(436, 263)
         Me.UltraLabel8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel8.Name = "UltraLabel8"
         Me.UltraLabel8.Size = New System.Drawing.Size(167, 25)
         Me.UltraLabel8.TabIndex = 5
         Me.UltraLabel8.Text = "Discount @ Pay:"
+        Me.UltraLabel8.Visible = False
         '
         'UltraLabel6
         '
         Appearance8.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel6.Appearance = Appearance8
-        Me.UltraLabel6.Location = New System.Drawing.Point(7, 236)
+        Me.UltraLabel6.Location = New System.Drawing.Point(7, 198)
         Me.UltraLabel6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel6.Name = "UltraLabel6"
         Me.UltraLabel6.Size = New System.Drawing.Size(167, 25)
@@ -415,7 +417,7 @@ Partial Class frmPurchase_Pay
         'txtNotes
         '
         Me.txtNotes.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtNotes.Location = New System.Drawing.Point(164, 350)
+        Me.txtNotes.Location = New System.Drawing.Point(164, 312)
         Me.txtNotes.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtNotes.Multiline = True
         Me.txtNotes.Name = "txtNotes"
@@ -437,7 +439,7 @@ Partial Class frmPurchase_Pay
         '
         Appearance41.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel10.Appearance = Appearance41
-        Me.UltraLabel10.Location = New System.Drawing.Point(7, 312)
+        Me.UltraLabel10.Location = New System.Drawing.Point(7, 274)
         Me.UltraLabel10.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel10.Name = "UltraLabel10"
         Me.UltraLabel10.Size = New System.Drawing.Size(167, 25)
@@ -448,7 +450,7 @@ Partial Class frmPurchase_Pay
         '
         Appearance3.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel9.Appearance = Appearance3
-        Me.UltraLabel9.Location = New System.Drawing.Point(7, 350)
+        Me.UltraLabel9.Location = New System.Drawing.Point(7, 312)
         Me.UltraLabel9.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel9.Name = "UltraLabel9"
         Me.UltraLabel9.Size = New System.Drawing.Size(167, 25)
@@ -511,7 +513,7 @@ Partial Class frmPurchase_Pay
         Me.UltraLabel1.Appearance = Appearance1
         Me.UltraLabel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel1.Location = New System.Drawing.Point(0, 0)
+        Me.UltraLabel1.Location = New System.Drawing.Point(0, 28)
         Me.UltraLabel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel1.Name = "UltraLabel1"
         Me.UltraLabel1.Size = New System.Drawing.Size(1048, 62)
@@ -526,7 +528,7 @@ Partial Class frmPurchase_Pay
         Me.UltraGroupBox2.Controls.Add(Me.MenuStrip1)
         Me.UltraGroupBox2.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraGroupBox2.ForeColor = System.Drawing.Color.Black
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(0, 62)
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
         Me.UltraGroupBox2.Size = New System.Drawing.Size(1048, 28)
         Me.UltraGroupBox2.TabIndex = 130

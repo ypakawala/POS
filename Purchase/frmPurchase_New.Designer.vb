@@ -24,18 +24,18 @@ Partial Class frmPurchase_New
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim EditorButton1 As Infragistics.Win.UltraWinEditors.EditorButton = New Infragistics.Win.UltraWinEditors.EditorButton()
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance40 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance42 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance44 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance45 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance46 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance47 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance48 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance50 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance51 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance52 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance53 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPurchase_New))
         Dim Appearance24 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -62,7 +62,7 @@ Partial Class frmPurchase_New
         Dim Appearance36 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance38 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance23 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance54 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance41 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -71,6 +71,19 @@ Partial Class frmPurchase_New
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance23 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.DropItem = New Infragistics.Win.UltraWinGrid.UltraCombo()
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -113,6 +126,8 @@ Partial Class frmPurchase_New
         Me.txtCode = New Infragistics.Win.UltraWinEditors.UltraTextEditor()
         Me.UltraLabel8 = New Infragistics.Win.Misc.UltraLabel()
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox()
+        Me.UltraLabel15 = New Infragistics.Win.Misc.UltraLabel()
+        Me.DropSupplier = New Infragistics.Win.UltraWinGrid.UltraCombo()
         CType(Me.DropItem, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,6 +152,7 @@ Partial Class frmPurchase_New
         CType(Me.txtCode, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
+        CType(Me.DropSupplier, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DropItem
@@ -144,57 +160,57 @@ Partial Class frmPurchase_New
         EditorButton1.Text = "New"
         Me.DropItem.ButtonsRight.Add(EditorButton1)
         Me.DropItem.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
-        Appearance12.BackColor = System.Drawing.SystemColors.Window
-        Appearance12.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.DropItem.DisplayLayout.Appearance = Appearance12
+        Appearance40.BackColor = System.Drawing.SystemColors.Window
+        Appearance40.BorderColor = System.Drawing.SystemColors.InactiveCaption
+        Me.DropItem.DisplayLayout.Appearance = Appearance40
         Me.DropItem.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Me.DropItem.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance9.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
-        Appearance9.BorderColor = System.Drawing.SystemColors.Window
-        Me.DropItem.DisplayLayout.GroupByBox.Appearance = Appearance9
-        Appearance10.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.DropItem.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance10
+        Appearance42.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Appearance42.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance42.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance42.BorderColor = System.Drawing.SystemColors.Window
+        Me.DropItem.DisplayLayout.GroupByBox.Appearance = Appearance42
+        Appearance43.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.DropItem.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance43
         Me.DropItem.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Appearance11.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Appearance11.BackColor2 = System.Drawing.SystemColors.Control
-        Appearance11.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance11.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.DropItem.DisplayLayout.GroupByBox.PromptAppearance = Appearance11
+        Appearance44.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Appearance44.BackColor2 = System.Drawing.SystemColors.Control
+        Appearance44.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance44.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.DropItem.DisplayLayout.GroupByBox.PromptAppearance = Appearance44
         Me.DropItem.DisplayLayout.MaxColScrollRegions = 1
         Me.DropItem.DisplayLayout.MaxRowScrollRegions = 1
-        Appearance20.BackColor = System.Drawing.SystemColors.Window
-        Appearance20.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.DropItem.DisplayLayout.Override.ActiveCellAppearance = Appearance20
-        Appearance15.BackColor = System.Drawing.SystemColors.Highlight
-        Appearance15.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.DropItem.DisplayLayout.Override.ActiveRowAppearance = Appearance15
+        Appearance45.BackColor = System.Drawing.SystemColors.Window
+        Appearance45.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.DropItem.DisplayLayout.Override.ActiveCellAppearance = Appearance45
+        Appearance46.BackColor = System.Drawing.SystemColors.Highlight
+        Appearance46.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.DropItem.DisplayLayout.Override.ActiveRowAppearance = Appearance46
         Me.DropItem.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
         Me.DropItem.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
-        Appearance14.BackColor = System.Drawing.SystemColors.Window
-        Me.DropItem.DisplayLayout.Override.CardAreaAppearance = Appearance14
-        Appearance13.BorderColor = System.Drawing.Color.Silver
-        Appearance13.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.DropItem.DisplayLayout.Override.CellAppearance = Appearance13
+        Appearance47.BackColor = System.Drawing.SystemColors.Window
+        Me.DropItem.DisplayLayout.Override.CardAreaAppearance = Appearance47
+        Appearance48.BorderColor = System.Drawing.Color.Silver
+        Appearance48.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
+        Me.DropItem.DisplayLayout.Override.CellAppearance = Appearance48
         Me.DropItem.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
         Me.DropItem.DisplayLayout.Override.CellPadding = 0
-        Appearance17.BackColor = System.Drawing.SystemColors.Control
-        Appearance17.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance17.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
-        Appearance17.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance17.BorderColor = System.Drawing.SystemColors.Window
-        Me.DropItem.DisplayLayout.Override.GroupByRowAppearance = Appearance17
-        Appearance19.TextHAlignAsString = "Left"
-        Me.DropItem.DisplayLayout.Override.HeaderAppearance = Appearance19
+        Appearance50.BackColor = System.Drawing.SystemColors.Control
+        Appearance50.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance50.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
+        Appearance50.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance50.BorderColor = System.Drawing.SystemColors.Window
+        Me.DropItem.DisplayLayout.Override.GroupByRowAppearance = Appearance50
+        Appearance51.TextHAlignAsString = "Left"
+        Me.DropItem.DisplayLayout.Override.HeaderAppearance = Appearance51
         Me.DropItem.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
         Me.DropItem.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
-        Appearance18.BackColor = System.Drawing.SystemColors.Window
-        Appearance18.BorderColor = System.Drawing.Color.Silver
-        Me.DropItem.DisplayLayout.Override.RowAppearance = Appearance18
+        Appearance52.BackColor = System.Drawing.SystemColors.Window
+        Appearance52.BorderColor = System.Drawing.Color.Silver
+        Me.DropItem.DisplayLayout.Override.RowAppearance = Appearance52
         Me.DropItem.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance16.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.DropItem.DisplayLayout.Override.TemplateAddRowAppearance = Appearance16
+        Appearance53.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.DropItem.DisplayLayout.Override.TemplateAddRowAppearance = Appearance53
         Me.DropItem.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
         Me.DropItem.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.DropItem.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
@@ -215,10 +231,10 @@ Partial Class frmPurchase_New
         Me.lblTitle.Appearance = Appearance1
         Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(0, 0)
+        Me.lblTitle.Location = New System.Drawing.Point(0, 28)
         Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(907, 62)
+        Me.lblTitle.Size = New System.Drawing.Size(424, 62)
         Me.lblTitle.TabIndex = 2
         Me.lblTitle.Text = "New Purchase"
         '
@@ -229,7 +245,7 @@ Partial Class frmPurchase_New
         Me.MenuStrip1.Location = New System.Drawing.Point(3, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(10, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(901, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(418, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -277,10 +293,10 @@ Partial Class frmPurchase_New
         Me.UltraGroupBox1.Controls.Add(Me.pnlItem)
         Me.UltraGroupBox1.Controls.Add(Me.Panel2)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 62)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 90)
         Me.UltraGroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(907, 418)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(424, 432)
         Me.UltraGroupBox1.TabIndex = 0
         Me.UltraGroupBox1.Text = "Purchase Details"
         Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
@@ -295,7 +311,7 @@ Partial Class frmPurchase_New
         Me.pnlItem.Location = New System.Drawing.Point(335, 23)
         Me.pnlItem.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pnlItem.Name = "pnlItem"
-        Me.pnlItem.Size = New System.Drawing.Size(569, 392)
+        Me.pnlItem.Size = New System.Drawing.Size(86, 406)
         Me.pnlItem.TabIndex = 9
         '
         'grdList
@@ -384,7 +400,7 @@ Partial Class frmPurchase_New
         Me.grdList.Location = New System.Drawing.Point(0, 160)
         Me.grdList.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grdList.Name = "grdList"
-        Me.grdList.Size = New System.Drawing.Size(569, 232)
+        Me.grdList.Size = New System.Drawing.Size(86, 246)
         Me.grdList.TabIndex = 4
         Me.grdList.TabStop = False
         Me.grdList.Text = "UltraGrid1"
@@ -397,7 +413,7 @@ Partial Class frmPurchase_New
         Me.pnlExp.Location = New System.Drawing.Point(0, 118)
         Me.pnlExp.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pnlExp.Name = "pnlExp"
-        Me.pnlExp.Size = New System.Drawing.Size(569, 42)
+        Me.pnlExp.Size = New System.Drawing.Size(86, 42)
         Me.pnlExp.TabIndex = 1
         Me.pnlExp.Visible = False
         '
@@ -439,7 +455,7 @@ Partial Class frmPurchase_New
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(569, 118)
+        Me.Panel1.Size = New System.Drawing.Size(86, 118)
         Me.Panel1.TabIndex = 0
         '
         'UltraLabel14
@@ -450,7 +466,7 @@ Partial Class frmPurchase_New
         Me.UltraLabel14.Location = New System.Drawing.Point(208, 79)
         Me.UltraLabel14.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel14.Name = "UltraLabel14"
-        Me.UltraLabel14.Size = New System.Drawing.Size(98, 21)
+        Me.UltraLabel14.Size = New System.Drawing.Size(97, 21)
         Me.UltraLabel14.TabIndex = 10
         Me.UltraLabel14.Text = "Sales Price:"
         '
@@ -462,7 +478,7 @@ Partial Class frmPurchase_New
         Me.UltraLabel10.Location = New System.Drawing.Point(4, 5)
         Me.UltraLabel10.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel10.Name = "UltraLabel10"
-        Me.UltraLabel10.Size = New System.Drawing.Size(49, 21)
+        Me.UltraLabel10.Size = New System.Drawing.Size(48, 21)
         Me.UltraLabel10.TabIndex = 8
         Me.UltraLabel10.Text = "Item :"
         '
@@ -474,7 +490,7 @@ Partial Class frmPurchase_New
         Me.UltraLabel12.Location = New System.Drawing.Point(208, 41)
         Me.UltraLabel12.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel12.Name = "UltraLabel12"
-        Me.UltraLabel12.Size = New System.Drawing.Size(98, 21)
+        Me.UltraLabel12.Size = New System.Drawing.Size(97, 21)
         Me.UltraLabel12.TabIndex = 9
         Me.UltraLabel12.Text = "Total Price :"
         '
@@ -486,7 +502,7 @@ Partial Class frmPurchase_New
         Me.UltraLabel1.Location = New System.Drawing.Point(8, 79)
         Me.UltraLabel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(90, 21)
+        Me.UltraLabel1.Size = New System.Drawing.Size(89, 21)
         Me.UltraLabel1.TabIndex = 9
         Me.UltraLabel1.Text = "Unit Price :"
         '
@@ -549,6 +565,8 @@ Partial Class frmPurchase_New
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Transparent
+        Me.Panel2.Controls.Add(Me.DropSupplier)
+        Me.Panel2.Controls.Add(Me.UltraLabel15)
         Me.Panel2.Controls.Add(Me.UltraLabel2)
         Me.Panel2.Controls.Add(Me.UltraLabel3)
         Me.Panel2.Controls.Add(Me.txtTotalAmount)
@@ -569,15 +587,15 @@ Partial Class frmPurchase_New
         Me.Panel2.Location = New System.Drawing.Point(3, 23)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(332, 392)
+        Me.Panel2.Size = New System.Drawing.Size(332, 406)
         Me.Panel2.TabIndex = 8
         '
         'UltraLabel2
         '
-        Appearance23.BackColor = System.Drawing.Color.Transparent
-        Me.UltraLabel2.Appearance = Appearance23
+        Appearance54.BackColor = System.Drawing.Color.Transparent
+        Me.UltraLabel2.Appearance = Appearance54
         Me.UltraLabel2.AutoSize = True
-        Me.UltraLabel2.Location = New System.Drawing.Point(4, 5)
+        Me.UltraLabel2.Location = New System.Drawing.Point(5, 42)
         Me.UltraLabel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel2.Name = "UltraLabel2"
         Me.UltraLabel2.Size = New System.Drawing.Size(56, 21)
@@ -589,7 +607,7 @@ Partial Class frmPurchase_New
         Appearance41.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel3.Appearance = Appearance41
         Me.UltraLabel3.AutoSize = True
-        Me.UltraLabel3.Location = New System.Drawing.Point(4, 45)
+        Me.UltraLabel3.Location = New System.Drawing.Point(5, 82)
         Me.UltraLabel3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel3.Name = "UltraLabel3"
         Me.UltraLabel3.Size = New System.Drawing.Size(122, 21)
@@ -599,7 +617,7 @@ Partial Class frmPurchase_New
         'txtTotalAmount
         '
         Me.txtTotalAmount.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtTotalAmount.Location = New System.Drawing.Point(157, 254)
+        Me.txtTotalAmount.Location = New System.Drawing.Point(158, 291)
         Me.txtTotalAmount.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtTotalAmount.MaskInput = "{double:9.3}"
         Me.txtTotalAmount.Name = "txtTotalAmount"
@@ -614,7 +632,7 @@ Partial Class frmPurchase_New
         Appearance3.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel9.Appearance = Appearance3
         Me.UltraLabel9.AutoSize = True
-        Me.UltraLabel9.Location = New System.Drawing.Point(4, 292)
+        Me.UltraLabel9.Location = New System.Drawing.Point(5, 329)
         Me.UltraLabel9.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel9.Name = "UltraLabel9"
         Me.UltraLabel9.Size = New System.Drawing.Size(60, 21)
@@ -624,7 +642,7 @@ Partial Class frmPurchase_New
         'txtDiscount
         '
         Me.txtDiscount.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtDiscount.Location = New System.Drawing.Point(157, 212)
+        Me.txtDiscount.Location = New System.Drawing.Point(158, 249)
         Me.txtDiscount.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtDiscount.MaskInput = "{double:9.3}"
         Me.txtDiscount.Name = "txtDiscount"
@@ -637,17 +655,17 @@ Partial Class frmPurchase_New
         Appearance6.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel4.Appearance = Appearance6
         Me.UltraLabel4.AutoSize = True
-        Me.UltraLabel4.Location = New System.Drawing.Point(4, 88)
+        Me.UltraLabel4.Location = New System.Drawing.Point(5, 125)
         Me.UltraLabel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel4.Name = "UltraLabel4"
-        Me.UltraLabel4.Size = New System.Drawing.Size(75, 21)
+        Me.UltraLabel4.Size = New System.Drawing.Size(74, 21)
         Me.UltraLabel4.TabIndex = 0
         Me.UltraLabel4.Text = "Invoice #"
         '
         'txtDebitNote
         '
         Me.txtDebitNote.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtDebitNote.Location = New System.Drawing.Point(157, 171)
+        Me.txtDebitNote.Location = New System.Drawing.Point(158, 208)
         Me.txtDebitNote.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtDebitNote.MaskInput = "{double:9.3}"
         Me.txtDebitNote.Name = "txtDebitNote"
@@ -658,7 +676,7 @@ Partial Class frmPurchase_New
         'txtNotes
         '
         Me.txtNotes.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtNotes.Location = New System.Drawing.Point(157, 286)
+        Me.txtNotes.Location = New System.Drawing.Point(158, 323)
         Me.txtNotes.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtNotes.Multiline = True
         Me.txtNotes.Name = "txtNotes"
@@ -668,7 +686,7 @@ Partial Class frmPurchase_New
         'txtAmount
         '
         Me.txtAmount.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtAmount.Location = New System.Drawing.Point(157, 130)
+        Me.txtAmount.Location = New System.Drawing.Point(158, 167)
         Me.txtAmount.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtAmount.MaskInput = "{double:9.3}"
         Me.txtAmount.Name = "txtAmount"
@@ -681,7 +699,7 @@ Partial Class frmPurchase_New
         Appearance37.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel5.Appearance = Appearance37
         Me.UltraLabel5.AutoSize = True
-        Me.UltraLabel5.Location = New System.Drawing.Point(4, 130)
+        Me.UltraLabel5.Location = New System.Drawing.Point(5, 167)
         Me.UltraLabel5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel5.Name = "UltraLabel5"
         Me.UltraLabel5.Size = New System.Drawing.Size(74, 21)
@@ -691,7 +709,7 @@ Partial Class frmPurchase_New
         'txtEffectiveDate
         '
         Me.txtEffectiveDate.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtEffectiveDate.Location = New System.Drawing.Point(157, 45)
+        Me.txtEffectiveDate.Location = New System.Drawing.Point(158, 82)
         Me.txtEffectiveDate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtEffectiveDate.MaskInput = "{LOC}dd/mm/yyyy"
         Me.txtEffectiveDate.Name = "txtEffectiveDate"
@@ -703,7 +721,7 @@ Partial Class frmPurchase_New
         Appearance8.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel6.Appearance = Appearance8
         Me.UltraLabel6.AutoSize = True
-        Me.UltraLabel6.Location = New System.Drawing.Point(4, 171)
+        Me.UltraLabel6.Location = New System.Drawing.Point(5, 208)
         Me.UltraLabel6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel6.Name = "UltraLabel6"
         Me.UltraLabel6.Size = New System.Drawing.Size(96, 21)
@@ -713,7 +731,7 @@ Partial Class frmPurchase_New
         'txtInvoiceNum
         '
         Me.txtInvoiceNum.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtInvoiceNum.Location = New System.Drawing.Point(157, 88)
+        Me.txtInvoiceNum.Location = New System.Drawing.Point(158, 125)
         Me.txtInvoiceNum.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtInvoiceNum.Name = "txtInvoiceNum"
         Me.txtInvoiceNum.Size = New System.Drawing.Size(167, 28)
@@ -724,7 +742,7 @@ Partial Class frmPurchase_New
         Appearance4.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel7.Appearance = Appearance4
         Me.UltraLabel7.AutoSize = True
-        Me.UltraLabel7.Location = New System.Drawing.Point(4, 212)
+        Me.UltraLabel7.Location = New System.Drawing.Point(5, 249)
         Me.UltraLabel7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel7.Name = "UltraLabel7"
         Me.UltraLabel7.Size = New System.Drawing.Size(82, 21)
@@ -734,7 +752,7 @@ Partial Class frmPurchase_New
         'txtCode
         '
         Me.txtCode.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtCode.Location = New System.Drawing.Point(157, 5)
+        Me.txtCode.Location = New System.Drawing.Point(158, 42)
         Me.txtCode.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtCode.Name = "txtCode"
         Me.txtCode.ReadOnly = True
@@ -747,10 +765,10 @@ Partial Class frmPurchase_New
         Appearance21.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel8.Appearance = Appearance21
         Me.UltraLabel8.AutoSize = True
-        Me.UltraLabel8.Location = New System.Drawing.Point(4, 254)
+        Me.UltraLabel8.Location = New System.Drawing.Point(5, 291)
         Me.UltraLabel8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel8.Name = "UltraLabel8"
-        Me.UltraLabel8.Size = New System.Drawing.Size(54, 21)
+        Me.UltraLabel8.Size = New System.Drawing.Size(53, 21)
         Me.UltraLabel8.TabIndex = 5
         Me.UltraLabel8.Text = "Total :"
         '
@@ -762,16 +780,92 @@ Partial Class frmPurchase_New
         Me.UltraGroupBox2.Controls.Add(Me.MenuStrip1)
         Me.UltraGroupBox2.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraGroupBox2.ForeColor = System.Drawing.Color.Black
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(0, 62)
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(907, 28)
+        Me.UltraGroupBox2.Size = New System.Drawing.Size(424, 28)
         Me.UltraGroupBox2.TabIndex = 130
+        '
+        'UltraLabel15
+        '
+        Appearance23.BackColor = System.Drawing.Color.Transparent
+        Me.UltraLabel15.Appearance = Appearance23
+        Me.UltraLabel15.AutoSize = True
+        Me.UltraLabel15.Location = New System.Drawing.Point(5, 11)
+        Me.UltraLabel15.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.UltraLabel15.Name = "UltraLabel15"
+        Me.UltraLabel15.Size = New System.Drawing.Size(78, 21)
+        Me.UltraLabel15.TabIndex = 7
+        Me.UltraLabel15.Text = "Supplier :"
+        '
+        'DropSupplier
+        '
+        Me.DropSupplier.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Appearance12.BackColor = System.Drawing.SystemColors.Window
+        Appearance12.BorderColor = System.Drawing.SystemColors.InactiveCaption
+        Me.DropSupplier.DisplayLayout.Appearance = Appearance12
+        Me.DropSupplier.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.DropSupplier.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Appearance9.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance9.BorderColor = System.Drawing.SystemColors.Window
+        Me.DropSupplier.DisplayLayout.GroupByBox.Appearance = Appearance9
+        Appearance10.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.DropSupplier.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance10
+        Me.DropSupplier.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Appearance11.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Appearance11.BackColor2 = System.Drawing.SystemColors.Control
+        Appearance11.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance11.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.DropSupplier.DisplayLayout.GroupByBox.PromptAppearance = Appearance11
+        Me.DropSupplier.DisplayLayout.MaxColScrollRegions = 1
+        Me.DropSupplier.DisplayLayout.MaxRowScrollRegions = 1
+        Appearance20.BackColor = System.Drawing.SystemColors.Window
+        Appearance20.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.DropSupplier.DisplayLayout.Override.ActiveCellAppearance = Appearance20
+        Appearance15.BackColor = System.Drawing.SystemColors.Highlight
+        Appearance15.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.DropSupplier.DisplayLayout.Override.ActiveRowAppearance = Appearance15
+        Me.DropSupplier.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.DropSupplier.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
+        Appearance14.BackColor = System.Drawing.SystemColors.Window
+        Me.DropSupplier.DisplayLayout.Override.CardAreaAppearance = Appearance14
+        Appearance13.BorderColor = System.Drawing.Color.Silver
+        Appearance13.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
+        Me.DropSupplier.DisplayLayout.Override.CellAppearance = Appearance13
+        Me.DropSupplier.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
+        Me.DropSupplier.DisplayLayout.Override.CellPadding = 0
+        Appearance17.BackColor = System.Drawing.SystemColors.Control
+        Appearance17.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance17.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
+        Appearance17.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance17.BorderColor = System.Drawing.SystemColors.Window
+        Me.DropSupplier.DisplayLayout.Override.GroupByRowAppearance = Appearance17
+        Appearance19.TextHAlignAsString = "Left"
+        Me.DropSupplier.DisplayLayout.Override.HeaderAppearance = Appearance19
+        Me.DropSupplier.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.DropSupplier.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
+        Appearance18.BackColor = System.Drawing.SystemColors.Window
+        Appearance18.BorderColor = System.Drawing.Color.Silver
+        Me.DropSupplier.DisplayLayout.Override.RowAppearance = Appearance18
+        Me.DropSupplier.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Appearance16.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.DropSupplier.DisplayLayout.Override.TemplateAddRowAppearance = Appearance16
+        Me.DropSupplier.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.DropSupplier.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.DropSupplier.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.DropSupplier.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.DropSupplier.Location = New System.Drawing.Point(95, 5)
+        Me.DropSupplier.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.DropSupplier.Name = "DropSupplier"
+        Me.DropSupplier.Size = New System.Drawing.Size(230, 29)
+        Me.DropSupplier.TabIndex = 8
         '
         'frmPurchase_New
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(907, 480)
+        Me.ClientSize = New System.Drawing.Size(424, 522)
         Me.Controls.Add(Me.UltraGroupBox1)
         Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.UltraGroupBox2)
@@ -780,8 +874,8 @@ Partial Class frmPurchase_New
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "frmPurchase_New"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmPurchase_New"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DropItem, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -811,6 +905,7 @@ Partial Class frmPurchase_New
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
         Me.UltraGroupBox2.PerformLayout()
+        CType(Me.DropSupplier, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -856,4 +951,6 @@ Partial Class frmPurchase_New
     Friend WithEvents btnAdd As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents grdList As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents DropSupplier As Infragistics.Win.UltraWinGrid.UltraCombo
+    Friend WithEvents UltraLabel15 As Infragistics.Win.Misc.UltraLabel
 End Class

@@ -9,6 +9,7 @@ Public Class frmPurchase_Pay
         Public TotalAmount As System.Decimal
         Public PaidAmount As System.Decimal
         Public Balance As System.Decimal
+        Public CurrentBalance As System.Decimal
     End Class
     Public CLS As Purchase_PaidAmountDetails
     Dim SupplierCode As Integer
@@ -38,11 +39,11 @@ Public Class frmPurchase_Pay
             txtPaidAmount.MaskInput = Mask_Amount5
             txtDiscountAtPay.MaskInput = Mask_Amount5
 
-            If CLS_Config.Company = EDEE Then
-                FillDropWithCondition(Me.DropPaymentAccount, "Title", "Code", Table.Account, "AccountType", , , , " WHERE AccountType = " & AccountType.Bank)
-            Else
-                FillDropWithCondition(Me.DropPaymentAccount, "Title", "Code", Table.Account, "AccountType", , , , " WHERE AccountType IN ( " & AccountType.Bank & "," & AccountType.Cash & ")")
-            End If
+            'If CLS_Config.Company = EDEE Then
+            '    FillDropWithCondition(Me.DropPaymentAccount, "Title", "Code", Table.Account, "AccountType", , , , " WHERE AccountType = " & AccountType.Bank)
+            'Else
+            FillDropWithCondition(Me.DropPaymentAccount, "Title", "Code", Table.Account, "AccountType", , , , " WHERE AccountType IN ( " & AccountType.Bank & "," & AccountType.Cash & ")")
+            'End If
             Dim CLS As New Purchase
             Me.txtTotallDueAmount.Value = CLS.Balance(SupplierCode)
             Me.txtPaymentDate.Value = Now.Date
@@ -67,7 +68,7 @@ Public Class frmPurchase_Pay
             '''''''''''''''''''''Hidden'''''''''''''''''''''
             Me.grdList.DisplayLayout.Bands(0).Columns("Code").Hidden = True
             Me.grdList.DisplayLayout.Bands(0).Columns("EffectiveDate").Hidden = True
-            Me.grdList.DisplayLayout.Bands(0).Columns("Balance").Hidden = True
+            Me.grdList.DisplayLayout.Bands(0).Columns("DiscountAtPay").Hidden = False
             Me.grdList.DisplayLayout.Bands(0).Columns("UserName").Hidden = True
             Me.grdList.DisplayLayout.Bands(0).Columns("Notes").Hidden = True
 
@@ -118,6 +119,19 @@ Public Class frmPurchase_Pay
             'PARA2.Add(FixControl(Me.txtPaidAmount))
             'PARA2.Add(SupplierCode)
             'Dim VoucherCode As Integer = DBO.ExecuteSP_ReturnInteger("Purchase_PaymentPost", PARA2)
+
+            Dim PARA2 As New ArrayList
+            PARA2.Add(FixControl(Me.txtRefNum))
+            PARA2.Add(FixControl(Me.txtPaymentDate))
+            PARA2.Add(CLS_Config.Counter)
+            PARA2.Add(ACC)
+            PARA2.Add(UserClass.Code)
+            PARA2.Add(FixControl(Me.txtPaidAmount))
+            PARA2.Add(FixControl(Me.txtDiscountAtPay))
+            PARA2.Add(SupplierCode)
+            PARA2.Add(FixControl(Me.txtNotes) & " " & FixControl(Me.txtCheckNum) & " " & FixControl(Me.txtCheckDate))
+            Dim VoucherCode As Integer = DBO.ExecuteSP_ReturnInteger("Purchase_PaymentInsert_JV", PARA2)
+
             Dim PaymentCode As Integer = GetNewCode("PaymentCode", "Purchase_Payment")
             Dim i As Integer = 0
             For i = 0 To Me.grdList.Rows.Count - 1
@@ -136,6 +150,7 @@ Public Class frmPurchase_Pay
                 PARA.Add(FixControl(Me.txtCheckNum))
                 PARA.Add(FixControl(Me.txtCheckDate))
                 PARA.Add(FixControl(Me.txtNotes))
+                PARA.Add(VoucherCode)
                 DBO.ExecuteSP("Purchase_PaymentInsert", PARA)
             Next
 
@@ -335,6 +350,7 @@ Public Class frmPurchase_Pay
         e.Row.Cells("EffectiveDate").Value = CLS.EffectiveDate
         e.Row.Cells("TotalAmount").Value = CLS.TotalAmount
         e.Row.Cells("PaidAmount").Value = CLS.Balance
+        e.Row.Cells("Balance").Value = CLS.CurrentBalance
         e.Row.Cells("DiscountAtPay").Value = 0
     End Sub
  

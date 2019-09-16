@@ -152,15 +152,19 @@ Public Class frmDailySummary
             Dim DT As New DataTable
             DT = DBO.ReturnDataTable("Select * from Config Where Code=1")
 
+            Dim DT2 As New DataTable
+            DT2 = DBO.ReturnDataTable("Select * from Purchase_Summary WHERE EffectiveDate BETWEEN '" & FP & "' AND '" & T & "' ")
+
             Dim report As New ReportDocument
             report.Load(CLS_Config.ReportPath & "DailySummary.rpt", CrystalDecisions.[Shared].OpenReportMethod.OpenReportByTempCopy)
 
             report.SetDataSource(DT)
+            report.Subreports("Purcahse").SetDataSource(DT2)
 
             If Me.txtDateFrom.Value = Me.txtDateTo.Value Then
                 report.SetParameterValue("SalesDate", "FOR " & CType(Me.txtDateFrom.Value, Date).ToString("dd/MMM/yy HH:mm"))
             Else
-                report.SetParameterValue("SalesDate", "BETWEEN " & CType(Me.txtDateFrom.Value, Date).ToString("dd/MMM/yy HH:mm") & " AND " & CType(Me.txtDateTo.Value, Date).ToString("dd/MMM/yy HH:mm"))
+                report.SetParameterValue("SalesDate", "" & CType(Me.txtDateFrom.Value, Date).ToString("dd/MMM/yy HH:mm") & " AND " & CType(Me.txtDateTo.Value, Date).ToString("dd/MMM/yy HH:mm"))
             End If
             report.SetParameterValue("Cash", IIf(IsDBNull(CASH), 0, CASH))
             report.SetParameterValue("KNet", IIf(IsDBNull(KNET), 0, KNET))

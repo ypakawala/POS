@@ -114,7 +114,6 @@ Partial Class frmPurchaseSearch
         Me.txtSerailNum = New Infragistics.Win.UltraWinEditors.UltraTextEditor()
         Me.UltraLabel2 = New Infragistics.Win.Misc.UltraLabel()
         Me.txtTotalTo = New Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit()
-        Me.txtBill = New Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit()
         Me.txtTotalFrom = New Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit()
         Me.DropSupplier = New Infragistics.Win.UltraWinGrid.UltraCombo()
         Me.DropUser = New Infragistics.Win.UltraWinGrid.UltraCombo()
@@ -132,6 +131,7 @@ Partial Class frmPurchaseSearch
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl()
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage()
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
+        Me.txtBill = New Infragistics.Win.UltraWinEditors.UltraTextEditor()
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.grdList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
@@ -150,6 +150,7 @@ Partial Class frmPurchaseSearch
         Me.UltraTabControl1.SuspendLayout()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
+        CType(Me.txtBill, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -157,7 +158,7 @@ Partial Class frmPurchaseSearch
         Me.UltraTabPageControl1.Controls.Add(Me.grdList)
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(1, 22)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
-        Me.UltraTabPageControl1.Size = New System.Drawing.Size(654, 210)
+        Me.UltraTabPageControl1.Size = New System.Drawing.Size(654, 166)
         '
         'grdList
         '
@@ -232,7 +233,7 @@ Partial Class frmPurchaseSearch
         Me.grdList.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grdList.Location = New System.Drawing.Point(0, 0)
         Me.grdList.Name = "grdList"
-        Me.grdList.Size = New System.Drawing.Size(654, 210)
+        Me.grdList.Size = New System.Drawing.Size(654, 166)
         Me.grdList.TabIndex = 17
         '
         'UltraTabPageControl2
@@ -240,7 +241,7 @@ Partial Class frmPurchaseSearch
         Me.UltraTabPageControl2.Controls.Add(Me.CRV_Receipt)
         Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
-        Me.UltraTabPageControl2.Size = New System.Drawing.Size(654, 186)
+        Me.UltraTabPageControl2.Size = New System.Drawing.Size(654, 210)
         '
         'CRV_Receipt
         '
@@ -250,7 +251,7 @@ Partial Class frmPurchaseSearch
         Me.CRV_Receipt.Location = New System.Drawing.Point(0, 0)
         Me.CRV_Receipt.Name = "CRV_Receipt"
         Me.CRV_Receipt.SelectionFormula = ""
-        Me.CRV_Receipt.Size = New System.Drawing.Size(654, 186)
+        Me.CRV_Receipt.Size = New System.Drawing.Size(654, 210)
         Me.CRV_Receipt.TabIndex = 1
         Me.CRV_Receipt.ViewTimeSelectionFormula = ""
         '
@@ -259,7 +260,7 @@ Partial Class frmPurchaseSearch
         Me.UltraTabPageControl3.Controls.Add(Me.CRV_DetailBill)
         Me.UltraTabPageControl3.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl3.Name = "UltraTabPageControl3"
-        Me.UltraTabPageControl3.Size = New System.Drawing.Size(654, 186)
+        Me.UltraTabPageControl3.Size = New System.Drawing.Size(654, 210)
         '
         'CRV_DetailBill
         '
@@ -269,7 +270,7 @@ Partial Class frmPurchaseSearch
         Me.CRV_DetailBill.Location = New System.Drawing.Point(0, 0)
         Me.CRV_DetailBill.Name = "CRV_DetailBill"
         Me.CRV_DetailBill.SelectionFormula = ""
-        Me.CRV_DetailBill.Size = New System.Drawing.Size(654, 186)
+        Me.CRV_DetailBill.Size = New System.Drawing.Size(654, 210)
         Me.CRV_DetailBill.TabIndex = 2
         Me.CRV_DetailBill.ViewTimeSelectionFormula = ""
         '
@@ -320,20 +321,20 @@ Partial Class frmPurchaseSearch
         '
         Me.UltraExpandableGroupBox1.Controls.Add(Me.UltraExpandableGroupBoxPanel1)
         Me.UltraExpandableGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(656, 160)
-        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(656, 176)
+        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 28)
         Me.UltraExpandableGroupBox1.Name = "UltraExpandableGroupBox1"
-        Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(656, 160)
+        Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(656, 176)
         Me.UltraExpandableGroupBox1.TabIndex = 0
         Me.UltraExpandableGroupBox1.Text = "Criteria"
         Me.UltraExpandableGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
         'UltraExpandableGroupBoxPanel1
         '
+        Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtBill)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtSerailNum)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel2)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtTotalTo)
-        Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtBill)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtTotalFrom)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.DropSupplier)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.DropUser)
@@ -351,24 +352,24 @@ Partial Class frmPurchaseSearch
         Me.UltraExpandableGroupBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(3, 20)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(650, 137)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(650, 153)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'txtSerailNum
         '
         Me.txtSerailNum.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtSerailNum.Location = New System.Drawing.Point(253, 54)
+        Me.txtSerailNum.Location = New System.Drawing.Point(253, 59)
         Me.txtSerailNum.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtSerailNum.Name = "txtSerailNum"
         Me.txtSerailNum.Size = New System.Drawing.Size(308, 22)
-        Me.txtSerailNum.TabIndex = 11
+        Me.txtSerailNum.TabIndex = 6
         '
         'UltraLabel2
         '
         Appearance47.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel2.Appearance = Appearance47
         Me.UltraLabel2.AutoSize = True
-        Me.UltraLabel2.Location = New System.Drawing.Point(207, 61)
+        Me.UltraLabel2.Location = New System.Drawing.Point(207, 63)
         Me.UltraLabel2.Name = "UltraLabel2"
         Me.UltraLabel2.Size = New System.Drawing.Size(42, 15)
         Me.UltraLabel2.TabIndex = 9
@@ -379,27 +380,17 @@ Partial Class frmPurchaseSearch
         Me.txtTotalTo.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtTotalTo.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.[Double]
         Me.txtTotalTo.InputMask = "{double:5.3}"
-        Me.txtTotalTo.Location = New System.Drawing.Point(253, 30)
+        Me.txtTotalTo.Location = New System.Drawing.Point(253, 31)
         Me.txtTotalTo.Name = "txtTotalTo"
         Me.txtTotalTo.Size = New System.Drawing.Size(121, 20)
         Me.txtTotalTo.TabIndex = 4
-        '
-        'txtBill
-        '
-        Me.txtBill.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtBill.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.[Integer]
-        Me.txtBill.InputMask = "nnnnnnnnn"
-        Me.txtBill.Location = New System.Drawing.Point(73, 56)
-        Me.txtBill.Name = "txtBill"
-        Me.txtBill.Size = New System.Drawing.Size(121, 20)
-        Me.txtBill.TabIndex = 5
         '
         'txtTotalFrom
         '
         Me.txtTotalFrom.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtTotalFrom.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.[Double]
         Me.txtTotalFrom.InputMask = "{double:5.3}"
-        Me.txtTotalFrom.Location = New System.Drawing.Point(73, 30)
+        Me.txtTotalFrom.Location = New System.Drawing.Point(73, 31)
         Me.txtTotalFrom.Name = "txtTotalFrom"
         Me.txtTotalFrom.Size = New System.Drawing.Size(121, 20)
         Me.txtTotalFrom.TabIndex = 3
@@ -462,10 +453,10 @@ Partial Class frmPurchaseSearch
         Me.DropSupplier.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.DropSupplier.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.DropSupplier.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.DropSupplier.Location = New System.Drawing.Point(73, 110)
+        Me.DropSupplier.Location = New System.Drawing.Point(73, 89)
         Me.DropSupplier.Name = "DropSupplier"
         Me.DropSupplier.Size = New System.Drawing.Size(488, 23)
-        Me.DropSupplier.TabIndex = 8
+        Me.DropSupplier.TabIndex = 7
         '
         'DropUser
         '
@@ -588,10 +579,10 @@ Partial Class frmPurchaseSearch
         Me.DropItem.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.DropItem.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.DropItem.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.DropItem.Location = New System.Drawing.Point(73, 82)
+        Me.DropItem.Location = New System.Drawing.Point(73, 118)
         Me.DropItem.Name = "DropItem"
         Me.DropItem.Size = New System.Drawing.Size(488, 23)
-        Me.DropItem.TabIndex = 7
+        Me.DropItem.TabIndex = 8
         '
         'txtDateTo
         '
@@ -609,7 +600,7 @@ Partial Class frmPurchaseSearch
         Appearance43.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel13.Appearance = Appearance43
         Me.UltraLabel13.AutoSize = True
-        Me.UltraLabel13.Location = New System.Drawing.Point(207, 30)
+        Me.UltraLabel13.Location = New System.Drawing.Point(207, 34)
         Me.UltraLabel13.Name = "UltraLabel13"
         Me.UltraLabel13.Size = New System.Drawing.Size(20, 15)
         Me.UltraLabel13.TabIndex = 1
@@ -620,7 +611,7 @@ Partial Class frmPurchaseSearch
         Appearance13.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel9.Appearance = Appearance13
         Me.UltraLabel9.AutoSize = True
-        Me.UltraLabel9.Location = New System.Drawing.Point(207, 3)
+        Me.UltraLabel9.Location = New System.Drawing.Point(207, 7)
         Me.UltraLabel9.Name = "UltraLabel9"
         Me.UltraLabel9.Size = New System.Drawing.Size(20, 15)
         Me.UltraLabel9.TabIndex = 1
@@ -631,7 +622,7 @@ Partial Class frmPurchaseSearch
         Appearance46.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel1.Appearance = Appearance46
         Me.UltraLabel1.AutoSize = True
-        Me.UltraLabel1.Location = New System.Drawing.Point(9, 110)
+        Me.UltraLabel1.Location = New System.Drawing.Point(11, 93)
         Me.UltraLabel1.Name = "UltraLabel1"
         Me.UltraLabel1.Size = New System.Drawing.Size(43, 15)
         Me.UltraLabel1.TabIndex = 1
@@ -653,7 +644,7 @@ Partial Class frmPurchaseSearch
         Appearance72.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel16.Appearance = Appearance72
         Me.UltraLabel16.AutoSize = True
-        Me.UltraLabel16.Location = New System.Drawing.Point(376, 3)
+        Me.UltraLabel16.Location = New System.Drawing.Point(376, 7)
         Me.UltraLabel16.Name = "UltraLabel16"
         Me.UltraLabel16.Size = New System.Drawing.Size(33, 15)
         Me.UltraLabel16.TabIndex = 1
@@ -664,7 +655,7 @@ Partial Class frmPurchaseSearch
         Appearance17.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel14.Appearance = Appearance17
         Me.UltraLabel14.AutoSize = True
-        Me.UltraLabel14.Location = New System.Drawing.Point(9, 56)
+        Me.UltraLabel14.Location = New System.Drawing.Point(9, 63)
         Me.UltraLabel14.Name = "UltraLabel14"
         Me.UltraLabel14.Size = New System.Drawing.Size(33, 15)
         Me.UltraLabel14.TabIndex = 1
@@ -675,7 +666,7 @@ Partial Class frmPurchaseSearch
         Appearance44.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel10.Appearance = Appearance44
         Me.UltraLabel10.AutoSize = True
-        Me.UltraLabel10.Location = New System.Drawing.Point(9, 82)
+        Me.UltraLabel10.Location = New System.Drawing.Point(9, 122)
         Me.UltraLabel10.Name = "UltraLabel10"
         Me.UltraLabel10.Size = New System.Drawing.Size(60, 15)
         Me.UltraLabel10.TabIndex = 1
@@ -686,7 +677,7 @@ Partial Class frmPurchaseSearch
         Appearance45.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel12.Appearance = Appearance45
         Me.UltraLabel12.AutoSize = True
-        Me.UltraLabel12.Location = New System.Drawing.Point(9, 30)
+        Me.UltraLabel12.Location = New System.Drawing.Point(9, 34)
         Me.UltraLabel12.Name = "UltraLabel12"
         Me.UltraLabel12.Size = New System.Drawing.Size(61, 15)
         Me.UltraLabel12.TabIndex = 1
@@ -697,7 +688,7 @@ Partial Class frmPurchaseSearch
         Appearance48.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel11.Appearance = Appearance48
         Me.UltraLabel11.AutoSize = True
-        Me.UltraLabel11.Location = New System.Drawing.Point(9, 3)
+        Me.UltraLabel11.Location = New System.Drawing.Point(9, 7)
         Me.UltraLabel11.Name = "UltraLabel11"
         Me.UltraLabel11.Size = New System.Drawing.Size(55, 15)
         Me.UltraLabel11.TabIndex = 1
@@ -710,10 +701,10 @@ Partial Class frmPurchaseSearch
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl3)
         Me.UltraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraTabControl1.Location = New System.Drawing.Point(0, 160)
+        Me.UltraTabControl1.Location = New System.Drawing.Point(0, 204)
         Me.UltraTabControl1.Name = "UltraTabControl1"
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
-        Me.UltraTabControl1.Size = New System.Drawing.Size(656, 233)
+        Me.UltraTabControl1.Size = New System.Drawing.Size(656, 189)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.Office2007Ribbon
         Me.UltraTabControl1.TabIndex = 1
         UltraTab4.TabPage = Me.UltraTabPageControl1
@@ -731,7 +722,7 @@ Partial Class frmPurchaseSearch
         '
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
-        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(654, 210)
+        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(654, 166)
         '
         'UltraGroupBox1
         '
@@ -741,10 +732,19 @@ Partial Class frmPurchaseSearch
         Me.UltraGroupBox1.Controls.Add(Me.MenuStrip1)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraGroupBox1.ForeColor = System.Drawing.Color.Black
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 160)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(656, 28)
         Me.UltraGroupBox1.TabIndex = 130
+        '
+        'txtBill
+        '
+        Me.txtBill.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtBill.Location = New System.Drawing.Point(73, 59)
+        Me.txtBill.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtBill.Name = "txtBill"
+        Me.txtBill.Size = New System.Drawing.Size(121, 22)
+        Me.txtBill.TabIndex = 5
         '
         'frmPurchaseSearch
         '
@@ -779,6 +779,7 @@ Partial Class frmPurchaseSearch
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
         Me.UltraGroupBox1.PerformLayout()
+        CType(Me.txtBill, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -789,7 +790,6 @@ Partial Class frmPurchaseSearch
     Friend WithEvents UltraExpandableGroupBox1 As Infragistics.Win.Misc.UltraExpandableGroupBox
     Friend WithEvents UltraExpandableGroupBoxPanel1 As Infragistics.Win.Misc.UltraExpandableGroupBoxPanel
     Friend WithEvents txtTotalTo As Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit
-    Friend WithEvents txtBill As Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit
     Friend WithEvents txtTotalFrom As Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit
     Friend WithEvents DropUser As Infragistics.Win.UltraWinGrid.UltraCombo
     Friend WithEvents DropItem As Infragistics.Win.UltraWinGrid.UltraCombo
@@ -816,4 +816,5 @@ Partial Class frmPurchaseSearch
     Friend WithEvents UltraLabel2 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents txtSerailNum As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents txtBill As Infragistics.Win.UltraWinEditors.UltraTextEditor
 End Class

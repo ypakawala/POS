@@ -73,11 +73,11 @@
             Dim VoucherCode As Integer = TrimInt(Me.grdList.ActiveRow.Cells("VoucherCode").Value)
             Dim Code As Integer = TrimInt(Me.grdList.ActiveRow.Cells("Code").Value)
 
-            If MsgBox("you are about to delete payment code : " & Code & vbCrLf & vbCrLf & "Are you sure?", MsgBoxStyle.YesNo) <> MsgBoxResult.Yes Then Exit Sub
+            If MsgBox("You are about to delete payment code : " & Code & vbCrLf & "Voucher Code: " & VoucherCode & vbCrLf & vbCrLf & "Are you sure?", MsgBoxStyle.YesNo) <> MsgBoxResult.Yes Then Exit Sub
 
         
             DBO.ActionQuery("DELETE FROM dbo.Voucher WHERE Code =" & VoucherCode)
-            DBO.ActionQuery("DELETE FROM dbo.Purchase_Payment WHERE Code =" & Code)
+            DBO.ActionQuery("DELETE FROM dbo.Purchase_Payment WHERE VoucherCode =" & VoucherCode)
 
             FillGrid(PurchaseCode)
 

@@ -14,11 +14,20 @@ Public Class frmPurchaseSearch
     End Sub
     Private Sub frmPurchaseSearch_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
+
+            If TrimBoolean(CLS_Config.AddPurchaseDetail) Then
+                FillDrop(Me.DropItem, "ItemName", "Code", Table.Item, "CostPrice", "BarCode", "BarCode2")
+            Else
+                DropItem.Visible = False
+                txtSerailNum.Visible = False
+                UltraLabel2.Visible = False
+                UltraLabel10.Visible = False
+            End If
+
             Me.txtTotalFrom.InputMask = Mask_Amount5
             Me.txtTotalTo.InputMask = Mask_Amount5
 
 
-            FillDrop(Me.DropItem, "ItemName", "Code", Table.Item, "CostPrice", "BarCode", "BarCode2")
             FillDropWithCondition(Me.DropSupplier, "Title", "AccountNum", Table.Account, , , , , " WHERE AccountType = " & AccountType.Supplier)
             FillDrop(Me.DropUser, "UserName", "Code", Table.P_User)
 
@@ -155,18 +164,27 @@ Public Class frmPurchaseSearch
             DS = New DataSet
             Dim DT As New DataTable
             'DT = DBO.ReturnDataTableFromSQL("SELECT  rank() OVER ( ORDER BY EffectiveDate DESC,Code ASC ) AS Rec ,Code,AccountNum,SupplierCode,SupplierName,EffectiveDate,InvoiceNum,TotalAmount,PaidAmount,Balance,Posted,UserName,Notes FROM    Purchase_Summary WHERE Code IN (SELECT PurchaseCode FROM  Purchase_Entry_View " & Where() & ")  ORDER BY EffectiveDate DESC")
-            DT = DBO.ReturnDataTableFromSQL("SELECT  Code,AccountNum,SupplierCode,SupplierName,EffectiveDate,InvoiceNum,TotalAmount ,Discount,Returned,PaidAmount,DiscountAtPay ,Balance ,Posted,UserName,Notes FROM    Purchase_Summary WHERE Code IN (SELECT PurchaseCode FROM  Purchase_Entry_View " & Where() & ")  ORDER BY EffectiveDate DESC")
 
-            Dim DT2 As New DataTable
-            DT2 = DBO.ReturnDataTableFromSQL("SELECT  Code,PurchaseCode,ItemName,Qty,UnitPrice,Price,ExpiryDate,AvgPrice,SerailNum FROM    Purchase_Entry_View WHERE   PurchaseCode  IN (SELECT PurchaseCode FROM  Purchase_Entry_View " & Where() & ")  ")
-            DS.Tables.Add(DT)
-            DS.Tables.Add(DT2)
+            If TrimBoolean(CLS_Config.AddPurchaseDetail) Then
+                DT = DBO.ReturnDataTableFromSQL("SELECT  Code,AccountNum,SupplierCode,SupplierName,EffectiveDate,InvoiceNum,TotalAmount ,Discount,Returned,PaidAmount,DiscountAtPay ,Balance ,Posted,UserName,Notes FROM    Purchase_Summary WHERE Code IN (SELECT PurchaseCode FROM  Purchase_Entry_View " & Where() & ")  ORDER BY EffectiveDate DESC")
 
-            If DS.Tables(0).Rows.Count > 0 Then
-                'Create the Data Relationship
-                DS.Relations.Add("Child", DS.Tables(0).Columns("Code"), _
-                                            DS.Tables(1).Columns("PurchaseCode"))
+                Dim DT2 As New DataTable
+                DT2 = DBO.ReturnDataTableFromSQL("SELECT  Code,PurchaseCode,ItemName,Qty,UnitPrice,Price,ExpiryDate,AvgPrice,SerailNum FROM    Purchase_Entry_View WHERE   PurchaseCode  IN (SELECT PurchaseCode FROM  Purchase_Entry_View " & Where() & ")  ")
+                DS.Tables.Add(DT)
+                DS.Tables.Add(DT2)
+
+                If DS.Tables(0).Rows.Count > 0 Then
+                    'Create the Data Relationship
+                    DS.Relations.Add("Child", DS.Tables(0).Columns("Code"), _
+                                                DS.Tables(1).Columns("PurchaseCode"))
+                End If
+            Else
+                DT = DBO.ReturnDataTableFromSQL("SELECT  Code,AccountNum,SupplierCode,SupplierName,EffectiveDate,InvoiceNum,TotalAmount ,Discount,Returned,PaidAmount,DiscountAtPay ,Balance ,Posted,UserName,Notes FROM    Purchase_Summary  " & Where() & " ORDER BY EffectiveDate DESC")
+
+                DS.Tables.Add(DT)
+
             End If
+           
 
             Me.grdList.DataSource = DT
             'Me.grdList.DataMember = "Table1"
@@ -206,7 +224,7 @@ Public Class frmPurchaseSearch
             Me.grdList.DisplayLayout.Bands(0).Columns("Posted").Width = 50
             Me.grdList.DisplayLayout.Bands(0).Columns("EffectiveDate").Width = 50
 
-            If DS.Tables(0).Rows.Count > 0 Then
+            If TrimBoolean(CLS_Config.AddPurchaseDetail) AndAlso DS.Tables(0).Rows.Count > 0 Then
                 Me.grdList.DisplayLayout.Bands(1).Columns("Code").Hidden = True
                 Me.grdList.DisplayLayout.Bands(1).Columns("PurchaseCode").Hidden = True
                 Me.grdList.DisplayLayout.Bands(1).Columns("ItemName").Width = 250
@@ -271,7 +289,7 @@ Public Class frmPurchaseSearch
             If FixControl(Me.txtTotalTo) <> Nothing Then Result &= " AND TotalAmount <= " & FixControl(Me.txtTotalTo)
 
             If FixControl(Me.txtBill) <> Nothing Then Result &= " AND InvoiceNum = '" & FixControl(Me.txtBill) & "' "
-            If FixControl(Me.txtSerailNum) <> Nothing Then Result &= " AND SerailNum = '" & FixControl(Me.txtSerailNum) & "' "
+            If TrimBoolean(CLS_Config.AddPurchaseDetail) AndAlso FixControl(Me.txtSerailNum) <> Nothing Then Result &= " AND SerailNum = '" & FixControl(Me.txtSerailNum) & "' "
 
             If IsDBNull(Me.DropSupplier.Value) Or IsNothing(Me.DropSupplier.Value) Then
             ElseIf Me.DropSupplier.Value = Nothing Then

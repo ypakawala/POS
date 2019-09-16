@@ -96,18 +96,32 @@ Public Class Purchase_Return_Entry
     End Sub
     Public Function Add() As Integer
         Try
-            Dim PARA As New ArrayList
-            PARA.Add(FixObjectNumber(m_PurchaseReturnCode))
-            PARA.Add(FixObjectNumber(m_PurchaseFromCode))
-            PARA.Add(FixObjectNumber(m_ItemCode))
-            PARA.Add(FixObjectNumber(m_Qty))
-            PARA.Add(FixObjectNumber(m_UnitPrice))
-            PARA.Add(FixObjectNumber(m_Price))
-            PARA.Add(FixObjectDate(m_ExpiryDate))
-            PARA.Add(CLS_Config.Counter)
+            If CLS_Config.AddPurchaseDetail Then
+                Dim PARA As New ArrayList
+                PARA.Add(FixObjectNumber(m_PurchaseReturnCode))
+                PARA.Add(FixObjectNumber(m_PurchaseFromCode))
+                PARA.Add(FixObjectNumber(m_ItemCode))
+                PARA.Add(FixObjectNumber(m_Qty))
+                PARA.Add(FixObjectNumber(m_UnitPrice))
+                PARA.Add(FixObjectNumber(m_Price))
+                PARA.Add(FixObjectDate(m_ExpiryDate))
+                PARA.Add(CLS_Config.Counter)
 
-            m_Code = DBO.ExecuteSP_ReturnSingleValue("Purchase_Return_EntryInsert", PARA)
-            Return m_Code
+                m_Code = DBO.ExecuteSP_ReturnSingleValue("Purchase_Return_EntryInsert", PARA)
+                Return m_Code
+
+            Else
+                Dim PARA As New ArrayList
+                PARA.Add(FixObjectNumber(m_PurchaseReturnCode))
+                PARA.Add(FixObjectNumber(m_PurchaseFromCode))
+                PARA.Add(FixObjectNumber(m_Price))
+
+                m_Code = DBO.ExecuteSP_ReturnSingleValue("Purchase_Return_EntryInsert2", PARA)
+                Return m_Code
+            End If
+
+
+           
 
         Catch ex As Exception
             MSG.ErrorOk(ex.Message)

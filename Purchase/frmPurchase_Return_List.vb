@@ -33,17 +33,23 @@ Public Class frmPurchase_Return_List
             PARA.Add(PurchaseCode)
             DS = DBO.ExecuteSP_ReturnDataSet("PurchaseReturnList", PARA)
 
-            If DS.Tables(0).Rows.Count > 0 Then
-                'Create the Data Relationship
-                DS.Relations.Add("Child", DS.Tables(0).Columns("Code"), _
-                                            DS.Tables(1).Columns("PurchaseReturnCode"))
+
+            If TrimBoolean(CLS_Config.AddPurchaseDetail) Then
+                If DS.Tables(0).Rows.Count > 0 Then
+                    'Create the Data Relationship
+                    DS.Relations.Add("Child", DS.Tables(0).Columns("Code"), _
+                                                DS.Tables(1).Columns("PurchaseReturnCode"))
+                End If
             End If
+
+
 
             Me.grdList.DataSource = DS
             Me.grdList.DataMember = "Table"
             Me.grdList.DataBind()
             Me.grdList.DisplayLayout.Override.RowAlternateAppearance = RowAlternateAppearance
             Me.grdList.DisplayLayout.Override.HeaderClickAction = HeaderClickAction.SortSingle
+
 
             'Set Grid's Columns Order (Arrnage) 
             Me.grdList.DisplayLayout.Bands(0).Columns("Code").Header.VisiblePosition = 0
@@ -58,9 +64,9 @@ Public Class frmPurchase_Return_List
             Me.grdList.DisplayLayout.Bands(0).Columns("Amount").MaskInput = Mask_Amount
 
             Me.grdList.DisplayLayout.Bands(0).Columns("Posted").Width = 50
-            Me.grdList.DisplayLayout.Bands(0).Columns("EffectiveDate").Width = 50
+            Me.grdList.DisplayLayout.Bands(0).Columns("EffectiveDate").Width = 250
 
-            If DS.Tables(0).Rows.Count > 0 Then
+            If TrimBoolean(CLS_Config.AddPurchaseDetail) AndAlso DS.Tables(0).Rows.Count > 0 Then
                 Me.grdList.DisplayLayout.Bands(1).Columns("Code").Hidden = True
                 Me.grdList.DisplayLayout.Bands(1).Columns("ItemName").Width = 250
             End If
@@ -103,5 +109,28 @@ Public Class frmPurchase_Return_List
     End Sub
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Try
+            If IsDBNull(Me.grdList.ActiveRow) OrElse IsNothing(Me.grdList.ActiveRow) OrElse Not Me.grdList.ActiveRow.IsDataRow Then
+                MsgBox("Invalid selection")
+                Exit Sub
+            End If
+
+            Dim VoucherCode As Integer = TrimInt(Me.grdList.ActiveRow.Cells("VoucherCode").Value)
+            Dim Code As Integer = TrimInt(Me.grdList.ActiveRow.Cells("Code").Value)
+
+            If MsgBox("You are about to delete Return code : " & Code & vbCrLf & "Voucher Code: " & VoucherCode & vbCrLf & vbCrLf & "Are you sure?", MsgBoxStyle.YesNo) <> MsgBoxResult.Yes Then Exit Sub
+
+
+            DBO.ActionQuery("DELETE FROM dbo.Voucher WHERE Code =" & VoucherCode)
+            DBO.ActionQuery("DELETE FROM dbo.Purchase_Return WHERE Code =" & Code)
+
+            FillGrid()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

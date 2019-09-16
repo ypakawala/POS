@@ -117,7 +117,8 @@ Public Class frmItemClass
                     CLS_ItemClass.Update()
             End Select
 
-            If CLS_Config.AddPurchaseDetail Then SaveDetails()
+            'If CLS_Config.AddPurchaseDetail Then 
+            SaveDetails()
             Me.Close()
 
         Catch ex As Exception

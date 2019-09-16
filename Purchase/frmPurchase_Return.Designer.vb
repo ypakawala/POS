@@ -118,7 +118,7 @@ Partial Class frmPurchase_Return
         Me.lblTitle.Appearance = Appearance1
         Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(0, 0)
+        Me.lblTitle.Location = New System.Drawing.Point(0, 28)
         Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(907, 62)
@@ -133,7 +133,7 @@ Partial Class frmPurchase_Return
         Me.MenuStrip1.Location = New System.Drawing.Point(9, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(10, 3, 0, 3)
-        Me.MenuStrip1.Size = New System.Drawing.Size(411, 26)
+        Me.MenuStrip1.Size = New System.Drawing.Size(237, 26)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -174,10 +174,10 @@ Partial Class frmPurchase_Return
         Me.UltraGroupBox1.Controls.Add(Me.pnlItem)
         Me.UltraGroupBox1.Controls.Add(Me.Panel2)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 62)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 90)
         Me.UltraGroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(907, 418)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(907, 390)
         Me.UltraGroupBox1.TabIndex = 0
         Me.UltraGroupBox1.Text = "Purchase Return Details"
         Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
@@ -190,7 +190,7 @@ Partial Class frmPurchase_Return
         Me.pnlItem.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlItem.Location = New System.Drawing.Point(335, 23)
         Me.pnlItem.Name = "pnlItem"
-        Me.pnlItem.Size = New System.Drawing.Size(569, 392)
+        Me.pnlItem.Size = New System.Drawing.Size(569, 364)
         Me.pnlItem.TabIndex = 9
         '
         'grdList
@@ -277,7 +277,7 @@ Partial Class frmPurchase_Return
         Me.grdList.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grdList.Location = New System.Drawing.Point(0, 79)
         Me.grdList.Name = "grdList"
-        Me.grdList.Size = New System.Drawing.Size(569, 313)
+        Me.grdList.Size = New System.Drawing.Size(569, 285)
         Me.grdList.TabIndex = 4
         Me.grdList.TabStop = False
         Me.grdList.Text = "UltraGrid1"
@@ -302,7 +302,7 @@ Partial Class frmPurchase_Return
         Me.UltraLabel10.Location = New System.Drawing.Point(4, 5)
         Me.UltraLabel10.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel10.Name = "UltraLabel10"
-        Me.UltraLabel10.Size = New System.Drawing.Size(49, 21)
+        Me.UltraLabel10.Size = New System.Drawing.Size(48, 21)
         Me.UltraLabel10.TabIndex = 8
         Me.UltraLabel10.Text = "Item :"
         '
@@ -410,7 +410,7 @@ Partial Class frmPurchase_Return
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(3, 23)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(332, 392)
+        Me.Panel2.Size = New System.Drawing.Size(332, 364)
         Me.Panel2.TabIndex = 0
         '
         'UltraLabel2
@@ -457,7 +457,7 @@ Partial Class frmPurchase_Return
         Me.UltraLabel4.Location = New System.Drawing.Point(4, 87)
         Me.UltraLabel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UltraLabel4.Name = "UltraLabel4"
-        Me.UltraLabel4.Size = New System.Drawing.Size(75, 21)
+        Me.UltraLabel4.Size = New System.Drawing.Size(74, 21)
         Me.UltraLabel4.TabIndex = 0
         Me.UltraLabel4.Text = "Invoice #"
         '
@@ -532,7 +532,7 @@ Partial Class frmPurchase_Return
         Me.UltraGroupBox2.Controls.Add(Me.MenuStrip1)
         Me.UltraGroupBox2.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraGroupBox2.ForeColor = System.Drawing.Color.Black
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(0, 62)
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
         Me.UltraGroupBox2.Size = New System.Drawing.Size(907, 28)
         Me.UltraGroupBox2.TabIndex = 130

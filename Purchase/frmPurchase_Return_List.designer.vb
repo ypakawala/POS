@@ -41,6 +41,7 @@ Partial Class frmPurchase_Return_List
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.btnExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnDelete = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.grdList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
@@ -130,7 +131,7 @@ Partial Class frmPurchase_Return_List
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnExit})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnDelete, Me.btnExit})
         Me.MenuStrip1.Location = New System.Drawing.Point(3, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(10, 2, 0, 2)
@@ -143,8 +144,16 @@ Partial Class frmPurchase_Return_List
         Me.btnExit.Image = Global.POS.My.Resources.Resources.CLOSE_16
         Me.btnExit.Name = "btnExit"
         Me.btnExit.ShortcutKeys = System.Windows.Forms.Keys.F12
-        Me.btnExit.Size = New System.Drawing.Size(82, 20)
+        Me.btnExit.Size = New System.Drawing.Size(84, 20)
         Me.btnExit.Text = "Exit [End]"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Image = Global.POS.My.Resources.Resources.DELETE_16
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.ShortcutKeys = System.Windows.Forms.Keys.F2
+        Me.btnDelete.Size = New System.Drawing.Size(91, 20)
+        Me.btnDelete.Text = "Delete [F2]"
         '
         'frmPurchase_Return_List
         '
@@ -153,6 +162,7 @@ Partial Class frmPurchase_Return_List
         Me.ClientSize = New System.Drawing.Size(994, 478)
         Me.Controls.Add(Me.grdList)
         Me.Controls.Add(Me.UltraGroupBox2)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmPurchase_Return_List"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -170,4 +180,5 @@ Partial Class frmPurchase_Return_List
     Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents btnExit As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btnDelete As System.Windows.Forms.ToolStripMenuItem
 End Class

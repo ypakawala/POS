@@ -43,7 +43,9 @@ Public Class frmPurchase_Return
 
                 Me.lblTitle.Text = "Purchase Return"
                 Me.btnPost.Visible = False
+                Me.btnPost.Enabled = False
                 Me.btnDelete.Visible = False
+                Me.btnDelete.Enabled = False
 
             End If
 
@@ -118,11 +120,18 @@ Public Class frmPurchase_Return
 
             Dim CLS As New Purchase
 
-            If CLS_Config.AddPurchaseDetail Then
+            If TrimBoolean(CLS_Config.AddPurchaseDetail) Then
                 Me.txtAmount.Enabled = False
                 Me.txtAmount.TabStop = False
             Else
                 Me.pnlItem.Visible = False
+                Me.WindowState = FormWindowState.Normal
+                Me.Width = 350
+                Me.StartPosition = FormStartPosition.CenterParent
+
+                Me.btnDelete.Visible = False
+                Me.btnDelete.Enabled = False
+
             End If
 
             If Operation = OperationType.Add Then Me.txtEffectiveDate.Value = Now.Date
@@ -148,11 +157,15 @@ Public Class frmPurchase_Return
             Select Case Operation
                 Case OperationType.Add : CLS_Purchase_Return.Code = CLS_Purchase_Return.Add()
                 Case OperationType.Edit
+
+                    DBO.ActionQuery("DELETE FROM dbo.Voucher WHERE Code =" & CLS_Purchase_Return.VoucherCode)
+
                     CLS_Purchase_Return.Code = CInt(FixControl(Me.txtCode))
                     CLS_Purchase_Return.Update()
             End Select
 
-            If CLS_Config.AddPurchaseDetail Then SaveDetails()
+            'If CLS_Config.AddPurchaseDetail Then 
+            SaveDetails()
             Me.Close()
 
         Catch ex As Exception
@@ -161,7 +174,7 @@ Public Class frmPurchase_Return
     End Function
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         Try
-            Save(False)
+            Save(True)
         Catch ex As Exception
             MsgBox("btnSave_Click" & vbCrLf & ex.Message)
         End Try
@@ -178,25 +191,38 @@ Public Class frmPurchase_Return
             CLS_Purchase_Return_Entry.PurchaseReturnCode = CLS_Purchase_Return.Code
             CLS_Purchase_Return_Entry.Delete()
 
-            Dim i As Integer = 0
-            For i = 0 To Me.grdList.Rows.Count - 1
+
+            If CLS_Config.AddPurchaseDetail Then
+                Dim i As Integer = 0
+                For i = 0 To Me.grdList.Rows.Count - 1
+                    CLS_Purchase_Return_Entry.PurchaseReturnCode = CLS_Purchase_Return.Code
+                    CLS_Purchase_Return_Entry.PurchaseFromCode = FixCellNumber(Me.grdList.Rows(i).Cells("PurchaseFromCode"))
+                    CLS_Purchase_Return_Entry.ItemCode = FixCellNumber(Me.grdList.Rows(i).Cells("ItemCode"))
+                    CLS_Purchase_Return_Entry.Qty = FixCellNumber(Me.grdList.Rows(i).Cells("Qty"))
+                    CLS_Purchase_Return_Entry.UnitPrice = FixCellNumber(Me.grdList.Rows(i).Cells("UnitPrice"))
+                    CLS_Purchase_Return_Entry.Price = FixCellNumber(Me.grdList.Rows(i).Cells("Price"))
+                    CLS_Purchase_Return_Entry.ExpiryDate = FixCellDate(Me.grdList.Rows(i).Cells("ExpiryDate"))
+
+                    'If FixCellNumber(Me.grdList.Rows(i).Cells("Code")) = Nothing Then
+                    CLS_Purchase_Return_Entry.Add()
+                    'Else
+                    'CLS_Purchase_Entry.Update()
+                    'End If
+
+                Next
+
+                Me.grdList.UpdateData()
+            Else
+
                 CLS_Purchase_Return_Entry.PurchaseReturnCode = CLS_Purchase_Return.Code
-                CLS_Purchase_Return_Entry.PurchaseFromCode = FixCellNumber(Me.grdList.Rows(i).Cells("PurchaseFromCode"))
-                CLS_Purchase_Return_Entry.ItemCode = FixCellNumber(Me.grdList.Rows(i).Cells("ItemCode"))
-                CLS_Purchase_Return_Entry.Qty = FixCellNumber(Me.grdList.Rows(i).Cells("Qty"))
-                CLS_Purchase_Return_Entry.UnitPrice = FixCellNumber(Me.grdList.Rows(i).Cells("UnitPrice"))
-                CLS_Purchase_Return_Entry.Price = FixCellNumber(Me.grdList.Rows(i).Cells("Price"))
-                CLS_Purchase_Return_Entry.ExpiryDate = FixCellDate(Me.grdList.Rows(i).Cells("ExpiryDate"))
+                CLS_Purchase_Return_Entry.PurchaseFromCode = Purchase_Code
+                CLS_Purchase_Return_Entry.Price = CLS_Purchase_Return.Amount
 
                 'If FixCellNumber(Me.grdList.Rows(i).Cells("Code")) = Nothing Then
                 CLS_Purchase_Return_Entry.Add()
-                'Else
-                'CLS_Purchase_Entry.Update()
-                'End If
 
-            Next
-
-            Me.grdList.UpdateData()
+            End If
+            
 
         Catch ex As Exception
             MsgBox("SaveDetails" & vbCrLf & ex.Message)

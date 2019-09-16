@@ -13,6 +13,7 @@ Public Class Purchase_Return
     Private m_Posted As Boolean = False
     Private m_UserCode As Integer = 0.0
     Private m_Notes As String = Nothing
+    Private m_VoucherCode As Integer = Nothing
 
     Public Property Code() As Integer
         Get
@@ -94,7 +95,14 @@ Public Class Purchase_Return
             m_Notes = value
         End Set
     End Property
-
+    Public Property VoucherCode() As Integer
+        Get
+            Return m_VoucherCode
+        End Get
+        Set(ByVal value As Integer)
+            m_VoucherCode = value
+        End Set
+    End Property
 
     Public Sub New()
         Try
@@ -108,7 +116,7 @@ Public Class Purchase_Return
             m_Amount = 0.0
             m_Posted = False
             m_UserCode = UserClass.Code
-            m_Notes = Nothing
+            m_VoucherCode = 0.0
 
 
         Catch ex As Exception
@@ -180,6 +188,7 @@ Public Class Purchase_Return
                 m_Posted = CBool(FixObjectBoolean(DT.Rows(0).Item("Posted")))
                 m_UserCode = CInt(FixObjectNumber(DT.Rows(0).Item("UserCode")))
                 m_Notes = CStr(FixObjectString(DT.Rows(0).Item("Notes")))
+                m_VoucherCode = CInt(DT.Rows(0).Item("VoucherCode"))
 
 
                 Return True

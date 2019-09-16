@@ -88,6 +88,7 @@ Public Class frmPurchase_Payment_Due
             frmPurchase_PayIns.CLS.TotalAmount = FixCellNumber(Me.grdList.ActiveRow.Cells("TotalAmount"))
             frmPurchase_PayIns.CLS.PaidAmount = 0
             frmPurchase_PayIns.CLS.Balance = FixCellNumber(Me.grdList.ActiveRow.Cells("Balance"))
+            frmPurchase_PayIns.CLS.CurrentBalance = FixCellNumber(Me.grdList.ActiveRow.Cells("Balance"))
 
             Me.Close()
         Catch ex As Exception
