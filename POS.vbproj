@@ -235,6 +235,10 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="FingerPrint2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>BIN\Debug\FingerPrint2.dll</HintPath>
+    </Reference>
     <Reference Include="Infragistics2.Excel.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
       <Private>True</Private>
     </Reference>
@@ -367,13 +371,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activation\FingerPrint.vb" />
-    <Compile Include="Activation\frmActivation.Designer.vb">
-      <DependentUpon>frmActivation.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Activation\frmActivation.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Cheque\frmCheque.Designer.vb">
       <DependentUpon>frmCheque.vb</DependentUpon>
     </Compile>
@@ -885,9 +882,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Activation\frmActivation.resx">
-      <DependentUpon>frmActivation.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Cheque\frmCheque.resx">
       <DependentUpon>frmCheque.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1239,6 +1233,9 @@
       <Project>{e0d9ac3a-470d-462e-af94-07c39d24e591}</Project>
       <Name>theNext.UC</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Activation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

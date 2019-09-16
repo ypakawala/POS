@@ -27,6 +27,7 @@ Public Structure DBTable
 #End Region
 #Region "Files"
 
+    Public Const Activation As String = "Activation"
     Public Const CRDetails As String = "CRDetails"
     Public Const CustomerContacts As String = "CustomerContacts"
     Public Const CustomerData As String = "CustomerData"

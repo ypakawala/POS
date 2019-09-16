@@ -4,669 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="POSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="POSModelStoreContainer">
-          <EntitySet Name="Account" EntityType="POSModel.Store.Account" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Activation" EntityType="POSModel.Store.Activation" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Cheque" EntityType="POSModel.Store.Cheque" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Config" EntityType="POSModel.Store.Config" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_AccountType" EntityType="POSModel.Store.D_AccountType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_BarcodeType" EntityType="POSModel.Store.D_BarcodeType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_CostMethod" EntityType="POSModel.Store.D_CostMethod" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_Counter" EntityType="POSModel.Store.D_Counter" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_ItemCategory" EntityType="POSModel.Store.D_ItemCategory" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_ItemSubCategory" EntityType="POSModel.Store.D_ItemSubCategory" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_ItemType" EntityType="POSModel.Store.D_ItemType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_Month" EntityType="POSModel.Store.D_Month" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_PaymentType" EntityType="POSModel.Store.D_PaymentType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_TransectionType" EntityType="POSModel.Store.D_TransectionType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_UMCType" EntityType="POSModel.Store.D_UMCType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="D_Year" EntityType="POSModel.Store.D_Year" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Hold" EntityType="POSModel.Store.Hold" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Hold_Entry" EntityType="POSModel.Store.Hold_Entry" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Item" EntityType="POSModel.Store.Item" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ItemClass" EntityType="POSModel.Store.ItemClass" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ItemClassComponent" EntityType="POSModel.Store.ItemClassComponent" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ItemMovement" EntityType="POSModel.Store.ItemMovement" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="P_User" EntityType="POSModel.Store.P_User" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Promotion" EntityType="POSModel.Store.Promotion" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Purchase" EntityType="POSModel.Store.Purchase" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Purchase_Entry" EntityType="POSModel.Store.Purchase_Entry" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Purchase_Payment" EntityType="POSModel.Store.Purchase_Payment" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Purchase_Return" EntityType="POSModel.Store.Purchase_Return" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Purchase_Return_Entry" EntityType="POSModel.Store.Purchase_Return_Entry" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Quotation" EntityType="POSModel.Store.Quotation" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Quotation_Entry" EntityType="POSModel.Store.Quotation_Entry" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Reg" EntityType="POSModel.Store.Reg" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Salary" EntityType="POSModel.Store.Salary" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Sale" EntityType="POSModel.Store.Sale" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Sale_Entry" EntityType="POSModel.Store.Sale_Entry" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SaleCancel" EntityType="POSModel.Store.SaleCancel" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SaleCancel_Entry" EntityType="POSModel.Store.SaleCancel_Entry" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Sales_Batch" EntityType="POSModel.Store.Sales_Batch" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Voucher" EntityType="POSModel.Store.Voucher" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Voucher_Entry" EntityType="POSModel.Store.Voucher_Entry" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ChequeView" EntityType="POSModel.Store.ChequeView" store:Type="Views" store:Schema="dbo" store:Name="ChequeView">
-            <DefiningQuery>SELECT 
-      [ChequeView].[Code] AS [Code], 
-      [ChequeView].[tDate] AS [tDate], 
-      [ChequeView].[SupplierCode] AS [SupplierCode], 
-      [ChequeView].[SupplierName] AS [SupplierName], 
-      [ChequeView].[ChequeNo] AS [ChequeNo], 
-      [ChequeView].[Amount] AS [Amount], 
-      [ChequeView].[Total] AS [Total], 
-      [ChequeView].[Cleared] AS [Cleared], 
-      [ChequeView].[Notes] AS [Notes]
-      FROM [dbo].[ChequeView] AS [ChequeView]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="CustomerMonthlyBalanceView" EntityType="POSModel.Store.CustomerMonthlyBalanceView" store:Type="Views" store:Schema="dbo" store:Name="CustomerMonthlyBalanceView">
-            <DefiningQuery>SELECT 
-      [CustomerMonthlyBalanceView].[Code] AS [Code], 
-      [CustomerMonthlyBalanceView].[AccountNum] AS [AccountNum], 
-      [CustomerMonthlyBalanceView].[AccountType] AS [AccountType], 
-      [CustomerMonthlyBalanceView].[Title] AS [Title], 
-      [CustomerMonthlyBalanceView].[Telephone] AS [Telephone], 
-      [CustomerMonthlyBalanceView].[Mobile] AS [Mobile], 
-      [CustomerMonthlyBalanceView].[Notes] AS [Notes], 
-      [CustomerMonthlyBalanceView].[Salary] AS [Salary], 
-      [CustomerMonthlyBalanceView].[PassportNo] AS [PassportNo], 
-      [CustomerMonthlyBalanceView].[PassportExp] AS [PassportExp], 
-      [CustomerMonthlyBalanceView].[CivilID] AS [CivilID], 
-      [CustomerMonthlyBalanceView].[CivilIDExp] AS [CivilIDExp], 
-      [CustomerMonthlyBalanceView].[HealthCardNo] AS [HealthCardNo], 
-      [CustomerMonthlyBalanceView].[HealthCardExp] AS [HealthCardExp], 
-      [CustomerMonthlyBalanceView].[OpeningBalance] AS [OpeningBalance], 
-      [CustomerMonthlyBalanceView].[TimeLimit] AS [TimeLimit], 
-      [CustomerMonthlyBalanceView].[AmountLimit] AS [AmountLimit], 
-      [CustomerMonthlyBalanceView].[FinalBalance] AS [FinalBalance], 
-      [CustomerMonthlyBalanceView].[Balance] AS [Balance], 
-      [CustomerMonthlyBalanceView].[BalanceCurrentMonth] AS [BalanceCurrentMonth], 
-      [CustomerMonthlyBalanceView].[BalancePrvMonth] AS [BalancePrvMonth], 
-      [CustomerMonthlyBalanceView].[LastBill] AS [LastBill]
-      FROM [dbo].[CustomerMonthlyBalanceView] AS [CustomerMonthlyBalanceView]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="DebitAge" EntityType="POSModel.Store.DebitAge" store:Type="Views" store:Schema="dbo" store:Name="DebitAge">
-            <DefiningQuery>SELECT 
-      [DebitAge].[DebitAge] AS [DebitAge], 
-      [DebitAge].[Code] AS [Code], 
-      [DebitAge].[EffectiveDate] AS [EffectiveDate], 
-      [DebitAge].[InvoiceNum] AS [InvoiceNum], 
-      [DebitAge].[Amount] AS [Amount], 
-      [DebitAge].[DebitNote] AS [DebitNote], 
-      [DebitAge].[Discount] AS [Discount], 
-      [DebitAge].[TotalAmount] AS [TotalAmount], 
-      [DebitAge].[PaidAmount] AS [PaidAmount], 
-      [DebitAge].[DiscountAtPay] AS [DiscountAtPay], 
-      [DebitAge].[Balance] AS [Balance], 
-      [DebitAge].[Posted] AS [Posted], 
-      [DebitAge].[UserCode] AS [UserCode], 
-      [DebitAge].[UserName] AS [UserName], 
-      [DebitAge].[Notes] AS [Notes], 
-      [DebitAge].[SupplierCode] AS [SupplierCode], 
-      [DebitAge].[SupplierName] AS [SupplierName], 
-      [DebitAge].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [DebitAge].[TransectionType] AS [TransectionType]
-      FROM [dbo].[DebitAge] AS [DebitAge]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Item_Class_View" EntityType="POSModel.Store.Item_Class_View" store:Type="Views" store:Schema="dbo" store:Name="Item_Class_View">
-            <DefiningQuery>SELECT 
-      [Item_Class_View].[Type] AS [Type], 
-      [Item_Class_View].[Code] AS [Code], 
-      [Item_Class_View].[ItemName] AS [ItemName], 
-      [Item_Class_View].[CostPrice] AS [CostPrice], 
-      [Item_Class_View].[SalesPrice] AS [SalesPrice], 
-      [Item_Class_View].[Barcode] AS [Barcode], 
-      [Item_Class_View].[Barcode2] AS [Barcode2], 
-      [Item_Class_View].[CostMethod] AS [CostMethod], 
-      [Item_Class_View].[ProfitMargin] AS [ProfitMargin], 
-      [Item_Class_View].[Discontinued] AS [Discontinued]
-      FROM [dbo].[Item_Class_View] AS [Item_Class_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Item_View" EntityType="POSModel.Store.Item_View" store:Type="Views" store:Schema="dbo" store:Name="Item_View">
-            <DefiningQuery>SELECT 
-      [Item_View].[Code] AS [Code], 
-      [Item_View].[ItemName] AS [ItemName], 
-      [Item_View].[CategoryCode] AS [CategoryCode], 
-      [Item_View].[Category] AS [Category], 
-      [Item_View].[SubCategoryCode] AS [SubCategoryCode], 
-      [Item_View].[SubCategory] AS [SubCategory], 
-      [Item_View].[ItemTypeCode] AS [ItemTypeCode], 
-      [Item_View].[ItemType] AS [ItemType], 
-      [Item_View].[CostPrice] AS [CostPrice], 
-      [Item_View].[SalesPrice] AS [SalesPrice], 
-      [Item_View].[Barcode] AS [Barcode], 
-      [Item_View].[Barcode2] AS [Barcode2], 
-      [Item_View].[StockInHand] AS [StockInHand], 
-      [Item_View].[StockInStore] AS [StockInStore], 
-      [Item_View].[StockMin] AS [StockMin], 
-      [Item_View].[Notes] AS [Notes], 
-      [Item_View].[UMCCode] AS [UMCCode], 
-      [Item_View].[UMC] AS [UMC], 
-      [Item_View].[LastSaleDate] AS [LastSaleDate], 
-      [Item_View].[LastPurchaseDate] AS [LastPurchaseDate], 
-      [Item_View].[Discontinued] AS [Discontinued]
-      FROM [dbo].[Item_View] AS [Item_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ItemMovementSlowView" EntityType="POSModel.Store.ItemMovementSlowView" store:Type="Views" store:Schema="dbo" store:Name="ItemMovementSlowView">
-            <DefiningQuery>SELECT 
-      [ItemMovementSlowView].[Code] AS [Code], 
-      [ItemMovementSlowView].[ItemName] AS [ItemName], 
-      [ItemMovementSlowView].[CategoryCode] AS [CategoryCode], 
-      [ItemMovementSlowView].[Category] AS [Category], 
-      [ItemMovementSlowView].[SubCategoryCode] AS [SubCategoryCode], 
-      [ItemMovementSlowView].[SubCategory] AS [SubCategory], 
-      [ItemMovementSlowView].[Stock] AS [Stock], 
-      [ItemMovementSlowView].[CostPrice] AS [CostPrice], 
-      [ItemMovementSlowView].[StockValue] AS [StockValue], 
-      [ItemMovementSlowView].[LastTransectionDate] AS [LastTransectionDate]
-      FROM [dbo].[ItemMovementSlowView] AS [ItemMovementSlowView]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ItemMovementSummaryView" EntityType="POSModel.Store.ItemMovementSummaryView" store:Type="Views" store:Schema="dbo" store:Name="ItemMovementSummaryView">
-            <DefiningQuery>SELECT 
-      [ItemMovementSummaryView].[Code] AS [Code], 
-      [ItemMovementSummaryView].[ItemName] AS [ItemName], 
-      [ItemMovementSummaryView].[CategoryCode] AS [CategoryCode], 
-      [ItemMovementSummaryView].[Category] AS [Category], 
-      [ItemMovementSummaryView].[Open] AS [Open], 
-      [ItemMovementSummaryView].[Purchase] AS [Purchase], 
-      [ItemMovementSummaryView].[Sale] AS [Sale], 
-      [ItemMovementSummaryView].[Purchase_Amount] AS [Purchase_Amount], 
-      [ItemMovementSummaryView].[Sales_Amount] AS [Sales_Amount], 
-      [ItemMovementSummaryView].[CostPrice] AS [CostPrice]
-      FROM [dbo].[ItemMovementSummaryView] AS [ItemMovementSummaryView]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ItemMovementView" EntityType="POSModel.Store.ItemMovementView" store:Type="Views" store:Schema="dbo" store:Name="ItemMovementView">
-            <DefiningQuery>SELECT 
-      [ItemMovementView].[Code] AS [Code], 
-      [ItemMovementView].[TransectionType] AS [TransectionType], 
-      [ItemMovementView].[TransectionDate] AS [TransectionDate], 
-      [ItemMovementView].[ItemCode] AS [ItemCode], 
-      [ItemMovementView].[Quantity] AS [Quantity], 
-      [ItemMovementView].[ForeignKey] AS [ForeignKey], 
-      [ItemMovementView].[TransectionTypeName] AS [TransectionTypeName], 
-      [ItemMovementView].[TransDate] AS [TransDate], 
-      [ItemMovementView].[ItemName] AS [ItemName], 
-      [ItemMovementView].[ItemCategory] AS [ItemCategory], 
-      [ItemMovementView].[ItemCategoryName] AS [ItemCategoryName]
-      FROM [dbo].[ItemMovementView] AS [ItemMovementView]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Purchase_Entry_View" EntityType="POSModel.Store.Purchase_Entry_View" store:Type="Views" store:Schema="dbo" store:Name="Purchase_Entry_View">
-            <DefiningQuery>SELECT 
-      [Purchase_Entry_View].[Code] AS [Code], 
-      [Purchase_Entry_View].[PurchaseCode] AS [PurchaseCode], 
-      [Purchase_Entry_View].[ItemCode] AS [ItemCode], 
-      [Purchase_Entry_View].[ItemName] AS [ItemName], 
-      [Purchase_Entry_View].[Barcode] AS [Barcode], 
-      [Purchase_Entry_View].[Qty] AS [Qty], 
-      [Purchase_Entry_View].[QtyStock] AS [QtyStock], 
-      [Purchase_Entry_View].[QtyReturned] AS [QtyReturned], 
-      [Purchase_Entry_View].[UnitPrice] AS [UnitPrice], 
-      [Purchase_Entry_View].[Price] AS [Price], 
-      [Purchase_Entry_View].[ExpiryDate] AS [ExpiryDate], 
-      [Purchase_Entry_View].[EffectiveDate] AS [EffectiveDate], 
-      [Purchase_Entry_View].[TransectionDate] AS [TransectionDate], 
-      [Purchase_Entry_View].[TransectionType] AS [TransectionType], 
-      [Purchase_Entry_View].[TransectionTypeName] AS [TransectionTypeName], 
-      [Purchase_Entry_View].[SupplierCode] AS [SupplierCode], 
-      [Purchase_Entry_View].[AccountNum] AS [AccountNum], 
-      [Purchase_Entry_View].[InvoiceNum] AS [InvoiceNum], 
-      [Purchase_Entry_View].[Amount] AS [Amount], 
-      [Purchase_Entry_View].[DebitNote] AS [DebitNote], 
-      [Purchase_Entry_View].[Discount] AS [Discount], 
-      [Purchase_Entry_View].[TotalAmount] AS [TotalAmount], 
-      [Purchase_Entry_View].[Posted] AS [Posted], 
-      [Purchase_Entry_View].[UserCode] AS [UserCode], 
-      [Purchase_Entry_View].[Notes] AS [Notes], 
-      [Purchase_Entry_View].[SupplierName] AS [SupplierName], 
-      [Purchase_Entry_View].[UserName] AS [UserName], 
-      [Purchase_Entry_View].[AvgPrice] AS [AvgPrice], 
-      [Purchase_Entry_View].[SerailNum] AS [SerailNum], 
-      [Purchase_Entry_View].[ItemCategory] AS [ItemCategory], 
-      [Purchase_Entry_View].[SubCategory] AS [SubCategory]
-      FROM [dbo].[Purchase_Entry_View] AS [Purchase_Entry_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Purchase_Payment_View" EntityType="POSModel.Store.Purchase_Payment_View" store:Type="Views" store:Schema="dbo" store:Name="Purchase_Payment_View">
-            <DefiningQuery>SELECT 
-      [Purchase_Payment_View].[Code] AS [Code], 
-      [Purchase_Payment_View].[PurchaseCode] AS [PurchaseCode], 
-      [Purchase_Payment_View].[EffectiveDate] AS [EffectiveDate], 
-      [Purchase_Payment_View].[TransectionDate] AS [TransectionDate], 
-      [Purchase_Payment_View].[PaidAmount] AS [PaidAmount], 
-      [Purchase_Payment_View].[DiscountAtPay] AS [DiscountAtPay], 
-      [Purchase_Payment_View].[RefNum] AS [RefNum], 
-      [Purchase_Payment_View].[PaymentAccount] AS [PaymentAccount], 
-      [Purchase_Payment_View].[CheckNum] AS [CheckNum], 
-      [Purchase_Payment_View].[CheckDate] AS [CheckDate], 
-      [Purchase_Payment_View].[UserCode] AS [UserCode], 
-      [Purchase_Payment_View].[Notes] AS [Notes], 
-      [Purchase_Payment_View].[UserName] AS [UserName], 
-      [Purchase_Payment_View].[PaymentAccountName] AS [PaymentAccountName], 
-      [Purchase_Payment_View].[PaymentCode] AS [PaymentCode], 
-      [Purchase_Payment_View].[P_EffectiveDate] AS [P_EffectiveDate], 
-      [Purchase_Payment_View].[SupplierCode] AS [SupplierCode], 
-      [Purchase_Payment_View].[SupplierName] AS [SupplierName], 
-      [Purchase_Payment_View].[P_InvoiceNum] AS [P_InvoiceNum], 
-      [Purchase_Payment_View].[P_TotalAmount] AS [P_TotalAmount], 
-      [Purchase_Payment_View].[P_PaidAmount] AS [P_PaidAmount], 
-      [Purchase_Payment_View].[P_DiscountAtPay] AS [P_DiscountAtPay], 
-      [Purchase_Payment_View].[P_Returned] AS [P_Returned], 
-      [Purchase_Payment_View].[P_Balance] AS [P_Balance], 
-      [Purchase_Payment_View].[VoucherCode] AS [VoucherCode]
-      FROM [dbo].[Purchase_Payment_View] AS [Purchase_Payment_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Purchase_Return_Entry_View" EntityType="POSModel.Store.Purchase_Return_Entry_View" store:Type="Views" store:Schema="dbo" store:Name="Purchase_Return_Entry_View">
-            <DefiningQuery>SELECT 
-      [Purchase_Return_Entry_View].[Code] AS [Code], 
-      [Purchase_Return_Entry_View].[PurchaseReturnCode] AS [PurchaseReturnCode], 
-      [Purchase_Return_Entry_View].[PurchaseFromCode] AS [PurchaseFromCode], 
-      [Purchase_Return_Entry_View].[ItemCode] AS [ItemCode], 
-      [Purchase_Return_Entry_View].[ItemName] AS [ItemName], 
-      [Purchase_Return_Entry_View].[Qty] AS [Qty], 
-      [Purchase_Return_Entry_View].[UnitPrice] AS [UnitPrice], 
-      [Purchase_Return_Entry_View].[Price] AS [Price], 
-      [Purchase_Return_Entry_View].[ExpiryDate] AS [ExpiryDate], 
-      [Purchase_Return_Entry_View].[EffectiveDate] AS [EffectiveDate], 
-      [Purchase_Return_Entry_View].[TransectionDate] AS [TransectionDate], 
-      [Purchase_Return_Entry_View].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [Purchase_Return_Entry_View].[TransectionType] AS [TransectionType], 
-      [Purchase_Return_Entry_View].[SupplierCode] AS [SupplierCode], 
-      [Purchase_Return_Entry_View].[Supplier] AS [Supplier], 
-      [Purchase_Return_Entry_View].[InvoiceNum] AS [InvoiceNum], 
-      [Purchase_Return_Entry_View].[Amount] AS [Amount], 
-      [Purchase_Return_Entry_View].[Posted] AS [Posted], 
-      [Purchase_Return_Entry_View].[UserCode] AS [UserCode], 
-      [Purchase_Return_Entry_View].[UserName] AS [UserName], 
-      [Purchase_Return_Entry_View].[Notes] AS [Notes], 
-      [Purchase_Return_Entry_View].[VoucherCode] AS [VoucherCode], 
-      [Purchase_Return_Entry_View].[Barcode] AS [Barcode], 
-      [Purchase_Return_Entry_View].[SerailNum] AS [SerailNum], 
-      [Purchase_Return_Entry_View].[ItemCategory] AS [ItemCategory], 
-      [Purchase_Return_Entry_View].[SubCategory] AS [SubCategory]
-      FROM [dbo].[Purchase_Return_Entry_View] AS [Purchase_Return_Entry_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Purchase_ReturnView" EntityType="POSModel.Store.Purchase_ReturnView" store:Type="Views" store:Schema="dbo" store:Name="Purchase_ReturnView">
-            <DefiningQuery>SELECT 
-      [Purchase_ReturnView].[Code] AS [Code], 
-      [Purchase_ReturnView].[EffectiveDate] AS [EffectiveDate], 
-      [Purchase_ReturnView].[TransectionDate] AS [TransectionDate], 
-      [Purchase_ReturnView].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [Purchase_ReturnView].[TransectionType] AS [TransectionType], 
-      [Purchase_ReturnView].[SupplierCode] AS [SupplierCode], 
-      [Purchase_ReturnView].[Supplier] AS [Supplier], 
-      [Purchase_ReturnView].[InvoiceNum] AS [InvoiceNum], 
-      [Purchase_ReturnView].[Amount] AS [Amount], 
-      [Purchase_ReturnView].[Posted] AS [Posted], 
-      [Purchase_ReturnView].[UserCode] AS [UserCode], 
-      [Purchase_ReturnView].[UserName] AS [UserName], 
-      [Purchase_ReturnView].[Notes] AS [Notes], 
-      [Purchase_ReturnView].[VoucherCode] AS [VoucherCode]
-      FROM [dbo].[Purchase_ReturnView] AS [Purchase_ReturnView]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Purchase_Summary" EntityType="POSModel.Store.Purchase_Summary" store:Type="Views" store:Schema="dbo" store:Name="Purchase_Summary">
-            <DefiningQuery>SELECT 
-      [Purchase_Summary].[Code] AS [Code], 
-      [Purchase_Summary].[EffectiveDate] AS [EffectiveDate], 
-      [Purchase_Summary].[InvoiceNum] AS [InvoiceNum], 
-      [Purchase_Summary].[Amount] AS [Amount], 
-      [Purchase_Summary].[DebitNote] AS [DebitNote], 
-      [Purchase_Summary].[Discount] AS [Discount], 
-      [Purchase_Summary].[TotalAmount] AS [TotalAmount], 
-      [Purchase_Summary].[PaidAmount] AS [PaidAmount], 
-      [Purchase_Summary].[DiscountAtPay] AS [DiscountAtPay], 
-      [Purchase_Summary].[Returned] AS [Returned], 
-      [Purchase_Summary].[Balance] AS [Balance], 
-      [Purchase_Summary].[Posted] AS [Posted], 
-      [Purchase_Summary].[UserCode] AS [UserCode], 
-      [Purchase_Summary].[UserName] AS [UserName], 
-      [Purchase_Summary].[Notes] AS [Notes], 
-      [Purchase_Summary].[AccountNum] AS [AccountNum], 
-      [Purchase_Summary].[SupplierCode] AS [SupplierCode], 
-      [Purchase_Summary].[SupplierName] AS [SupplierName], 
-      [Purchase_Summary].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [Purchase_Summary].[TransectionType] AS [TransectionType]
-      FROM [dbo].[Purchase_Summary] AS [Purchase_Summary]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Quotation_Entry_View" EntityType="POSModel.Store.Quotation_Entry_View" store:Type="Views" store:Schema="dbo" store:Name="Quotation_Entry_View">
-            <DefiningQuery>SELECT 
-      [Quotation_Entry_View].[Code] AS [Code], 
-      [Quotation_Entry_View].[CustomerCode] AS [CustomerCode], 
-      [Quotation_Entry_View].[CustomerNo] AS [CustomerNo], 
-      [Quotation_Entry_View].[CustomerName] AS [CustomerName], 
-      [Quotation_Entry_View].[TransectionDate] AS [TransectionDate], 
-      [Quotation_Entry_View].[UserCode] AS [UserCode], 
-      [Quotation_Entry_View].[UserName] AS [UserName], 
-      [Quotation_Entry_View].[CounterCode] AS [CounterCode], 
-      [Quotation_Entry_View].[CounterName] AS [CounterName], 
-      [Quotation_Entry_View].[TotalBill] AS [TotalBill], 
-      [Quotation_Entry_View].[Discount] AS [Discount], 
-      [Quotation_Entry_View].[NetBill] AS [NetBill], 
-      [Quotation_Entry_View].[Remark] AS [Remark], 
-      [Quotation_Entry_View].[isClosed] AS [isClosed], 
-      [Quotation_Entry_View].[Q_Code] AS [Q_Code], 
-      [Quotation_Entry_View].[Q_ItemCode] AS [Q_ItemCode], 
-      [Quotation_Entry_View].[Q_ItemName] AS [Q_ItemName], 
-      [Quotation_Entry_View].[Q_UnitPrice] AS [Q_UnitPrice], 
-      [Quotation_Entry_View].[Q_Quantity] AS [Q_Quantity], 
-      [Quotation_Entry_View].[Q_TotalPrice] AS [Q_TotalPrice], 
-      [Quotation_Entry_View].[Q_Barcode] AS [Q_Barcode]
-      FROM [dbo].[Quotation_Entry_View] AS [Quotation_Entry_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Quotation_View" EntityType="POSModel.Store.Quotation_View" store:Type="Views" store:Schema="dbo" store:Name="Quotation_View">
-            <DefiningQuery>SELECT 
-      [Quotation_View].[Code] AS [Code], 
-      [Quotation_View].[CustomerCode] AS [CustomerCode], 
-      [Quotation_View].[CustomerName] AS [CustomerName], 
-      [Quotation_View].[TransectionDate] AS [TransectionDate], 
-      [Quotation_View].[UserCode] AS [UserCode], 
-      [Quotation_View].[UserName] AS [UserName], 
-      [Quotation_View].[CounterCode] AS [CounterCode], 
-      [Quotation_View].[CounterName] AS [CounterName], 
-      [Quotation_View].[TotalBill] AS [TotalBill], 
-      [Quotation_View].[Discount] AS [Discount], 
-      [Quotation_View].[NetBill] AS [NetBill], 
-      [Quotation_View].[Remark] AS [Remark], 
-      [Quotation_View].[isClosed] AS [isClosed]
-      FROM [dbo].[Quotation_View] AS [Quotation_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Sale_CustomerRotation_View" EntityType="POSModel.Store.Sale_CustomerRotation_View" store:Type="Views" store:Schema="dbo" store:Name="Sale_CustomerRotation_View">
-            <DefiningQuery>SELECT 
-      [Sale_CustomerRotation_View].[AccountNum] AS [AccountNum], 
-      [Sale_CustomerRotation_View].[AccountCode] AS [AccountCode], 
-      [Sale_CustomerRotation_View].[AccountName] AS [AccountName], 
-      [Sale_CustomerRotation_View].[TotalBill] AS [TotalBill], 
-      [Sale_CustomerRotation_View].[Profit] AS [Profit], 
-      [Sale_CustomerRotation_View].[Paid] AS [Paid], 
-      [Sale_CustomerRotation_View].[Balance] AS [Balance]
-      FROM [dbo].[Sale_CustomerRotation_View] AS [Sale_CustomerRotation_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Sale_Entry_View" EntityType="POSModel.Store.Sale_Entry_View" store:Type="Views" store:Schema="dbo" store:Name="Sale_Entry_View">
-            <DefiningQuery>SELECT 
-      [Sale_Entry_View].[Code] AS [Code], 
-      [Sale_Entry_View].[SaleCode] AS [SaleCode], 
-      [Sale_Entry_View].[ItemCode] AS [ItemCode], 
-      [Sale_Entry_View].[ItemName] AS [ItemName], 
-      [Sale_Entry_View].[Barcode] AS [Barcode], 
-      [Sale_Entry_View].[ItemCategoryCode] AS [ItemCategoryCode], 
-      [Sale_Entry_View].[ItemCategory] AS [ItemCategory], 
-      [Sale_Entry_View].[SubCategoryCode] AS [SubCategoryCode], 
-      [Sale_Entry_View].[SubCategory] AS [SubCategory], 
-      [Sale_Entry_View].[UnitPrice] AS [UnitPrice], 
-      [Sale_Entry_View].[Quantity] AS [Quantity], 
-      [Sale_Entry_View].[TotalPrice] AS [TotalPrice], 
-      [Sale_Entry_View].[CostPrice] AS [CostPrice], 
-      [Sale_Entry_View].[UMC] AS [UMC], 
-      [Sale_Entry_View].[SerailNum] AS [SerailNum], 
-      [Sale_Entry_View].[Purchase_EntryCode] AS [Purchase_EntryCode], 
-      [Sale_Entry_View].[ItemType] AS [ItemType], 
-      [Sale_Entry_View].[Notes] AS [Notes]
-      FROM [dbo].[Sale_Entry_View] AS [Sale_Entry_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Sale_View" EntityType="POSModel.Store.Sale_View" store:Type="Views" store:Schema="dbo" store:Name="Sale_View">
-            <DefiningQuery>SELECT 
-      [Sale_View].[Code] AS [Code], 
-      [Sale_View].[BillNo] AS [BillNo], 
-      [Sale_View].[TransectionDate] AS [TransectionDate], 
-      [Sale_View].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [Sale_View].[TransectionType] AS [TransectionType], 
-      [Sale_View].[TotalBill] AS [TotalBill], 
-      [Sale_View].[Discount] AS [Discount], 
-      [Sale_View].[NetBill] AS [NetBill], 
-      [Sale_View].[AccountCode] AS [AccountCode], 
-      [Sale_View].[AccountName] AS [AccountName], 
-      [Sale_View].[UserCode] AS [UserCode], 
-      [Sale_View].[UserName] AS [UserName], 
-      [Sale_View].[AccountNum] AS [AccountNum], 
-      [Sale_View].[CounterCode] AS [CounterCode], 
-      [Sale_View].[PaymentTypeCode] AS [PaymentTypeCode], 
-      [Sale_View].[PaymentType] AS [PaymentType], 
-      [Sale_View].[T_Month] AS [T_Month], 
-      [Sale_View].[T_Year] AS [T_Year], 
-      [Sale_View].[TransDate] AS [TransDate], 
-      [Sale_View].[VoucherCode] AS [VoucherCode], 
-      [Sale_View].[Payment] AS [Payment], 
-      [Sale_View].[Balance] AS [Balance], 
-      [Sale_View].[Remark] AS [Remark], 
-      [Sale_View].[PaymentCleared] AS [PaymentCleared], 
-      [Sale_View].[PONumber] AS [PONumber]
-      FROM [dbo].[Sale_View] AS [Sale_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="SaleCancel_View" EntityType="POSModel.Store.SaleCancel_View" store:Type="Views" store:Schema="dbo" store:Name="SaleCancel_View">
-            <DefiningQuery>SELECT 
-      [SaleCancel_View].[Code] AS [Code], 
-      [SaleCancel_View].[BillNo] AS [BillNo], 
-      [SaleCancel_View].[TransectionDate] AS [TransectionDate], 
-      [SaleCancel_View].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [SaleCancel_View].[TransectionType] AS [TransectionType], 
-      [SaleCancel_View].[UserName] AS [UserName], 
-      [SaleCancel_View].[UserCode] AS [UserCode], 
-      [SaleCancel_View].[ItemCode] AS [ItemCode], 
-      [SaleCancel_View].[ItemName] AS [ItemName], 
-      [SaleCancel_View].[UnitPrice] AS [UnitPrice], 
-      [SaleCancel_View].[Quantity] AS [Quantity], 
-      [SaleCancel_View].[TotalPrice] AS [TotalPrice], 
-      [SaleCancel_View].[TransDate] AS [TransDate], 
-      [SaleCancel_View].[CounterCode] AS [CounterCode], 
-      [SaleCancel_View].[HoldCode] AS [HoldCode], 
-      [SaleCancel_View].[HoldCleared] AS [HoldCleared]
-      FROM [dbo].[SaleCancel_View] AS [SaleCancel_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Sales_Full_View_Sub" EntityType="POSModel.Store.Sales_Full_View_Sub" store:Type="Views" store:Schema="dbo" store:Name="Sales_Full_View_Sub">
-            <DefiningQuery>SELECT 
-      [Sales_Full_View_Sub].[SaleCode] AS [SaleCode], 
-      [Sales_Full_View_Sub].[BillNo] AS [BillNo], 
-      [Sales_Full_View_Sub].[TransectionDate] AS [TransectionDate], 
-      [Sales_Full_View_Sub].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [Sales_Full_View_Sub].[TransectionType] AS [TransectionType], 
-      [Sales_Full_View_Sub].[TotalBill] AS [TotalBill], 
-      [Sales_Full_View_Sub].[Discount] AS [Discount], 
-      [Sales_Full_View_Sub].[NetBill] AS [NetBill], 
-      [Sales_Full_View_Sub].[AccountCode] AS [AccountCode], 
-      [Sales_Full_View_Sub].[AccountNum] AS [AccountNum], 
-      [Sales_Full_View_Sub].[AccountName] AS [AccountName], 
-      [Sales_Full_View_Sub].[UserCode] AS [UserCode], 
-      [Sales_Full_View_Sub].[UserName] AS [UserName], 
-      [Sales_Full_View_Sub].[ItemCode] AS [ItemCode], 
-      [Sales_Full_View_Sub].[ItemName] AS [ItemName], 
-      [Sales_Full_View_Sub].[Barcode] AS [Barcode], 
-      [Sales_Full_View_Sub].[ItemCategoryCode] AS [ItemCategoryCode], 
-      [Sales_Full_View_Sub].[ItemCategory] AS [ItemCategory], 
-      [Sales_Full_View_Sub].[UnitPrice] AS [UnitPrice], 
-      [Sales_Full_View_Sub].[Quantity] AS [Quantity], 
-      [Sales_Full_View_Sub].[TotalPrice] AS [TotalPrice], 
-      [Sales_Full_View_Sub].[CostPrice] AS [CostPrice], 
-      [Sales_Full_View_Sub].[CounterCode] AS [CounterCode], 
-      [Sales_Full_View_Sub].[PaymentTypeCode] AS [PaymentTypeCode], 
-      [Sales_Full_View_Sub].[PaymentType] AS [PaymentType], 
-      [Sales_Full_View_Sub].[T_Month] AS [T_Month], 
-      [Sales_Full_View_Sub].[T_Year] AS [T_Year], 
-      [Sales_Full_View_Sub].[TransDate] AS [TransDate]
-      FROM [dbo].[Sales_Full_View_Sub] AS [Sales_Full_View_Sub]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Voucher_Main_View" EntityType="POSModel.Store.Voucher_Main_View" store:Type="Views" store:Schema="dbo" store:Name="Voucher_Main_View">
-            <DefiningQuery>SELECT 
-      [Voucher_Main_View].[Code] AS [Code], 
-      [Voucher_Main_View].[CounterCode] AS [CounterCode], 
-      [Voucher_Main_View].[RefNumber] AS [RefNumber], 
-      [Voucher_Main_View].[EffectiveDate] AS [EffectiveDate], 
-      [Voucher_Main_View].[TransectionDate] AS [TransectionDate], 
-      [Voucher_Main_View].[UserCode] AS [UserCode], 
-      [Voucher_Main_View].[Notes] AS [Notes], 
-      [Voucher_Main_View].[Posted] AS [Posted], 
-      [Voucher_Main_View].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [Voucher_Main_View].[PaymentTypeCode] AS [PaymentTypeCode], 
-      [Voucher_Main_View].[TransectionType] AS [TransectionType], 
-      [Voucher_Main_View].[PaymentType] AS [PaymentType], 
-      [Voucher_Main_View].[UserName] AS [UserName]
-      FROM [dbo].[Voucher_Main_View] AS [Voucher_Main_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Voucher_View" EntityType="POSModel.Store.Voucher_View" store:Type="Views" store:Schema="dbo" store:Name="Voucher_View">
-            <DefiningQuery>SELECT 
-      [Voucher_View].[Code] AS [Code], 
-      [Voucher_View].[CounterCode] AS [CounterCode], 
-      [Voucher_View].[RefNumber] AS [RefNumber], 
-      [Voucher_View].[EffectiveDate] AS [EffectiveDate], 
-      [Voucher_View].[TransectionDate] AS [TransectionDate], 
-      [Voucher_View].[UserCode] AS [UserCode], 
-      [Voucher_View].[Notes] AS [Notes], 
-      [Voucher_View].[Posted] AS [Posted], 
-      [Voucher_View].[Voucher_EntryCode] AS [Voucher_EntryCode], 
-      [Voucher_View].[AccountCode] AS [AccountCode], 
-      [Voucher_View].[AccountNum] AS [AccountNum], 
-      [Voucher_View].[AccountType] AS [AccountType], 
-      [Voucher_View].[Debit] AS [Debit], 
-      [Voucher_View].[Credit] AS [Credit], 
-      [Voucher_View].[UserName] AS [UserName], 
-      [Voucher_View].[AccountName] AS [AccountName], 
-      [Voucher_View].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [Voucher_View].[PaymentTypeCode] AS [PaymentTypeCode], 
-      [Voucher_View].[TransectionType] AS [TransectionType], 
-      [Voucher_View].[PaymentType] AS [PaymentType], 
-      [Voucher_View].[Balance] AS [Balance], 
-      [Voucher_View].[AccountTypeName] AS [AccountTypeName], 
-      [Voucher_View].[AgainstAccountName] AS [AgainstAccountName]
-      FROM [dbo].[Voucher_View] AS [Voucher_View]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="VoucherDiscountView" EntityType="POSModel.Store.VoucherDiscountView" store:Type="Views" store:Schema="dbo" store:Name="VoucherDiscountView">
-            <DefiningQuery>SELECT 
-      [VoucherDiscountView].[Code] AS [Code], 
-      [VoucherDiscountView].[CounterCode] AS [CounterCode], 
-      [VoucherDiscountView].[RefNumber] AS [RefNumber], 
-      [VoucherDiscountView].[EffectiveDate] AS [EffectiveDate], 
-      [VoucherDiscountView].[TransectionDate] AS [TransectionDate], 
-      [VoucherDiscountView].[UserCode] AS [UserCode], 
-      [VoucherDiscountView].[Notes] AS [Notes], 
-      [VoucherDiscountView].[Posted] AS [Posted], 
-      [VoucherDiscountView].[Voucher_EntryCode] AS [Voucher_EntryCode], 
-      [VoucherDiscountView].[Debit] AS [Debit], 
-      [VoucherDiscountView].[Credit] AS [Credit], 
-      [VoucherDiscountView].[UserName] AS [UserName], 
-      [VoucherDiscountView].[TransectionTypeCode] AS [TransectionTypeCode], 
-      [VoucherDiscountView].[PaymentTypeCode] AS [PaymentTypeCode], 
-      [VoucherDiscountView].[TransectionType] AS [TransectionType], 
-      [VoucherDiscountView].[PaymentType] AS [PaymentType], 
-      [VoucherDiscountView].[Balance] AS [Balance], 
-      [VoucherDiscountView].[AccountTypeName] AS [AccountTypeName], 
-      [VoucherDiscountView].[AccountName] AS [AccountName], 
-      [VoucherDiscountView].[AccountNum] AS [AccountNum]
-      FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK_Account_D_AccountType" Association="POSModel.Store.FK_Account_D_AccountType">
-            <End Role="D_AccountType" EntitySet="D_AccountType" />
-            <End Role="Account" EntitySet="Account" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Item_D_ItemCategory1" Association="POSModel.Store.FK_Item_D_ItemCategory1">
-            <End Role="D_ItemCategory" EntitySet="D_ItemCategory" />
-            <End Role="Item" EntitySet="Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Item_D_ItemSubCategory" Association="POSModel.Store.FK_Item_D_ItemSubCategory">
-            <End Role="D_ItemSubCategory" EntitySet="D_ItemSubCategory" />
-            <End Role="Item" EntitySet="Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Item_D_ItemType" Association="POSModel.Store.FK_Item_D_ItemType">
-            <End Role="D_ItemType" EntitySet="D_ItemType" />
-            <End Role="Item" EntitySet="Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ItemClass_D_ItemCategory" Association="POSModel.Store.FK_ItemClass_D_ItemCategory">
-            <End Role="D_ItemCategory" EntitySet="D_ItemCategory" />
-            <End Role="ItemClass" EntitySet="ItemClass" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ItemClass_D_ItemSubCategory" Association="POSModel.Store.FK_ItemClass_D_ItemSubCategory">
-            <End Role="D_ItemSubCategory" EntitySet="D_ItemSubCategory" />
-            <End Role="ItemClass" EntitySet="ItemClass" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ItemClassComponent_Item" Association="POSModel.Store.FK_ItemClassComponent_Item">
-            <End Role="Item" EntitySet="Item" />
-            <End Role="ItemClassComponent" EntitySet="ItemClassComponent" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ItemClassComponent_ItemClass" Association="POSModel.Store.FK_ItemClassComponent_ItemClass">
-            <End Role="ItemClass" EntitySet="ItemClass" />
-            <End Role="ItemClassComponent" EntitySet="ItemClassComponent" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ItemMovement_D_TransectionType" Association="POSModel.Store.FK_ItemMovement_D_TransectionType">
-            <End Role="D_TransectionType" EntitySet="D_TransectionType" />
-            <End Role="ItemMovement" EntitySet="ItemMovement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Promotion_Item" Association="POSModel.Store.FK_Promotion_Item">
-            <End Role="Item" EntitySet="Item" />
-            <End Role="Promotion" EntitySet="Promotion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchase_Account" Association="POSModel.Store.FK_Purchase_Account">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="Purchase" EntitySet="Purchase" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchase_D_TransectionType" Association="POSModel.Store.FK_Purchase_D_TransectionType">
-            <End Role="D_TransectionType" EntitySet="D_TransectionType" />
-            <End Role="Purchase" EntitySet="Purchase" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchase_Entry_Item" Association="POSModel.Store.FK_Purchase_Entry_Item">
-            <End Role="Item" EntitySet="Item" />
-            <End Role="Purchase_Entry" EntitySet="Purchase_Entry" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchase_Entry_Purchase" Association="POSModel.Store.FK_Purchase_Entry_Purchase">
-            <End Role="Purchase" EntitySet="Purchase" />
-            <End Role="Purchase_Entry" EntitySet="Purchase_Entry" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchase_Payment_Purchase" Association="POSModel.Store.FK_Purchase_Payment_Purchase">
-            <End Role="Purchase" EntitySet="Purchase" />
-            <End Role="Purchase_Payment" EntitySet="Purchase_Payment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchase_Return_Entry_Purchase_Return" Association="POSModel.Store.FK_Purchase_Return_Entry_Purchase_Return">
-            <End Role="Purchase_Return" EntitySet="Purchase_Return" />
-            <End Role="Purchase_Return_Entry" EntitySet="Purchase_Return_Entry" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchase_Return_Purchase_Return" Association="POSModel.Store.FK_Purchase_Return_Purchase_Return">
-            <End Role="Purchase_Return" EntitySet="Purchase_Return" />
-            <End Role="Purchase_Return1" EntitySet="Purchase_Return" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Quotation_Account" Association="POSModel.Store.FK_Quotation_Account">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="Quotation" EntitySet="Quotation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Quotation_D_Counter" Association="POSModel.Store.FK_Quotation_D_Counter">
-            <End Role="D_Counter" EntitySet="D_Counter" />
-            <End Role="Quotation" EntitySet="Quotation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Quotation_Entry_Item" Association="POSModel.Store.FK_Quotation_Entry_Item">
-            <End Role="Item" EntitySet="Item" />
-            <End Role="Quotation_Entry" EntitySet="Quotation_Entry" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Quotation_Entry_Quotation" Association="POSModel.Store.FK_Quotation_Entry_Quotation">
-            <End Role="Quotation" EntitySet="Quotation" />
-            <End Role="Quotation_Entry" EntitySet="Quotation_Entry" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Quotation_P_User" Association="POSModel.Store.FK_Quotation_P_User">
-            <End Role="P_User" EntitySet="P_User" />
-            <End Role="Quotation" EntitySet="Quotation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sale_Account1" Association="POSModel.Store.FK_Sale_Account1">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="Sale" EntitySet="Sale" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sale_D_PaymentType" Association="POSModel.Store.FK_Sale_D_PaymentType">
-            <End Role="D_PaymentType" EntitySet="D_PaymentType" />
-            <End Role="Sale" EntitySet="Sale" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sale_D_TransectionType" Association="POSModel.Store.FK_Sale_D_TransectionType">
-            <End Role="D_TransectionType" EntitySet="D_TransectionType" />
-            <End Role="Sale" EntitySet="Sale" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sale_Entry_Purchase_Entry" Association="POSModel.Store.FK_Sale_Entry_Purchase_Entry">
-            <End Role="Purchase_Entry" EntitySet="Purchase_Entry" />
-            <End Role="Sale_Entry" EntitySet="Sale_Entry" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sale_Entry_Sale" Association="POSModel.Store.FK_Sale_Entry_Sale">
-            <End Role="Sale" EntitySet="Sale" />
-            <End Role="Sale_Entry" EntitySet="Sale_Entry" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Voucher_Entry_Account1" Association="POSModel.Store.FK_Voucher_Entry_Account1">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="Voucher_Entry" EntitySet="Voucher_Entry" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Voucher_Entry_Voucher" Association="POSModel.Store.FK_Voucher_Entry_Voucher">
-            <End Role="Voucher" EntitySet="Voucher" />
-            <End Role="Voucher_Entry" EntitySet="Voucher_Entry" />
-          </AssociationSet>
-        </EntityContainer>
+    <Schema Namespace="POSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Code" />
@@ -697,6 +35,9 @@
           <Property Name="UserName" Type="varchar" MaxLength="50" />
           <Property Name="ActivationCode" Type="varchar" MaxLength="50" />
           <Property Name="aUser" Type="int" />
+          <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="LastRun" Type="datetime" />
+          <Property Name="LastUserCode" Type="int" />
         </EntityType>
         <EntityType Name="Cheque">
           <Key>
@@ -758,6 +99,7 @@
           <Property Name="BarcodeTop" Type="int" />
           <Property Name="BarcodeFontSize" Type="int" />
           <Property Name="BarcodeType" Type="int" />
+          <Property Name="AccSuspense" Type="int" />
         </EntityType>
         <EntityType Name="D_AccountType">
           <Key>
@@ -1131,7 +473,7 @@
           <Key>
             <PropertyRef Name="Code" />
           </Key>
-          <Property Name="Code" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RegValue" Type="varchar" MaxLength="500" />
           <Property Name="UserName" Type="varchar" MaxLength="50" />
           <Property Name="AppID" Type="int" />
@@ -1269,8 +611,7 @@
           <Property Name="Credit" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.ChequeView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.ChequeView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ChequeView">
           <Key>
             <PropertyRef Name="Code" />
@@ -1282,13 +623,12 @@
           <Property Name="SupplierName" Type="varchar" MaxLength="50" />
           <Property Name="ChequeNo" Type="varchar" MaxLength="50" />
           <Property Name="Amount" Type="float" />
-          <Property Name="Total" Type="numeric" Nullable="false" Precision="1" Scale="1" />
+          <Property Name="Total" Type="numeric" Precision="1" Scale="1" Nullable="false" />
           <Property Name="Cleared" Type="bit" />
           <Property Name="Notes" Type="varchar" MaxLength="500" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.CustomerMonthlyBalanceView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.CustomerMonthlyBalanceView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CustomerMonthlyBalanceView">
           <Key>
             <PropertyRef Name="Code" />
@@ -1315,21 +655,20 @@
           <Property Name="OpeningBalance" Type="float" />
           <Property Name="TimeLimit" Type="int" />
           <Property Name="AmountLimit" Type="float" />
-          <Property Name="FinalBalance" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="Balance" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="BalanceCurrentMonth" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="BalancePrvMonth" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="LastBill" Type="numeric" Nullable="false" Precision="1" Scale="1" />
+          <Property Name="FinalBalance" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="Balance" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="BalanceCurrentMonth" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="BalancePrvMonth" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="LastBill" Type="numeric" Precision="1" Scale="1" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.DebitAge' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.DebitAge' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DebitAge">
           <Key>
             <PropertyRef Name="DebitAge" />
             <PropertyRef Name="Code" />
           </Key>
-          <Property Name="DebitAge" Type="varchar" Nullable="false" MaxLength="14" />
+          <Property Name="DebitAge" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="EffectiveDate" Type="datetime" />
           <Property Name="InvoiceNum" Type="varchar" MaxLength="50" />
@@ -1350,14 +689,13 @@
           <Property Name="TransectionType" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Item_Class_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Item_Class_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Item_Class_View">
           <Key>
             <PropertyRef Name="Type" />
             <PropertyRef Name="Code" />
           </Key>
-          <Property Name="Type" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="Type" Type="varchar" MaxLength="9" Nullable="false" />
           <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="ItemName" Type="varchar" MaxLength="50" />
           <Property Name="CostPrice" Type="float" />
@@ -1369,8 +707,7 @@
           <Property Name="Discontinued" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Item_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Item_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Item_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1398,8 +735,7 @@
           <Property Name="Discontinued" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.ItemMovementSlowView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.ItemMovementSlowView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ItemMovementSlowView">
           <Key>
             <PropertyRef Name="Code" />
@@ -1416,8 +752,7 @@
           <Property Name="LastTransectionDate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.ItemMovementSummaryView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.ItemMovementSummaryView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ItemMovementSummaryView">
           <Key>
             <PropertyRef Name="Code" />
@@ -1431,16 +766,15 @@
           <Property Name="ItemName" Type="varchar" MaxLength="50" />
           <Property Name="CategoryCode" Type="int" />
           <Property Name="Category" Type="varchar" MaxLength="50" />
-          <Property Name="Open" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="Purchase" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="Sale" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="Purchase_Amount" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="Sales_Amount" Type="numeric" Nullable="false" Precision="1" Scale="1" />
+          <Property Name="Open" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="Purchase" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="Sale" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="Purchase_Amount" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="Sales_Amount" Type="numeric" Precision="1" Scale="1" Nullable="false" />
           <Property Name="CostPrice" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.ItemMovementView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.ItemMovementView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ItemMovementView">
           <Key>
             <PropertyRef Name="Code" />
@@ -1458,8 +792,7 @@
           <Property Name="ItemCategoryName" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Purchase_Entry_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Purchase_Entry_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Purchase_Entry_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1497,8 +830,7 @@
           <Property Name="SubCategory" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Purchase_Payment_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Purchase_Payment_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Purchase_Payment_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1530,8 +862,7 @@
           <Property Name="VoucherCode" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Purchase_Return_Entry_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Purchase_Return_Entry_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Purchase_Return_Entry_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1564,8 +895,7 @@
           <Property Name="SubCategory" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Purchase_ReturnView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Purchase_ReturnView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Purchase_ReturnView">
           <Key>
             <PropertyRef Name="Code" />
@@ -1586,8 +916,7 @@
           <Property Name="VoucherCode" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Purchase_Summary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Purchase_Summary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Purchase_Summary">
           <Key>
             <PropertyRef Name="Code" />
@@ -1614,8 +943,7 @@
           <Property Name="TransectionType" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Quotation_Entry_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Quotation_Entry_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Quotation_Entry_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1643,8 +971,7 @@
           <Property Name="Q_Barcode" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Quotation_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Quotation_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Quotation_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1664,8 +991,7 @@
           <Property Name="isClosed" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Sale_CustomerRotation_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Sale_CustomerRotation_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Sale_CustomerRotation_View">
           <Key>
             <PropertyRef Name="AccountCode" />
@@ -1677,14 +1003,13 @@
           <Property Name="AccountNum" Type="varchar" MaxLength="50" />
           <Property Name="AccountCode" Type="int" Nullable="false" />
           <Property Name="AccountName" Type="varchar" MaxLength="50" />
-          <Property Name="TotalBill" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="Profit" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="Paid" Type="numeric" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="Balance" Type="numeric" Nullable="false" Precision="1" Scale="1" />
+          <Property Name="TotalBill" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="Profit" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="Paid" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="Balance" Type="numeric" Precision="1" Scale="1" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Sale_Entry_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Sale_Entry_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Sale_Entry_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1709,8 +1034,7 @@
           <Property Name="Notes" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Sale_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Sale_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Sale_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1743,8 +1067,7 @@
           <Property Name="PONumber" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.SaleCancel_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.SaleCancel_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SaleCancel_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1767,8 +1090,7 @@
           <Property Name="HoldCleared" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Sales_Full_View_Sub' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Sales_Full_View_Sub' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Sales_Full_View_Sub">
           <Key>
             <PropertyRef Name="AccountCode" />
@@ -1803,8 +1125,7 @@
           <Property Name="TransDate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Voucher_Main_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Voucher_Main_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Voucher_Main_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1824,8 +1145,7 @@
           <Property Name="UserName" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.Voucher_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.Voucher_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Voucher_View">
           <Key>
             <PropertyRef Name="Code" />
@@ -1853,13 +1173,12 @@
           <Property Name="PaymentTypeCode" Type="int" />
           <Property Name="TransectionType" Type="varchar" MaxLength="50" />
           <Property Name="PaymentType" Type="varchar" MaxLength="50" />
-          <Property Name="Balance" Type="numeric" Nullable="false" Precision="1" Scale="1" />
+          <Property Name="Balance" Type="numeric" Precision="1" Scale="1" Nullable="false" />
           <Property Name="AccountTypeName" Type="varchar" MaxLength="50" />
           <Property Name="AgainstAccountName" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'POS.dbo.VoucherDiscountView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'POS.dbo.VoucherDiscountView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VoucherDiscountView">
           <Key>
             <PropertyRef Name="Code" />
@@ -1884,14 +1203,14 @@
           <Property Name="PaymentTypeCode" Type="int" />
           <Property Name="TransectionType" Type="varchar" MaxLength="50" />
           <Property Name="PaymentType" Type="varchar" MaxLength="50" />
-          <Property Name="Balance" Type="numeric" Nullable="false" Precision="1" Scale="1" />
+          <Property Name="Balance" Type="numeric" Precision="1" Scale="1" Nullable="false" />
           <Property Name="AccountTypeName" Type="varchar" MaxLength="50" />
-          <Property Name="AccountName" Type="varchar" Nullable="false" MaxLength="1" />
-          <Property Name="AccountNum" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="AccountName" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="AccountNum" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <Association Name="FK_Account_D_AccountType">
-          <End Role="D_AccountType" Type="POSModel.Store.D_AccountType" Multiplicity="0..1" />
-          <End Role="Account" Type="POSModel.Store.Account" Multiplicity="*" />
+          <End Role="D_AccountType" Type="Self.D_AccountType" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_AccountType">
               <PropertyRef Name="Code" />
@@ -1902,8 +1221,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Item_D_ItemCategory1">
-          <End Role="D_ItemCategory" Type="POSModel.Store.D_ItemCategory" Multiplicity="0..1" />
-          <End Role="Item" Type="POSModel.Store.Item" Multiplicity="*" />
+          <End Role="D_ItemCategory" Type="Self.D_ItemCategory" Multiplicity="0..1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_ItemCategory">
               <PropertyRef Name="Code" />
@@ -1914,8 +1233,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Item_D_ItemSubCategory">
-          <End Role="D_ItemSubCategory" Type="POSModel.Store.D_ItemSubCategory" Multiplicity="0..1" />
-          <End Role="Item" Type="POSModel.Store.Item" Multiplicity="*" />
+          <End Role="D_ItemSubCategory" Type="Self.D_ItemSubCategory" Multiplicity="0..1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_ItemSubCategory">
               <PropertyRef Name="Code" />
@@ -1926,8 +1245,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Item_D_ItemType">
-          <End Role="D_ItemType" Type="POSModel.Store.D_ItemType" Multiplicity="0..1" />
-          <End Role="Item" Type="POSModel.Store.Item" Multiplicity="*" />
+          <End Role="D_ItemType" Type="Self.D_ItemType" Multiplicity="0..1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_ItemType">
               <PropertyRef Name="Code" />
@@ -1938,8 +1257,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ItemClass_D_ItemCategory">
-          <End Role="D_ItemCategory" Type="POSModel.Store.D_ItemCategory" Multiplicity="0..1" />
-          <End Role="ItemClass" Type="POSModel.Store.ItemClass" Multiplicity="*" />
+          <End Role="D_ItemCategory" Type="Self.D_ItemCategory" Multiplicity="0..1" />
+          <End Role="ItemClass" Type="Self.ItemClass" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_ItemCategory">
               <PropertyRef Name="Code" />
@@ -1950,8 +1269,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ItemClass_D_ItemSubCategory">
-          <End Role="D_ItemSubCategory" Type="POSModel.Store.D_ItemSubCategory" Multiplicity="0..1" />
-          <End Role="ItemClass" Type="POSModel.Store.ItemClass" Multiplicity="*" />
+          <End Role="D_ItemSubCategory" Type="Self.D_ItemSubCategory" Multiplicity="0..1" />
+          <End Role="ItemClass" Type="Self.ItemClass" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_ItemSubCategory">
               <PropertyRef Name="Code" />
@@ -1962,8 +1281,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ItemClassComponent_Item">
-          <End Role="Item" Type="POSModel.Store.Item" Multiplicity="0..1" />
-          <End Role="ItemClassComponent" Type="POSModel.Store.ItemClassComponent" Multiplicity="*" />
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="ItemClassComponent" Type="Self.ItemClassComponent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Item">
               <PropertyRef Name="Code" />
@@ -1974,10 +1293,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ItemClassComponent_ItemClass">
-          <End Role="ItemClass" Type="POSModel.Store.ItemClass" Multiplicity="0..1">
+          <End Role="ItemClass" Type="Self.ItemClass" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="ItemClassComponent" Type="POSModel.Store.ItemClassComponent" Multiplicity="*" />
+          <End Role="ItemClassComponent" Type="Self.ItemClassComponent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ItemClass">
               <PropertyRef Name="Code" />
@@ -1988,8 +1307,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ItemMovement_D_TransectionType">
-          <End Role="D_TransectionType" Type="POSModel.Store.D_TransectionType" Multiplicity="0..1" />
-          <End Role="ItemMovement" Type="POSModel.Store.ItemMovement" Multiplicity="*" />
+          <End Role="D_TransectionType" Type="Self.D_TransectionType" Multiplicity="0..1" />
+          <End Role="ItemMovement" Type="Self.ItemMovement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_TransectionType">
               <PropertyRef Name="Code" />
@@ -2000,10 +1319,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Promotion_Item">
-          <End Role="Item" Type="POSModel.Store.Item" Multiplicity="0..1">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Promotion" Type="POSModel.Store.Promotion" Multiplicity="*" />
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Item">
               <PropertyRef Name="Code" />
@@ -2014,8 +1333,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Purchase_Account">
-          <End Role="Account" Type="POSModel.Store.Account" Multiplicity="0..1" />
-          <End Role="Purchase" Type="POSModel.Store.Purchase" Multiplicity="*" />
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Code" />
@@ -2026,8 +1345,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Purchase_D_TransectionType">
-          <End Role="D_TransectionType" Type="POSModel.Store.D_TransectionType" Multiplicity="0..1" />
-          <End Role="Purchase" Type="POSModel.Store.Purchase" Multiplicity="*" />
+          <End Role="D_TransectionType" Type="Self.D_TransectionType" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_TransectionType">
               <PropertyRef Name="Code" />
@@ -2038,8 +1357,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Purchase_Entry_Item">
-          <End Role="Item" Type="POSModel.Store.Item" Multiplicity="0..1" />
-          <End Role="Purchase_Entry" Type="POSModel.Store.Purchase_Entry" Multiplicity="*" />
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="Purchase_Entry" Type="Self.Purchase_Entry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Item">
               <PropertyRef Name="Code" />
@@ -2050,10 +1369,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Purchase_Entry_Purchase">
-          <End Role="Purchase" Type="POSModel.Store.Purchase" Multiplicity="0..1">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Purchase_Entry" Type="POSModel.Store.Purchase_Entry" Multiplicity="*" />
+          <End Role="Purchase_Entry" Type="Self.Purchase_Entry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Purchase">
               <PropertyRef Name="Code" />
@@ -2064,10 +1383,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Purchase_Payment_Purchase">
-          <End Role="Purchase" Type="POSModel.Store.Purchase" Multiplicity="0..1">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Purchase_Payment" Type="POSModel.Store.Purchase_Payment" Multiplicity="*" />
+          <End Role="Purchase_Payment" Type="Self.Purchase_Payment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Purchase">
               <PropertyRef Name="Code" />
@@ -2078,10 +1397,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Purchase_Return_Entry_Purchase_Return">
-          <End Role="Purchase_Return" Type="POSModel.Store.Purchase_Return" Multiplicity="0..1">
+          <End Role="Purchase_Return" Type="Self.Purchase_Return" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Purchase_Return_Entry" Type="POSModel.Store.Purchase_Return_Entry" Multiplicity="*" />
+          <End Role="Purchase_Return_Entry" Type="Self.Purchase_Return_Entry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Purchase_Return">
               <PropertyRef Name="Code" />
@@ -2092,8 +1411,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Purchase_Return_Purchase_Return">
-          <End Role="Purchase_Return" Type="POSModel.Store.Purchase_Return" Multiplicity="1" />
-          <End Role="Purchase_Return1" Type="POSModel.Store.Purchase_Return" Multiplicity="0..1" />
+          <End Role="Purchase_Return" Type="Self.Purchase_Return" Multiplicity="1" />
+          <End Role="Purchase_Return1" Type="Self.Purchase_Return" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Purchase_Return">
               <PropertyRef Name="Code" />
@@ -2104,8 +1423,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Quotation_Account">
-          <End Role="Account" Type="POSModel.Store.Account" Multiplicity="0..1" />
-          <End Role="Quotation" Type="POSModel.Store.Quotation" Multiplicity="*" />
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Quotation" Type="Self.Quotation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Code" />
@@ -2116,8 +1435,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Quotation_D_Counter">
-          <End Role="D_Counter" Type="POSModel.Store.D_Counter" Multiplicity="0..1" />
-          <End Role="Quotation" Type="POSModel.Store.Quotation" Multiplicity="*" />
+          <End Role="D_Counter" Type="Self.D_Counter" Multiplicity="0..1" />
+          <End Role="Quotation" Type="Self.Quotation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_Counter">
               <PropertyRef Name="Code" />
@@ -2128,8 +1447,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Quotation_Entry_Item">
-          <End Role="Item" Type="POSModel.Store.Item" Multiplicity="0..1" />
-          <End Role="Quotation_Entry" Type="POSModel.Store.Quotation_Entry" Multiplicity="*" />
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="Quotation_Entry" Type="Self.Quotation_Entry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Item">
               <PropertyRef Name="Code" />
@@ -2140,10 +1459,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Quotation_Entry_Quotation">
-          <End Role="Quotation" Type="POSModel.Store.Quotation" Multiplicity="0..1">
+          <End Role="Quotation" Type="Self.Quotation" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Quotation_Entry" Type="POSModel.Store.Quotation_Entry" Multiplicity="*" />
+          <End Role="Quotation_Entry" Type="Self.Quotation_Entry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Quotation">
               <PropertyRef Name="Code" />
@@ -2154,8 +1473,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Quotation_P_User">
-          <End Role="P_User" Type="POSModel.Store.P_User" Multiplicity="0..1" />
-          <End Role="Quotation" Type="POSModel.Store.Quotation" Multiplicity="*" />
+          <End Role="P_User" Type="Self.P_User" Multiplicity="0..1" />
+          <End Role="Quotation" Type="Self.Quotation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="P_User">
               <PropertyRef Name="Code" />
@@ -2166,8 +1485,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sale_Account1">
-          <End Role="Account" Type="POSModel.Store.Account" Multiplicity="0..1" />
-          <End Role="Sale" Type="POSModel.Store.Sale" Multiplicity="*" />
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Code" />
@@ -2178,8 +1497,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sale_D_PaymentType">
-          <End Role="D_PaymentType" Type="POSModel.Store.D_PaymentType" Multiplicity="0..1" />
-          <End Role="Sale" Type="POSModel.Store.Sale" Multiplicity="*" />
+          <End Role="D_PaymentType" Type="Self.D_PaymentType" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_PaymentType">
               <PropertyRef Name="Code" />
@@ -2190,8 +1509,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sale_D_TransectionType">
-          <End Role="D_TransectionType" Type="POSModel.Store.D_TransectionType" Multiplicity="0..1" />
-          <End Role="Sale" Type="POSModel.Store.Sale" Multiplicity="*" />
+          <End Role="D_TransectionType" Type="Self.D_TransectionType" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="D_TransectionType">
               <PropertyRef Name="Code" />
@@ -2202,8 +1521,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sale_Entry_Purchase_Entry">
-          <End Role="Purchase_Entry" Type="POSModel.Store.Purchase_Entry" Multiplicity="0..1" />
-          <End Role="Sale_Entry" Type="POSModel.Store.Sale_Entry" Multiplicity="*" />
+          <End Role="Purchase_Entry" Type="Self.Purchase_Entry" Multiplicity="0..1" />
+          <End Role="Sale_Entry" Type="Self.Sale_Entry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Purchase_Entry">
               <PropertyRef Name="Code" />
@@ -2214,10 +1533,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sale_Entry_Sale">
-          <End Role="Sale" Type="POSModel.Store.Sale" Multiplicity="0..1">
+          <End Role="Sale" Type="Self.Sale" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Sale_Entry" Type="POSModel.Store.Sale_Entry" Multiplicity="*" />
+          <End Role="Sale_Entry" Type="Self.Sale_Entry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sale">
               <PropertyRef Name="Code" />
@@ -2228,8 +1547,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Voucher_Entry_Account1">
-          <End Role="Account" Type="POSModel.Store.Account" Multiplicity="1" />
-          <End Role="Voucher_Entry" Type="POSModel.Store.Voucher_Entry" Multiplicity="*" />
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Voucher_Entry" Type="Self.Voucher_Entry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Code" />
@@ -2240,10 +1559,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Voucher_Entry_Voucher">
-          <End Role="Voucher" Type="POSModel.Store.Voucher" Multiplicity="0..1">
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Voucher_Entry" Type="POSModel.Store.Voucher_Entry" Multiplicity="*" />
+          <End Role="Voucher_Entry" Type="Self.Voucher_Entry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Voucher">
               <PropertyRef Name="Code" />
@@ -2253,13 +1572,675 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="POSModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Activation" EntityType="Self.Activation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cheque" EntityType="Self.Cheque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Config" EntityType="Self.Config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_AccountType" EntityType="Self.D_AccountType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_BarcodeType" EntityType="Self.D_BarcodeType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_CostMethod" EntityType="Self.D_CostMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_Counter" EntityType="Self.D_Counter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_ItemCategory" EntityType="Self.D_ItemCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_ItemSubCategory" EntityType="Self.D_ItemSubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_ItemType" EntityType="Self.D_ItemType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_Month" EntityType="Self.D_Month" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_PaymentType" EntityType="Self.D_PaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_TransectionType" EntityType="Self.D_TransectionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_UMCType" EntityType="Self.D_UMCType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_Year" EntityType="Self.D_Year" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hold" EntityType="Self.Hold" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hold_Entry" EntityType="Self.Hold_Entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemClass" EntityType="Self.ItemClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemClassComponent" EntityType="Self.ItemClassComponent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemMovement" EntityType="Self.ItemMovement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_User" EntityType="Self.P_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase_Entry" EntityType="Self.Purchase_Entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase_Payment" EntityType="Self.Purchase_Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase_Return" EntityType="Self.Purchase_Return" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase_Return_Entry" EntityType="Self.Purchase_Return_Entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quotation" EntityType="Self.Quotation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quotation_Entry" EntityType="Self.Quotation_Entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reg" EntityType="Self.Reg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sale_Entry" EntityType="Self.Sale_Entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaleCancel" EntityType="Self.SaleCancel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaleCancel_Entry" EntityType="Self.SaleCancel_Entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales_Batch" EntityType="Self.Sales_Batch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voucher_Entry" EntityType="Self.Voucher_Entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChequeView" EntityType="Self.ChequeView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ChequeView].[Code] AS [Code], 
+[ChequeView].[tDate] AS [tDate], 
+[ChequeView].[SupplierCode] AS [SupplierCode], 
+[ChequeView].[SupplierName] AS [SupplierName], 
+[ChequeView].[ChequeNo] AS [ChequeNo], 
+[ChequeView].[Amount] AS [Amount], 
+[ChequeView].[Total] AS [Total], 
+[ChequeView].[Cleared] AS [Cleared], 
+[ChequeView].[Notes] AS [Notes]
+FROM [dbo].[ChequeView] AS [ChequeView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CustomerMonthlyBalanceView" EntityType="Self.CustomerMonthlyBalanceView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[CustomerMonthlyBalanceView].[Code] AS [Code], 
+[CustomerMonthlyBalanceView].[AccountNum] AS [AccountNum], 
+[CustomerMonthlyBalanceView].[AccountType] AS [AccountType], 
+[CustomerMonthlyBalanceView].[Title] AS [Title], 
+[CustomerMonthlyBalanceView].[Telephone] AS [Telephone], 
+[CustomerMonthlyBalanceView].[Mobile] AS [Mobile], 
+[CustomerMonthlyBalanceView].[Notes] AS [Notes], 
+[CustomerMonthlyBalanceView].[Salary] AS [Salary], 
+[CustomerMonthlyBalanceView].[PassportNo] AS [PassportNo], 
+[CustomerMonthlyBalanceView].[PassportExp] AS [PassportExp], 
+[CustomerMonthlyBalanceView].[CivilID] AS [CivilID], 
+[CustomerMonthlyBalanceView].[CivilIDExp] AS [CivilIDExp], 
+[CustomerMonthlyBalanceView].[HealthCardNo] AS [HealthCardNo], 
+[CustomerMonthlyBalanceView].[HealthCardExp] AS [HealthCardExp], 
+[CustomerMonthlyBalanceView].[OpeningBalance] AS [OpeningBalance], 
+[CustomerMonthlyBalanceView].[TimeLimit] AS [TimeLimit], 
+[CustomerMonthlyBalanceView].[AmountLimit] AS [AmountLimit], 
+[CustomerMonthlyBalanceView].[FinalBalance] AS [FinalBalance], 
+[CustomerMonthlyBalanceView].[Balance] AS [Balance], 
+[CustomerMonthlyBalanceView].[BalanceCurrentMonth] AS [BalanceCurrentMonth], 
+[CustomerMonthlyBalanceView].[BalancePrvMonth] AS [BalancePrvMonth], 
+[CustomerMonthlyBalanceView].[LastBill] AS [LastBill]
+FROM [dbo].[CustomerMonthlyBalanceView] AS [CustomerMonthlyBalanceView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DebitAge" EntityType="Self.DebitAge" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[DebitAge].[DebitAge] AS [DebitAge], 
+[DebitAge].[Code] AS [Code], 
+[DebitAge].[EffectiveDate] AS [EffectiveDate], 
+[DebitAge].[InvoiceNum] AS [InvoiceNum], 
+[DebitAge].[Amount] AS [Amount], 
+[DebitAge].[DebitNote] AS [DebitNote], 
+[DebitAge].[Discount] AS [Discount], 
+[DebitAge].[TotalAmount] AS [TotalAmount], 
+[DebitAge].[PaidAmount] AS [PaidAmount], 
+[DebitAge].[DiscountAtPay] AS [DiscountAtPay], 
+[DebitAge].[Balance] AS [Balance], 
+[DebitAge].[Posted] AS [Posted], 
+[DebitAge].[UserCode] AS [UserCode], 
+[DebitAge].[UserName] AS [UserName], 
+[DebitAge].[Notes] AS [Notes], 
+[DebitAge].[SupplierCode] AS [SupplierCode], 
+[DebitAge].[SupplierName] AS [SupplierName], 
+[DebitAge].[TransectionTypeCode] AS [TransectionTypeCode], 
+[DebitAge].[TransectionType] AS [TransectionType]
+FROM [dbo].[DebitAge] AS [DebitAge]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Item_Class_View" EntityType="Self.Item_Class_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Item_Class_View].[Type] AS [Type], 
+[Item_Class_View].[Code] AS [Code], 
+[Item_Class_View].[ItemName] AS [ItemName], 
+[Item_Class_View].[CostPrice] AS [CostPrice], 
+[Item_Class_View].[SalesPrice] AS [SalesPrice], 
+[Item_Class_View].[Barcode] AS [Barcode], 
+[Item_Class_View].[Barcode2] AS [Barcode2], 
+[Item_Class_View].[CostMethod] AS [CostMethod], 
+[Item_Class_View].[ProfitMargin] AS [ProfitMargin], 
+[Item_Class_View].[Discontinued] AS [Discontinued]
+FROM [dbo].[Item_Class_View] AS [Item_Class_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Item_View" EntityType="Self.Item_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Item_View].[Code] AS [Code], 
+[Item_View].[ItemName] AS [ItemName], 
+[Item_View].[CategoryCode] AS [CategoryCode], 
+[Item_View].[Category] AS [Category], 
+[Item_View].[SubCategoryCode] AS [SubCategoryCode], 
+[Item_View].[SubCategory] AS [SubCategory], 
+[Item_View].[ItemTypeCode] AS [ItemTypeCode], 
+[Item_View].[ItemType] AS [ItemType], 
+[Item_View].[CostPrice] AS [CostPrice], 
+[Item_View].[SalesPrice] AS [SalesPrice], 
+[Item_View].[Barcode] AS [Barcode], 
+[Item_View].[Barcode2] AS [Barcode2], 
+[Item_View].[StockInHand] AS [StockInHand], 
+[Item_View].[StockInStore] AS [StockInStore], 
+[Item_View].[StockMin] AS [StockMin], 
+[Item_View].[Notes] AS [Notes], 
+[Item_View].[UMCCode] AS [UMCCode], 
+[Item_View].[UMC] AS [UMC], 
+[Item_View].[LastSaleDate] AS [LastSaleDate], 
+[Item_View].[LastPurchaseDate] AS [LastPurchaseDate], 
+[Item_View].[Discontinued] AS [Discontinued]
+FROM [dbo].[Item_View] AS [Item_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ItemMovementSlowView" EntityType="Self.ItemMovementSlowView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ItemMovementSlowView].[Code] AS [Code], 
+[ItemMovementSlowView].[ItemName] AS [ItemName], 
+[ItemMovementSlowView].[CategoryCode] AS [CategoryCode], 
+[ItemMovementSlowView].[Category] AS [Category], 
+[ItemMovementSlowView].[SubCategoryCode] AS [SubCategoryCode], 
+[ItemMovementSlowView].[SubCategory] AS [SubCategory], 
+[ItemMovementSlowView].[Stock] AS [Stock], 
+[ItemMovementSlowView].[CostPrice] AS [CostPrice], 
+[ItemMovementSlowView].[StockValue] AS [StockValue], 
+[ItemMovementSlowView].[LastTransectionDate] AS [LastTransectionDate]
+FROM [dbo].[ItemMovementSlowView] AS [ItemMovementSlowView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ItemMovementSummaryView" EntityType="Self.ItemMovementSummaryView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ItemMovementSummaryView].[Code] AS [Code], 
+[ItemMovementSummaryView].[ItemName] AS [ItemName], 
+[ItemMovementSummaryView].[CategoryCode] AS [CategoryCode], 
+[ItemMovementSummaryView].[Category] AS [Category], 
+[ItemMovementSummaryView].[Open] AS [Open], 
+[ItemMovementSummaryView].[Purchase] AS [Purchase], 
+[ItemMovementSummaryView].[Sale] AS [Sale], 
+[ItemMovementSummaryView].[Purchase_Amount] AS [Purchase_Amount], 
+[ItemMovementSummaryView].[Sales_Amount] AS [Sales_Amount], 
+[ItemMovementSummaryView].[CostPrice] AS [CostPrice]
+FROM [dbo].[ItemMovementSummaryView] AS [ItemMovementSummaryView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ItemMovementView" EntityType="Self.ItemMovementView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ItemMovementView].[Code] AS [Code], 
+[ItemMovementView].[TransectionType] AS [TransectionType], 
+[ItemMovementView].[TransectionDate] AS [TransectionDate], 
+[ItemMovementView].[ItemCode] AS [ItemCode], 
+[ItemMovementView].[Quantity] AS [Quantity], 
+[ItemMovementView].[ForeignKey] AS [ForeignKey], 
+[ItemMovementView].[TransectionTypeName] AS [TransectionTypeName], 
+[ItemMovementView].[TransDate] AS [TransDate], 
+[ItemMovementView].[ItemName] AS [ItemName], 
+[ItemMovementView].[ItemCategory] AS [ItemCategory], 
+[ItemMovementView].[ItemCategoryName] AS [ItemCategoryName]
+FROM [dbo].[ItemMovementView] AS [ItemMovementView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Purchase_Entry_View" EntityType="Self.Purchase_Entry_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Purchase_Entry_View].[Code] AS [Code], 
+[Purchase_Entry_View].[PurchaseCode] AS [PurchaseCode], 
+[Purchase_Entry_View].[ItemCode] AS [ItemCode], 
+[Purchase_Entry_View].[ItemName] AS [ItemName], 
+[Purchase_Entry_View].[Barcode] AS [Barcode], 
+[Purchase_Entry_View].[Qty] AS [Qty], 
+[Purchase_Entry_View].[QtyStock] AS [QtyStock], 
+[Purchase_Entry_View].[QtyReturned] AS [QtyReturned], 
+[Purchase_Entry_View].[UnitPrice] AS [UnitPrice], 
+[Purchase_Entry_View].[Price] AS [Price], 
+[Purchase_Entry_View].[ExpiryDate] AS [ExpiryDate], 
+[Purchase_Entry_View].[EffectiveDate] AS [EffectiveDate], 
+[Purchase_Entry_View].[TransectionDate] AS [TransectionDate], 
+[Purchase_Entry_View].[TransectionType] AS [TransectionType], 
+[Purchase_Entry_View].[TransectionTypeName] AS [TransectionTypeName], 
+[Purchase_Entry_View].[SupplierCode] AS [SupplierCode], 
+[Purchase_Entry_View].[AccountNum] AS [AccountNum], 
+[Purchase_Entry_View].[InvoiceNum] AS [InvoiceNum], 
+[Purchase_Entry_View].[Amount] AS [Amount], 
+[Purchase_Entry_View].[DebitNote] AS [DebitNote], 
+[Purchase_Entry_View].[Discount] AS [Discount], 
+[Purchase_Entry_View].[TotalAmount] AS [TotalAmount], 
+[Purchase_Entry_View].[Posted] AS [Posted], 
+[Purchase_Entry_View].[UserCode] AS [UserCode], 
+[Purchase_Entry_View].[Notes] AS [Notes], 
+[Purchase_Entry_View].[SupplierName] AS [SupplierName], 
+[Purchase_Entry_View].[UserName] AS [UserName], 
+[Purchase_Entry_View].[AvgPrice] AS [AvgPrice], 
+[Purchase_Entry_View].[SerailNum] AS [SerailNum], 
+[Purchase_Entry_View].[ItemCategory] AS [ItemCategory], 
+[Purchase_Entry_View].[SubCategory] AS [SubCategory]
+FROM [dbo].[Purchase_Entry_View] AS [Purchase_Entry_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Purchase_Payment_View" EntityType="Self.Purchase_Payment_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Purchase_Payment_View].[Code] AS [Code], 
+[Purchase_Payment_View].[PurchaseCode] AS [PurchaseCode], 
+[Purchase_Payment_View].[EffectiveDate] AS [EffectiveDate], 
+[Purchase_Payment_View].[TransectionDate] AS [TransectionDate], 
+[Purchase_Payment_View].[PaidAmount] AS [PaidAmount], 
+[Purchase_Payment_View].[DiscountAtPay] AS [DiscountAtPay], 
+[Purchase_Payment_View].[RefNum] AS [RefNum], 
+[Purchase_Payment_View].[PaymentAccount] AS [PaymentAccount], 
+[Purchase_Payment_View].[CheckNum] AS [CheckNum], 
+[Purchase_Payment_View].[CheckDate] AS [CheckDate], 
+[Purchase_Payment_View].[UserCode] AS [UserCode], 
+[Purchase_Payment_View].[Notes] AS [Notes], 
+[Purchase_Payment_View].[UserName] AS [UserName], 
+[Purchase_Payment_View].[PaymentAccountName] AS [PaymentAccountName], 
+[Purchase_Payment_View].[PaymentCode] AS [PaymentCode], 
+[Purchase_Payment_View].[P_EffectiveDate] AS [P_EffectiveDate], 
+[Purchase_Payment_View].[SupplierCode] AS [SupplierCode], 
+[Purchase_Payment_View].[SupplierName] AS [SupplierName], 
+[Purchase_Payment_View].[P_InvoiceNum] AS [P_InvoiceNum], 
+[Purchase_Payment_View].[P_TotalAmount] AS [P_TotalAmount], 
+[Purchase_Payment_View].[P_PaidAmount] AS [P_PaidAmount], 
+[Purchase_Payment_View].[P_DiscountAtPay] AS [P_DiscountAtPay], 
+[Purchase_Payment_View].[P_Returned] AS [P_Returned], 
+[Purchase_Payment_View].[P_Balance] AS [P_Balance], 
+[Purchase_Payment_View].[VoucherCode] AS [VoucherCode]
+FROM [dbo].[Purchase_Payment_View] AS [Purchase_Payment_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Purchase_Return_Entry_View" EntityType="Self.Purchase_Return_Entry_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Purchase_Return_Entry_View].[Code] AS [Code], 
+[Purchase_Return_Entry_View].[PurchaseReturnCode] AS [PurchaseReturnCode], 
+[Purchase_Return_Entry_View].[PurchaseFromCode] AS [PurchaseFromCode], 
+[Purchase_Return_Entry_View].[ItemCode] AS [ItemCode], 
+[Purchase_Return_Entry_View].[ItemName] AS [ItemName], 
+[Purchase_Return_Entry_View].[Qty] AS [Qty], 
+[Purchase_Return_Entry_View].[UnitPrice] AS [UnitPrice], 
+[Purchase_Return_Entry_View].[Price] AS [Price], 
+[Purchase_Return_Entry_View].[ExpiryDate] AS [ExpiryDate], 
+[Purchase_Return_Entry_View].[EffectiveDate] AS [EffectiveDate], 
+[Purchase_Return_Entry_View].[TransectionDate] AS [TransectionDate], 
+[Purchase_Return_Entry_View].[TransectionTypeCode] AS [TransectionTypeCode], 
+[Purchase_Return_Entry_View].[TransectionType] AS [TransectionType], 
+[Purchase_Return_Entry_View].[SupplierCode] AS [SupplierCode], 
+[Purchase_Return_Entry_View].[Supplier] AS [Supplier], 
+[Purchase_Return_Entry_View].[InvoiceNum] AS [InvoiceNum], 
+[Purchase_Return_Entry_View].[Amount] AS [Amount], 
+[Purchase_Return_Entry_View].[Posted] AS [Posted], 
+[Purchase_Return_Entry_View].[UserCode] AS [UserCode], 
+[Purchase_Return_Entry_View].[UserName] AS [UserName], 
+[Purchase_Return_Entry_View].[Notes] AS [Notes], 
+[Purchase_Return_Entry_View].[VoucherCode] AS [VoucherCode], 
+[Purchase_Return_Entry_View].[Barcode] AS [Barcode], 
+[Purchase_Return_Entry_View].[SerailNum] AS [SerailNum], 
+[Purchase_Return_Entry_View].[ItemCategory] AS [ItemCategory], 
+[Purchase_Return_Entry_View].[SubCategory] AS [SubCategory]
+FROM [dbo].[Purchase_Return_Entry_View] AS [Purchase_Return_Entry_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Purchase_ReturnView" EntityType="Self.Purchase_ReturnView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Purchase_ReturnView].[Code] AS [Code], 
+[Purchase_ReturnView].[EffectiveDate] AS [EffectiveDate], 
+[Purchase_ReturnView].[TransectionDate] AS [TransectionDate], 
+[Purchase_ReturnView].[TransectionTypeCode] AS [TransectionTypeCode], 
+[Purchase_ReturnView].[TransectionType] AS [TransectionType], 
+[Purchase_ReturnView].[SupplierCode] AS [SupplierCode], 
+[Purchase_ReturnView].[Supplier] AS [Supplier], 
+[Purchase_ReturnView].[InvoiceNum] AS [InvoiceNum], 
+[Purchase_ReturnView].[Amount] AS [Amount], 
+[Purchase_ReturnView].[Posted] AS [Posted], 
+[Purchase_ReturnView].[UserCode] AS [UserCode], 
+[Purchase_ReturnView].[UserName] AS [UserName], 
+[Purchase_ReturnView].[Notes] AS [Notes], 
+[Purchase_ReturnView].[VoucherCode] AS [VoucherCode]
+FROM [dbo].[Purchase_ReturnView] AS [Purchase_ReturnView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Purchase_Summary" EntityType="Self.Purchase_Summary" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Purchase_Summary].[Code] AS [Code], 
+[Purchase_Summary].[EffectiveDate] AS [EffectiveDate], 
+[Purchase_Summary].[InvoiceNum] AS [InvoiceNum], 
+[Purchase_Summary].[Amount] AS [Amount], 
+[Purchase_Summary].[DebitNote] AS [DebitNote], 
+[Purchase_Summary].[Discount] AS [Discount], 
+[Purchase_Summary].[TotalAmount] AS [TotalAmount], 
+[Purchase_Summary].[PaidAmount] AS [PaidAmount], 
+[Purchase_Summary].[DiscountAtPay] AS [DiscountAtPay], 
+[Purchase_Summary].[Returned] AS [Returned], 
+[Purchase_Summary].[Balance] AS [Balance], 
+[Purchase_Summary].[Posted] AS [Posted], 
+[Purchase_Summary].[UserCode] AS [UserCode], 
+[Purchase_Summary].[UserName] AS [UserName], 
+[Purchase_Summary].[Notes] AS [Notes], 
+[Purchase_Summary].[AccountNum] AS [AccountNum], 
+[Purchase_Summary].[SupplierCode] AS [SupplierCode], 
+[Purchase_Summary].[SupplierName] AS [SupplierName], 
+[Purchase_Summary].[TransectionTypeCode] AS [TransectionTypeCode], 
+[Purchase_Summary].[TransectionType] AS [TransectionType]
+FROM [dbo].[Purchase_Summary] AS [Purchase_Summary]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Quotation_Entry_View" EntityType="Self.Quotation_Entry_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Quotation_Entry_View].[Code] AS [Code], 
+[Quotation_Entry_View].[CustomerCode] AS [CustomerCode], 
+[Quotation_Entry_View].[CustomerNo] AS [CustomerNo], 
+[Quotation_Entry_View].[CustomerName] AS [CustomerName], 
+[Quotation_Entry_View].[TransectionDate] AS [TransectionDate], 
+[Quotation_Entry_View].[UserCode] AS [UserCode], 
+[Quotation_Entry_View].[UserName] AS [UserName], 
+[Quotation_Entry_View].[CounterCode] AS [CounterCode], 
+[Quotation_Entry_View].[CounterName] AS [CounterName], 
+[Quotation_Entry_View].[TotalBill] AS [TotalBill], 
+[Quotation_Entry_View].[Discount] AS [Discount], 
+[Quotation_Entry_View].[NetBill] AS [NetBill], 
+[Quotation_Entry_View].[Remark] AS [Remark], 
+[Quotation_Entry_View].[isClosed] AS [isClosed], 
+[Quotation_Entry_View].[Q_Code] AS [Q_Code], 
+[Quotation_Entry_View].[Q_ItemCode] AS [Q_ItemCode], 
+[Quotation_Entry_View].[Q_ItemName] AS [Q_ItemName], 
+[Quotation_Entry_View].[Q_UnitPrice] AS [Q_UnitPrice], 
+[Quotation_Entry_View].[Q_Quantity] AS [Q_Quantity], 
+[Quotation_Entry_View].[Q_TotalPrice] AS [Q_TotalPrice], 
+[Quotation_Entry_View].[Q_Barcode] AS [Q_Barcode]
+FROM [dbo].[Quotation_Entry_View] AS [Quotation_Entry_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Quotation_View" EntityType="Self.Quotation_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Quotation_View].[Code] AS [Code], 
+[Quotation_View].[CustomerCode] AS [CustomerCode], 
+[Quotation_View].[CustomerName] AS [CustomerName], 
+[Quotation_View].[TransectionDate] AS [TransectionDate], 
+[Quotation_View].[UserCode] AS [UserCode], 
+[Quotation_View].[UserName] AS [UserName], 
+[Quotation_View].[CounterCode] AS [CounterCode], 
+[Quotation_View].[CounterName] AS [CounterName], 
+[Quotation_View].[TotalBill] AS [TotalBill], 
+[Quotation_View].[Discount] AS [Discount], 
+[Quotation_View].[NetBill] AS [NetBill], 
+[Quotation_View].[Remark] AS [Remark], 
+[Quotation_View].[isClosed] AS [isClosed]
+FROM [dbo].[Quotation_View] AS [Quotation_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sale_CustomerRotation_View" EntityType="Self.Sale_CustomerRotation_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Sale_CustomerRotation_View].[AccountNum] AS [AccountNum], 
+[Sale_CustomerRotation_View].[AccountCode] AS [AccountCode], 
+[Sale_CustomerRotation_View].[AccountName] AS [AccountName], 
+[Sale_CustomerRotation_View].[TotalBill] AS [TotalBill], 
+[Sale_CustomerRotation_View].[Profit] AS [Profit], 
+[Sale_CustomerRotation_View].[Paid] AS [Paid], 
+[Sale_CustomerRotation_View].[Balance] AS [Balance]
+FROM [dbo].[Sale_CustomerRotation_View] AS [Sale_CustomerRotation_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sale_Entry_View" EntityType="Self.Sale_Entry_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Sale_Entry_View].[Code] AS [Code], 
+[Sale_Entry_View].[SaleCode] AS [SaleCode], 
+[Sale_Entry_View].[ItemCode] AS [ItemCode], 
+[Sale_Entry_View].[ItemName] AS [ItemName], 
+[Sale_Entry_View].[Barcode] AS [Barcode], 
+[Sale_Entry_View].[ItemCategoryCode] AS [ItemCategoryCode], 
+[Sale_Entry_View].[ItemCategory] AS [ItemCategory], 
+[Sale_Entry_View].[SubCategoryCode] AS [SubCategoryCode], 
+[Sale_Entry_View].[SubCategory] AS [SubCategory], 
+[Sale_Entry_View].[UnitPrice] AS [UnitPrice], 
+[Sale_Entry_View].[Quantity] AS [Quantity], 
+[Sale_Entry_View].[TotalPrice] AS [TotalPrice], 
+[Sale_Entry_View].[CostPrice] AS [CostPrice], 
+[Sale_Entry_View].[UMC] AS [UMC], 
+[Sale_Entry_View].[SerailNum] AS [SerailNum], 
+[Sale_Entry_View].[Purchase_EntryCode] AS [Purchase_EntryCode], 
+[Sale_Entry_View].[ItemType] AS [ItemType], 
+[Sale_Entry_View].[Notes] AS [Notes]
+FROM [dbo].[Sale_Entry_View] AS [Sale_Entry_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sale_View" EntityType="Self.Sale_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Sale_View].[Code] AS [Code], 
+[Sale_View].[BillNo] AS [BillNo], 
+[Sale_View].[TransectionDate] AS [TransectionDate], 
+[Sale_View].[TransectionTypeCode] AS [TransectionTypeCode], 
+[Sale_View].[TransectionType] AS [TransectionType], 
+[Sale_View].[TotalBill] AS [TotalBill], 
+[Sale_View].[Discount] AS [Discount], 
+[Sale_View].[NetBill] AS [NetBill], 
+[Sale_View].[AccountCode] AS [AccountCode], 
+[Sale_View].[AccountName] AS [AccountName], 
+[Sale_View].[UserCode] AS [UserCode], 
+[Sale_View].[UserName] AS [UserName], 
+[Sale_View].[AccountNum] AS [AccountNum], 
+[Sale_View].[CounterCode] AS [CounterCode], 
+[Sale_View].[PaymentTypeCode] AS [PaymentTypeCode], 
+[Sale_View].[PaymentType] AS [PaymentType], 
+[Sale_View].[T_Month] AS [T_Month], 
+[Sale_View].[T_Year] AS [T_Year], 
+[Sale_View].[TransDate] AS [TransDate], 
+[Sale_View].[VoucherCode] AS [VoucherCode], 
+[Sale_View].[Payment] AS [Payment], 
+[Sale_View].[Balance] AS [Balance], 
+[Sale_View].[Remark] AS [Remark], 
+[Sale_View].[PaymentCleared] AS [PaymentCleared], 
+[Sale_View].[PONumber] AS [PONumber]
+FROM [dbo].[Sale_View] AS [Sale_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SaleCancel_View" EntityType="Self.SaleCancel_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[SaleCancel_View].[Code] AS [Code], 
+[SaleCancel_View].[BillNo] AS [BillNo], 
+[SaleCancel_View].[TransectionDate] AS [TransectionDate], 
+[SaleCancel_View].[TransectionTypeCode] AS [TransectionTypeCode], 
+[SaleCancel_View].[TransectionType] AS [TransectionType], 
+[SaleCancel_View].[UserName] AS [UserName], 
+[SaleCancel_View].[UserCode] AS [UserCode], 
+[SaleCancel_View].[ItemCode] AS [ItemCode], 
+[SaleCancel_View].[ItemName] AS [ItemName], 
+[SaleCancel_View].[UnitPrice] AS [UnitPrice], 
+[SaleCancel_View].[Quantity] AS [Quantity], 
+[SaleCancel_View].[TotalPrice] AS [TotalPrice], 
+[SaleCancel_View].[TransDate] AS [TransDate], 
+[SaleCancel_View].[CounterCode] AS [CounterCode], 
+[SaleCancel_View].[HoldCode] AS [HoldCode], 
+[SaleCancel_View].[HoldCleared] AS [HoldCleared]
+FROM [dbo].[SaleCancel_View] AS [SaleCancel_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sales_Full_View_Sub" EntityType="Self.Sales_Full_View_Sub" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Sales_Full_View_Sub].[SaleCode] AS [SaleCode], 
+[Sales_Full_View_Sub].[BillNo] AS [BillNo], 
+[Sales_Full_View_Sub].[TransectionDate] AS [TransectionDate], 
+[Sales_Full_View_Sub].[TransectionTypeCode] AS [TransectionTypeCode], 
+[Sales_Full_View_Sub].[TransectionType] AS [TransectionType], 
+[Sales_Full_View_Sub].[TotalBill] AS [TotalBill], 
+[Sales_Full_View_Sub].[Discount] AS [Discount], 
+[Sales_Full_View_Sub].[NetBill] AS [NetBill], 
+[Sales_Full_View_Sub].[AccountCode] AS [AccountCode], 
+[Sales_Full_View_Sub].[AccountNum] AS [AccountNum], 
+[Sales_Full_View_Sub].[AccountName] AS [AccountName], 
+[Sales_Full_View_Sub].[UserCode] AS [UserCode], 
+[Sales_Full_View_Sub].[UserName] AS [UserName], 
+[Sales_Full_View_Sub].[ItemCode] AS [ItemCode], 
+[Sales_Full_View_Sub].[ItemName] AS [ItemName], 
+[Sales_Full_View_Sub].[Barcode] AS [Barcode], 
+[Sales_Full_View_Sub].[ItemCategoryCode] AS [ItemCategoryCode], 
+[Sales_Full_View_Sub].[ItemCategory] AS [ItemCategory], 
+[Sales_Full_View_Sub].[UnitPrice] AS [UnitPrice], 
+[Sales_Full_View_Sub].[Quantity] AS [Quantity], 
+[Sales_Full_View_Sub].[TotalPrice] AS [TotalPrice], 
+[Sales_Full_View_Sub].[CostPrice] AS [CostPrice], 
+[Sales_Full_View_Sub].[CounterCode] AS [CounterCode], 
+[Sales_Full_View_Sub].[PaymentTypeCode] AS [PaymentTypeCode], 
+[Sales_Full_View_Sub].[PaymentType] AS [PaymentType], 
+[Sales_Full_View_Sub].[T_Month] AS [T_Month], 
+[Sales_Full_View_Sub].[T_Year] AS [T_Year], 
+[Sales_Full_View_Sub].[TransDate] AS [TransDate]
+FROM [dbo].[Sales_Full_View_Sub] AS [Sales_Full_View_Sub]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Voucher_Main_View" EntityType="Self.Voucher_Main_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Voucher_Main_View].[Code] AS [Code], 
+[Voucher_Main_View].[CounterCode] AS [CounterCode], 
+[Voucher_Main_View].[RefNumber] AS [RefNumber], 
+[Voucher_Main_View].[EffectiveDate] AS [EffectiveDate], 
+[Voucher_Main_View].[TransectionDate] AS [TransectionDate], 
+[Voucher_Main_View].[UserCode] AS [UserCode], 
+[Voucher_Main_View].[Notes] AS [Notes], 
+[Voucher_Main_View].[Posted] AS [Posted], 
+[Voucher_Main_View].[TransectionTypeCode] AS [TransectionTypeCode], 
+[Voucher_Main_View].[PaymentTypeCode] AS [PaymentTypeCode], 
+[Voucher_Main_View].[TransectionType] AS [TransectionType], 
+[Voucher_Main_View].[PaymentType] AS [PaymentType], 
+[Voucher_Main_View].[UserName] AS [UserName]
+FROM [dbo].[Voucher_Main_View] AS [Voucher_Main_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Voucher_View" EntityType="Self.Voucher_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Voucher_View].[Code] AS [Code], 
+[Voucher_View].[CounterCode] AS [CounterCode], 
+[Voucher_View].[RefNumber] AS [RefNumber], 
+[Voucher_View].[EffectiveDate] AS [EffectiveDate], 
+[Voucher_View].[TransectionDate] AS [TransectionDate], 
+[Voucher_View].[UserCode] AS [UserCode], 
+[Voucher_View].[Notes] AS [Notes], 
+[Voucher_View].[Posted] AS [Posted], 
+[Voucher_View].[Voucher_EntryCode] AS [Voucher_EntryCode], 
+[Voucher_View].[AccountCode] AS [AccountCode], 
+[Voucher_View].[AccountNum] AS [AccountNum], 
+[Voucher_View].[AccountType] AS [AccountType], 
+[Voucher_View].[Debit] AS [Debit], 
+[Voucher_View].[Credit] AS [Credit], 
+[Voucher_View].[UserName] AS [UserName], 
+[Voucher_View].[AccountName] AS [AccountName], 
+[Voucher_View].[TransectionTypeCode] AS [TransectionTypeCode], 
+[Voucher_View].[PaymentTypeCode] AS [PaymentTypeCode], 
+[Voucher_View].[TransectionType] AS [TransectionType], 
+[Voucher_View].[PaymentType] AS [PaymentType], 
+[Voucher_View].[Balance] AS [Balance], 
+[Voucher_View].[AccountTypeName] AS [AccountTypeName], 
+[Voucher_View].[AgainstAccountName] AS [AgainstAccountName]
+FROM [dbo].[Voucher_View] AS [Voucher_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VoucherDiscountView" EntityType="Self.VoucherDiscountView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VoucherDiscountView].[Code] AS [Code], 
+[VoucherDiscountView].[CounterCode] AS [CounterCode], 
+[VoucherDiscountView].[RefNumber] AS [RefNumber], 
+[VoucherDiscountView].[EffectiveDate] AS [EffectiveDate], 
+[VoucherDiscountView].[TransectionDate] AS [TransectionDate], 
+[VoucherDiscountView].[UserCode] AS [UserCode], 
+[VoucherDiscountView].[Notes] AS [Notes], 
+[VoucherDiscountView].[Posted] AS [Posted], 
+[VoucherDiscountView].[Voucher_EntryCode] AS [Voucher_EntryCode], 
+[VoucherDiscountView].[Debit] AS [Debit], 
+[VoucherDiscountView].[Credit] AS [Credit], 
+[VoucherDiscountView].[UserName] AS [UserName], 
+[VoucherDiscountView].[TransectionTypeCode] AS [TransectionTypeCode], 
+[VoucherDiscountView].[PaymentTypeCode] AS [PaymentTypeCode], 
+[VoucherDiscountView].[TransectionType] AS [TransectionType], 
+[VoucherDiscountView].[PaymentType] AS [PaymentType], 
+[VoucherDiscountView].[Balance] AS [Balance], 
+[VoucherDiscountView].[AccountTypeName] AS [AccountTypeName], 
+[VoucherDiscountView].[AccountName] AS [AccountName], 
+[VoucherDiscountView].[AccountNum] AS [AccountNum]
+FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Account_D_AccountType" Association="Self.FK_Account_D_AccountType">
+            <End Role="D_AccountType" EntitySet="D_AccountType" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_D_ItemCategory1" Association="Self.FK_Item_D_ItemCategory1">
+            <End Role="D_ItemCategory" EntitySet="D_ItemCategory" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_D_ItemSubCategory" Association="Self.FK_Item_D_ItemSubCategory">
+            <End Role="D_ItemSubCategory" EntitySet="D_ItemSubCategory" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_D_ItemType" Association="Self.FK_Item_D_ItemType">
+            <End Role="D_ItemType" EntitySet="D_ItemType" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemClass_D_ItemCategory" Association="Self.FK_ItemClass_D_ItemCategory">
+            <End Role="D_ItemCategory" EntitySet="D_ItemCategory" />
+            <End Role="ItemClass" EntitySet="ItemClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemClass_D_ItemSubCategory" Association="Self.FK_ItemClass_D_ItemSubCategory">
+            <End Role="D_ItemSubCategory" EntitySet="D_ItemSubCategory" />
+            <End Role="ItemClass" EntitySet="ItemClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemClassComponent_Item" Association="Self.FK_ItemClassComponent_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemClassComponent" EntitySet="ItemClassComponent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemClassComponent_ItemClass" Association="Self.FK_ItemClassComponent_ItemClass">
+            <End Role="ItemClass" EntitySet="ItemClass" />
+            <End Role="ItemClassComponent" EntitySet="ItemClassComponent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemMovement_D_TransectionType" Association="Self.FK_ItemMovement_D_TransectionType">
+            <End Role="D_TransectionType" EntitySet="D_TransectionType" />
+            <End Role="ItemMovement" EntitySet="ItemMovement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Promotion_Item" Association="Self.FK_Promotion_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Promotion" EntitySet="Promotion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Account" Association="Self.FK_Purchase_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_D_TransectionType" Association="Self.FK_Purchase_D_TransectionType">
+            <End Role="D_TransectionType" EntitySet="D_TransectionType" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Entry_Item" Association="Self.FK_Purchase_Entry_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Purchase_Entry" EntitySet="Purchase_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Entry_Purchase" Association="Self.FK_Purchase_Entry_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="Purchase_Entry" EntitySet="Purchase_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Payment_Purchase" Association="Self.FK_Purchase_Payment_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="Purchase_Payment" EntitySet="Purchase_Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Return_Entry_Purchase_Return" Association="Self.FK_Purchase_Return_Entry_Purchase_Return">
+            <End Role="Purchase_Return" EntitySet="Purchase_Return" />
+            <End Role="Purchase_Return_Entry" EntitySet="Purchase_Return_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Return_Purchase_Return" Association="Self.FK_Purchase_Return_Purchase_Return">
+            <End Role="Purchase_Return" EntitySet="Purchase_Return" />
+            <End Role="Purchase_Return1" EntitySet="Purchase_Return" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quotation_Account" Association="Self.FK_Quotation_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Quotation" EntitySet="Quotation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quotation_D_Counter" Association="Self.FK_Quotation_D_Counter">
+            <End Role="D_Counter" EntitySet="D_Counter" />
+            <End Role="Quotation" EntitySet="Quotation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quotation_Entry_Item" Association="Self.FK_Quotation_Entry_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Quotation_Entry" EntitySet="Quotation_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quotation_Entry_Quotation" Association="Self.FK_Quotation_Entry_Quotation">
+            <End Role="Quotation" EntitySet="Quotation" />
+            <End Role="Quotation_Entry" EntitySet="Quotation_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quotation_P_User" Association="Self.FK_Quotation_P_User">
+            <End Role="P_User" EntitySet="P_User" />
+            <End Role="Quotation" EntitySet="Quotation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Account1" Association="Self.FK_Sale_Account1">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_D_PaymentType" Association="Self.FK_Sale_D_PaymentType">
+            <End Role="D_PaymentType" EntitySet="D_PaymentType" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_D_TransectionType" Association="Self.FK_Sale_D_TransectionType">
+            <End Role="D_TransectionType" EntitySet="D_TransectionType" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Entry_Purchase_Entry" Association="Self.FK_Sale_Entry_Purchase_Entry">
+            <End Role="Purchase_Entry" EntitySet="Purchase_Entry" />
+            <End Role="Sale_Entry" EntitySet="Sale_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Entry_Sale" Association="Self.FK_Sale_Entry_Sale">
+            <End Role="Sale" EntitySet="Sale" />
+            <End Role="Sale_Entry" EntitySet="Sale_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voucher_Entry_Account1" Association="Self.FK_Voucher_Entry_Account1">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Voucher_Entry" EntitySet="Voucher_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voucher_Entry_Voucher" Association="Self.FK_Voucher_Entry_Voucher">
+            <End Role="Voucher" EntitySet="Voucher" />
+            <End Role="Voucher_Entry" EntitySet="Voucher_Entry" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="POSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="POSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account_Set" EntityType="POSModel.Account_" />
-          <EntitySet Name="Activation_Set" EntityType="POSModel.Activation_" />
+          <EntitySet Name="Activations" EntityType="POSModel.Activation" />
           <EntitySet Name="Cheques" EntityType="POSModel.Cheque" />
           <EntitySet Name="D_AccountType" EntityType="POSModel.D_AccountType" />
           <EntitySet Name="D_CostMethod" EntityType="POSModel.D_CostMethod" />
@@ -2465,7 +2446,7 @@
           <NavigationProperty Name="Quotations" Relationship="POSModel.FK_Quotation_Account" FromRole="Account_" ToRole="Quotation" />
           <NavigationProperty Name="Sales" Relationship="POSModel.FK_Sale_Account1" FromRole="Account_" ToRole="Sale" />
         </EntityType>
-        <EntityType Name="Activation_">
+        <EntityType Name="Activation">
           <Key>
             <PropertyRef Name="Code" />
           </Key>
@@ -2473,6 +2454,9 @@
           <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="ActivationCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="aUser" Type="Int32" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="LastRun" Type="DateTime" Precision="3" />
+          <Property Name="LastUserCode" Type="Int32" />
         </EntityType>
         <EntityType Name="Cheque">
           <Key>
@@ -3958,6 +3942,7 @@
           <Property Type="Int32" Name="BarcodeTop" />
           <Property Type="Int32" Name="BarcodeFontSize" />
           <Property Type="Int32" Name="BarcodeType" />
+          <Property Name="AccSuspense" Type="Int32" />
         </EntityType>
         <EntityType Name="Purchase_ReturnView">
           <Key>
@@ -4042,9 +4027,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Activation_Set">
-            <EntityTypeMapping TypeName="POSModel.Activation_">
+          <EntitySetMapping Name="Activations">
+            <EntityTypeMapping TypeName="POSModel.Activation">
               <MappingFragment StoreEntitySet="Activation">
+                <ScalarProperty Name="LastUserCode" ColumnName="LastUserCode" />
+                <ScalarProperty Name="LastRun" ColumnName="LastRun" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
@@ -5121,6 +5109,7 @@
           <EntitySetMapping Name="Configs">
             <EntityTypeMapping TypeName="POSModel.Config">
               <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="AccSuspense" ColumnName="AccSuspense" />
                 <ScalarProperty Name="BarcodeType" ColumnName="BarcodeType" />
                 <ScalarProperty Name="BarcodeFontSize" ColumnName="BarcodeFontSize" />
                 <ScalarProperty Name="BarcodeTop" ColumnName="BarcodeTop" />
@@ -5227,6 +5216,7 @@
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

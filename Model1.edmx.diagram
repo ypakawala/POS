@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="94f61fc3cd144a8d9056d91c2efeb2f2" Name="Diagram1" ZoomLevel="75">
         <EntityTypeShape EntityType="POSModel.Account_" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Activation_" Width="1.5" PointX="10.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Activation" Width="1.5" PointX="10.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="POSModel.Cheque" Width="1.5" PointX="12.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="POSModel.D_AccountType" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
         <EntityTypeShape EntityType="POSModel.D_CostMethod" Width="1.5" PointX="8.75" PointY="14.125" IsExpanded="true" />

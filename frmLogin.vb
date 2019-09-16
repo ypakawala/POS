@@ -144,7 +144,7 @@ Public Class frmLogin
 
         Me.lblVersion.Text = System.String.Format(Me.lblVersion.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.Build, My.Application.Info.Version.Revision)
 
-        If Not Activation() Then Exit Sub
+        If Not CheckActivation() Then Exit Sub
 
         'Dim BW1 As New System.ComponentModel.BackgroundWorker
         'AddHandler BW1.DoWork, AddressOf Me.BW1_DoWork

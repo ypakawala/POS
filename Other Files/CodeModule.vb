@@ -7,6 +7,8 @@ Imports System.IO
 
 Public Module CodeModule
 
+    Public ProjectKey As String = "theNextPOS"
+
     Public UpdateFilePath As String = System.Configuration.ConfigurationSettings.AppSettings("UpdateFilePath")
     Public CashdrawerPath As String = System.Configuration.ConfigurationSettings.AppSettings("CashdrawerPath")
     Public PrinterPort As String = System.Configuration.ConfigurationSettings.AppSettings("PrinterPort")
@@ -1054,22 +1056,73 @@ Public Module CodeModule
             MsgBox(ex.Message)
         End Try
     End Function
+    'Public Function getNewCode(ByVal TableName As String, Optional Connection_String As String = Nothing) As Integer
+    '    Dim Result As Integer = 0
+    '    Try
+    '        Using CONTEXT = New POSEntities
+    '            Select Case TableName
+    '                Case DBTable.Sales_Batch
+    '                    Dim q = (From s In CONTEXT.Activations Select s.Code)
+    '                    If q.Count > 0 Then Result = q.Max()
+    '            End Select
+    '        End Using
 
+    '    Catch ex As Exception
+    '    End Try
+    '    Return Result + 1
 
-    Public Function Activation() As Boolean
+    'End Function
+
+    Public _ActivationCode As String
+    Public Function CheckActivation() As Boolean
         Try
-            Dim ActivationCode As String = FingerPrint.Value("NayeeM PakawalA")
-            Dim isActivate As Integer = FixControls.FixObjectNumber(DBO.GetSingleValue("SELECT COALESCE(Code,0) AS Code FROM Activation WHERE ActivationCode = '" & ActivationCode & "'"))
-            If isActivate = Nothing Then
-                Dim ActivationResult As System.Windows.Forms.DialogResult
-                Dim frmActivationIns As New frmActivation
-                ActivationResult = frmActivationIns.ShowDialog()
-                If ActivationResult <> DialogResult.Yes Then
-                    MsgBox("Invalid  Activation Code. Application Will Close")
-                    Application.Exit()
-                    Return False
+            _ActivationCode = FingerPrint2.FingerPrint.Value(ProjectKey)
+
+            Using CONTEXT = New POSEntities
+                Dim _Activation As New Activation
+                _Activation = Nothing
+                _Activation = (From obj In CONTEXT.Activations Where obj.ActivationCode = _ActivationCode Select obj).ToList().SingleOrDefault()
+
+                If IsDBNull(_Activation) OrElse IsNothing(_Activation) Then
+                    Dim frm As New FingerPrint2.frmSetKet(ProjectKey)
+                    If frm.ShowDialog() = DialogResult.Yes Then
+                        _Activation = New Activation
+                        _Activation.Code = GetNewCode("Code", DBTable.Activation)
+                        _Activation.UserName = FingerPrint2.FingerPrint.cpuId
+                        _Activation.ActivationCode = FingerPrint2.FingerPrint.fingerPrint
+                        _Activation.TimeStamp = Now
+                        CONTEXT.Activations.AddObject(_Activation)
+                        CONTEXT.SaveChanges()
+                    Else
+                        MsgBox("Invalid  Activation Code. Application Will Close")
+                        Application.Exit()
+                        Return False
+                    End If
+                    'Dim ActivationResult As System.Windows.Forms.DialogResult
+                    'Dim frmActivationIns As New frmActivation
+                    'ActivationResult = frmActivationIns.ShowDialog()
+                    'If ActivationResult <> DialogResult.Yes Then
+                    '    MsgBox("INVALID  ACTIVATION CODE. APPLICATION WILL CLOSE")
+                    '    Application.Exit()
+                    '    Return False
+                    'End If
                 End If
-            End If
+            End Using
+
+
+            'Dim ActivationCode As String = FingerPrint.Value("NayeeM PakawalA")
+            'Dim isActivate As Integer = FixControls.FixObjectNumber(DBO.GetSingleValue("SELECT COALESCE(Code,0) AS Code FROM Activation WHERE ActivationCode = '" & ActivationCode & "'"))
+            'If isActivate = Nothing Then
+            '    Dim ActivationResult As System.Windows.Forms.DialogResult
+            '    Dim frmActivationIns As New frmActivation
+            '    ActivationResult = frmActivationIns.ShowDialog()
+            '    If ActivationResult <> DialogResult.Yes Then
+            '        MsgBox("Invalid  Activation Code. Application Will Close")
+            '        Application.Exit()
+            '        Return False
+            '    End If
+            'End If
+
 
             Return True
 

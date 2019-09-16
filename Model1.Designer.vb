@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("23f317b7-175b-4da2-b771-ced6dd6d4b2c")>
+<Assembly: EdmSchemaAttribute("20856895-efee-4790-9871-2451f8866673")>
 #Region "EDM Relationship Metadata"
 <Assembly: EdmRelationshipAttribute("POSModel", "FK_Account_D_AccountType", "D_AccountType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(D_AccountType), "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Account_), True)>
 <Assembly: EdmRelationshipAttribute("POSModel", "FK_Purchase_Account", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(Account_), "Purchase", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Purchase_), True)>
@@ -117,16 +117,16 @@ Public Partial Class POSEntities
     ''' <summary>
     ''' No Metadata Documentation available.
     ''' </summary>
-    Public ReadOnly Property Activation_Set() As ObjectSet(Of Activation_)
+    Public ReadOnly Property Activations() As ObjectSet(Of Activation)
         Get
-            If (_Activation_Set Is Nothing) Then
-                _Activation_Set = MyBase.CreateObjectSet(Of Activation_)("Activation_Set")
+            If (_Activations Is Nothing) Then
+                _Activations = MyBase.CreateObjectSet(Of Activation)("Activations")
             End If
-            Return _Activation_Set
+            Return _Activations
         End Get
     End Property
 
-    Private _Activation_Set As ObjectSet(Of Activation_)
+    Private _Activations As ObjectSet(Of Activation)
 
     ''' <summary>
     ''' No Metadata Documentation available.
@@ -994,10 +994,10 @@ Public Partial Class POSEntities
     End Sub
 
     ''' <summary>
-    ''' Deprecated Method for adding a new object to the Activation_Set EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' Deprecated Method for adding a new object to the Activations EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
     ''' </summary>
-    Public Sub AddToActivation_Set(ByVal activation_ As Activation_)
-        MyBase.AddObject("Activation_Set", activation_)
+    Public Sub AddToActivations(ByVal activation As Activation)
+        MyBase.AddObject("Activations", activation)
     End Sub
 
     ''' <summary>
@@ -2000,21 +2000,21 @@ End Class
 ''' <summary>
 ''' No Metadata Documentation available.
 ''' </summary>
-<EdmEntityTypeAttribute(NamespaceName:="POSModel", Name:="Activation_")>
+<EdmEntityTypeAttribute(NamespaceName:="POSModel", Name:="Activation")>
 <Serializable()>
 <DataContractAttribute(IsReference:=True)>
-Public Partial Class Activation_
+Public Partial Class Activation
     Inherits EntityObject
     #Region "Factory Method"
 
     ''' <summary>
-    ''' Create a new Activation_ object.
+    ''' Create a new Activation object.
     ''' </summary>
     ''' <param name="code">Initial value of the Code property.</param>
-    Public Shared Function CreateActivation_(code As Global.System.Int32) As Activation_
-        Dim activation_ as Activation_ = New Activation_
-        activation_.Code = code
-        Return activation_
+    Public Shared Function CreateActivation(code As Global.System.Int32) As Activation
+        Dim activation as Activation = New Activation
+        activation.Code = code
+        Return activation
     End Function
 
     #End Region
@@ -2121,6 +2121,81 @@ Public Partial Class Activation_
     End Sub
 
     Private Partial Sub OnaUserChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property TimeStamp() As Nullable(Of Global.System.DateTime)
+        Get
+            Return _TimeStamp
+        End Get
+        Set
+            OnTimeStampChanging(value)
+            ReportPropertyChanging("TimeStamp")
+            _TimeStamp = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("TimeStamp")
+            OnTimeStampChanged()
+        End Set
+    End Property
+
+    Private _TimeStamp As Nullable(Of Global.System.DateTime)
+    Private Partial Sub OnTimeStampChanging(value As Nullable(Of Global.System.DateTime))
+    End Sub
+
+    Private Partial Sub OnTimeStampChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property LastRun() As Nullable(Of Global.System.DateTime)
+        Get
+            Return _LastRun
+        End Get
+        Set
+            OnLastRunChanging(value)
+            ReportPropertyChanging("LastRun")
+            _LastRun = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("LastRun")
+            OnLastRunChanged()
+        End Set
+    End Property
+
+    Private _LastRun As Nullable(Of Global.System.DateTime)
+    Private Partial Sub OnLastRunChanging(value As Nullable(Of Global.System.DateTime))
+    End Sub
+
+    Private Partial Sub OnLastRunChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property LastUserCode() As Nullable(Of Global.System.Int32)
+        Get
+            Return _LastUserCode
+        End Get
+        Set
+            OnLastUserCodeChanging(value)
+            ReportPropertyChanging("LastUserCode")
+            _LastUserCode = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("LastUserCode")
+            OnLastUserCodeChanged()
+        End Set
+    End Property
+
+    Private _LastUserCode As Nullable(Of Global.System.Int32)
+    Private Partial Sub OnLastUserCodeChanging(value As Nullable(Of Global.System.Int32))
+    End Sub
+
+    Private Partial Sub OnLastUserCodeChanged()
     End Sub
 
     #End Region
@@ -3715,6 +3790,31 @@ Public Partial Class Config
     End Sub
 
     Private Partial Sub OnBarcodeTypeChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property AccSuspense() As Nullable(Of Global.System.Int32)
+        Get
+            Return _AccSuspense
+        End Get
+        Set
+            OnAccSuspenseChanging(value)
+            ReportPropertyChanging("AccSuspense")
+            _AccSuspense = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("AccSuspense")
+            OnAccSuspenseChanged()
+        End Set
+    End Property
+
+    Private _AccSuspense As Nullable(Of Global.System.Int32)
+    Private Partial Sub OnAccSuspenseChanging(value As Nullable(Of Global.System.Int32))
+    End Sub
+
+    Private Partial Sub OnAccSuspenseChanged()
     End Sub
 
     #End Region
