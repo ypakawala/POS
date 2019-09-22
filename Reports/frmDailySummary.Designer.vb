@@ -65,6 +65,7 @@ Partial Class frmDailySummary
         Me.UltraLabel3 = New Infragistics.Win.Misc.UltraLabel()
         Me.UltraLabel2 = New Infragistics.Win.Misc.UltraLabel()
         Me.CRV = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.btnPrint = New Infragistics.Win.Misc.UltraButton()
         CType(Me.UltraExpandableGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraExpandableGroupBox1.SuspendLayout()
         Me.UltraExpandableGroupBoxPanel1.SuspendLayout()
@@ -79,17 +80,18 @@ Partial Class frmDailySummary
         Me.UltraExpandableGroupBox1.BackColorInternal = System.Drawing.Color.White
         Me.UltraExpandableGroupBox1.Controls.Add(Me.UltraExpandableGroupBoxPanel1)
         Me.UltraExpandableGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(757, 54)
+        Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(952, 54)
         Me.UltraExpandableGroupBox1.ForeColor = System.Drawing.Color.Black
         Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.UltraExpandableGroupBox1.Name = "UltraExpandableGroupBox1"
-        Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(757, 54)
+        Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(952, 54)
         Me.UltraExpandableGroupBox1.TabIndex = 0
         Me.UltraExpandableGroupBox1.Text = "Criteria"
         Me.UltraExpandableGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
         'UltraExpandableGroupBoxPanel1
         '
+        Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.btnPrint)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.btnPreview)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.DropCounter)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.DropUser)
@@ -103,7 +105,7 @@ Partial Class frmDailySummary
         Me.UltraExpandableGroupBoxPanel1.ForeColor = System.Drawing.Color.Black
         Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(3, 20)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(751, 31)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(946, 31)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'btnPreview
@@ -331,15 +333,29 @@ Partial Class frmDailySummary
         Me.CRV.Location = New System.Drawing.Point(0, 54)
         Me.CRV.Name = "CRV"
         Me.CRV.SelectionFormula = ""
-        Me.CRV.Size = New System.Drawing.Size(757, 219)
+        Me.CRV.ShowPrintButton = False
+        Me.CRV.Size = New System.Drawing.Size(952, 219)
         Me.CRV.TabIndex = 1
+        Me.CRV.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         Me.CRV.ViewTimeSelectionFormula = ""
+        '
+        'btnPrint
+        '
+        Me.btnPrint.BackColorInternal = System.Drawing.Color.White
+        Me.btnPrint.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
+        Me.btnPrint.ForeColor = System.Drawing.Color.Black
+        Me.btnPrint.Location = New System.Drawing.Point(748, 0)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(75, 23)
+        Me.btnPrint.TabIndex = 5
+        Me.btnPrint.Text = "Print"
+        Me.btnPrint.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
         '
         'frmDailySummary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(757, 273)
+        Me.ClientSize = New System.Drawing.Size(952, 273)
         Me.Controls.Add(Me.CRV)
         Me.Controls.Add(Me.UltraExpandableGroupBox1)
         Me.DoubleBuffered = True
@@ -368,4 +384,5 @@ Partial Class frmDailySummary
     Friend WithEvents DropCounter As Infragistics.Win.UltraWinGrid.UltraCombo
     Friend WithEvents UltraLabel4 As Infragistics.Win.Misc.UltraLabel
     Private WithEvents CRV As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents btnPrint As Infragistics.Win.Misc.UltraButton
 End Class

@@ -2771,6 +2771,8 @@ Public Class frmSales
                     report2.PrintOptions.PrinterName = CLS_Config.ReceiptPrinter
                     report2.PrintToPrinter(1, False, 1, 2)
 
+                    report2.Dispose()
+
             End Select
 
             'Dim CRV As New CrystalDecisions.Windows.Forms.CrystalReportViewer

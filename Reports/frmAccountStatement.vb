@@ -254,7 +254,7 @@ Public Class frmAccountStatement
                 DT.Rows(i).Item("Balance") = PrevBalance
             Next
 
-            Dim report As New ReportDocument
+            report = New ReportDocument
             If CLS_Config.A4Printer Then
                 report.Load(CLS_Config.ReportPath & "Account Statement A4.rpt", CrystalDecisions.[Shared].OpenReportMethod.OpenReportByTempCopy)
             Else
@@ -277,6 +277,10 @@ Public Class frmAccountStatement
             MsgBox("LoadReport" & vbCrLf & ex.Message)
         End Try
     End Sub
+    Dim report As New ReportDocument
 
- 
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        report.PrintOptions.PrinterName = CLS_Config.ReceiptPrinter
+        report.PrintToPrinter(1, False, 1, 2)
+    End Sub
 End Class

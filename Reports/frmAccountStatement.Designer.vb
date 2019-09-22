@@ -54,6 +54,7 @@ Partial Class frmAccountStatement
         Me.UltraLabel11 = New Infragistics.Win.Misc.UltraLabel()
         Me.CRV = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
+        Me.btnPrint = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.UltraExpandableGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraExpandableGroupBox1.SuspendLayout()
@@ -70,7 +71,7 @@ Partial Class frmAccountStatement
         Me.MenuStrip1.AllowMerge = False
         Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnSearch, Me.btnClearAll, Me.btnExit})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnSearch, Me.btnClearAll, Me.btnPrint, Me.btnExit})
         Me.MenuStrip1.Location = New System.Drawing.Point(3, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(650, 24)
@@ -97,7 +98,7 @@ Partial Class frmAccountStatement
         '
         Me.btnExit.Image = Global.POS.My.Resources.Resources.CLOSE_16
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(84, 20)
+        Me.btnExit.Size = New System.Drawing.Size(85, 20)
         Me.btnExit.Text = "Exit [End]"
         '
         'UltraExpandableGroupBox1
@@ -105,7 +106,7 @@ Partial Class frmAccountStatement
         Me.UltraExpandableGroupBox1.Controls.Add(Me.UltraExpandableGroupBoxPanel1)
         Me.UltraExpandableGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(656, 82)
-        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 28)
         Me.UltraExpandableGroupBox1.Name = "UltraExpandableGroupBox1"
         Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(656, 82)
         Me.UltraExpandableGroupBox1.TabIndex = 0
@@ -247,11 +248,13 @@ Partial Class frmAccountStatement
         Me.CRV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CRV.Cursor = System.Windows.Forms.Cursors.Default
         Me.CRV.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CRV.Location = New System.Drawing.Point(0, 82)
+        Me.CRV.Location = New System.Drawing.Point(0, 110)
         Me.CRV.Name = "CRV"
         Me.CRV.SelectionFormula = ""
-        Me.CRV.Size = New System.Drawing.Size(656, 311)
+        Me.CRV.ShowPrintButton = False
+        Me.CRV.Size = New System.Drawing.Size(656, 283)
         Me.CRV.TabIndex = 3
+        Me.CRV.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         Me.CRV.ViewTimeSelectionFormula = ""
         '
         'UltraGroupBox1
@@ -262,10 +265,18 @@ Partial Class frmAccountStatement
         Me.UltraGroupBox1.Controls.Add(Me.MenuStrip1)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraGroupBox1.ForeColor = System.Drawing.Color.Black
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 82)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(656, 28)
         Me.UltraGroupBox1.TabIndex = 130
+        '
+        'btnPrint
+        '
+        Me.btnPrint.Image = Global.POS.My.Resources.Resources.PRINT_16
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.ShortcutKeys = System.Windows.Forms.Keys.F3
+        Me.btnPrint.Size = New System.Drawing.Size(83, 20)
+        Me.btnPrint.Text = "Print [F3]"
         '
         'frmAccountStatement
         '
@@ -308,4 +319,5 @@ Partial Class frmAccountStatement
     Friend WithEvents lblAccount As Infragistics.Win.Misc.UltraLabel
     Private WithEvents CRV As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents btnPrint As ToolStripMenuItem
 End Class

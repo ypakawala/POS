@@ -40,6 +40,7 @@ Public Class frmDailySummary
             MsgBox("frmDailySummary_Load" & vbCrLf & ex.Message)
         End Try
     End Sub
+    Dim report As New ReportDocument
 
     Private Sub btnPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPreview.Click
         Try
@@ -155,7 +156,7 @@ Public Class frmDailySummary
             Dim DT2 As New DataTable
             DT2 = DBO.ReturnDataTable("Select * from Purchase_Summary WHERE EffectiveDate BETWEEN '" & FP & "' AND '" & T & "' ")
 
-            Dim report As New ReportDocument
+            report = New ReportDocument
             report.Load(CLS_Config.ReportPath & "DailySummary.rpt", CrystalDecisions.[Shared].OpenReportMethod.OpenReportByTempCopy)
 
             report.SetDataSource(DT)
@@ -215,4 +216,8 @@ Public Class frmDailySummary
         End Try
     End Sub
 
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        report.PrintOptions.PrinterName = CLS_Config.ReceiptPrinter
+        report.PrintToPrinter(1, False, 1, 2)
+    End Sub
 End Class
