@@ -267,7 +267,9 @@ Public Class Account
                     m_Balance = (From q In CONTEXT.Voucher_Entry Where q.AccountCode = m_Code Select q.Debit - q.Credit).Sum
                     m_Balance = TrimDec(Math.Round(m_Balance, 3))
 
-                    m_LastBill = (From q In CONTEXT.Sale_Set Where q.CustomerCode = m_Code Order By q.TransectionDate Descending Select q.NetBill).FirstOrDefault
+                    If (From q In CONTEXT.Sale_Set Where q.CustomerCode = m_Code Order By q.TransectionDate Descending Select q.NetBill).Count > 0 Then
+                        m_LastBill = (From q In CONTEXT.Sale_Set Where q.CustomerCode = m_Code Order By q.TransectionDate Descending Select q.NetBill).FirstOrDefault
+                    End If
                     m_LastBill = TrimDec(Math.Round(m_LastBill, 3))
 
                 End Using

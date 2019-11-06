@@ -27,6 +27,7 @@ Public Module CodeModule
     Public ChrWeightItemLength As Integer = System.Configuration.ConfigurationSettings.AppSettings("ChrWeightItemLength")
     Public ChrWeightPriceStart As Integer = System.Configuration.ConfigurationSettings.AppSettings("ChrWeightPriceStart")
     Public ChrWeightPriceLength As Integer = System.Configuration.ConfigurationSettings.AppSettings("ChrWeightPriceLength")
+    Public CategoryHighlight As Integer = System.Configuration.ConfigurationSettings.AppSettings("CategoryHighlight")
 
 
     Public RowAlternateAppearance As Infragistics.Win.Appearance = New Infragistics.Win.Appearance

@@ -85,7 +85,6 @@ Partial Class frmSales
         Dim Appearance52 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance53 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance54 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance55 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance56 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance57 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance58 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -809,12 +808,6 @@ Partial Class frmSales
         resources.ApplyResources(Appearance54, "Appearance54")
         Appearance54.ForceApplyResources = "FontData|"
         Me.grdList.DisplayLayout.Override.ActiveCellAppearance = Appearance54
-        Appearance55.BackColor = System.Drawing.SystemColors.Highlight
-        Appearance55.ForeColor = System.Drawing.SystemColors.HighlightText
-        resources.ApplyResources(Appearance55.FontData, "Appearance55.FontData")
-        resources.ApplyResources(Appearance55, "Appearance55")
-        Appearance55.ForceApplyResources = "FontData|"
-        Me.grdList.DisplayLayout.Override.ActiveRowAppearance = Appearance55
         Me.grdList.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
         Me.grdList.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
         Appearance56.BackColor = System.Drawing.SystemColors.Window
@@ -1258,9 +1251,6 @@ Partial Class frmSales
         '
         Me.btnShowMenu.Name = "btnShowMenu"
         resources.ApplyResources(Me.btnShowMenu, "btnShowMenu")
-        '
-        'Timer1
-        '
         '
         'UltraGroupBox1
         '

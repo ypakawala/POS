@@ -4,6 +4,7 @@ Imports CrystalDecisions.CrystalReports.Engine
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Imports System.IO
 Imports theNext.UC
+Imports Infragistics.Win.UltraWinGrid
 
 Public Class frmSales
 
@@ -314,6 +315,8 @@ Public Class frmSales
         End Try
     End Sub
 
+    Dim isPromoRow As Boolean = False
+
     Private Sub grdList_AfterRowInsert(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.RowEventArgs) Handles grdList.AfterRowInsert
         'Initialize The New Record
         Try
@@ -332,7 +335,6 @@ Public Class frmSales
             e.Row.Cells("Type").Value = CLS_Sale_Entry.Type
             e.Row.Cells("Purchase_EntryCode").Value = CLS_Sale_Entry.Purchase_EntryCode
             e.Row.Cells("Notes").Value = CLS_Sale_Entry.Notes
-
 
             Me.UltraCalcManager1.DirtyAllFormulas()
 
@@ -862,7 +864,10 @@ Public Class frmSales
                         'play sound
                         PlaySoundFile("notify.wav")
                         Me.txtBarcode.Value = Nothing
-                        MsgBox("Item Not Found !!!!!")
+                        'MsgBox("Item Not Found !!!!!")
+                        Dim frm As New frmDialogResult("Item Not Found !!!!!", True)
+                        frm.ShowDialog()
+
                         Pole.Send_To_Port("Item Not Found !!!!", "")
                         Exit Try
                     Else
@@ -877,7 +882,10 @@ Public Class frmSales
                     'play sound
                     PlaySoundFile("notify.wav")
                     Me.txtBarcode.Value = Nothing
-                    MsgBox("Item Not Found !!!!!")
+                    'MsgBox("Item Not Found !!!!!")
+                    Dim frm As New frmDialogResult("Item Not Found !!!!!", True)
+                    frm.ShowDialog()
+
                     Pole.Send_To_Port("Item Not Found !!!!", "")
                     Exit Try
                 End If
@@ -963,9 +971,9 @@ Public Class frmSales
                 End If
 
                 If CLS_Config.Company = RASLANI Then
-                    If IsNothing(CLS_Sale_Entry.ItemCode) Or CLS_Sale_Entry.ItemCode = 0 Or _
-                        IsNothing(CLS_Sale_Entry.UnitPrice) Or _
-                        IsNothing(CLS_Sale_Entry.Quantity) Or CLS_Sale_Entry.Quantity = 0 Or _
+                    If IsNothing(CLS_Sale_Entry.ItemCode) Or CLS_Sale_Entry.ItemCode = 0 Or
+                        IsNothing(CLS_Sale_Entry.UnitPrice) Or
+                        IsNothing(CLS_Sale_Entry.Quantity) Or CLS_Sale_Entry.Quantity = 0 Or
                         IsNothing(CLS_Sale_Entry.TotalPrice) Then
                         'play sound
                         PlaySoundFile("notify.wav")
@@ -977,9 +985,9 @@ Public Class frmSales
                         Exit Try
                     End If
                 Else
-                    If IsNothing(CLS_Sale_Entry.ItemCode) Or CLS_Sale_Entry.ItemCode = 0 Or _
-                    IsNothing(CLS_Sale_Entry.UnitPrice) Or CLS_Sale_Entry.UnitPrice = 0 Or _
-                    IsNothing(CLS_Sale_Entry.Quantity) Or CLS_Sale_Entry.Quantity = 0 Or _
+                    If IsNothing(CLS_Sale_Entry.ItemCode) Or CLS_Sale_Entry.ItemCode = 0 Or
+                    IsNothing(CLS_Sale_Entry.UnitPrice) Or CLS_Sale_Entry.UnitPrice = 0 Or
+                    IsNothing(CLS_Sale_Entry.Quantity) Or CLS_Sale_Entry.Quantity = 0 Or
                     IsNothing(CLS_Sale_Entry.TotalPrice) Or CLS_Sale_Entry.TotalPrice = 0 Then
                         'play sound
                         PlaySoundFile("notify.wav")
@@ -1010,6 +1018,7 @@ Public Class frmSales
         End Try
         Operation = OperationType.None
     End Sub
+
     'Private Function getReturnSerialCode(ByVal ItemCode As Integer) As Integer
 
     '    Find_Int = Nothing
@@ -1109,13 +1118,13 @@ Public Class frmSales
                         Dim CurrentLimit As Integer = DateDiff(DateInterval.Day, MonthStart, CLS_Sale.TransectionDate) + 1
 
                         If CurrentLimit > CLS_ACC.TimeLimit And CLS_ACC.BalancePrvMonth > 0 Then
-                            If MessageBox.Show("TIME LIMIT [ " & CLS_ACC.TimeLimit & " ] DAYS " & vbCrLf & vbCrLf & _
-                                                "EXCEED BY  [ " & CurrentLimit - CLS_ACC.TimeLimit & " ] DAYS" & vbCrLf & vbCrLf & _
-                                                "CUSTOMER NAME [ " & CLS_ACC.Title & " ]" & vbCrLf & vbCrLf & _
-                                                "DO YOU STILL WANT TO CONTINUE CREDIT SALE?", _
-                                                "TIME LIMIT EXCEED", _
-                                                MessageBoxButtons.YesNo, _
-                                                MessageBoxIcon.Information, _
+                            If MessageBox.Show("TIME LIMIT [ " & CLS_ACC.TimeLimit & " ] DAYS " & vbCrLf & vbCrLf &
+                                                "EXCEED BY  [ " & CurrentLimit - CLS_ACC.TimeLimit & " ] DAYS" & vbCrLf & vbCrLf &
+                                                "CUSTOMER NAME [ " & CLS_ACC.Title & " ]" & vbCrLf & vbCrLf &
+                                                "DO YOU STILL WANT TO CONTINUE CREDIT SALE?",
+                                                "TIME LIMIT EXCEED",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Information,
                                                 MessageBoxDefaultButton.Button2) <> MsgBoxResult.Yes Then Exit Sub
                         End If
                     End If
@@ -1123,12 +1132,12 @@ Public Class frmSales
                     If CLS_ACC.AmountLimit > -1 Then
 
                         If CLS_ACC.Balance + Decimal.Round(CDec(FixControl(Me.txtNetBill)), 3) > CLS_ACC.AmountLimit Then
-                            If MessageBox.Show("AMOUNT LIMIT [ " & ConvertToString(CDec(CLS_ACC.AmountLimit), False) & " KD ]" & vbCrLf & vbCrLf & _
-                                                "EXCEED BY [ " & ConvertToString(CDec(CLS_ACC.Balance + Decimal.Round(CDec(FixControl(Me.txtNetBill)), 3) - CLS_ACC.AmountLimit), False) & " KD ]" & vbCrLf & vbCrLf & _
-                                                "CUSTOMER NAME [ " & CLS_ACC.Title & " ]" & vbCrLf & vbCrLf & _
-                                                "DO YOU STILL WANT TO CONTINUE CREDIT SALE?", "TIME LIMIT EXCEED", _
-                                                MessageBoxButtons.YesNo, _
-                                                MessageBoxIcon.Information, _
+                            If MessageBox.Show("AMOUNT LIMIT [ " & ConvertToString(CDec(CLS_ACC.AmountLimit), False) & " KD ]" & vbCrLf & vbCrLf &
+                                                "EXCEED BY [ " & ConvertToString(CDec(CLS_ACC.Balance + Decimal.Round(CDec(FixControl(Me.txtNetBill)), 3) - CLS_ACC.AmountLimit), False) & " KD ]" & vbCrLf & vbCrLf &
+                                                "CUSTOMER NAME [ " & CLS_ACC.Title & " ]" & vbCrLf & vbCrLf &
+                                                "DO YOU STILL WANT TO CONTINUE CREDIT SALE?", "TIME LIMIT EXCEED",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Information,
                                                 MessageBoxDefaultButton.Button2) <> MsgBoxResult.Yes Then Exit Sub
                         End If
                     End If
@@ -1156,7 +1165,7 @@ Public Class frmSales
             CLS_Sale.NetBill = Decimal.Round(CDec(FixControl(Me.txtNetBill)), 3)
 
 
-            If CLS_Sale.TransectionType = TransectionType.CashSale And _
+            If CLS_Sale.TransectionType = TransectionType.CashSale And
                 (CLS_Sale.PaymentType = PaymentType.KNet Or CLS_Sale.PaymentType = PaymentType.MasterCard) Then
 
                 If CLS_Sale.Payment <> FixControl(Me.txtNetBill) Then
@@ -1178,10 +1187,10 @@ Public Class frmSales
 
             End If
 
-            If CLS_Sale.Payment < CLS_Sale.NetBill And _
-            CLS_Sale.PaymentType <> PaymentType.Credit And _
-            CLS_Sale.TransectionType <> TransectionType.CashSaleReturn And _
-            CLS_Sale.TransectionType <> TransectionType.CreditSaleReturn And _
+            If CLS_Sale.Payment < CLS_Sale.NetBill And
+            CLS_Sale.PaymentType <> PaymentType.Credit And
+            CLS_Sale.TransectionType <> TransectionType.CashSaleReturn And
+            CLS_Sale.TransectionType <> TransectionType.CreditSaleReturn And
             CLS_Sale.TransectionType <> TransectionType.Hold Then
                 MsgBox("Invalid amount entered.")
                 'MsgBox("Invalid amount entered.")
@@ -1495,8 +1504,8 @@ Public Class frmSales
                         Dim TransectionDate As Date = CDate(tempDT.Rows(t).Item("TransectionDate"))
                         Dim Remark As String = CStr(tempDT.Rows(t).Item("Remark"))
 
-                        If MsgBox("Bill # " & Me.txtBarcode.Value & vbCrLf & _
-                                    "Date : " & TransectionDate & vbCrLf & _
+                        If MsgBox("Bill # " & Me.txtBarcode.Value & vbCrLf &
+                                    "Date : " & TransectionDate & vbCrLf &
                                     "Remark : " & Remark, MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                             DT = CLS_Sale.SelectHold(Me.txtBarcode.Value, Code)
                             Exit For
@@ -2746,6 +2755,8 @@ Public Class frmSales
                     report.PrintOptions.PrinterName = CLS_Config.ReceiptPrinter
                     report.PrintToPrinter(1, False, 1, 2)
 
+                    report.Dispose()
+
                 Case Else
 
                     Dim report2 As New ReportDocument
@@ -2781,7 +2792,8 @@ Public Class frmSales
 
 
         Catch ex As Exception
-            MsgBox("Print_Big_Bill" & vbCrLf & ex.Message)
+            MsgBox("Print_Big_Bill2" & vbCrLf & vbCrLf & ex.Message)
+            If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
 #End Region
@@ -2835,6 +2847,7 @@ Public Class frmSales
 
         End Try
     End Sub
+
     Private Sub Open_ItemList()
         Try
             Find_Int = Nothing
@@ -2851,9 +2864,11 @@ Public Class frmSales
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Private Sub DropItem_EditorButtonClick(sender As Object, e As Infragistics.Win.UltraWinEditors.EditorButtonEventArgs) Handles DropItem.EditorButtonClick
         Open_ItemList()
     End Sub
+
     Private Sub DropItem_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DropItem.KeyDown
         Select Case e.KeyCode
             Case CLS_Config.K_Info
@@ -2894,6 +2909,7 @@ Public Class frmSales
 
         End Try
     End Sub
+
     Private Sub Open_CustomerList()
         Try
             Find_Str = Nothing
@@ -2918,9 +2934,11 @@ Public Class frmSales
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Private Sub DropCustomer_EditorButtonClick(sender As Object, e As Infragistics.Win.UltraWinEditors.EditorButtonEventArgs) Handles DropCustomer.EditorButtonClick
         Open_CustomerList()
     End Sub
+
     Private Sub DropCustomer_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DropCustomer.KeyDown
         Select Case e.KeyCode
             Case CLS_Config.K_CustomerList
@@ -3515,9 +3533,9 @@ Public Class frmSales
         Using CONTEXT = New POSEntities
             _Category = New D_ItemCategory
             _Category = Nothing
-            _Category = (From obj In CONTEXT.D_ItemCategory _
-                Where obj.Code = CategoryCode
-                Select obj).ToList().SingleOrDefault()
+            _Category = (From obj In CONTEXT.D_ItemCategory
+                         Where obj.Code = CategoryCode
+                         Select obj).ToList().SingleOrDefault()
         End Using
 
         GenerateItems()
@@ -3643,4 +3661,57 @@ Public Class frmSales
     Private Sub KReprint_Click(sender As Object, e As EventArgs) Handles KReprint.Click
         Call_Reprint()
     End Sub
+
+    Private Sub grdList_InitializeRow(sender As Object, e As InitializeRowEventArgs) Handles grdList.InitializeRow
+        Try
+            'If CategoryHeight = 0 Then Exit Sub
+
+            If Not IsDBNull(e.Row.Cells("ItemCode").Value) AndAlso Not IsNothing(e.Row.Cells("ItemCode").Value) Then
+                Dim ItemCode As Integer = TrimInt(e.Row.Cells("ItemCode").Value)
+                Dim Category As Integer = 0
+                Dim Barcode2 As String = Nothing
+                Dim dr() As DataRow = DS.Tables(1).Select(" Code='" & ItemCode & "'")
+                If dr.Length > 0 Then
+                    Category = IIf(IsDBNull(dr(0).Item("Category")), 0, dr(0).Item("Category"))
+                    Barcode2 = IIf(IsDBNull(dr(0).Item("Barcode2")), Nothing, dr(0).Item("Barcode2"))
+                Else
+                    Category = 0
+                End If
+                If Category = CategoryHighlight Then
+                    e.Row.Appearance.BackColor = Color.Pink
+                End If
+
+                Select Case CLS_Config.Company
+                    Case INDIAGATE
+                        If Not IsDBNull(e.Row.Cells("Barcode").Value) AndAlso Not IsNothing(e.Row.Cells("Barcode").Value) Then
+                            Dim Barcode As String = TrimStr(e.Row.Cells("Barcode").Value)
+                            If Barcode.Substring(0, 1).ToUpper = "P" Then
+                                e.Row.Appearance.BackColor = Color.LightGreen
+                            End If
+                        End If
+                        If Not IsDBNull(Barcode2) AndAlso Not IsNothing(Barcode2) AndAlso Barcode2 <> "" Then
+                            If Barcode2.Substring(0, 1).ToUpper = "P" Then
+                                e.Row.Appearance.BackColor = Color.LightGreen
+                            End If
+                        End If
+                End Select
+
+
+
+            End If
+
+
+
+
+
+        Catch ex As Exception
+            MsgBox("grdList_InitializeRow" & vbCrLf & vbCrLf & ex.Message)
+            If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
+    Private Sub grdList_GotFocus(sender As Object, e As EventArgs) Handles grdList.GotFocus
+        'Me.txtBarcode.Focus()
+    End Sub
+
 End Class

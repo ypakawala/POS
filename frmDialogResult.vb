@@ -1,12 +1,15 @@
 ﻿Public Class frmDialogResult
-
-    Public Sub New(ByVal _Message As String)
+    Dim InfoOnly As Boolean = False
+    Public Sub New(ByVal _Message As String, Optional _InfoOnly As Boolean = False)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
         Me.lblMessage.Text = _Message
+
+        InfoOnly = _InfoOnly
+
     End Sub
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
         Select Case CLS_Config.Company
@@ -56,7 +59,38 @@
                 Me.btnCancel.BackColor = Color.OrangeRed
         End Select
 
+        Me.btnOK.Visible = False
+        Me.btnCancel.Visible = False
+
         Me.lblMessage.BackColor = Color.Transparent
-        Me.BackColor = Color.DodgerBlue
+
+
+        If InfoOnly Then
+            Me.btnCancel.Visible = False
+            Me.btnOK.Visible = False
+            Me.BackColor = Color.Pink
+
+            Select Case CLS_Config.Company
+                Case INDIAGATE : Me.Timer1.Enabled = False
+                Case Else : Me.Timer1.Enabled = True
+            End Select
+        Else
+
+            Me.btnCancel.Visible = True
+            Me.btnOK.Visible = True
+            Me.BackColor = Color.DodgerBlue
+            Me.Timer1.Enabled = False
+
+        End If
+
     End Sub
+
+    Private Sub lblMessage_Click(sender As Object, e As EventArgs) Handles lblMessage.Click, Me.Click
+        Me.DialogResult = Windows.Forms.DialogResult.OK
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Me.DialogResult = Windows.Forms.DialogResult.OK
+    End Sub
+
 End Class

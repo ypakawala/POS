@@ -56,6 +56,8 @@ Partial Class frmBarcode
         Me.CRV = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Barcode1 = New C1.Win.C1BarCode.C1BarCode()
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
+        Me.txtEncodedText = New System.Windows.Forms.TextBox()
+        Me.txtDataToEncode = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.UltraExpandableGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraExpandableGroupBox1.SuspendLayout()
@@ -105,7 +107,7 @@ Partial Class frmBarcode
         '
         Me.btnExit.Image = Global.POS.My.Resources.Resources.CLOSE_16
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(84, 20)
+        Me.btnExit.Size = New System.Drawing.Size(85, 20)
         Me.btnExit.Text = "Exit [End]"
         '
         'UltraExpandableGroupBox1
@@ -113,7 +115,7 @@ Partial Class frmBarcode
         Me.UltraExpandableGroupBox1.Controls.Add(Me.UltraExpandableGroupBoxPanel1)
         Me.UltraExpandableGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(656, 88)
-        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 28)
         Me.UltraExpandableGroupBox1.Name = "UltraExpandableGroupBox1"
         Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(656, 88)
         Me.UltraExpandableGroupBox1.TabIndex = 0
@@ -123,6 +125,8 @@ Partial Class frmBarcode
         '
         'UltraExpandableGroupBoxPanel1
         '
+        Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtDataToEncode)
+        Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtEncodedText)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.DropItem)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel14)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtExpiryDate)
@@ -260,10 +264,10 @@ Partial Class frmBarcode
         Me.CRV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CRV.Cursor = System.Windows.Forms.Cursors.Default
         Me.CRV.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CRV.Location = New System.Drawing.Point(0, 88)
+        Me.CRV.Location = New System.Drawing.Point(0, 116)
         Me.CRV.Name = "CRV"
         Me.CRV.SelectionFormula = ""
-        Me.CRV.Size = New System.Drawing.Size(656, 305)
+        Me.CRV.Size = New System.Drawing.Size(656, 277)
         Me.CRV.TabIndex = 1
         Me.CRV.ViewTimeSelectionFormula = ""
         '
@@ -288,10 +292,26 @@ Partial Class frmBarcode
         Me.UltraGroupBox1.Controls.Add(Me.MenuStrip1)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraGroupBox1.ForeColor = System.Drawing.Color.Black
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 88)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(656, 28)
         Me.UltraGroupBox1.TabIndex = 130
+        '
+        'txtEncodedText
+        '
+        Me.txtEncodedText.Location = New System.Drawing.Point(307, 45)
+        Me.txtEncodedText.Name = "txtEncodedText"
+        Me.txtEncodedText.Size = New System.Drawing.Size(310, 20)
+        Me.txtEncodedText.TabIndex = 24
+        Me.txtEncodedText.Visible = False
+        '
+        'txtDataToEncode
+        '
+        Me.txtDataToEncode.Location = New System.Drawing.Point(307, 19)
+        Me.txtDataToEncode.Name = "txtDataToEncode"
+        Me.txtDataToEncode.Size = New System.Drawing.Size(310, 20)
+        Me.txtDataToEncode.TabIndex = 25
+        Me.txtDataToEncode.Visible = False
         '
         'frmBarcode
         '
@@ -336,4 +356,6 @@ Partial Class frmBarcode
     Friend WithEvents btnBarcode2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Barcode1 As C1.Win.C1BarCode.C1BarCode
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents txtEncodedText As TextBox
+    Friend WithEvents txtDataToEncode As TextBox
 End Class

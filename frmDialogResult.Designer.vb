@@ -23,10 +23,12 @@ Partial Class frmDialogResult
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDialogResult))
         Me.btnOK = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.lblMessage = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'btnOK
@@ -69,6 +71,10 @@ Partial Class frmDialogResult
         Me.lblMessage.Text = "Label1"
         Me.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 5000
+        '
         'frmDialogResult
         '
         Me.AcceptButton = Me.btnOK
@@ -91,4 +97,5 @@ Partial Class frmDialogResult
     Friend WithEvents btnOK As System.Windows.Forms.Button
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents lblMessage As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As Timer
 End Class

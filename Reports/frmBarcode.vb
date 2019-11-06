@@ -85,12 +85,39 @@ Public Class frmBarcode
             If Not isValid() Then Exit Sub
 
 
+
             Dim DT As New DataTable
             If m_isClass Then
                 DT = DBO.ReturnDataTableFromSQL("SELECT * FROM ItemClass AS Item_View WHERE Code = " & FixControls.FixControl(Me.DropItem))
             Else
                 DT = DBO.ReturnDataTableFromSQL("SELECT * FROM Item_View WHERE Code = " & FixControls.FixControl(Me.DropItem))
             End If
+
+            'txtDataToEncode.Text = DT.Rows(0).Item("barcode")
+
+            'Dim FontEncoder As New IDAutomation.NetAssembly.FontEncoder
+            'Dim UniversalFontEncoder As New IDAutomation.NetAssembly.UniversalFontEncoder
+            'Dim IntelligentMail As New IDAutomation.IntelligentMail.IntelligentMail
+            'Dim DataBar As New IDAutomation.DataBar.DataBar
+
+            'txtEncodedText.Text = UniversalFontEncoder.IDAutomation_Uni_C128(txtDataToEncode.Text)
+
+            'DT.Rows(0).Item("barcode") = txtEncodedText.Text
+
+
+
+            'Dim b As New theNext.UC.Barcode
+            'b.BarcodeStr = getValueFromDrop(CType(Me.DropItem.DataSource, DataTable), "Code", FixControl(Me.DropItem), "BarCode")
+            'b.BarcodeType = CLS_Config.BarcodeType
+
+
+            'Dim BarcodeByte As Byte()
+            'BarcodeByte = b.GetBarcodeImage()
+
+            'For Each dr As DataRow In DT.Rows
+            '    dr("BarcodeImg") = BarcodeByte
+            'Next
+
 
             Dim report As New ReportDocument
             report.Load(CLS_Config.ReportPath & "Barcode.rpt", CrystalDecisions.[Shared].OpenReportMethod.OpenReportByTempCopy)
