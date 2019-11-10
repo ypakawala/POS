@@ -1089,7 +1089,8 @@ Public Class frmItem
                 b.CurrencySymbol = "KD"
                 b.DecimalPlace = 3
                 b.BarcodeType = CLS_Config.BarcodeType
-                b.BarcodeFontStyle = FontStyle.Bold
+                b.BarcodeFontStyle = FontStyle.Regular
+                b.ItemLength = BarcodeItemLength
                 'b.Print()
 
                 b.NoOfCopy = 1
