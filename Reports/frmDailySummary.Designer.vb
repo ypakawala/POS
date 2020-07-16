@@ -23,6 +23,9 @@ Partial Class frmDailySummary
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim Appearance32 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDailySummary))
+        Dim Appearance31 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -55,6 +58,7 @@ Partial Class frmDailySummary
         Dim Appearance28 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.UltraExpandableGroupBox1 = New Infragistics.Win.Misc.UltraExpandableGroupBox()
         Me.UltraExpandableGroupBoxPanel1 = New Infragistics.Win.Misc.UltraExpandableGroupBoxPanel()
+        Me.btnPrint = New Infragistics.Win.Misc.UltraButton()
         Me.btnPreview = New Infragistics.Win.Misc.UltraButton()
         Me.DropCounter = New Infragistics.Win.UltraWinGrid.UltraCombo()
         Me.DropUser = New Infragistics.Win.UltraWinGrid.UltraCombo()
@@ -65,7 +69,6 @@ Partial Class frmDailySummary
         Me.UltraLabel3 = New Infragistics.Win.Misc.UltraLabel()
         Me.UltraLabel2 = New Infragistics.Win.Misc.UltraLabel()
         Me.CRV = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.btnPrint = New Infragistics.Win.Misc.UltraButton()
         CType(Me.UltraExpandableGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraExpandableGroupBox1.SuspendLayout()
         Me.UltraExpandableGroupBoxPanel1.SuspendLayout()
@@ -108,10 +111,24 @@ Partial Class frmDailySummary
         Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(946, 31)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
+        'btnPrint
+        '
+        Appearance32.Image = CType(resources.GetObject("Appearance32.Image"), Object)
+        Me.btnPrint.Appearance = Appearance32
+        Me.btnPrint.BackColorInternal = System.Drawing.Color.White
+        Me.btnPrint.ForeColor = System.Drawing.Color.Black
+        Me.btnPrint.Location = New System.Drawing.Point(748, 0)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(75, 23)
+        Me.btnPrint.TabIndex = 5
+        Me.btnPrint.Text = "Print"
+        Me.btnPrint.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
+        '
         'btnPreview
         '
+        Appearance31.Image = CType(resources.GetObject("Appearance31.Image"), Object)
+        Me.btnPreview.Appearance = Appearance31
         Me.btnPreview.BackColorInternal = System.Drawing.Color.White
-        Me.btnPreview.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
         Me.btnPreview.ForeColor = System.Drawing.Color.Black
         Me.btnPreview.Location = New System.Drawing.Point(667, 1)
         Me.btnPreview.Name = "btnPreview"
@@ -338,18 +355,6 @@ Partial Class frmDailySummary
         Me.CRV.TabIndex = 1
         Me.CRV.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         Me.CRV.ViewTimeSelectionFormula = ""
-        '
-        'btnPrint
-        '
-        Me.btnPrint.BackColorInternal = System.Drawing.Color.White
-        Me.btnPrint.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
-        Me.btnPrint.ForeColor = System.Drawing.Color.Black
-        Me.btnPrint.Location = New System.Drawing.Point(748, 0)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(75, 23)
-        Me.btnPrint.TabIndex = 5
-        Me.btnPrint.Text = "Print"
-        Me.btnPrint.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
         '
         'frmDailySummary
         '

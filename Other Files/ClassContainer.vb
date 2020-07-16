@@ -21,7 +21,6 @@ Public Class ClassContainer
         Public Allow_Users As System.Boolean
         Public Allow_Salary As System.Boolean
         Public Allow_POS As System.Boolean
-        Public Allow_Quotation As System.Boolean
         Public Allow_Sale_Edit As System.Boolean
         Public Allow_Sale_Delete As System.Boolean
         Public Allow_Sale_Detail_Delete As System.Boolean
@@ -59,6 +58,12 @@ Public Class ClassContainer
         Public Allow_Customer_Pay_Dis As System.Boolean
         Public Allow_Customer_Pay_Delete As System.Boolean
         Public Allow_Print_Barcode As System.Boolean
+        Public Allow_Quotation As System.Boolean
+        Public Allow_MembershipAdd As System.Boolean
+        Public Allow_MembershipEdit As System.Boolean
+        Public Allow_MembershipDelete As System.Boolean
+        Public Allow_MembershipRedeem As System.Boolean
+        Public Allow_MembershipPrint As System.Boolean
     End Class
 
     Public Class P_UserDB
@@ -292,7 +297,6 @@ Public Class ClassContainer
                 CLS.Allow_Users = FixObjectBoolean(DT.Rows(0).Item("Allow_Users"))
                 CLS.Allow_Salary = FixObjectBoolean(DT.Rows(0).Item("Allow_Salary"))
                 CLS.Allow_POS = FixObjectBoolean(DT.Rows(0).Item("Allow_POS"))
-                CLS.Allow_Quotation = FixObjectBoolean(DT.Rows(0).Item("Allow_Quotation"))
                 CLS.Allow_Sale_Edit = FixObjectBoolean(DT.Rows(0).Item("Allow_Sale_Edit"))
                 CLS.Allow_Sale_Delete = FixObjectBoolean(DT.Rows(0).Item("Allow_Sale_Delete"))
                 CLS.Allow_Sale_Detail_Delete = FixObjectBoolean(DT.Rows(0).Item("Allow_Sale_Detail_Delete"))
@@ -330,6 +334,12 @@ Public Class ClassContainer
                 CLS.Allow_Customer_Pay_Dis = FixObjectBoolean(DT.Rows(0).Item("Allow_Customer_Pay_Dis"))
                 CLS.Allow_Customer_Pay_Delete = FixObjectBoolean(DT.Rows(0).Item("Allow_Customer_Pay_Delete"))
                 CLS.Allow_Print_Barcode = FixObjectBoolean(DT.Rows(0).Item("Allow_Print_Barcode"))
+                CLS.Allow_Quotation = FixObjectBoolean(DT.Rows(0).Item("Allow_Quotation"))
+                CLS.Allow_MembershipAdd = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipAdd"))
+                CLS.Allow_MembershipEdit = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipEdit"))
+                CLS.Allow_MembershipDelete = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipDelete"))
+                CLS.Allow_MembershipRedeem = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipRedeem"))
+                CLS.Allow_MembershipPrint = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipPrint"))
 
             Catch ex As System.Exception
                 MSG.ErrorOk("[LogIn]" & vbCrLf & ex.Message)

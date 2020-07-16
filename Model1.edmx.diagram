@@ -4,58 +4,58 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="94f61fc3cd144a8d9056d91c2efeb2f2" Name="Diagram1" ZoomLevel="75">
-        <EntityTypeShape EntityType="POSModel.Account_" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Activation" Width="1.5" PointX="10.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Cheque" Width="1.5" PointX="12.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_AccountType" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_CostMethod" Width="1.5" PointX="8.75" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_Counter" Width="1.5" PointX="3.75" PointY="31.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_ItemCategory" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_ItemSubCategory" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_ItemType" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_Month" Width="1.5" PointX="10.75" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_PaymentType" Width="1.5" PointX="3.75" PointY="27.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_TransectionType" Width="1.5" PointX="0.75" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_UMCType" Width="1.5" PointX="12.75" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.D_Year" Width="1.5" PointX="13.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Hold" Width="1.5" PointX="14.75" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Hold_Entry" Width="1.5" PointX="14.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Item_" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.ItemClass_" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.ItemClassComponent_" Width="1.5" PointX="11.25" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.ItemMovement" Width="1.5" PointX="3" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.P_User" Width="1.5" PointX="3.75" PointY="34.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Purchase_" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Purchase_Payment" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Purchase_Return_" Width="1.5" PointX="10.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Purchase_Return_Entry_" Width="1.5" PointX="13" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Reg" Width="1.5" PointX="15.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Salary_" Width="1.5" PointX="7.75" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Sale_Entry_" Width="2" PointX="8.25" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.SaleCancel" Width="1.5" PointX="9.75" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.SaleCancel_Entry" Width="1.5" PointX="11.75" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Sales_Batch" Width="1.5" PointX="16.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Voucher_" Width="1.5" PointX="3.75" PointY="47.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Voucher_Entry" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.ChequeView" Width="1.5" PointX="16.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.CustomerMonthlyBalanceView" Width="1.5" PointX="16.75" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.DebitAge" Width="1.5" PointX="13.75" PointY="19.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Item_Class_View" Width="1.5" PointX="18.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Item_View" Width="1.5" PointX="18.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.ItemMovementSlowView" Width="1.5" PointX="18.75" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.ItemMovementSummaryView" Width="1.5" PointX="18.75" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.ItemMovementView" Width="1.5" PointX="18.75" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Purchase_Entry_View" Width="1.5" PointX="15.75" PointY="21.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Purchase_Payment_View" Width="1.5" PointX="20.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Purchase_Summary" Width="1.5" PointX="20.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Sale_CustomerRotation_View" Width="1.5" PointX="20.75" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Sale_View" Width="1.5" PointX="20.75" PointY="19.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.SaleCancel_View" Width="1.5" PointX="0.75" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Sales_Full_View_Sub" Width="1.5" PointX="8.75" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Voucher_Main_View" Width="1.5" PointX="10.75" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.Voucher_View" Width="1.5" PointX="22.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSModel.VoucherDiscountView" Width="1.5" PointX="22.75" PointY="9.125" IsExpanded="true" />
+      <Diagram DiagramId="94f61fc3cd144a8d9056d91c2efeb2f2" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="POSModel.Account_" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Activation" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Cheque" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_AccountType" Width="1.5" PointX="1.5" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_CostMethod" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_Counter" Width="1.5" PointX="0.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_ItemCategory" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_ItemSubCategory" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_ItemType" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_Month" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_PaymentType" Width="1.5" PointX="6.75" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_TransectionType" Width="1.5" PointX="3.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_UMCType" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.D_Year" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Hold" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Hold_Entry" Width="1.5" PointX="13.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Item_" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.ItemClass_" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.ItemClassComponent_" Width="1.5" PointX="8.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.ItemMovement" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.P_User" Width="1.5" PointX="0.75" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Purchase_" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Purchase_Payment" Width="1.5" PointX="8.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Purchase_Return_" Width="1.5" PointX="8.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Purchase_Return_Entry_" Width="1.5" PointX="11" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Reg" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Salary_" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Sale_Entry_" Width="2" PointX="11.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.SaleCancel" Width="1.5" PointX="15.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.SaleCancel_Entry" Width="1.5" PointX="10.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Sales_Batch" Width="1.5" PointX="12.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Voucher_" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Voucher_Entry" Width="1.5" PointX="3" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.ChequeView" Width="1.5" PointX="14.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.CustomerMonthlyBalanceView" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.DebitAge" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Item_Class_View" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Item_View" Width="1.5" PointX="17.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.ItemMovementSlowView" Width="1.5" PointX="18.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.ItemMovementSummaryView" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.ItemMovementView" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Purchase_Entry_View" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Purchase_Payment_View" Width="1.5" PointX="20.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Purchase_Summary" Width="1.5" PointX="8.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Sale_CustomerRotation_View" Width="1.5" PointX="20.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Sale_View" Width="1.5" PointX="20.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.SaleCancel_View" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Sales_Full_View_Sub" Width="1.5" PointX="10.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Voucher_Main_View" Width="1.5" PointX="12.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Voucher_View" Width="1.5" PointX="22.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.VoucherDiscountView" Width="1.5" PointX="22.75" PointY="12.75" IsExpanded="true" />
         <AssociationConnector Association="POSModel.FK_Account_D_AccountType" ManuallyRouted="false" />
         <AssociationConnector Association="POSModel.FK_Purchase_Account" ManuallyRouted="false" />
         <AssociationConnector Association="POSModel.FK_Voucher_Entry_Account1" ManuallyRouted="false" />
@@ -72,31 +72,39 @@
         <AssociationConnector Association="POSModel.FK_Purchase_Return_Entry_Purchase_Return" ManuallyRouted="false" />
         <AssociationConnector Association="POSModel.FK_Purchase_Return_Purchase_Return" ManuallyRouted="false" />
         <AssociationConnector Association="POSModel.FK_Voucher_Entry_Voucher" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="POSModel.Quotation" Width="1.5" PointX="6" PointY="37.125" />
+        <EntityTypeShape EntityType="POSModel.Quotation" Width="1.5" PointX="3" PointY="27.5" />
         <AssociationConnector Association="POSModel.FK_Quotation_Account" />
         <AssociationConnector Association="POSModel.FK_Quotation_D_Counter" />
         <AssociationConnector Association="POSModel.FK_Quotation_P_User" />
-        <EntityTypeShape EntityType="POSModel.Quotation_View" Width="1.5" PointX="22.75" PointY="15.125" />
-        <EntityTypeShape EntityType="POSModel.Quotation_Entry" Width="1.5" PointX="8.25" PointY="10.75" />
+        <EntityTypeShape EntityType="POSModel.Quotation_View" Width="1.5" PointX="14.75" PointY="22.75" />
+        <EntityTypeShape EntityType="POSModel.Quotation_Entry" Width="1.5" PointX="5.25" PointY="8.625" />
         <AssociationConnector Association="POSModel.FK_Quotation_Entry_Item" />
         <AssociationConnector Association="POSModel.FK_Quotation_Entry_Quotation" />
-        <EntityTypeShape EntityType="POSModel.Quotation_Entry_View" Width="1.5" PointX="17.75" PointY="24.125" />
-        <EntityTypeShape EntityType="POSModel.Purchase_Entry_" Width="2.25" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="POSModel.Quotation_Entry_View" Width="1.5" PointX="16.75" PointY="22.75" />
+        <EntityTypeShape EntityType="POSModel.Purchase_Entry_" Width="2.25" PointX="8.25" PointY="7.875" />
         <AssociationConnector Association="POSModel.FK_Purchase_Entry_Item" />
         <AssociationConnector Association="POSModel.FK_Purchase_Entry_Purchase" />
         <AssociationConnector Association="POSModel.FK_Sale_Entry_Purchase_Entry" />
-        <EntityTypeShape EntityType="POSModel.Purchase_Return_Entry_View" Width="1.5" PointX="22.75" PointY="20.125" />
-        <EntityTypeShape EntityType="POSModel.Sale_Entry_View" Width="1.5" PointX="12.75" PointY="25.125" />
-        <EntityTypeShape EntityType="POSModel.Sale_" Width="1.5" PointX="6" PointY="25.375" />
+        <EntityTypeShape EntityType="POSModel.Purchase_Return_Entry_View" Width="1.5" PointX="22.75" PointY="18.75" />
+        <EntityTypeShape EntityType="POSModel.Sale_Entry_View" Width="1.5" PointX="24.75" PointY="0.75" />
+        <EntityTypeShape EntityType="POSModel.Sale_" Width="1.5" PointX="9" PointY="32.125" />
         <AssociationConnector Association="POSModel.FK_Sale_Account1" />
         <AssociationConnector Association="POSModel.FK_Sale_D_PaymentType" />
         <AssociationConnector Association="POSModel.FK_Sale_D_TransectionType" />
         <AssociationConnector Association="POSModel.FK_Sale_Entry_Sale" />
-        <EntityTypeShape EntityType="POSModel.Config" Width="1.5" PointX="24.75" PointY="2.125" />
-        <EntityTypeShape EntityType="POSModel.Purchase_ReturnView" Width="1.5" PointX="24.75" PointY="13.125" />
-        <EntityTypeShape EntityType="POSModel.D_BarcodeType" Width="1.5" PointX="24.75" PointY="18.125" />
-        <EntityTypeShape EntityType="POSModel.Promotion" Width="1.5" PointX="5.25" PointY="21.75" />
+        <EntityTypeShape EntityType="POSModel.Purchase_ReturnView" Width="1.5" PointX="24.75" PointY="6.75" />
+        <EntityTypeShape EntityType="POSModel.D_BarcodeType" Width="1.5" PointX="24.75" PointY="11.75" />
+        <EntityTypeShape EntityType="POSModel.Promotion" Width="1.5" PointX="5.25" PointY="25.875" />
         <AssociationConnector Association="POSModel.FK_Promotion_Item" />
+        <EntityTypeShape EntityType="POSModel.Reward" Width="1.5" PointX="5.25" PointY="29.375" />
+        <AssociationConnector Association="POSModel.FK_Reward_Item" />
+        <EntityTypeShape EntityType="POSModel.Membership" Width="1.5" PointX="2.875" PointY="18.75" />
+        <EntityTypeShape EntityType="POSModel.Config" Width="1.5" PointX="24.75" PointY="14.75" />
+        <EntityTypeShape EntityType="POSModel.Redemption" Width="1.5" PointX="5.25" PointY="16.5" />
+        <AssociationConnector Association="POSModel.FK_Redemption_Item" />
+        <AssociationConnector Association="POSModel.FK_Redemption_Membership" />
+        <EntityTypeShape EntityType="POSModel.V_MembershipHistory" Width="1.5" PointX="7.375" PointY="26.75" />
+        <AssociationConnector Association="POSModel.FK_Sale_Membership" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

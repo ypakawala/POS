@@ -100,6 +100,12 @@
           <Property Name="BarcodeFontSize" Type="int" />
           <Property Name="BarcodeType" Type="int" />
           <Property Name="AccSuspense" Type="int" />
+          <Property Name="MembershipSystem" Type="bit" />
+          <Property Name="MembershipAmt2Point" Type="float" />
+          <Property Name="MembershipPoint2Amt" Type="float" />
+          <Property Name="MembershipStartNumber" Type="bigint" />
+          <Property Name="MembershipRedemptionCash" Type="bit" />
+          <Property Name="MembershipRedemptionReward" Type="bit" />
         </EntityType>
         <EntityType Name="D_AccountType">
           <Key>
@@ -287,6 +293,19 @@
           <Property Name="Quantity" Type="float" />
           <Property Name="ForeignKey" Type="int" />
         </EntityType>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="MembershipNumber" Type="bigint" />
+          <Property Name="MembershipDate" Type="datetime" />
+          <Property Name="MemberName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="isClosed" Type="bit" />
+          <Property Name="UserCode" Type="int" />
+        </EntityType>
         <EntityType Name="P_User">
           <Key>
             <PropertyRef Name="Code" />
@@ -436,12 +455,12 @@
           </Key>
           <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="PurchaseReturnCode" Type="int" />
+          <Property Name="PurchaseFromCode" Type="int" />
           <Property Name="ItemCode" Type="int" />
           <Property Name="Qty" Type="float" />
           <Property Name="UnitPrice" Type="float" />
           <Property Name="Price" Type="float" />
           <Property Name="ExpiryDate" Type="datetime" />
-          <Property Name="PurchaseFromCode" Type="int" />
         </EntityType>
         <EntityType Name="Quotation">
           <Key>
@@ -469,6 +488,18 @@
           <Property Name="Quantity" Type="float" />
           <Property Name="TotalPrice" Type="float" />
         </EntityType>
+        <EntityType Name="Redemption">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="MembershipCode" Type="int" />
+          <Property Name="TransectionDate" Type="datetime" />
+          <Property Name="CashRedemption" Type="bit" />
+          <Property Name="RewardPoint" Type="float" />
+          <Property Name="RewardCash" Type="float" />
+          <Property Name="ItemCode" Type="int" />
+        </EntityType>
         <EntityType Name="Reg">
           <Key>
             <PropertyRef Name="Code" />
@@ -477,6 +508,14 @@
           <Property Name="RegValue" Type="varchar" MaxLength="500" />
           <Property Name="UserName" Type="varchar" MaxLength="50" />
           <Property Name="AppID" Type="int" />
+        </EntityType>
+        <EntityType Name="Reward">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="ItemCode" Type="int" />
+          <Property Name="RewardPoint" Type="float" />
         </EntityType>
         <EntityType Name="Salary">
           <Key>
@@ -512,6 +551,8 @@
           <Property Name="PaymentCleared" Type="bit" />
           <Property Name="PONumber" Type="varchar" MaxLength="50" />
           <Property Name="ReturnSaleCode" Type="int" />
+          <Property Name="RewardPoint" Type="float" />
+          <Property Name="MembershipCode" Type="int" />
         </EntityType>
         <EntityType Name="Sale_Entry">
           <Key>
@@ -1125,6 +1166,26 @@ warning 6002: The table/view 'POS.dbo.Sales_Full_View_Sub' does not have a prima
           <Property Name="TransDate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'POS.dbo.V_MembershipHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_MembershipHistory">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="Ref" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="MembershipNumber" Type="bigint" />
+          <Property Name="MemberName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="TransectionDate" Type="datetime" />
+          <Property Name="Debit" Type="float" />
+          <Property Name="Credit" Type="float" />
+          <Property Name="Source" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ref" Type="int" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'POS.dbo.Voucher_Main_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Voucher_Main_View">
           <Key>
@@ -1136,7 +1197,7 @@ warning 6002: The table/view 'POS.dbo.Voucher_Main_View' does not have a primary
           <Property Name="EffectiveDate" Type="datetime" />
           <Property Name="TransectionDate" Type="datetime" />
           <Property Name="UserCode" Type="int" />
-          <Property Name="Notes" Type="varchar" MaxLength="50" />
+          <Property Name="Notes" Type="varchar" MaxLength="500" />
           <Property Name="Posted" Type="bit" />
           <Property Name="TransectionTypeCode" Type="int" />
           <Property Name="PaymentTypeCode" Type="int" />
@@ -1484,6 +1545,42 @@ warning 6002: The table/view 'POS.dbo.VoucherDiscountView' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Redemption_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="Redemption" Type="Self.Redemption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Redemption">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Redemption_Membership">
+          <End Role="Membership" Type="Self.Membership" Multiplicity="0..1" />
+          <End Role="Redemption" Type="Self.Redemption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membership">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Redemption">
+              <PropertyRef Name="MembershipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reward_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="Reward" Type="Self.Reward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Reward">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sale_Account1">
           <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
           <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
@@ -1546,6 +1643,18 @@ warning 6002: The table/view 'POS.dbo.VoucherDiscountView' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Sale_Membership">
+          <End Role="Membership" Type="Self.Membership" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membership">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="MembershipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Voucher_Entry_Account1">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Voucher_Entry" Type="Self.Voucher_Entry" Multiplicity="*" />
@@ -1595,6 +1704,7 @@ warning 6002: The table/view 'POS.dbo.VoucherDiscountView' does not have a prima
           <EntitySet Name="ItemClass" EntityType="Self.ItemClass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemClassComponent" EntityType="Self.ItemClassComponent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemMovement" EntityType="Self.ItemMovement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Membership" EntityType="Self.Membership" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="P_User" EntityType="Self.P_User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
@@ -1604,7 +1714,9 @@ warning 6002: The table/view 'POS.dbo.VoucherDiscountView' does not have a prima
           <EntitySet Name="Purchase_Return_Entry" EntityType="Self.Purchase_Return_Entry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Quotation" EntityType="Self.Quotation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Quotation_Entry" EntityType="Self.Quotation_Entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Redemption" EntityType="Self.Redemption" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reg" EntityType="Self.Reg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reward" EntityType="Self.Reward" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sale_Entry" EntityType="Self.Sale_Entry" Schema="dbo" store:Type="Tables" />
@@ -2049,6 +2161,21 @@ FROM [dbo].[SaleCancel_View] AS [SaleCancel_View]</DefiningQuery>
 [Sales_Full_View_Sub].[TransDate] AS [TransDate]
 FROM [dbo].[Sales_Full_View_Sub] AS [Sales_Full_View_Sub]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="V_MembershipHistory" EntityType="Self.V_MembershipHistory" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[V_MembershipHistory].[Code] AS [Code], 
+[V_MembershipHistory].[MembershipNumber] AS [MembershipNumber], 
+[V_MembershipHistory].[MemberName] AS [MemberName], 
+[V_MembershipHistory].[Mobile] AS [Mobile], 
+[V_MembershipHistory].[DOB] AS [DOB], 
+[V_MembershipHistory].[TransectionDate] AS [TransectionDate], 
+[V_MembershipHistory].[Debit] AS [Debit], 
+[V_MembershipHistory].[Credit] AS [Credit], 
+[V_MembershipHistory].[Source] AS [Source], 
+[V_MembershipHistory].[Ref] AS [Ref], 
+[V_MembershipHistory].[ItemName] AS [ItemName]
+FROM [dbo].[V_MembershipHistory] AS [V_MembershipHistory]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Voucher_Main_View" EntityType="Self.Voucher_Main_View" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [Voucher_Main_View].[Code] AS [Code], 
@@ -2205,6 +2332,18 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
             <End Role="P_User" EntitySet="P_User" />
             <End Role="Quotation" EntitySet="Quotation" />
           </AssociationSet>
+          <AssociationSet Name="FK_Redemption_Item" Association="Self.FK_Redemption_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Redemption" EntitySet="Redemption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Redemption_Membership" Association="Self.FK_Redemption_Membership">
+            <End Role="Membership" EntitySet="Membership" />
+            <End Role="Redemption" EntitySet="Redemption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reward_Item" Association="Self.FK_Reward_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Reward" EntitySet="Reward" />
+          </AssociationSet>
           <AssociationSet Name="FK_Sale_Account1" Association="Self.FK_Sale_Account1">
             <End Role="Account" EntitySet="Account" />
             <End Role="Sale" EntitySet="Sale" />
@@ -2224,6 +2363,10 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <AssociationSet Name="FK_Sale_Entry_Sale" Association="Self.FK_Sale_Entry_Sale">
             <End Role="Sale" EntitySet="Sale" />
             <End Role="Sale_Entry" EntitySet="Sale_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Membership" Association="Self.FK_Sale_Membership">
+            <End Role="Membership" EntitySet="Membership" />
+            <End Role="Sale" EntitySet="Sale" />
           </AssociationSet>
           <AssociationSet Name="FK_Voucher_Entry_Account1" Association="Self.FK_Voucher_Entry_Account1">
             <End Role="Account" EntitySet="Account" />
@@ -2410,13 +2553,33 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
             <End Role="Sale" EntitySet="Sale_Set" />
             <End Role="Sale_Entry_" EntitySet="Sale_Entry_Set" />
           </AssociationSet>
-          <EntitySet Name="Configs" EntityType="POSModel.Config" />
           <EntitySet Name="Purchase_ReturnView" EntityType="POSModel.Purchase_ReturnView" />
           <EntitySet Name="D_BarcodeType" EntityType="POSModel.D_BarcodeType" />
           <EntitySet Name="Promotions" EntityType="POSModel.Promotion" />
           <AssociationSet Name="FK_Promotion_Item" Association="POSModel.FK_Promotion_Item">
             <End Role="Item_" EntitySet="Item_Set" />
             <End Role="Promotion" EntitySet="Promotions" />
+          </AssociationSet>
+          <EntitySet Name="Rewards" EntityType="POSModel.Reward" />
+          <AssociationSet Name="FK_Reward_Item" Association="POSModel.FK_Reward_Item">
+            <End Role="Item_" EntitySet="Item_Set" />
+            <End Role="Reward" EntitySet="Rewards" />
+          </AssociationSet>
+          <EntitySet Name="Memberships" EntityType="POSModel.Membership" />
+          <EntitySet Name="Configs" EntityType="POSModel.Config" />
+          <EntitySet Name="Redemptions" EntityType="POSModel.Redemption" />
+          <AssociationSet Name="FK_Redemption_Item" Association="POSModel.FK_Redemption_Item">
+            <End Role="Item_" EntitySet="Item_Set" />
+            <End Role="Redemption" EntitySet="Redemptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Redemption_Membership" Association="POSModel.FK_Redemption_Membership">
+            <End Role="Membership" EntitySet="Memberships" />
+            <End Role="Redemption" EntitySet="Redemptions" />
+          </AssociationSet>
+          <EntitySet Name="V_MembershipHistory" EntityType="POSModel.V_MembershipHistory" />
+          <AssociationSet Name="FK_Sale_Membership" Association="POSModel.FK_Sale_Membership">
+            <End Role="Membership" EntitySet="Memberships" />
+            <End Role="Sale_" EntitySet="Sale_Set" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Account_">
@@ -2633,6 +2796,8 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <Property Type="Double" Name="PromoStockLimit" />
           <Property Type="Double" Name="PromoStockSold" />
           <NavigationProperty Name="Promotions" Relationship="POSModel.FK_Promotion_Item" FromRole="Item_" ToRole="Promotion" />
+          <NavigationProperty Name="Rewards" Relationship="POSModel.FK_Reward_Item" FromRole="Item_" ToRole="Reward" />
+          <NavigationProperty Name="Redemptions" Relationship="POSModel.FK_Redemption_Item" FromRole="Item_" ToRole="Redemption" />
         </EntityType>
         <EntityType Name="ItemClass_">
           <Key>
@@ -3298,7 +3463,7 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
           <Property Name="TransectionDate" Type="DateTime" Precision="3" />
           <Property Name="UserCode" Type="Int32" />
-          <Property Name="Notes" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Notes" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
           <Property Name="Posted" Type="Boolean" />
           <Property Name="TransectionTypeCode" Type="Int32" />
           <Property Name="PaymentTypeCode" Type="Int32" />
@@ -3843,6 +4008,9 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <NavigationProperty Name="D_PaymentType" Relationship="POSModel.FK_Sale_D_PaymentType" FromRole="Sale" ToRole="D_PaymentType" />
           <NavigationProperty Name="D_TransectionType" Relationship="POSModel.FK_Sale_D_TransectionType" FromRole="Sale" ToRole="D_TransectionType" />
           <NavigationProperty Name="Sale_Entry" Relationship="POSModel.FK_Sale_Entry_Sale" FromRole="Sale" ToRole="Sale_Entry_" />
+          <Property Name="RewardPoint" Type="Double" />
+          <Property Name="MembershipCode" Type="Int32" />
+          <NavigationProperty Name="Membership" Relationship="POSModel.FK_Sale_Membership" FromRole="Sale_" ToRole="Membership" />
         </EntityType>
         <Association Name="FK_Sale_Account1">
           <End Type="POSModel.Account_" Role="Account_" Multiplicity="0..1" />
@@ -3894,56 +4062,6 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Config">
-          <Key>
-            <PropertyRef Name="Code" />
-          </Key>
-          <Property Type="Int32" Name="Code" Nullable="false" />
-          <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Tel" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Mob" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Address1" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Address2" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Address3" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="AccCash" />
-          <Property Type="Int32" Name="AccBank" />
-          <Property Type="Int32" Name="AccStock" />
-          <Property Type="Int32" Name="AccKnet" />
-          <Property Type="Int32" Name="AccMaster" />
-          <Property Type="Int32" Name="AccSalesReturn" />
-          <Property Type="Int32" Name="AccDiscount" />
-          <Property Type="Int32" Name="AccCreditSalesReturn" />
-          <Property Type="Int32" Name="AccCapital" />
-          <Property Type="Int32" Name="AccDrawing" />
-          <Property Type="Int32" Name="AccCashCustomer" />
-          <Property Type="Boolean" Name="OpenSalesForm" />
-          <Property Type="Boolean" Name="AddSalesDetail" />
-          <Property Type="Boolean" Name="AddPurchaseDetail" />
-          <Property Type="Int32" Name="CardCategory" />
-          <Property Type="Int32" Name="NewsPaperCategory" />
-          <Property Type="Int32" Name="DefaultCategory" />
-          <Property Type="Int32" Name="DefaultSubCategory" />
-          <Property Type="Boolean" Name="SearchByBarcode" />
-          <Property Type="Boolean" Name="ResetReceiptYearly" />
-          <Property Type="Boolean" Name="NewSalesScreen" />
-          <Property Type="Int32" Name="AccSalary" />
-          <Property Type="Int32" Name="AccTempCredit" />
-          <Property Type="Boolean" Name="MonthBasePayment" />
-          <Property Type="Int32" Name="DecimalPlace" />
-          <Property Type="Boolean" Name="ShowImage" />
-          <Property Type="Boolean" Name="BarcodeShowCompany" />
-          <Property Type="Boolean" Name="BarcodeShowItem" />
-          <Property Type="Boolean" Name="BarcodeShowPrice" />
-          <Property Type="Int32" Name="BarcodeGap" />
-          <Property Type="Int32" Name="BarcodeHeight" />
-          <Property Type="Int32" Name="BarcodeWidth" />
-          <Property Type="Int32" Name="BarcodeLeft" />
-          <Property Type="Int32" Name="BarcodeTop" />
-          <Property Type="Int32" Name="BarcodeFontSize" />
-          <Property Type="Int32" Name="BarcodeType" />
-          <Property Name="AccSuspense" Type="Int32" />
-        </EntityType>
         <EntityType Name="Purchase_ReturnView">
           <Key>
             <PropertyRef Name="Code" />
@@ -3995,6 +4113,166 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
             </Principal>
             <Dependent Role="Promotion">
               <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Reward">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="ItemCode" Type="Int32" />
+          <Property Name="RewardPoint" Type="Double" />
+          <NavigationProperty Name="Item" Relationship="POSModel.FK_Reward_Item" FromRole="Reward" ToRole="Item_" />
+        </EntityType>
+        <Association Name="FK_Reward_Item">
+          <End Type="POSModel.Item_" Role="Item_" Multiplicity="0..1" />
+          <End Type="POSModel.Reward" Role="Reward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Reward">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="MembershipNumber" Type="Int64" />
+          <Property Name="MembershipDate" Type="DateTime" Precision="3" />
+          <Property Name="MemberName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="isClosed" Type="Boolean" />
+          <Property Name="UserCode" Type="Int32" />
+          <NavigationProperty Name="Redemptions" Relationship="POSModel.FK_Redemption_Membership" FromRole="Membership" ToRole="Redemption" />
+          <NavigationProperty Name="Sales" Relationship="POSModel.FK_Sale_Membership" FromRole="Membership" ToRole="Sale_" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccCash" Type="Int32" />
+          <Property Name="AccBank" Type="Int32" />
+          <Property Name="AccStock" Type="Int32" />
+          <Property Name="AccKnet" Type="Int32" />
+          <Property Name="AccMaster" Type="Int32" />
+          <Property Name="AccSalesReturn" Type="Int32" />
+          <Property Name="AccDiscount" Type="Int32" />
+          <Property Name="AccCreditSalesReturn" Type="Int32" />
+          <Property Name="AccCapital" Type="Int32" />
+          <Property Name="AccDrawing" Type="Int32" />
+          <Property Name="AccCashCustomer" Type="Int32" />
+          <Property Name="OpenSalesForm" Type="Boolean" />
+          <Property Name="AddSalesDetail" Type="Boolean" />
+          <Property Name="AddPurchaseDetail" Type="Boolean" />
+          <Property Name="CardCategory" Type="Int32" />
+          <Property Name="NewsPaperCategory" Type="Int32" />
+          <Property Name="DefaultCategory" Type="Int32" />
+          <Property Name="DefaultSubCategory" Type="Int32" />
+          <Property Name="SearchByBarcode" Type="Boolean" />
+          <Property Name="ResetReceiptYearly" Type="Boolean" />
+          <Property Name="NewSalesScreen" Type="Boolean" />
+          <Property Name="AccSalary" Type="Int32" />
+          <Property Name="AccTempCredit" Type="Int32" />
+          <Property Name="MonthBasePayment" Type="Boolean" />
+          <Property Name="DecimalPlace" Type="Int32" />
+          <Property Name="ShowImage" Type="Boolean" />
+          <Property Name="BarcodeShowCompany" Type="Boolean" />
+          <Property Name="BarcodeShowItem" Type="Boolean" />
+          <Property Name="BarcodeShowPrice" Type="Boolean" />
+          <Property Name="BarcodeGap" Type="Int32" />
+          <Property Name="BarcodeHeight" Type="Int32" />
+          <Property Name="BarcodeWidth" Type="Int32" />
+          <Property Name="BarcodeLeft" Type="Int32" />
+          <Property Name="BarcodeTop" Type="Int32" />
+          <Property Name="BarcodeFontSize" Type="Int32" />
+          <Property Name="BarcodeType" Type="Int32" />
+          <Property Name="AccSuspense" Type="Int32" />
+          <Property Name="MembershipSystem" Type="Boolean" />
+          <Property Name="MembershipAmt2Point" Type="Double" />
+          <Property Name="MembershipPoint2Amt" Type="Double" />
+          <Property Name="MembershipStartNumber" Type="Int64" />
+          <Property Name="MembershipRedemptionCash" Type="Boolean" />
+          <Property Name="MembershipRedemptionReward" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Redemption">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="MembershipCode" Type="Int32" />
+          <Property Name="TransectionDate" Type="DateTime" Precision="3" />
+          <Property Name="CashRedemption" Type="Boolean" />
+          <Property Name="RewardPoint" Type="Double" />
+          <Property Name="RewardCash" Type="Double" />
+          <Property Name="ItemCode" Type="Int32" />
+          <NavigationProperty Name="Item" Relationship="POSModel.FK_Redemption_Item" FromRole="Redemption" ToRole="Item_" />
+          <NavigationProperty Name="Membership" Relationship="POSModel.FK_Redemption_Membership" FromRole="Redemption" ToRole="Membership" />
+        </EntityType>
+        <Association Name="FK_Redemption_Item">
+          <End Type="POSModel.Item_" Role="Item_" Multiplicity="0..1" />
+          <End Type="POSModel.Redemption" Role="Redemption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Redemption">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Redemption_Membership">
+          <End Type="POSModel.Membership" Role="Membership" Multiplicity="0..1" />
+          <End Type="POSModel.Redemption" Role="Redemption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membership">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Redemption">
+              <PropertyRef Name="MembershipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="V_MembershipHistory">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="Ref" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="MembershipNumber" Type="Int64" />
+          <Property Name="MemberName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="TransectionDate" Type="DateTime" Precision="3" />
+          <Property Name="Debit" Type="Double" />
+          <Property Name="Credit" Type="Double" />
+          <Property Name="Source" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ref" Type="Int32" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Sale_Membership">
+          <End Type="POSModel.Membership" Role="Membership" Multiplicity="0..1" />
+          <End Type="POSModel.Sale_" Role="Sale_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membership">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Sale_">
+              <PropertyRef Name="MembershipCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5085,6 +5363,8 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <EntitySetMapping Name="Sale_Set">
             <EntityTypeMapping TypeName="POSModel.Sale_">
               <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="MembershipCode" ColumnName="MembershipCode" />
+                <ScalarProperty Name="RewardPoint" ColumnName="RewardPoint" />
                 <ScalarProperty Name="ReturnSaleCode" ColumnName="ReturnSaleCode" />
                 <ScalarProperty Name="PONumber" ColumnName="PONumber" />
                 <ScalarProperty Name="PaymentCleared" ColumnName="PaymentCleared" />
@@ -5106,9 +5386,80 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Purchase_ReturnView">
+            <EntityTypeMapping TypeName="POSModel.Purchase_ReturnView">
+              <MappingFragment StoreEntitySet="Purchase_ReturnView">
+                <ScalarProperty Name="VoucherCode" ColumnName="VoucherCode" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="Posted" ColumnName="Posted" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="InvoiceNum" ColumnName="InvoiceNum" />
+                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="TransectionType" ColumnName="TransectionType" />
+                <ScalarProperty Name="TransectionTypeCode" ColumnName="TransectionTypeCode" />
+                <ScalarProperty Name="TransectionDate" ColumnName="TransectionDate" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="D_BarcodeType">
+            <EntityTypeMapping TypeName="POSModel.D_BarcodeType">
+              <MappingFragment StoreEntitySet="D_BarcodeType">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promotions">
+            <EntityTypeMapping TypeName="POSModel.Promotion">
+              <MappingFragment StoreEntitySet="Promotion">
+                <ScalarProperty Name="PromoStockSold" ColumnName="PromoStockSold" />
+                <ScalarProperty Name="PromoStockLimit" ColumnName="PromoStockLimit" />
+                <ScalarProperty Name="PromoPrice" ColumnName="PromoPrice" />
+                <ScalarProperty Name="PromoTo" ColumnName="PromoTo" />
+                <ScalarProperty Name="PromoFrom" ColumnName="PromoFrom" />
+                <ScalarProperty Name="onPromo" ColumnName="onPromo" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rewards">
+            <EntityTypeMapping TypeName="POSModel.Reward">
+              <MappingFragment StoreEntitySet="Reward">
+                <ScalarProperty Name="RewardPoint" ColumnName="RewardPoint" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Memberships">
+            <EntityTypeMapping TypeName="POSModel.Membership">
+              <MappingFragment StoreEntitySet="Membership">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="isClosed" ColumnName="isClosed" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="MembershipDate" ColumnName="MembershipDate" />
+                <ScalarProperty Name="MembershipNumber" ColumnName="MembershipNumber" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Configs">
             <EntityTypeMapping TypeName="POSModel.Config">
               <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="MembershipRedemptionReward" ColumnName="MembershipRedemptionReward" />
+                <ScalarProperty Name="MembershipRedemptionCash" ColumnName="MembershipRedemptionCash" />
+                <ScalarProperty Name="MembershipStartNumber" ColumnName="MembershipStartNumber" />
+                <ScalarProperty Name="MembershipPoint2Amt" ColumnName="MembershipPoint2Amt" />
+                <ScalarProperty Name="MembershipAmt2Point" ColumnName="MembershipAmt2Point" />
+                <ScalarProperty Name="MembershipSystem" ColumnName="MembershipSystem" />
                 <ScalarProperty Name="AccSuspense" ColumnName="AccSuspense" />
                 <ScalarProperty Name="BarcodeType" ColumnName="BarcodeType" />
                 <ScalarProperty Name="BarcodeFontSize" ColumnName="BarcodeFontSize" />
@@ -5157,44 +5508,32 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Purchase_ReturnView">
-            <EntityTypeMapping TypeName="POSModel.Purchase_ReturnView">
-              <MappingFragment StoreEntitySet="Purchase_ReturnView">
-                <ScalarProperty Name="VoucherCode" ColumnName="VoucherCode" />
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
-                <ScalarProperty Name="Posted" ColumnName="Posted" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="InvoiceNum" ColumnName="InvoiceNum" />
-                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
-                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
-                <ScalarProperty Name="TransectionType" ColumnName="TransectionType" />
-                <ScalarProperty Name="TransectionTypeCode" ColumnName="TransectionTypeCode" />
-                <ScalarProperty Name="TransectionDate" ColumnName="TransectionDate" />
-                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="D_BarcodeType">
-            <EntityTypeMapping TypeName="POSModel.D_BarcodeType">
-              <MappingFragment StoreEntitySet="D_BarcodeType">
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Promotions">
-            <EntityTypeMapping TypeName="POSModel.Promotion">
-              <MappingFragment StoreEntitySet="Promotion">
-                <ScalarProperty Name="PromoStockSold" ColumnName="PromoStockSold" />
-                <ScalarProperty Name="PromoStockLimit" ColumnName="PromoStockLimit" />
-                <ScalarProperty Name="PromoPrice" ColumnName="PromoPrice" />
-                <ScalarProperty Name="PromoTo" ColumnName="PromoTo" />
-                <ScalarProperty Name="PromoFrom" ColumnName="PromoFrom" />
-                <ScalarProperty Name="onPromo" ColumnName="onPromo" />
+          <EntitySetMapping Name="Redemptions">
+            <EntityTypeMapping TypeName="POSModel.Redemption">
+              <MappingFragment StoreEntitySet="Redemption">
                 <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="RewardCash" ColumnName="RewardCash" />
+                <ScalarProperty Name="RewardPoint" ColumnName="RewardPoint" />
+                <ScalarProperty Name="CashRedemption" ColumnName="CashRedemption" />
+                <ScalarProperty Name="TransectionDate" ColumnName="TransectionDate" />
+                <ScalarProperty Name="MembershipCode" ColumnName="MembershipCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_MembershipHistory">
+            <EntityTypeMapping TypeName="POSModel.V_MembershipHistory">
+              <MappingFragment StoreEntitySet="V_MembershipHistory">
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Ref" ColumnName="Ref" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="TransectionDate" ColumnName="TransectionDate" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="MembershipNumber" ColumnName="MembershipNumber" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>

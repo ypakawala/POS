@@ -806,7 +806,7 @@ Partial Class frmItemList
         Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnNew, Me.btnShowItem, Me.btnDelete, Me.btnPrint, Me.btnColumnChooser, Me.btnEdit, Me.btnExcel, Me.btnBarcode, Me.btnRefresh, Me.btnDiscontinued, Me.btnExit})
         Me.MenuStrip2.Location = New System.Drawing.Point(3, 1)
         Me.MenuStrip2.Name = "MenuStrip2"
-        Me.MenuStrip2.Size = New System.Drawing.Size(967, 24)
+        Me.MenuStrip2.Size = New System.Drawing.Size(969, 24)
         Me.MenuStrip2.TabIndex = 1
         Me.MenuStrip2.Text = "MenuStrip2"
         '
@@ -870,7 +870,7 @@ Partial Class frmItemList
         Me.btnExcel.Name = "btnExcel"
         Me.btnExcel.Padding = New System.Windows.Forms.Padding(0)
         Me.btnExcel.ShortcutKeys = System.Windows.Forms.Keys.F7
-        Me.btnExcel.Size = New System.Drawing.Size(76, 20)
+        Me.btnExcel.Size = New System.Drawing.Size(77, 20)
         Me.btnExcel.Text = "Excel [F7]"
         '
         'btnBarcode
@@ -904,7 +904,7 @@ Partial Class frmItemList
         Me.btnExit.Image = Global.POS.My.Resources.Resources.CLOSE_16
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Padding = New System.Windows.Forms.Padding(0)
-        Me.btnExit.Size = New System.Drawing.Size(76, 20)
+        Me.btnExit.Size = New System.Drawing.Size(77, 20)
         Me.btnExit.Text = "Exit [End]"
         '
         'frmItemList

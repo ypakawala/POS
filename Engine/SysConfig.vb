@@ -47,6 +47,13 @@ Public Class SysConfig
     Private m_BarcodeTop As Integer = 0
     Private m_BarcodeFontSize As Integer = 0
     Private m_BarcodeType As Integer = 0
+    Private m_AccSuspense As Integer = 0
+    Private m_MembershipSystem As Boolean = False
+    Private m_MembershipAmt2Point As Decimal = 0.0
+    Private m_MembershipPoint2Amt As Decimal = 0.0
+    Private m_MembershipStartNumber As Int64 = 0
+    Private m_MembershipRedemptionCash As Boolean = False
+    Private m_MembershipRedemptionReward As Boolean = False
 
     Private m_Company As String = ""
     Private m_Counter As String = ""
@@ -92,6 +99,8 @@ Public Class SysConfig
     'Private m_Has_Recp_Print As Boolean = True
     Private m_Remark As Keys = Nothing
     Private m_Reprint As Keys = Nothing
+    Private m_Membership As Keys = Nothing
+
     Private m_A4Printer As Boolean = False
     Private m_PrintAtEnd As Boolean = False
 
@@ -126,6 +135,7 @@ Public Class SysConfig
     Private m_Discount_Per_S As String = Nothing
     Private m_Remark_S As String = Nothing
     Private m_Reprint_S As String = Nothing
+    Private m_Membership_S As String = Nothing
 
 
     'Private m_BarcodeHeight As Integer = 122
@@ -136,7 +146,7 @@ Public Class SysConfig
     'Private m_BarcodeTop As Integer = 85
     'Private m_BarcodeGap As Integer = 30
 
- 
+
     Public Property Code() As Integer
         Get
             Return m_Code
@@ -490,6 +500,62 @@ Public Class SysConfig
             m_BarcodeType = value
         End Set
     End Property
+    Public Property AccSuspense() As Integer
+        Get
+            Return m_AccSuspense
+        End Get
+        Set(ByVal value As Integer)
+            m_AccSuspense = value
+        End Set
+    End Property
+    Public Property MembershipSystem() As Boolean
+        Get
+            Return m_MembershipSystem
+        End Get
+        Set(ByVal value As Boolean)
+            m_MembershipSystem = value
+        End Set
+    End Property
+    Public Property MembershipAmt2Point() As Decimal
+        Get
+            Return m_MembershipAmt2Point
+        End Get
+        Set(ByVal value As Decimal)
+            m_MembershipAmt2Point = value
+        End Set
+    End Property
+    Public Property MembershipPoint2Amt() As Decimal
+        Get
+            Return m_MembershipPoint2Amt
+        End Get
+        Set(ByVal value As Decimal)
+            m_MembershipPoint2Amt = value
+        End Set
+    End Property
+    Public Property MembershipStartNumber() As Int64
+        Get
+            Return m_MembershipStartNumber
+        End Get
+        Set(ByVal value As Int64)
+            m_MembershipStartNumber = value
+        End Set
+    End Property
+    Public Property MembershipRedemptionCash() As Boolean
+        Get
+            Return m_MembershipRedemptionCash
+        End Get
+        Set(ByVal value As Boolean)
+            m_MembershipRedemptionCash = value
+        End Set
+    End Property
+    Public Property MembershipRedemptionReward() As Boolean
+        Get
+            Return m_MembershipRedemptionReward
+        End Get
+        Set(ByVal value As Boolean)
+            m_MembershipRedemptionReward = value
+        End Set
+    End Property
     Public Property AccSalary() As Integer
         Get
             Return m_AccSalary
@@ -828,6 +894,15 @@ Public Class SysConfig
         End Set
     End Property
 
+    Public Property K_Membership() As Keys
+        Get
+            Return m_Membership
+        End Get
+        Set(ByVal value As Keys)
+            m_Membership = value
+        End Set
+    End Property
+
 #End Region
 
 #Region "KEYS STRING"
@@ -1110,8 +1185,15 @@ Public Class SysConfig
             m_Reprint_S = value
         End Set
     End Property
-    
 
+    Public Property K_Membership_S() As String
+        Get
+            Return m_Membership_S
+        End Get
+        Set(ByVal value As String)
+            m_Membership_S = value
+        End Set
+    End Property
 
 #End Region
 
@@ -1301,7 +1383,13 @@ Public Class SysConfig
                 m_BarcodeLeft = FixObjectNumber(DT.Rows(0).Item("BarcodeLeft"))
                 m_BarcodeTop = FixObjectNumber(DT.Rows(0).Item("BarcodeTop"))
                 m_BarcodeFontSize = FixObjectNumber(DT.Rows(0).Item("BarcodeFontSize"))
-                m_BarcodeType = FixObjectNumber(DT.Rows(0).Item("BarcodeType"))
+                m_AccSuspense = FixObjectNumber(DT.Rows(0).Item("AccSuspense"))
+                m_MembershipSystem = FixObjectBoolean(DT.Rows(0).Item("MembershipSystem"))
+                m_MembershipAmt2Point = FixObjectNumber(DT.Rows(0).Item("MembershipAmt2Point"))
+                m_MembershipPoint2Amt = FixObjectNumber(DT.Rows(0).Item("MembershipPoint2Amt"))
+                m_MembershipStartNumber = (DT.Rows(0).Item("MembershipStartNumber"))
+                m_MembershipRedemptionCash = FixObjectBoolean(DT.Rows(0).Item("MembershipRedemptionCash"))
+                m_MembershipRedemptionReward = FixObjectBoolean(DT.Rows(0).Item("MembershipRedemptionReward"))
 
 
                 Select Case m_DecimalPlace

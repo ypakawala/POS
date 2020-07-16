@@ -23,25 +23,25 @@ Partial Class frmSailSearch
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance83 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn1 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("BillNo")
         Dim UltraGridColumn2 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("TotalBill")
         Dim UltraGridColumn3 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("Discount")
         Dim UltraGridColumn4 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("NetBill")
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance84 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim SummarySettings1 As Infragistics.Win.UltraWinGrid.SummarySettings = New Infragistics.Win.UltraWinGrid.SummarySettings("", Infragistics.Win.UltraWinGrid.SummaryType.Sum, Nothing, "TotalBill", 1, True, "Band 0", 0, Infragistics.Win.UltraWinGrid.SummaryPosition.UseSummaryPositionColumn, "TotalBill", 1, True)
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance85 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim SummarySettings2 As Infragistics.Win.UltraWinGrid.SummarySettings = New Infragistics.Win.UltraWinGrid.SummarySettings("", Infragistics.Win.UltraWinGrid.SummaryType.Sum, Nothing, "Discount", 2, True, "Band 0", 0, Infragistics.Win.UltraWinGrid.SummaryPosition.UseSummaryPositionColumn, "Discount", 2, True)
-        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance86 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim SummarySettings3 As Infragistics.Win.UltraWinGrid.SummarySettings = New Infragistics.Win.UltraWinGrid.SummarySettings("", Infragistics.Win.UltraWinGrid.SummaryType.Sum, Nothing, "NetBill", 3, True, "Band 0", 0, Infragistics.Win.UltraWinGrid.SummaryPosition.UseSummaryPositionColumn, "NetBill", 3, True)
-        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance87 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim SummarySettings4 As Infragistics.Win.UltraWinGrid.SummarySettings = New Infragistics.Win.UltraWinGrid.SummarySettings("", Infragistics.Win.UltraWinGrid.SummaryType.Count, Nothing, "BillNo", 0, True, "Band 0", 0, Infragistics.Win.UltraWinGrid.SummaryPosition.UseSummaryPositionColumn, "BillNo", 0, True)
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance27 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance73 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance74 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance88 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance89 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance90 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance91 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance92 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSailSearch))
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance75 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -129,6 +129,7 @@ Partial Class frmSailSearch
         Me.btnClearAll = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnDelete = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnPrint = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.UltraExpandableGroupBox1 = New Infragistics.Win.Misc.UltraExpandableGroupBox()
         Me.UltraExpandableGroupBoxPanel1 = New Infragistics.Win.Misc.UltraExpandableGroupBoxPanel()
@@ -186,12 +187,12 @@ Partial Class frmSailSearch
         Me.UltraTabPageControl1.Controls.Add(Me.grdList)
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(1, 22)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
-        Me.UltraTabPageControl1.Size = New System.Drawing.Size(654, 185)
+        Me.UltraTabPageControl1.Size = New System.Drawing.Size(654, 157)
         '
         'grdList
         '
-        Appearance7.BackColor = System.Drawing.Color.White
-        Me.grdList.DisplayLayout.Appearance = Appearance7
+        Appearance83.BackColor = System.Drawing.Color.White
+        Me.grdList.DisplayLayout.Appearance = Appearance83
         Me.grdList.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
         UltraGridColumn1.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Append
         UltraGridColumn1.Header.VisiblePosition = 0
@@ -203,23 +204,23 @@ Partial Class frmSailSearch
         UltraGridColumn4.Header.VisiblePosition = 3
         UltraGridBand1.Columns.AddRange(New Object() {UltraGridColumn1, UltraGridColumn2, UltraGridColumn3, UltraGridColumn4})
         UltraGridBand1.Override.SummaryFooterCaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance8.BackColor = System.Drawing.Color.Black
-        Appearance8.ForeColor = System.Drawing.Color.White
-        UltraGridBand1.Override.SummaryValueAppearance = Appearance8
+        Appearance84.BackColor = System.Drawing.Color.Black
+        Appearance84.ForeColor = System.Drawing.Color.White
+        UltraGridBand1.Override.SummaryValueAppearance = Appearance84
         SummarySettings1.DisplayFormat = "Sum = {0:#####.###}"
-        SummarySettings1.GroupBySummaryValueAppearance = Appearance9
+        SummarySettings1.GroupBySummaryValueAppearance = Appearance85
         SummarySettings1.ShowCalculatingText = Infragistics.Win.DefaultableBoolean.[False]
         SummarySettings1.SummaryDisplayArea = Infragistics.Win.UltraWinGrid.SummaryDisplayAreas.TopFixed
         SummarySettings2.DisplayFormat = "Sum = {0:#####.###}"
-        SummarySettings2.GroupBySummaryValueAppearance = Appearance10
+        SummarySettings2.GroupBySummaryValueAppearance = Appearance86
         SummarySettings2.ShowCalculatingText = Infragistics.Win.DefaultableBoolean.[False]
         SummarySettings2.SummaryDisplayArea = Infragistics.Win.UltraWinGrid.SummaryDisplayAreas.TopFixed
         SummarySettings3.DisplayFormat = "Sum = {0:#####.###}"
-        SummarySettings3.GroupBySummaryValueAppearance = Appearance11
+        SummarySettings3.GroupBySummaryValueAppearance = Appearance87
         SummarySettings3.ShowCalculatingText = Infragistics.Win.DefaultableBoolean.[False]
         SummarySettings3.SummaryDisplayArea = Infragistics.Win.UltraWinGrid.SummaryDisplayAreas.TopFixed
         SummarySettings4.DisplayFormat = "Count = {0:#####.###}"
-        SummarySettings4.GroupBySummaryValueAppearance = Appearance12
+        SummarySettings4.GroupBySummaryValueAppearance = Appearance88
         SummarySettings4.ShowCalculatingText = Infragistics.Win.DefaultableBoolean.[False]
         SummarySettings4.SummaryDisplayArea = Infragistics.Win.UltraWinGrid.SummaryDisplayAreas.TopFixed
         UltraGridBand1.Summaries.AddRange(New Infragistics.Win.UltraWinGrid.SummarySettings() {SummarySettings1, SummarySettings2, SummarySettings3, SummarySettings4})
@@ -228,21 +229,21 @@ Partial Class frmSailSearch
         Me.grdList.DisplayLayout.MaxRowScrollRegions = 1
         Me.grdList.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
         Me.grdList.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.None
-        Appearance13.BackColor = System.Drawing.Color.Transparent
-        Me.grdList.DisplayLayout.Override.CardAreaAppearance = Appearance13
+        Appearance89.BackColor = System.Drawing.Color.Transparent
+        Me.grdList.DisplayLayout.Override.CardAreaAppearance = Appearance89
         Me.grdList.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
         Me.grdList.DisplayLayout.Override.CellPadding = 3
         Me.grdList.DisplayLayout.Override.FilterUIType = Infragistics.Win.UltraWinGrid.FilterUIType.FilterRow
-        Appearance27.TextHAlignAsString = "Left"
-        Me.grdList.DisplayLayout.Override.HeaderAppearance = Appearance27
+        Appearance90.TextHAlignAsString = "Left"
+        Me.grdList.DisplayLayout.Override.HeaderAppearance = Appearance90
         Me.grdList.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Appearance73.BorderColor = System.Drawing.Color.LightGray
-        Appearance73.TextVAlignAsString = "Middle"
-        Me.grdList.DisplayLayout.Override.RowAppearance = Appearance73
-        Appearance74.BackColor = System.Drawing.Color.LightSteelBlue
-        Appearance74.BorderColor = System.Drawing.Color.Black
-        Appearance74.ForeColor = System.Drawing.Color.Black
-        Me.grdList.DisplayLayout.Override.SelectedRowAppearance = Appearance74
+        Appearance91.BorderColor = System.Drawing.Color.LightGray
+        Appearance91.TextVAlignAsString = "Middle"
+        Me.grdList.DisplayLayout.Override.RowAppearance = Appearance91
+        Appearance92.BackColor = System.Drawing.Color.LightSteelBlue
+        Appearance92.BorderColor = System.Drawing.Color.Black
+        Appearance92.ForeColor = System.Drawing.Color.Black
+        Me.grdList.DisplayLayout.Override.SelectedRowAppearance = Appearance92
         Me.grdList.DisplayLayout.RowConnectorStyle = Infragistics.Win.UltraWinGrid.RowConnectorStyle.None
         Me.grdList.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
         Me.grdList.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
@@ -250,7 +251,7 @@ Partial Class frmSailSearch
         Me.grdList.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grdList.Location = New System.Drawing.Point(0, 0)
         Me.grdList.Name = "grdList"
-        Me.grdList.Size = New System.Drawing.Size(654, 185)
+        Me.grdList.Size = New System.Drawing.Size(654, 157)
         Me.grdList.TabIndex = 0
         '
         'UltraTabPageControl2
@@ -258,7 +259,7 @@ Partial Class frmSailSearch
         Me.UltraTabPageControl2.Controls.Add(Me.CRV_Receipt)
         Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
-        Me.UltraTabPageControl2.Size = New System.Drawing.Size(654, 161)
+        Me.UltraTabPageControl2.Size = New System.Drawing.Size(654, 157)
         '
         'CRV_Receipt
         '
@@ -270,7 +271,7 @@ Partial Class frmSailSearch
         Me.CRV_Receipt.ForeColor = System.Drawing.Color.Black
         Me.CRV_Receipt.Location = New System.Drawing.Point(0, 0)
         Me.CRV_Receipt.Name = "CRV_Receipt"
-        Me.CRV_Receipt.Size = New System.Drawing.Size(654, 161)
+        Me.CRV_Receipt.Size = New System.Drawing.Size(654, 157)
         Me.CRV_Receipt.TabIndex = 1
         '
         'UltraTabPageControl3
@@ -278,7 +279,7 @@ Partial Class frmSailSearch
         Me.UltraTabPageControl3.Controls.Add(Me.CRV_DetailBill)
         Me.UltraTabPageControl3.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl3.Name = "UltraTabPageControl3"
-        Me.UltraTabPageControl3.Size = New System.Drawing.Size(654, 161)
+        Me.UltraTabPageControl3.Size = New System.Drawing.Size(654, 157)
         '
         'CRV_DetailBill
         '
@@ -290,7 +291,7 @@ Partial Class frmSailSearch
         Me.CRV_DetailBill.ForeColor = System.Drawing.Color.Black
         Me.CRV_DetailBill.Location = New System.Drawing.Point(0, 0)
         Me.CRV_DetailBill.Name = "CRV_DetailBill"
-        Me.CRV_DetailBill.Size = New System.Drawing.Size(654, 161)
+        Me.CRV_DetailBill.Size = New System.Drawing.Size(654, 157)
         Me.CRV_DetailBill.TabIndex = 2
         '
         'MenuStrip1
@@ -299,7 +300,7 @@ Partial Class frmSailSearch
         Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
         Me.MenuStrip1.ForeColor = System.Drawing.Color.Black
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnSearch, Me.btnClearAll, Me.btnEdit, Me.btnDelete, Me.btnExit})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnSearch, Me.btnClearAll, Me.btnEdit, Me.btnDelete, Me.btnPrint, Me.btnExit})
         Me.MenuStrip1.Location = New System.Drawing.Point(3, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(650, 24)
@@ -338,11 +339,19 @@ Partial Class frmSailSearch
         Me.btnDelete.Size = New System.Drawing.Size(93, 20)
         Me.btnDelete.Text = "Return [F4]"
         '
+        'btnPrint
+        '
+        Me.btnPrint.Image = CType(resources.GetObject("btnPrint.Image"), System.Drawing.Image)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.ShortcutKeys = System.Windows.Forms.Keys.F5
+        Me.btnPrint.Size = New System.Drawing.Size(83, 20)
+        Me.btnPrint.Text = "Print [F5]"
+        '
         'btnExit
         '
         Me.btnExit.Image = Global.POS.My.Resources.Resources.CLOSE_16
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(84, 20)
+        Me.btnExit.Size = New System.Drawing.Size(85, 20)
         Me.btnExit.Text = "Exit [End]"
         '
         'UltraExpandableGroupBox1
@@ -352,7 +361,7 @@ Partial Class frmSailSearch
         Me.UltraExpandableGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(656, 185)
         Me.UltraExpandableGroupBox1.ForeColor = System.Drawing.Color.Black
-        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 28)
         Me.UltraExpandableGroupBox1.Name = "UltraExpandableGroupBox1"
         Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(656, 185)
         Me.UltraExpandableGroupBox1.TabIndex = 0
@@ -908,10 +917,10 @@ Partial Class frmSailSearch
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl3)
         Me.UltraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraTabControl1.Location = New System.Drawing.Point(0, 185)
+        Me.UltraTabControl1.Location = New System.Drawing.Point(0, 213)
         Me.UltraTabControl1.Name = "UltraTabControl1"
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
-        Me.UltraTabControl1.Size = New System.Drawing.Size(656, 208)
+        Me.UltraTabControl1.Size = New System.Drawing.Size(656, 180)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.Office2007Ribbon
         Me.UltraTabControl1.TabIndex = 1
         Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(211, Byte), Integer), CType(CType(211, Byte), Integer))
@@ -933,7 +942,7 @@ Partial Class frmSailSearch
         '
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
-        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(654, 185)
+        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(654, 157)
         '
         'UltraGroupBox1
         '
@@ -943,7 +952,7 @@ Partial Class frmSailSearch
         Me.UltraGroupBox1.Controls.Add(Me.MenuStrip1)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraGroupBox1.ForeColor = System.Drawing.Color.Black
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 185)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(656, 28)
         Me.UltraGroupBox1.TabIndex = 130
@@ -1026,4 +1035,5 @@ Partial Class frmSailSearch
     Friend WithEvents txtSerailNum As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents txtPONumber As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents btnPrint As ToolStripMenuItem
 End Class

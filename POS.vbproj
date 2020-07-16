@@ -389,8 +389,20 @@
     <Compile Include="frmPassword.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Membership\frmMemberhipList.Designer.vb">
+      <DependentUpon>frmMemberhipList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\frmMemberhipList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Other Files\AutoUpdate.vb" />
     <Compile Include="Other Files\Crypto.vb" />
+    <Compile Include="Membership\frmRedemption.designer.vb">
+      <DependentUpon>frmRedemption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\frmRedemption.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Purchase\frmSerialAdd.designer.vb">
       <DependentUpon>frmSerialAdd.vb</DependentUpon>
     </Compile>
@@ -433,6 +445,12 @@
       <DependentUpon>frmSerialList.vb</DependentUpon>
     </Compile>
     <Compile Include="frmSerialList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Membership\frmMembership.Designer.vb">
+      <DependentUpon>frmMembership.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\frmMembership.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Quotation\frmQuotation.Designer.vb">
@@ -895,7 +913,14 @@
     <EmbeddedResource Include="frmSales.en-IN.resx">
       <DependentUpon>frmSales.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Membership\frmMemberhipList.resx">
+      <DependentUpon>frmMemberhipList.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="Membership\frmRedemption.resx">
+      <DependentUpon>frmRedemption.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Purchase\frmSerialAdd.resx">
       <DependentUpon>frmSerialAdd.vb</DependentUpon>
     </EmbeddedResource>
@@ -916,6 +941,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSerialList.resx">
       <DependentUpon>frmSerialList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Membership\frmMembership.resx">
+      <DependentUpon>frmMembership.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Quotation\frmQuotation.resx">
       <DependentUpon>frmQuotation.vb</DependentUpon>

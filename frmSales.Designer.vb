@@ -95,7 +95,9 @@ Partial Class frmSales
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -107,6 +109,7 @@ Partial Class frmSales
         Dim Appearance94 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance95 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSales))
         Me.UltraCalcManager1 = New Infragistics.Win.UltraWinCalcManager.UltraCalcManager(Me.components)
         Me.txtTotalBill = New Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit()
@@ -138,6 +141,9 @@ Partial Class frmSales
         Me.UltraLabel4 = New Infragistics.Win.Misc.UltraLabel()
         Me.txtBillNo = New Infragistics.Win.Misc.UltraLabel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lblMembershipNumber = New Infragistics.Win.Misc.UltraLabel()
+        Me.lblMembershipName = New Infragistics.Win.Misc.UltraLabel()
         Me.UltraLabel3 = New Infragistics.Win.Misc.UltraLabel()
         Me.txtDate = New Infragistics.Win.UltraWinEditors.UltraDateTimeEditor()
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox()
@@ -179,6 +185,7 @@ Partial Class frmSales
         Me.KClose = New System.Windows.Forms.ToolStripMenuItem()
         Me.KReprint = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KMembership = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
         Me.btnShowMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -187,6 +194,7 @@ Partial Class frmSales
         Me.FlowItem = New System.Windows.Forms.FlowLayoutPanel()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.UltraGroupBox4 = New Infragistics.Win.Misc.UltraGroupBox()
+        Me.lblMemberPoints = New Infragistics.Win.Misc.UltraLabel()
         CType(Me.UltraCalcManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gbxInput, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbxInput.SuspendLayout()
@@ -201,6 +209,7 @@ Partial Class frmSales
         CType(Me.txtRemarks, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         CType(Me.txtDate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
@@ -923,19 +932,51 @@ Partial Class frmSales
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Transparent
+        Me.Panel2.Controls.Add(Me.Panel5)
         Me.Panel2.Controls.Add(Me.UltraLabel3)
         Me.Panel2.Controls.Add(Me.txtDate)
         resources.ApplyResources(Me.Panel2, "Panel2")
         Me.Panel2.ForeColor = System.Drawing.Color.Black
         Me.Panel2.Name = "Panel2"
         '
-        'UltraLabel3
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.White
+        Me.Panel5.Controls.Add(Me.lblMemberPoints)
+        Me.Panel5.Controls.Add(Me.lblMembershipNumber)
+        Me.Panel5.Controls.Add(Me.lblMembershipName)
+        resources.ApplyResources(Me.Panel5, "Panel5")
+        Me.Panel5.Name = "Panel5"
+        '
+        'lblMembershipNumber
+        '
+        Appearance5.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Appearance5, "Appearance5")
+        resources.ApplyResources(Appearance5.FontData, "Appearance5.FontData")
+        Appearance5.ForceApplyResources = "FontData|"
+        Me.lblMembershipNumber.Appearance = Appearance5
+        resources.ApplyResources(Me.lblMembershipNumber, "lblMembershipNumber")
+        Me.lblMembershipNumber.ForeColor = System.Drawing.Color.Black
+        Me.lblMembershipNumber.Name = "lblMembershipNumber"
+        '
+        'lblMembershipName
         '
         Appearance12.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Appearance12.FontData, "Appearance12.FontData")
         resources.ApplyResources(Appearance12, "Appearance12")
+        resources.ApplyResources(Appearance12.FontData, "Appearance12.FontData")
         Appearance12.ForceApplyResources = "FontData|"
-        Me.UltraLabel3.Appearance = Appearance12
+        Me.lblMembershipName.Appearance = Appearance12
+        resources.ApplyResources(Me.lblMembershipName, "lblMembershipName")
+        Me.lblMembershipName.ForeColor = System.Drawing.Color.Black
+        Me.lblMembershipName.Name = "lblMembershipName"
+        '
+        'UltraLabel3
+        '
+        Appearance3.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Appearance3.FontData, "Appearance3.FontData")
+        resources.ApplyResources(Appearance3, "Appearance3")
+        Appearance3.ForceApplyResources = "FontData|"
+        Me.UltraLabel3.Appearance = Appearance3
         resources.ApplyResources(Me.UltraLabel3, "UltraLabel3")
         Me.UltraLabel3.ForeColor = System.Drawing.Color.Black
         Me.UltraLabel3.Name = "UltraLabel3"
@@ -1101,7 +1142,7 @@ Partial Class frmSales
         Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
         resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.ForeColor = System.Drawing.Color.Black
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KPrice, Me.KMultiply, Me.ToolStripMenuItem2, Me.KCash, Me.KKnet, Me.KMaster, Me.KCreditSale, Me.ToolStripMenuItem1, Me.KDelete, Me.KEditBill, Me.KRemark, Me.KCustomerList, Me.KItemList, Me.KDiscount, Me.KDiscountPer, Me.KPrint, Me.KRepeat, Me.KHold, Me.KOpenItem, Me.KBalance, Me.KSalesReturn, Me.KPayment, Me.KClearBox, Me.KClear, Me.KClose, Me.KReprint, Me.ToolStripMenuItem3})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KPrice, Me.KMultiply, Me.ToolStripMenuItem2, Me.KCash, Me.KKnet, Me.KMaster, Me.KCreditSale, Me.ToolStripMenuItem1, Me.KDelete, Me.KEditBill, Me.KRemark, Me.KCustomerList, Me.KItemList, Me.KDiscount, Me.KDiscountPer, Me.KPrint, Me.KRepeat, Me.KHold, Me.KOpenItem, Me.KBalance, Me.KSalesReturn, Me.KPayment, Me.KClearBox, Me.KClear, Me.KClose, Me.KReprint, Me.ToolStripMenuItem3, Me.KMembership})
         Me.MenuStrip1.Name = "MenuStrip1"
         '
         'KPrice
@@ -1239,6 +1280,11 @@ Partial Class frmSales
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
         resources.ApplyResources(Me.ToolStripMenuItem3, "ToolStripMenuItem3")
         '
+        'KMembership
+        '
+        Me.KMembership.Name = "KMembership"
+        resources.ApplyResources(Me.KMembership, "KMembership")
+        '
         'MenuStrip2
         '
         Me.MenuStrip2.BackColor = System.Drawing.Color.White
@@ -1290,6 +1336,17 @@ Partial Class frmSales
         Me.UltraGroupBox4.Name = "UltraGroupBox4"
         Me.UltraGroupBox4.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
+        'lblMemberPoints
+        '
+        Appearance4.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Appearance4, "Appearance4")
+        resources.ApplyResources(Appearance4.FontData, "Appearance4.FontData")
+        Appearance4.ForceApplyResources = "FontData|"
+        Me.lblMemberPoints.Appearance = Appearance4
+        resources.ApplyResources(Me.lblMemberPoints, "lblMemberPoints")
+        Me.lblMemberPoints.ForeColor = System.Drawing.Color.Black
+        Me.lblMemberPoints.Name = "lblMemberPoints"
+        '
         'frmSales
         '
         resources.ApplyResources(Me, "$this")
@@ -1322,6 +1379,7 @@ Partial Class frmSales
         Me.Panel4.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
         CType(Me.txtDate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
@@ -1424,4 +1482,9 @@ Partial Class frmSales
     Friend WithEvents FlowSelectedItem As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents UltraGroupBox4 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents KReprint As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents KMembership As ToolStripMenuItem
+    Friend WithEvents lblMembershipNumber As Infragistics.Win.Misc.UltraLabel
+    Friend WithEvents lblMembershipName As Infragistics.Win.Misc.UltraLabel
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents lblMemberPoints As Infragistics.Win.Misc.UltraLabel
 End Class

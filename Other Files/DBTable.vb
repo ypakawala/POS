@@ -31,5 +31,7 @@
     Public ItemClassComponent As String = "ItemClassComponent"
     Public Item_Class_View As String = "Item_Class_View"
     Public V_Promotion As String = "V_Promotion"
+    Public Membership As String = "Membership"
+    Public Reward As String = "Reward"
 
 End Module

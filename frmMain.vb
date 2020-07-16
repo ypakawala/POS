@@ -26,6 +26,7 @@ Public Class frmMain
             'frmMainIns.MenuStrip1.BackColor = Color.DodgerBlue
             'Me.StatusStrip.BackColor = Color.DodgerBlue
 
+            Me.btnMembership.Visible = CLS_Config.MembershipSystem
 
             Me.Text = "POS System for -------   " & CLS_Config.CompanyName
 
@@ -657,4 +658,21 @@ Public Class frmMain
         FRM.FK = Nothing
         FRM.Show()
     End Sub
+
+    Private Sub btnMembership_Click(sender As Object, e As EventArgs) Handles btnMembership.Click
+        Dim frm As New frmMemberhipList(0)
+        frm.ParentForm = "frmMain"
+        frm.Owner = Me
+        frm.ShowDialog()
+
+    End Sub
+
+    Private Sub btnReward_Click(sender As Object, e As EventArgs) Handles btnReward.Click
+        Dim FRM As New frmDynamicList
+        FRM.MdiParent = Me
+        FRM.TableName = Table.Reward
+        FRM.FK = Nothing
+        FRM.Show()
+    End Sub
+
 End Class

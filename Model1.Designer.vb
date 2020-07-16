@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("20856895-efee-4790-9871-2451f8866673")>
+<Assembly: EdmSchemaAttribute("d87b1c55-1b67-4466-9df2-5e606d548787")>
 #Region "EDM Relationship Metadata"
 <Assembly: EdmRelationshipAttribute("POSModel", "FK_Account_D_AccountType", "D_AccountType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(D_AccountType), "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Account_), True)>
 <Assembly: EdmRelationshipAttribute("POSModel", "FK_Purchase_Account", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(Account_), "Purchase", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Purchase_), True)>
@@ -49,6 +49,10 @@ Imports System.Xml.Serialization
 <Assembly: EdmRelationshipAttribute("POSModel", "FK_Sale_D_TransectionType", "D_TransectionType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(D_TransectionType), "Sale", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Sale_), True)>
 <Assembly: EdmRelationshipAttribute("POSModel", "FK_Sale_Entry_Sale", "Sale", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(Sale_), "Sale_Entry_", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Sale_Entry_), True)>
 <Assembly: EdmRelationshipAttribute("POSModel", "FK_Promotion_Item", "Item_", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(Item_), "Promotion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Promotion), True)>
+<Assembly: EdmRelationshipAttribute("POSModel", "FK_Reward_Item", "Item_", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(Item_), "Reward", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Reward), True)>
+<Assembly: EdmRelationshipAttribute("POSModel", "FK_Redemption_Item", "Item_", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(Item_), "Redemption", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Redemption), True)>
+<Assembly: EdmRelationshipAttribute("POSModel", "FK_Redemption_Membership", "Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(Membership), "Redemption", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Redemption), True)>
+<Assembly: EdmRelationshipAttribute("POSModel", "FK_Sale_Membership", "Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(Membership), "Sale_", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Sale_), True)>
 
 #End Region
 
@@ -929,20 +933,6 @@ Public Partial Class POSEntities
     ''' <summary>
     ''' No Metadata Documentation available.
     ''' </summary>
-    Public ReadOnly Property Configs() As ObjectSet(Of Config)
-        Get
-            If (_Configs Is Nothing) Then
-                _Configs = MyBase.CreateObjectSet(Of Config)("Configs")
-            End If
-            Return _Configs
-        End Get
-    End Property
-
-    Private _Configs As ObjectSet(Of Config)
-
-    ''' <summary>
-    ''' No Metadata Documentation available.
-    ''' </summary>
     Public ReadOnly Property Purchase_ReturnView() As ObjectSet(Of Purchase_ReturnView)
         Get
             If (_Purchase_ReturnView Is Nothing) Then
@@ -981,6 +971,76 @@ Public Partial Class POSEntities
     End Property
 
     Private _Promotions As ObjectSet(Of Promotion)
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    Public ReadOnly Property Rewards() As ObjectSet(Of Reward)
+        Get
+            If (_Rewards Is Nothing) Then
+                _Rewards = MyBase.CreateObjectSet(Of Reward)("Rewards")
+            End If
+            Return _Rewards
+        End Get
+    End Property
+
+    Private _Rewards As ObjectSet(Of Reward)
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    Public ReadOnly Property Memberships() As ObjectSet(Of Membership)
+        Get
+            If (_Memberships Is Nothing) Then
+                _Memberships = MyBase.CreateObjectSet(Of Membership)("Memberships")
+            End If
+            Return _Memberships
+        End Get
+    End Property
+
+    Private _Memberships As ObjectSet(Of Membership)
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    Public ReadOnly Property Configs() As ObjectSet(Of Config)
+        Get
+            If (_Configs Is Nothing) Then
+                _Configs = MyBase.CreateObjectSet(Of Config)("Configs")
+            End If
+            Return _Configs
+        End Get
+    End Property
+
+    Private _Configs As ObjectSet(Of Config)
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    Public ReadOnly Property Redemptions() As ObjectSet(Of Redemption)
+        Get
+            If (_Redemptions Is Nothing) Then
+                _Redemptions = MyBase.CreateObjectSet(Of Redemption)("Redemptions")
+            End If
+            Return _Redemptions
+        End Get
+    End Property
+
+    Private _Redemptions As ObjectSet(Of Redemption)
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    Public ReadOnly Property V_MembershipHistory() As ObjectSet(Of V_MembershipHistory)
+        Get
+            If (_V_MembershipHistory Is Nothing) Then
+                _V_MembershipHistory = MyBase.CreateObjectSet(Of V_MembershipHistory)("V_MembershipHistory")
+            End If
+            Return _V_MembershipHistory
+        End Get
+    End Property
+
+    Private _V_MembershipHistory As ObjectSet(Of V_MembershipHistory)
 
     #End Region
 
@@ -1400,13 +1460,6 @@ Public Partial Class POSEntities
     End Sub
 
     ''' <summary>
-    ''' Deprecated Method for adding a new object to the Configs EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
-    ''' </summary>
-    Public Sub AddToConfigs(ByVal config As Config)
-        MyBase.AddObject("Configs", config)
-    End Sub
-
-    ''' <summary>
     ''' Deprecated Method for adding a new object to the Purchase_ReturnView EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
     ''' </summary>
     Public Sub AddToPurchase_ReturnView(ByVal purchase_ReturnView As Purchase_ReturnView)
@@ -1425,6 +1478,41 @@ Public Partial Class POSEntities
     ''' </summary>
     Public Sub AddToPromotions(ByVal promotion As Promotion)
         MyBase.AddObject("Promotions", promotion)
+    End Sub
+
+    ''' <summary>
+    ''' Deprecated Method for adding a new object to the Rewards EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' </summary>
+    Public Sub AddToRewards(ByVal reward As Reward)
+        MyBase.AddObject("Rewards", reward)
+    End Sub
+
+    ''' <summary>
+    ''' Deprecated Method for adding a new object to the Memberships EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' </summary>
+    Public Sub AddToMemberships(ByVal membership As Membership)
+        MyBase.AddObject("Memberships", membership)
+    End Sub
+
+    ''' <summary>
+    ''' Deprecated Method for adding a new object to the Configs EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' </summary>
+    Public Sub AddToConfigs(ByVal config As Config)
+        MyBase.AddObject("Configs", config)
+    End Sub
+
+    ''' <summary>
+    ''' Deprecated Method for adding a new object to the Redemptions EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' </summary>
+    Public Sub AddToRedemptions(ByVal redemption As Redemption)
+        MyBase.AddObject("Redemptions", redemption)
+    End Sub
+
+    ''' <summary>
+    ''' Deprecated Method for adding a new object to the V_MembershipHistory EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' </summary>
+    Public Sub AddToV_MembershipHistory(ByVal v_MembershipHistory As V_MembershipHistory)
+        MyBase.AddObject("V_MembershipHistory", v_MembershipHistory)
     End Sub
 
     #End Region
@@ -3815,6 +3903,156 @@ Public Partial Class Config
     End Sub
 
     Private Partial Sub OnAccSuspenseChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipSystem() As Nullable(Of Global.System.Boolean)
+        Get
+            Return _MembershipSystem
+        End Get
+        Set
+            OnMembershipSystemChanging(value)
+            ReportPropertyChanging("MembershipSystem")
+            _MembershipSystem = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipSystem")
+            OnMembershipSystemChanged()
+        End Set
+    End Property
+
+    Private _MembershipSystem As Nullable(Of Global.System.Boolean)
+    Private Partial Sub OnMembershipSystemChanging(value As Nullable(Of Global.System.Boolean))
+    End Sub
+
+    Private Partial Sub OnMembershipSystemChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipAmt2Point() As Nullable(Of Global.System.Double)
+        Get
+            Return _MembershipAmt2Point
+        End Get
+        Set
+            OnMembershipAmt2PointChanging(value)
+            ReportPropertyChanging("MembershipAmt2Point")
+            _MembershipAmt2Point = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipAmt2Point")
+            OnMembershipAmt2PointChanged()
+        End Set
+    End Property
+
+    Private _MembershipAmt2Point As Nullable(Of Global.System.Double)
+    Private Partial Sub OnMembershipAmt2PointChanging(value As Nullable(Of Global.System.Double))
+    End Sub
+
+    Private Partial Sub OnMembershipAmt2PointChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipPoint2Amt() As Nullable(Of Global.System.Double)
+        Get
+            Return _MembershipPoint2Amt
+        End Get
+        Set
+            OnMembershipPoint2AmtChanging(value)
+            ReportPropertyChanging("MembershipPoint2Amt")
+            _MembershipPoint2Amt = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipPoint2Amt")
+            OnMembershipPoint2AmtChanged()
+        End Set
+    End Property
+
+    Private _MembershipPoint2Amt As Nullable(Of Global.System.Double)
+    Private Partial Sub OnMembershipPoint2AmtChanging(value As Nullable(Of Global.System.Double))
+    End Sub
+
+    Private Partial Sub OnMembershipPoint2AmtChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipStartNumber() As Nullable(Of Global.System.Int64)
+        Get
+            Return _MembershipStartNumber
+        End Get
+        Set
+            OnMembershipStartNumberChanging(value)
+            ReportPropertyChanging("MembershipStartNumber")
+            _MembershipStartNumber = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipStartNumber")
+            OnMembershipStartNumberChanged()
+        End Set
+    End Property
+
+    Private _MembershipStartNumber As Nullable(Of Global.System.Int64)
+    Private Partial Sub OnMembershipStartNumberChanging(value As Nullable(Of Global.System.Int64))
+    End Sub
+
+    Private Partial Sub OnMembershipStartNumberChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipRedemptionCash() As Nullable(Of Global.System.Boolean)
+        Get
+            Return _MembershipRedemptionCash
+        End Get
+        Set
+            OnMembershipRedemptionCashChanging(value)
+            ReportPropertyChanging("MembershipRedemptionCash")
+            _MembershipRedemptionCash = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipRedemptionCash")
+            OnMembershipRedemptionCashChanged()
+        End Set
+    End Property
+
+    Private _MembershipRedemptionCash As Nullable(Of Global.System.Boolean)
+    Private Partial Sub OnMembershipRedemptionCashChanging(value As Nullable(Of Global.System.Boolean))
+    End Sub
+
+    Private Partial Sub OnMembershipRedemptionCashChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipRedemptionReward() As Nullable(Of Global.System.Boolean)
+        Get
+            Return _MembershipRedemptionReward
+        End Get
+        Set
+            OnMembershipRedemptionRewardChanging(value)
+            ReportPropertyChanging("MembershipRedemptionReward")
+            _MembershipRedemptionReward = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipRedemptionReward")
+            OnMembershipRedemptionRewardChanged()
+        End Set
+    End Property
+
+    Private _MembershipRedemptionReward As Nullable(Of Global.System.Boolean)
+    Private Partial Sub OnMembershipRedemptionRewardChanging(value As Nullable(Of Global.System.Boolean))
+    End Sub
+
+    Private Partial Sub OnMembershipRedemptionRewardChanged()
     End Sub
 
     #End Region
@@ -7721,6 +7959,42 @@ Public Partial Class Item_
         End Set
     End Property
 
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_Reward_Item", "Reward")>
+     Public Property Rewards() As EntityCollection(Of Reward)
+        Get
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of Reward)("POSModel.FK_Reward_Item", "Reward")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of Reward)("POSModel.FK_Reward_Item", "Reward", value)
+            End If
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_Redemption_Item", "Redemption")>
+     Public Property Redemptions() As EntityCollection(Of Redemption)
+        Get
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of Redemption)("POSModel.FK_Redemption_Item", "Redemption")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of Redemption)("POSModel.FK_Redemption_Item", "Redemption", value)
+            End If
+        End Set
+    End Property
+
     #End Region
 
 End Class
@@ -10169,6 +10443,276 @@ Public Partial Class ItemMovementView
 
     Private Partial Sub OnItemCategoryNameChanged()
     End Sub
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No Metadata Documentation available.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="POSModel", Name:="Membership")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class Membership
+    Inherits EntityObject
+    #Region "Factory Method"
+
+    ''' <summary>
+    ''' Create a new Membership object.
+    ''' </summary>
+    ''' <param name="code">Initial value of the Code property.</param>
+    Public Shared Function CreateMembership(code As Global.System.Int32) As Membership
+        Dim membership as Membership = New Membership
+        membership.Code = code
+        Return membership
+    End Function
+
+    #End Region
+
+    #Region "Primitive Properties"
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property Code() As Global.System.Int32
+        Get
+            Return _Code
+        End Get
+        Set
+            If (_Code <> Value) Then
+                OnCodeChanging(value)
+                ReportPropertyChanging("Code")
+                _Code = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("Code")
+                OnCodeChanged()
+            End If
+        End Set
+    End Property
+
+    Private _Code As Global.System.Int32
+    Private Partial Sub OnCodeChanging(value As Global.System.Int32)
+    End Sub
+
+    Private Partial Sub OnCodeChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipNumber() As Nullable(Of Global.System.Int64)
+        Get
+            Return _MembershipNumber
+        End Get
+        Set
+            OnMembershipNumberChanging(value)
+            ReportPropertyChanging("MembershipNumber")
+            _MembershipNumber = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipNumber")
+            OnMembershipNumberChanged()
+        End Set
+    End Property
+
+    Private _MembershipNumber As Nullable(Of Global.System.Int64)
+    Private Partial Sub OnMembershipNumberChanging(value As Nullable(Of Global.System.Int64))
+    End Sub
+
+    Private Partial Sub OnMembershipNumberChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipDate() As Nullable(Of Global.System.DateTime)
+        Get
+            Return _MembershipDate
+        End Get
+        Set
+            OnMembershipDateChanging(value)
+            ReportPropertyChanging("MembershipDate")
+            _MembershipDate = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipDate")
+            OnMembershipDateChanged()
+        End Set
+    End Property
+
+    Private _MembershipDate As Nullable(Of Global.System.DateTime)
+    Private Partial Sub OnMembershipDateChanging(value As Nullable(Of Global.System.DateTime))
+    End Sub
+
+    Private Partial Sub OnMembershipDateChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MemberName() As Global.System.String
+        Get
+            Return _MemberName
+        End Get
+        Set
+            OnMemberNameChanging(value)
+            ReportPropertyChanging("MemberName")
+            _MemberName = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("MemberName")
+            OnMemberNameChanged()
+        End Set
+    End Property
+
+    Private _MemberName As Global.System.String
+    Private Partial Sub OnMemberNameChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnMemberNameChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property Mobile() As Global.System.String
+        Get
+            Return _Mobile
+        End Get
+        Set
+            OnMobileChanging(value)
+            ReportPropertyChanging("Mobile")
+            _Mobile = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("Mobile")
+            OnMobileChanged()
+        End Set
+    End Property
+
+    Private _Mobile As Global.System.String
+    Private Partial Sub OnMobileChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnMobileChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property DOB() As Nullable(Of Global.System.DateTime)
+        Get
+            Return _DOB
+        End Get
+        Set
+            OnDOBChanging(value)
+            ReportPropertyChanging("DOB")
+            _DOB = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("DOB")
+            OnDOBChanged()
+        End Set
+    End Property
+
+    Private _DOB As Nullable(Of Global.System.DateTime)
+    Private Partial Sub OnDOBChanging(value As Nullable(Of Global.System.DateTime))
+    End Sub
+
+    Private Partial Sub OnDOBChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property isClosed() As Nullable(Of Global.System.Boolean)
+        Get
+            Return _isClosed
+        End Get
+        Set
+            OnisClosedChanging(value)
+            ReportPropertyChanging("isClosed")
+            _isClosed = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("isClosed")
+            OnisClosedChanged()
+        End Set
+    End Property
+
+    Private _isClosed As Nullable(Of Global.System.Boolean)
+    Private Partial Sub OnisClosedChanging(value As Nullable(Of Global.System.Boolean))
+    End Sub
+
+    Private Partial Sub OnisClosedChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property UserCode() As Nullable(Of Global.System.Int32)
+        Get
+            Return _UserCode
+        End Get
+        Set
+            OnUserCodeChanging(value)
+            ReportPropertyChanging("UserCode")
+            _UserCode = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("UserCode")
+            OnUserCodeChanged()
+        End Set
+    End Property
+
+    Private _UserCode As Nullable(Of Global.System.Int32)
+    Private Partial Sub OnUserCodeChanging(value As Nullable(Of Global.System.Int32))
+    End Sub
+
+    Private Partial Sub OnUserCodeChanged()
+    End Sub
+
+    #End Region
+
+    #Region "Navigation Properties"
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_Redemption_Membership", "Redemption")>
+     Public Property Redemptions() As EntityCollection(Of Redemption)
+        Get
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of Redemption)("POSModel.FK_Redemption_Membership", "Redemption")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of Redemption)("POSModel.FK_Redemption_Membership", "Redemption", value)
+            End If
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_Sale_Membership", "Sale_")>
+     Public Property Sales() As EntityCollection(Of Sale_)
+        Get
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of Sale_)("POSModel.FK_Sale_Membership", "Sale_")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of Sale_)("POSModel.FK_Sale_Membership", "Sale_", value)
+            End If
+        End Set
+    End Property
 
     #End Region
 
@@ -18410,6 +18954,277 @@ End Class
 ''' <summary>
 ''' No Metadata Documentation available.
 ''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="POSModel", Name:="Redemption")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class Redemption
+    Inherits EntityObject
+    #Region "Factory Method"
+
+    ''' <summary>
+    ''' Create a new Redemption object.
+    ''' </summary>
+    ''' <param name="code">Initial value of the Code property.</param>
+    Public Shared Function CreateRedemption(code As Global.System.Int32) As Redemption
+        Dim redemption as Redemption = New Redemption
+        redemption.Code = code
+        Return redemption
+    End Function
+
+    #End Region
+
+    #Region "Primitive Properties"
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property Code() As Global.System.Int32
+        Get
+            Return _Code
+        End Get
+        Set
+            If (_Code <> Value) Then
+                OnCodeChanging(value)
+                ReportPropertyChanging("Code")
+                _Code = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("Code")
+                OnCodeChanged()
+            End If
+        End Set
+    End Property
+
+    Private _Code As Global.System.Int32
+    Private Partial Sub OnCodeChanging(value As Global.System.Int32)
+    End Sub
+
+    Private Partial Sub OnCodeChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipCode() As Nullable(Of Global.System.Int32)
+        Get
+            Return _MembershipCode
+        End Get
+        Set
+            OnMembershipCodeChanging(value)
+            ReportPropertyChanging("MembershipCode")
+            _MembershipCode = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipCode")
+            OnMembershipCodeChanged()
+        End Set
+    End Property
+
+    Private _MembershipCode As Nullable(Of Global.System.Int32)
+    Private Partial Sub OnMembershipCodeChanging(value As Nullable(Of Global.System.Int32))
+    End Sub
+
+    Private Partial Sub OnMembershipCodeChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property TransectionDate() As Nullable(Of Global.System.DateTime)
+        Get
+            Return _TransectionDate
+        End Get
+        Set
+            OnTransectionDateChanging(value)
+            ReportPropertyChanging("TransectionDate")
+            _TransectionDate = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("TransectionDate")
+            OnTransectionDateChanged()
+        End Set
+    End Property
+
+    Private _TransectionDate As Nullable(Of Global.System.DateTime)
+    Private Partial Sub OnTransectionDateChanging(value As Nullable(Of Global.System.DateTime))
+    End Sub
+
+    Private Partial Sub OnTransectionDateChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property CashRedemption() As Nullable(Of Global.System.Boolean)
+        Get
+            Return _CashRedemption
+        End Get
+        Set
+            OnCashRedemptionChanging(value)
+            ReportPropertyChanging("CashRedemption")
+            _CashRedemption = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("CashRedemption")
+            OnCashRedemptionChanged()
+        End Set
+    End Property
+
+    Private _CashRedemption As Nullable(Of Global.System.Boolean)
+    Private Partial Sub OnCashRedemptionChanging(value As Nullable(Of Global.System.Boolean))
+    End Sub
+
+    Private Partial Sub OnCashRedemptionChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property RewardPoint() As Nullable(Of Global.System.Double)
+        Get
+            Return _RewardPoint
+        End Get
+        Set
+            OnRewardPointChanging(value)
+            ReportPropertyChanging("RewardPoint")
+            _RewardPoint = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("RewardPoint")
+            OnRewardPointChanged()
+        End Set
+    End Property
+
+    Private _RewardPoint As Nullable(Of Global.System.Double)
+    Private Partial Sub OnRewardPointChanging(value As Nullable(Of Global.System.Double))
+    End Sub
+
+    Private Partial Sub OnRewardPointChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property RewardCash() As Nullable(Of Global.System.Double)
+        Get
+            Return _RewardCash
+        End Get
+        Set
+            OnRewardCashChanging(value)
+            ReportPropertyChanging("RewardCash")
+            _RewardCash = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("RewardCash")
+            OnRewardCashChanged()
+        End Set
+    End Property
+
+    Private _RewardCash As Nullable(Of Global.System.Double)
+    Private Partial Sub OnRewardCashChanging(value As Nullable(Of Global.System.Double))
+    End Sub
+
+    Private Partial Sub OnRewardCashChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property ItemCode() As Nullable(Of Global.System.Int32)
+        Get
+            Return _ItemCode
+        End Get
+        Set
+            OnItemCodeChanging(value)
+            ReportPropertyChanging("ItemCode")
+            _ItemCode = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("ItemCode")
+            OnItemCodeChanged()
+        End Set
+    End Property
+
+    Private _ItemCode As Nullable(Of Global.System.Int32)
+    Private Partial Sub OnItemCodeChanging(value As Nullable(Of Global.System.Int32))
+    End Sub
+
+    Private Partial Sub OnItemCodeChanged()
+    End Sub
+
+    #End Region
+
+    #Region "Navigation Properties"
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_Redemption_Item", "Item_")>
+    Public Property Item() As Item_
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Item_)("POSModel.FK_Redemption_Item", "Item_").Value
+        End Get
+        Set
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Item_)("POSModel.FK_Redemption_Item", "Item_").Value = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <BrowsableAttribute(False)>
+    <DataMemberAttribute()>
+    Public Property ItemReference() As EntityReference(Of Item_)
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Item_)("POSModel.FK_Redemption_Item", "Item_")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of Item_)("POSModel.FK_Redemption_Item", "Item_", value)
+            End If
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_Redemption_Membership", "Membership")>
+    Public Property Membership() As Membership
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Membership)("POSModel.FK_Redemption_Membership", "Membership").Value
+        End Get
+        Set
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Membership)("POSModel.FK_Redemption_Membership", "Membership").Value = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <BrowsableAttribute(False)>
+    <DataMemberAttribute()>
+    Public Property MembershipReference() As EntityReference(Of Membership)
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Membership)("POSModel.FK_Redemption_Membership", "Membership")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of Membership)("POSModel.FK_Redemption_Membership", "Membership", value)
+            End If
+        End Set
+    End Property
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No Metadata Documentation available.
+''' </summary>
 <EdmEntityTypeAttribute(NamespaceName:="POSModel", Name:="Reg")>
 <Serializable()>
 <DataContractAttribute(IsReference:=True)>
@@ -18532,6 +19347,146 @@ Public Partial Class Reg
 
     Private Partial Sub OnAppIDChanged()
     End Sub
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No Metadata Documentation available.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="POSModel", Name:="Reward")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class Reward
+    Inherits EntityObject
+    #Region "Factory Method"
+
+    ''' <summary>
+    ''' Create a new Reward object.
+    ''' </summary>
+    ''' <param name="code">Initial value of the Code property.</param>
+    Public Shared Function CreateReward(code As Global.System.Int32) As Reward
+        Dim reward as Reward = New Reward
+        reward.Code = code
+        Return reward
+    End Function
+
+    #End Region
+
+    #Region "Primitive Properties"
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property Code() As Global.System.Int32
+        Get
+            Return _Code
+        End Get
+        Set
+            If (_Code <> Value) Then
+                OnCodeChanging(value)
+                ReportPropertyChanging("Code")
+                _Code = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("Code")
+                OnCodeChanged()
+            End If
+        End Set
+    End Property
+
+    Private _Code As Global.System.Int32
+    Private Partial Sub OnCodeChanging(value As Global.System.Int32)
+    End Sub
+
+    Private Partial Sub OnCodeChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property ItemCode() As Nullable(Of Global.System.Int32)
+        Get
+            Return _ItemCode
+        End Get
+        Set
+            OnItemCodeChanging(value)
+            ReportPropertyChanging("ItemCode")
+            _ItemCode = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("ItemCode")
+            OnItemCodeChanged()
+        End Set
+    End Property
+
+    Private _ItemCode As Nullable(Of Global.System.Int32)
+    Private Partial Sub OnItemCodeChanging(value As Nullable(Of Global.System.Int32))
+    End Sub
+
+    Private Partial Sub OnItemCodeChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property RewardPoint() As Nullable(Of Global.System.Double)
+        Get
+            Return _RewardPoint
+        End Get
+        Set
+            OnRewardPointChanging(value)
+            ReportPropertyChanging("RewardPoint")
+            _RewardPoint = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("RewardPoint")
+            OnRewardPointChanged()
+        End Set
+    End Property
+
+    Private _RewardPoint As Nullable(Of Global.System.Double)
+    Private Partial Sub OnRewardPointChanging(value As Nullable(Of Global.System.Double))
+    End Sub
+
+    Private Partial Sub OnRewardPointChanged()
+    End Sub
+
+    #End Region
+
+    #Region "Navigation Properties"
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_Reward_Item", "Item_")>
+    Public Property Item() As Item_
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Item_)("POSModel.FK_Reward_Item", "Item_").Value
+        End Get
+        Set
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Item_)("POSModel.FK_Reward_Item", "Item_").Value = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <BrowsableAttribute(False)>
+    <DataMemberAttribute()>
+    Public Property ItemReference() As EntityReference(Of Item_)
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Item_)("POSModel.FK_Reward_Item", "Item_")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of Item_)("POSModel.FK_Reward_Item", "Item_", value)
+            End If
+        End Set
+    End Property
 
     #End Region
 
@@ -19218,6 +20173,56 @@ Public Partial Class Sale_
     Private Partial Sub OnReturnSaleCodeChanged()
     End Sub
 
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property RewardPoint() As Nullable(Of Global.System.Double)
+        Get
+            Return _RewardPoint
+        End Get
+        Set
+            OnRewardPointChanging(value)
+            ReportPropertyChanging("RewardPoint")
+            _RewardPoint = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("RewardPoint")
+            OnRewardPointChanged()
+        End Set
+    End Property
+
+    Private _RewardPoint As Nullable(Of Global.System.Double)
+    Private Partial Sub OnRewardPointChanging(value As Nullable(Of Global.System.Double))
+    End Sub
+
+    Private Partial Sub OnRewardPointChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipCode() As Nullable(Of Global.System.Int32)
+        Get
+            Return _MembershipCode
+        End Get
+        Set
+            OnMembershipCodeChanging(value)
+            ReportPropertyChanging("MembershipCode")
+            _MembershipCode = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipCode")
+            OnMembershipCodeChanged()
+        End Set
+    End Property
+
+    Private _MembershipCode As Nullable(Of Global.System.Int32)
+    Private Partial Sub OnMembershipCodeChanging(value As Nullable(Of Global.System.Int32))
+    End Sub
+
+    Private Partial Sub OnMembershipCodeChanged()
+    End Sub
+
     #End Region
 
     #Region "Navigation Properties"
@@ -19329,6 +20334,37 @@ Public Partial Class Sale_
         Set
             If (Not value Is Nothing)
                 CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of Sale_Entry_)("POSModel.FK_Sale_Entry_Sale", "Sale_Entry_", value)
+            End If
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_Sale_Membership", "Membership")>
+    Public Property Membership() As Membership
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Membership)("POSModel.FK_Sale_Membership", "Membership").Value
+        End Get
+        Set
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Membership)("POSModel.FK_Sale_Membership", "Membership").Value = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <BrowsableAttribute(False)>
+    <DataMemberAttribute()>
+    Public Property MembershipReference() As EntityReference(Of Membership)
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Membership)("POSModel.FK_Sale_Membership", "Membership")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of Membership)("POSModel.FK_Sale_Membership", "Membership", value)
             End If
         End Set
     End Property
@@ -23337,6 +24373,319 @@ Public Partial Class Sales_Full_View_Sub
     End Sub
 
     Private Partial Sub OnTransDateChanged()
+    End Sub
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No Metadata Documentation available.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="POSModel", Name:="V_MembershipHistory")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class V_MembershipHistory
+    Inherits EntityObject
+    #Region "Factory Method"
+
+    ''' <summary>
+    ''' Create a new V_MembershipHistory object.
+    ''' </summary>
+    ''' <param name="code">Initial value of the Code property.</param>
+    ''' <param name="source">Initial value of the Source property.</param>
+    ''' <param name="ref">Initial value of the Ref property.</param>
+    Public Shared Function CreateV_MembershipHistory(code As Global.System.Int32, source As Global.System.String, ref As Global.System.Int32) As V_MembershipHistory
+        Dim v_MembershipHistory as V_MembershipHistory = New V_MembershipHistory
+        v_MembershipHistory.Code = code
+        v_MembershipHistory.Source = source
+        v_MembershipHistory.Ref = ref
+        Return v_MembershipHistory
+    End Function
+
+    #End Region
+
+    #Region "Primitive Properties"
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property Code() As Global.System.Int32
+        Get
+            Return _Code
+        End Get
+        Set
+            If (_Code <> Value) Then
+                OnCodeChanging(value)
+                ReportPropertyChanging("Code")
+                _Code = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("Code")
+                OnCodeChanged()
+            End If
+        End Set
+    End Property
+
+    Private _Code As Global.System.Int32
+    Private Partial Sub OnCodeChanging(value As Global.System.Int32)
+    End Sub
+
+    Private Partial Sub OnCodeChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MembershipNumber() As Nullable(Of Global.System.Int64)
+        Get
+            Return _MembershipNumber
+        End Get
+        Set
+            OnMembershipNumberChanging(value)
+            ReportPropertyChanging("MembershipNumber")
+            _MembershipNumber = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("MembershipNumber")
+            OnMembershipNumberChanged()
+        End Set
+    End Property
+
+    Private _MembershipNumber As Nullable(Of Global.System.Int64)
+    Private Partial Sub OnMembershipNumberChanging(value As Nullable(Of Global.System.Int64))
+    End Sub
+
+    Private Partial Sub OnMembershipNumberChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property MemberName() As Global.System.String
+        Get
+            Return _MemberName
+        End Get
+        Set
+            OnMemberNameChanging(value)
+            ReportPropertyChanging("MemberName")
+            _MemberName = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("MemberName")
+            OnMemberNameChanged()
+        End Set
+    End Property
+
+    Private _MemberName As Global.System.String
+    Private Partial Sub OnMemberNameChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnMemberNameChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property Mobile() As Global.System.String
+        Get
+            Return _Mobile
+        End Get
+        Set
+            OnMobileChanging(value)
+            ReportPropertyChanging("Mobile")
+            _Mobile = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("Mobile")
+            OnMobileChanged()
+        End Set
+    End Property
+
+    Private _Mobile As Global.System.String
+    Private Partial Sub OnMobileChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnMobileChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property DOB() As Nullable(Of Global.System.DateTime)
+        Get
+            Return _DOB
+        End Get
+        Set
+            OnDOBChanging(value)
+            ReportPropertyChanging("DOB")
+            _DOB = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("DOB")
+            OnDOBChanged()
+        End Set
+    End Property
+
+    Private _DOB As Nullable(Of Global.System.DateTime)
+    Private Partial Sub OnDOBChanging(value As Nullable(Of Global.System.DateTime))
+    End Sub
+
+    Private Partial Sub OnDOBChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property TransectionDate() As Nullable(Of Global.System.DateTime)
+        Get
+            Return _TransectionDate
+        End Get
+        Set
+            OnTransectionDateChanging(value)
+            ReportPropertyChanging("TransectionDate")
+            _TransectionDate = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("TransectionDate")
+            OnTransectionDateChanged()
+        End Set
+    End Property
+
+    Private _TransectionDate As Nullable(Of Global.System.DateTime)
+    Private Partial Sub OnTransectionDateChanging(value As Nullable(Of Global.System.DateTime))
+    End Sub
+
+    Private Partial Sub OnTransectionDateChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property Debit() As Nullable(Of Global.System.Double)
+        Get
+            Return _Debit
+        End Get
+        Set
+            OnDebitChanging(value)
+            ReportPropertyChanging("Debit")
+            _Debit = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("Debit")
+            OnDebitChanged()
+        End Set
+    End Property
+
+    Private _Debit As Nullable(Of Global.System.Double)
+    Private Partial Sub OnDebitChanging(value As Nullable(Of Global.System.Double))
+    End Sub
+
+    Private Partial Sub OnDebitChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property Credit() As Nullable(Of Global.System.Double)
+        Get
+            Return _Credit
+        End Get
+        Set
+            OnCreditChanging(value)
+            ReportPropertyChanging("Credit")
+            _Credit = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("Credit")
+            OnCreditChanged()
+        End Set
+    End Property
+
+    Private _Credit As Nullable(Of Global.System.Double)
+    Private Partial Sub OnCreditChanging(value As Nullable(Of Global.System.Double))
+    End Sub
+
+    Private Partial Sub OnCreditChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property Source() As Global.System.String
+        Get
+            Return _Source
+        End Get
+        Set
+            If (_Source <> Value) Then
+                OnSourceChanging(value)
+                ReportPropertyChanging("Source")
+                _Source = StructuralObject.SetValidValue(value, false)
+                ReportPropertyChanged("Source")
+                OnSourceChanged()
+            End If
+        End Set
+    End Property
+
+    Private _Source As Global.System.String
+    Private Partial Sub OnSourceChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnSourceChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property Ref() As Global.System.Int32
+        Get
+            Return _Ref
+        End Get
+        Set
+            If (_Ref <> Value) Then
+                OnRefChanging(value)
+                ReportPropertyChanging("Ref")
+                _Ref = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("Ref")
+                OnRefChanged()
+            End If
+        End Set
+    End Property
+
+    Private _Ref As Global.System.Int32
+    Private Partial Sub OnRefChanging(value As Global.System.Int32)
+    End Sub
+
+    Private Partial Sub OnRefChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property ItemName() As Global.System.String
+        Get
+            Return _ItemName
+        End Get
+        Set
+            OnItemNameChanging(value)
+            ReportPropertyChanging("ItemName")
+            _ItemName = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("ItemName")
+            OnItemNameChanged()
+        End Set
+    End Property
+
+    Private _ItemName As Global.System.String
+    Private Partial Sub OnItemNameChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnItemNameChanged()
     End Sub
 
     #End Region

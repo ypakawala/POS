@@ -78,6 +78,10 @@ Public Class frmDynamicList
         Try
             DT.Clear()
             Select Case TableName
+                Case Table.Membership
+                    DT = DBO.ReturnDataTable("SELECT     M.Code, M.MembershipNumber, M.MembershipDate, M.MemberName, M.Mobile, M.DOB, M.isClosed,  U.UserName FROM Membership AS M INNER JOIN P_User AS U ON M.UserCode = U.Code ")
+                    DTOriginal = DBO.ReturnDataTable("SELECT     M.Code, M.MembershipNumber, M.MembershipDate, M.MemberName, M.Mobile, M.DOB, M.isClosed,  U.UserName FROM Membership AS M INNER JOIN P_User AS U ON M.UserCode = U.Code ")
+
                 Case Table.Account
                     If FixObjectString(AccountType) = Nothing Then
                         MsgBox("Account Type missing.")
@@ -106,9 +110,30 @@ Public Class frmDynamicList
     Private Sub SetGridLayout()
         Try
 
+
             Me.grdList.DisplayLayout.Override.RowAlternateAppearance = RowAlternateAppearance
             Me.grdList.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortSingle
             Select Case TableName
+
+                Case Table.Membership
+                    Me.btnNew.Enabled = False
+                    Me.btnDelete.Enabled = False
+                    Me.btnUndo.Enabled = False
+                    Me.btnSave.Enabled = False
+                    Me.btnRefresh.Enabled = False
+
+                    Me.btnNew.Visible = False
+                    Me.btnDelete.Visible = False
+                    Me.btnUndo.Visible = False
+                    Me.btnSave.Visible = False
+                    Me.btnRefresh.Visible = False
+
+
+                    Me.grdList.DisplayLayout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+                    Me.grdList.DisplayLayout.Bands(0).Override.AllowDelete = Infragistics.Win.DefaultableBoolean.False
+                    Me.grdList.DisplayLayout.Bands(0).Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.No
+                    Me.grdList.DisplayLayout.Bands(0).Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False
+
 
                 Case Table.V_Promotion
                     Me.btnNew.Enabled = False
@@ -238,6 +263,72 @@ Public Class frmDynamicList
 
                     FillDrop(Me.DropData, "Title", "Code", Table.D_UMCType)
                     Me.grdList.DisplayLayout.Bands(0).Columns("Base").EditorControl = Me.DropData
+
+
+                Case Table.Reward
+
+                    Me.grdList.DisplayLayout.Bands(0).Columns("Code").Header.Caption = "Code"
+                    Me.grdList.DisplayLayout.Bands(0).Columns("ItemCode").Header.Caption = "Item"
+                    Me.grdList.DisplayLayout.Bands(0).Columns("RewardPoint").Header.Caption = "Reward Point"
+
+                    Me.grdList.DisplayLayout.Bands(0).Columns("Code").CellActivation = UltraWinGrid.Activation.NoEdit
+                    Me.grdList.DisplayLayout.Bands(0).Columns("ItemCode").CellActivation = UltraWinGrid.Activation.AllowEdit
+                    Me.grdList.DisplayLayout.Bands(0).Columns("RewardPoint").CellActivation = UltraWinGrid.Activation.AllowEdit
+
+                    Me.grdList.DisplayLayout.Bands(0).Columns("Code").Header.VisiblePosition = 0
+                    Me.grdList.DisplayLayout.Bands(0).Columns("ItemCode").Header.VisiblePosition = 1
+                    Me.grdList.DisplayLayout.Bands(0).Columns("RewardPoint").Header.VisiblePosition = 2
+
+                    Me.grdList.DisplayLayout.Bands(0).Columns("Code").TabStop = False
+                    Me.grdList.DisplayLayout.Bands(0).Columns("ItemCode").TabStop = True
+                    Me.grdList.DisplayLayout.Bands(0).Columns("RewardPoint").TabStop = True
+
+                    Me.grdList.DisplayLayout.Bands(0).Columns("ItemCode").TabIndex = 0
+                    Me.grdList.DisplayLayout.Bands(0).Columns("RewardPoint").TabIndex = 1
+
+
+                    Me.grdList.DisplayLayout.Bands(0).Columns("Code").PerformAutoResize()
+                    Me.grdList.DisplayLayout.Bands(0).Columns("ItemCode").PerformAutoResize()
+                    Me.grdList.DisplayLayout.Bands(0).Columns("RewardPoint").PerformAutoResize()
+
+                    Me.grdList.DisplayLayout.Bands(0).Columns("ItemCode").Width = 250
+                    Me.grdList.DisplayLayout.Bands(0).Columns("RewardPoint").Width = 100
+
+                    If CLS_Config.SearchByBarcode Then
+                        If CLS_Config.Company = ZAHRABAKALA Then
+                            FillDropByQuery(Me.DropData, "ItemName", "Code", "SELECT Code, COALESCE(BarCode,'') + ' - ' + COALESCE(ItemName,'') AS ItemName,BarCode,BarCode2,ItemType FROM ITEM  WHERE (COALESCE(CostPrice, 0) > 0) AND  COALESCE(Discontinued,0)=0  ORDER BY BarCode,ItemName")
+                        Else
+                            FillDropByQuery(Me.DropData, "ItemName", "Code", "SELECT Code, COALESCE(BarCode,'') + ' - ' + COALESCE(ItemName,'') AS ItemName,BarCode,BarCode2,ItemType FROM ITEM WHERE  COALESCE(Discontinued,0)=0  ORDER BY BarCode,ItemName")
+                        End If
+
+                        Me.DropData.DisplayLayout.Bands(0).Columns("BarCode").Hidden = True
+                        Me.DropData.DisplayLayout.Bands(0).Columns("BarCode2").Hidden = True
+                        Me.DropData.DisplayLayout.Bands(0).Columns("ItemType").Hidden = True
+
+                    Else
+                        If CLS_Config.Company = ZAHRABAKALA Then
+                            FillDropByQuery(Me.DropData, "ItemName", "Code", "SELECT Code, ItemName,BarCode,BarCode2,ItemType FROM ITEM  WHERE (COALESCE(CostPrice, 0) > 0) AND  COALESCE(Discontinued,0)=0  ORDER BY ItemName")
+                            Me.DropData.DisplayLayout.Bands(0).Columns("BarCode").Hidden = True
+                            Me.DropData.DisplayLayout.Bands(0).Columns("BarCode2").Hidden = True
+                            Me.DropData.DisplayLayout.Bands(0).Columns("ItemType").Hidden = True
+                        Else
+                            FillDropByQuery(Me.DropData, "ItemName", "Code", "SELECT Code, ItemName,BarCode,BarCode2,ItemType FROM ITEM  WHERE COALESCE(Discontinued,0)=0  ORDER BY ItemName")
+
+                            Me.DropData.DisplayLayout.Bands(0).Columns("BarCode").Hidden = True
+                            Me.DropData.DisplayLayout.Bands(0).Columns("BarCode2").Hidden = True
+                            Me.DropData.DisplayLayout.Bands(0).Columns("ItemType").Hidden = True
+
+                        End If
+                    End If
+
+                    Me.DropData.DisplayLayout.Bands(0).Columns("ItemName").Width = 500
+                    Me.DropData.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
+
+                    Me.grdList.DisplayLayout.Bands(0).Columns("ItemCode").EditorControl = Me.DropData
+
+
+
+
 
                 Case Table.D_ItemCategory, Table.D_ItemSubCategory
 
@@ -494,6 +585,8 @@ Public Class frmDynamicList
     Private Sub SetFormTitle()
         Try
             Select Case tblName
+                Case Table.Membership
+                    Me.Text = "Membership"
                 Case Table.V_Promotion
                     Me.Text = "Promotion List"
                 Case Table.D_Counter
@@ -502,6 +595,8 @@ Public Class frmDynamicList
                     Me.Text = "Item Category List"
                 Case Table.D_ItemSubCategory
                     Me.Text = "Item Sub Category List"
+                Case Table.Reward
+                    Me.Text = "Reward"
                 Case Table.D_UMCType
                     Me.Text = "UMC Type List"
                 Case Table.Account
@@ -605,61 +700,112 @@ Public Class frmDynamicList
     End Sub
     Private Function IsValid() As Boolean
         Try
-            Dim i As Integer = 0
-            Dim r As Integer = 0
+            Select Case TableName
+                Case Table.Reward
 
-            For r = 0 To Me.grdList.DisplayLayout.Bands(0).Columns.Count - 1
-                For i = 0 To Me.grdList.Rows.Count - 1
-                    Select Case Me.grdList.DisplayLayout.Bands(0).Columns(r).Key
-                        Case "Title"
-                            If FixCellString(Me.grdList.Rows(i).Cells("Title")) = "" Then
-                                MsgBox(Me.grdList.DisplayLayout.Bands(0).Columns("Title").Header.Caption & " missing.")
-                                Me.grdList.Rows(i).Cells("Title").Activate()
-                                Me.grdList.PerformAction(UltraGridAction.EnterEditMode, False, False)
+                    Dim ItemCodeList As New List(Of Integer)
+
+                    Dim Row As UltraGridRow
+                    For Each Row In Me.grdList.Rows
+                        If Row.IsDataRow AndAlso Not Row.IsEmptyRow AndAlso Not Row.IsUnmodifiedTemplateAddRow Then
+                            Me.grdList.PerformAction(UltraGridAction.ExitEditMode, False, False)
+
+                            Dim ItemCode As Integer = TrimInt(Row.Cells("ItemCode").Value)
+
+                            If ItemCode = Nothing Then
+                                MsgBox("Item Name missing", MsgBoxStyle.Information)
+                                Me.grdList.ActiveCell = Row.Cells("ItemCode")
+                                Me.grdList.PerformAction(UltraGridAction.EnterEditMode)
                                 Return False
                             End If
-                        Case "Salary"
-                            If AccountType = CodeModule.AccountType.Employee Then
-                                If FixCellString(Me.grdList.Rows(i).Cells("Salary")) = "" Then
-                                    MsgBox("Employee salary is missing.")
-                                    Me.grdList.Rows(i).Cells("Salary").Activate()
-                                    Me.grdList.PerformAction(UltraGridAction.EnterEditMode, False, False)
+
+                            If ItemCodeList.Contains(ItemCode) Then
+                                MsgBox("Item Name already used", MsgBoxStyle.Information)
+                                Me.grdList.ActiveCell = Row.Cells("ItemCode")
+                                Me.grdList.PerformAction(UltraGridAction.EnterEditMode)
+                                Return False
+                            End If
+
+                            ItemCodeList.Add(ItemCode)
+
+                                If TrimInt(Row.Cells("RewardPoint").Value) = Nothing Then
+                                    MsgBox("RewardPoint missing", MsgBoxStyle.Information)
+                                    Me.grdList.ActiveCell = Row.Cells("RewardPoint")
+                                    Me.grdList.PerformAction(UltraGridAction.EnterEditMode)
                                     Return False
                                 End If
-                            End If
-                        Case "AccountNum"
-                            If FixCellString(Me.grdList.Rows(i).Cells("AccountNum")) = "" Then
-                                MsgBox("Account Number missing.")
-                                Me.grdList.Rows(i).Cells("AccountNum").Activate()
-                                Me.grdList.PerformAction(UltraGridAction.EnterEditMode, False, False)
 
-                                Return False
                             End If
 
-                            Dim Code As Integer = FixCellNumber(Me.grdList.Rows(i).Cells("Code"))
-                            Dim AccountNum As String = FixCellString(Me.grdList.Rows(i).Cells("AccountNum"))
-                            Dim AccountType As Integer = FixCellNumber(Me.grdList.Rows(i).Cells("AccountType"))
 
-                            If Code = Nothing Then Code = 0
-                            If AccountNum = Nothing Then AccountNum = "0"
-                            If AccountType = Nothing Then AccountType = 0
+                    Next
 
-                            Dim Exists As Boolean = False
-                            Dim Para As New ArrayList
-                            Para.Add(Code)
-                            Para.Add(AccountNum)
-                            Para.Add(AccountType)
-                            Exists = DBO.ExecuteSP_ReturnSingleValue("AccountNumExists", Para)
-                            If Exists Then
-                                MsgBox("Account Number already in use.")
-                                Me.grdList.Rows(i).Cells("AccountNum").Activate()
-                                Me.grdList.PerformAction(UltraGridAction.EnterEditMode, False, False)
-                                Return False
-                            End If
+                Case Else
+                    Dim i As Integer = 0
+                    Dim r As Integer = 0
 
-                    End Select
-                Next
-            Next
+                    For r = 0 To Me.grdList.DisplayLayout.Bands(0).Columns.Count - 1
+                        For i = 0 To Me.grdList.Rows.Count - 1
+                            Select Case Me.grdList.DisplayLayout.Bands(0).Columns(r).Key
+                                Case "RewardPoint"
+                                    If FixCellNumber(Me.grdList.Rows(i).Cells("RewardPoint")) = Nothing Then
+                                        MsgBox("Reward Point is missing.")
+                                        Me.grdList.Rows(i).Cells("RewardPoint").Activate()
+                                        Me.grdList.PerformAction(UltraGridAction.EnterEditMode, False, False)
+                                        Return False
+                                    End If
+                                Case "Title"
+                                    If FixCellString(Me.grdList.Rows(i).Cells("Title")) = "" Then
+                                        MsgBox(Me.grdList.DisplayLayout.Bands(0).Columns("Title").Header.Caption & " missing.")
+                                        Me.grdList.Rows(i).Cells("Title").Activate()
+                                        Me.grdList.PerformAction(UltraGridAction.EnterEditMode, False, False)
+                                        Return False
+                                    End If
+                                Case "Salary"
+                                    If AccountType = CodeModule.AccountType.Employee Then
+                                        If FixCellString(Me.grdList.Rows(i).Cells("Salary")) = "" Then
+                                            MsgBox("Employee salary is missing.")
+                                            Me.grdList.Rows(i).Cells("Salary").Activate()
+                                            Me.grdList.PerformAction(UltraGridAction.EnterEditMode, False, False)
+                                            Return False
+                                        End If
+                                    End If
+                                Case "AccountNum"
+                                    If FixCellString(Me.grdList.Rows(i).Cells("AccountNum")) = "" Then
+                                        MsgBox("Account Number missing.")
+                                        Me.grdList.Rows(i).Cells("AccountNum").Activate()
+                                        Me.grdList.PerformAction(UltraGridAction.EnterEditMode, False, False)
+
+                                        Return False
+                                    End If
+
+                                    Dim Code As Integer = FixCellNumber(Me.grdList.Rows(i).Cells("Code"))
+                                    Dim AccountNum As String = FixCellString(Me.grdList.Rows(i).Cells("AccountNum"))
+                                    Dim AccountType As Integer = FixCellNumber(Me.grdList.Rows(i).Cells("AccountType"))
+
+                                    If Code = Nothing Then Code = 0
+                                    If AccountNum = Nothing Then AccountNum = "0"
+                                    If AccountType = Nothing Then AccountType = 0
+
+                                    Dim Exists As Boolean = False
+                                    Dim Para As New ArrayList
+                                    Para.Add(Code)
+                                    Para.Add(AccountNum)
+                                    Para.Add(AccountType)
+                                    Exists = DBO.ExecuteSP_ReturnSingleValue("AccountNumExists", Para)
+                                    If Exists Then
+                                        MsgBox("Account Number already in use.")
+                                        Me.grdList.Rows(i).Cells("AccountNum").Activate()
+                                        Me.grdList.PerformAction(UltraGridAction.EnterEditMode, False, False)
+                                        Return False
+                                    End If
+
+                            End Select
+                        Next
+                    Next
+            End Select
+
+
 
         Catch ex As Exception
             MSG.ErrorOk("[IsValid]" & vbCrLf & ex.Message)
@@ -696,7 +842,7 @@ Public Class frmDynamicList
 #End Region
 #Region "Events"
 
-    Private Sub grdList_DoubleClickCell(sender As Object, e As Infragistics.Win.UltraWinGrid.DoubleClickCellEventArgs) Handles grdList.DoubleClickCell
+    Private Sub ReturnCode()
         Try
             Select Case TableName
                 Case Table.Account
@@ -717,17 +863,44 @@ Public Class frmDynamicList
                         Me.Close()
 
                     End If
+
+                Case Table.Membership
+
+
+                    If IsDBNull(Me.grdList.ActiveRow) Or IsNothing(Me.grdList.ActiveRow) Then
+                        MSG.ErrorOk("Select Recoord first")
+                        Exit Sub
+                    End If
+
+                    If FixCellString(Me.grdList.ActiveRow.Cells("Code")) = Nothing Then
+                        MSG.ErrorOk("Select Recoord first")
+                        Exit Sub
+                    End If
+
+                    Find_Int = FixCellNumber(Me.grdList.ActiveRow.Cells("Code"))
+
+                    Me.Close()
+
+            End Select
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub grdList_DoubleClickCell(sender As Object, e As Infragistics.Win.UltraWinGrid.DoubleClickCellEventArgs) Handles grdList.DoubleClickCell
+        Try
+            Select Case TableName
                 Case Table.V_Promotion
 
                     Dim FRM As New frmItem(TrimInt(Me.grdList.ActiveRow.Cells("ItemCode").Value))
                     FRM.ShowDialog()
                     btnRefresh_Click(sender, e)
 
+                Case Else
+                    ReturnCode()
+
             End Select
-           
-
-
-
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -752,6 +925,10 @@ Public Class frmDynamicList
             Else
                 gbxImage.Visible = False
             End If
+
+            Me.txtSearch.Focus()
+            Me.txtSearch.SelectAll()
+
 
         Catch ex As Exception
             MSG.ErrorOk("[frmDynamicList_Load]" & vbCrLf & ex.Message)
@@ -840,13 +1017,127 @@ Public Class frmDynamicList
     End Sub
     Private Sub grdList_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdList.KeyDown
         Try
-            If e.KeyCode <> Keys.Tab Then Exit Sub
-            If Me.grdList.ActiveCell.Tag = "LAST" Then Add()
+
+            If e.KeyCode = Keys.Tab Then
+                If Me.grdList.ActiveCell.Tag = "LAST" Then Add()
+            End If
+
+
+            If e.KeyCode = Keys.Enter AndAlso TableName = Table.Reward Then
+
+                If IsNothing(Me.grdList.ActiveRow) Then Exit Sub
+                If IsDBNull(Me.grdList.ActiveCell) OrElse IsNothing(Me.grdList.ActiveCell) Then Exit Sub
+                If Me.grdList.ActiveCell.Column.Key <> "ItemCode" Then Exit Sub
+                Dim CLS_Item As New Item
+
+                If IsDBNull(Me.grdList.ActiveCell.Value) Or IsNothing(Me.grdList.ActiveCell.Value) Then
+                ElseIf Me.grdList.ActiveCell.Value = Nothing Then
+                Else
+
+                    CLS_Item = New Item
+                    CLS_Item = Get_Item(CStr(Me.grdList.ActiveCell.Value))
+                    If IsNothing(CLS_Item) Then
+                        MsgBox("Item Dose Not Exists")
+                    Else
+                        Me.grdList.ActiveCell.Value = CLS_Item.Code
+                        'SendKeys.Send("{TAB}")
+                        'Me.grdList.ActiveCell = Me.grdList.ActiveRow.Cells("RewardPoint")
+                        'Me.grdList.PerformAction(UltraGridAction.EnterEditMode)
+                    End If
+                    Exit Sub
+                End If
+
+
+                If IsDBNull(Me.grdList.ActiveCell.Text) Or IsNothing(Me.grdList.ActiveCell.Text) Then
+                Else
+                    CLS_Item = New Item
+                    CLS_Item = Get_Item(CStr(Me.grdList.ActiveCell.Text))
+                    'Dim ItemCode As Integer = Nothing
+                    If IsNothing(CLS_Item) Then
+                        MsgBox("Item Dose Not Exists")
+                    Else
+                        Me.grdList.ActiveCell.Value = CLS_Item.Code
+                        'Me.grdList.ActiveCell = Me.grdList.ActiveRow.Cells("RewardPoint")
+                        'Me.grdList.PerformAction(UltraGridAction.EnterEditMode)
+                    End If
+                End If
+            End If
+
+            If e.KeyCode = Keys.Enter Then ReturnCode()
 
         Catch ex As Exception
-            MSG.ErrorOk("[Save]" & vbCrLf & ex.Message)
+            MsgBox("grdList_KeyDown" & vbCrLf & vbCrLf & ex.Message)
+            If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
+
+    Private Function Get_Item(ByVal Barcode As String) As Item
+        Try
+            Dim DT As New DataTable
+            DT = Me.DropData.DataSource
+
+            Dim CLS As New Item
+            'IF BARCODE IS NULL RETURN EMPTY CLS
+            If FixObjectString(Barcode) = Nothing Then Return Nothing
+
+            'IF BARCODE EXIST IN DS LOAD & RETURN CLS
+            Dim dr() As DataRow = DT.Select(" Barcode='" & Barcode & "'")
+            If dr.Length > 0 Then
+                CLS.Code = IIf(IsDBNull(dr(0).Item("Code")), 0, dr(0).Item("Code"))
+                CLS.ItemName = IIf(IsDBNull(dr(0).Item("ItemName")), 0, dr(0).Item("ItemName"))
+                CLS.Barcode = IIf(IsDBNull(dr(0).Item("Barcode")), 0, dr(0).Item("Barcode"))
+                CLS.Barcode2 = IIf(IsDBNull(dr(0).Item("Barcode2")), 0, dr(0).Item("Barcode2"))
+                CLS.ItemType = IIf(IsDBNull(dr(0).Item("ItemType")), ItemType.StandardItem, dr(0).Item("ItemType"))
+                Return CLS
+            End If
+            'IF BARCODE DOSE NOT EXIST CONT...
+
+
+            'IF BARCODE IS NOT INTEGER SKIP CHECKING BY CODE
+            If IsNumeric(Barcode) Then
+                'IF CODE IS NUMERIC AND EXIST IN DS LOAD & RETURN CLS
+                Dim dr3() As DataRow = DT.Select(" Code=" & Barcode)
+                If dr3.Length > 0 Then
+                    CLS.Code = IIf(IsDBNull(dr3(0).Item("Code")), 0, dr3(0).Item("Code"))
+                    CLS.ItemName = IIf(IsDBNull(dr3(0).Item("ItemName")), 0, dr3(0).Item("ItemName"))
+                    CLS.Barcode = IIf(IsDBNull(dr3(0).Item("Barcode")), 0, dr3(0).Item("Barcode"))
+                    CLS.Barcode2 = IIf(IsDBNull(dr3(0).Item("Barcode2")), 0, dr3(0).Item("Barcode2"))
+                    CLS.ItemType = IIf(IsDBNull(dr3(0).Item("ItemType")), ItemType.StandardItem, dr3(0).Item("ItemType"))
+                    Return CLS
+                End If
+            End If
+
+            'IF BARCODE2 EXIST IN DS LOAD & RETURN CLS
+            Dim dr2() As DataRow = DT.Select(" Barcode2='" & Barcode & "'")
+            If dr2.Length > 0 Then
+                CLS.Code = IIf(IsDBNull(dr2(0).Item("Code")), 0, dr2(0).Item("Code"))
+                CLS.ItemName = IIf(IsDBNull(dr2(0).Item("ItemName")), 0, dr2(0).Item("ItemName"))
+                CLS.Barcode = IIf(IsDBNull(dr2(0).Item("Barcode")), 0, dr2(0).Item("Barcode"))
+                CLS.Barcode2 = IIf(IsDBNull(dr2(0).Item("Barcode2")), 0, dr2(0).Item("Barcode2"))
+                CLS.ItemType = IIf(IsDBNull(dr2(0).Item("ItemType")), ItemType.StandardItem, dr2(0).Item("ItemType"))
+                Return CLS
+            End If
+
+            'IF BARCODE2 EXIST IN DS LOAD & RETURN CLS
+            Dim dr1() As DataRow = DT.Select(" ItemName='" & Barcode & "'")
+            If dr1.Length > 0 Then
+                CLS.Code = IIf(IsDBNull(dr1(0).Item("Code")), 0, dr1(0).Item("Code"))
+                CLS.ItemName = IIf(IsDBNull(dr1(0).Item("ItemName")), 0, dr1(0).Item("ItemName"))
+                CLS.Barcode = IIf(IsDBNull(dr1(0).Item("Barcode")), 0, dr1(0).Item("Barcode"))
+                CLS.Barcode2 = IIf(IsDBNull(dr1(0).Item("Barcode2")), 0, dr1(0).Item("Barcode2"))
+                CLS.ItemType = IIf(IsDBNull(dr1(0).Item("ItemType")), ItemType.StandardItem, dr1(0).Item("ItemType"))
+                Return CLS
+
+            End If
+
+            'IF BARCODE IS NOT CODE RETURN EMPTY CLS
+            Return Nothing
+        Catch ex As Exception
+            MSG.ErrorOk("[Get_Item]" & vbCrLf & ex.Message)
+            Return Nothing
+        End Try
+    End Function
+
     Private Sub grdList_AfterRowInsert(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.RowEventArgs) Handles grdList.AfterRowInsert
         Try
             Select Case TableName
@@ -1115,4 +1406,86 @@ Public Class frmDynamicList
             MsgBox(ex.Message)
         End Try
     End Sub
+
+#Region " SIMPLE SEARCH "
+
+    Dim srch As Boolean = False
+
+    Private Sub txtSearch_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown
+        Try
+            If e.KeyCode <> Keys.Enter Then Exit Sub
+
+            Me.grdList.DisplayLayout.Bands(0).ColumnFilters.ClearAllFilters()
+            If Me.txtSearch.Value <> Nothing Then
+                Dim charr() As Char = {"[", "]", "{", "}"}
+                For Each a As Char In charr
+                    If Me.txtSearch.Value = a Then
+                        Me.txtSearch.Value = Nothing
+                        Exit Sub
+                    End If
+                Next
+                srch = True
+                Me.grdList.DisplayLayout.Bands(0).ColumnFilters(0).FilterConditions.Add(Infragistics.Win.UltraWinGrid.FilterComparisionOperator.Contains, txtSearch.Value)
+
+            Else
+                srch = False
+            End If
+
+            Try
+                Me.grdList.Rows.GetRowAtVisibleIndex(1).Activated = True
+                Me.grdList.Rows.GetRowAtVisibleIndex(1).Selected = True
+            Catch ex As Exception
+            End Try
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub grdList_FilterRow(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.FilterRowEventArgs) Handles grdList.FilterRow
+        Try
+            If srch = True Then
+                Dim band As UltraGridBand = e.Row.Band
+
+                Dim FC As New FilterCondition
+                Dim FCList As New List(Of FilterCondition)
+
+                Dim COL As UltraGridColumn
+                For Each COL In Me.grdList.DisplayLayout.Bands(0).Columns
+                    Select Case COL.Key
+                        Case "LastSaleDate", "LastPurchaseDate"
+                            If COL.Hidden = False Then
+                                FC = New FilterCondition(band.Columns(COL.Key), FilterComparisionOperator.Like, Me.txtSearch.Value)
+                                FCList.Add(FC)
+                            End If
+                        Case Else
+                            If COL.Hidden = False Then
+                                FC = New FilterCondition(band.Columns(COL.Key), FilterComparisionOperator.Like, "*" & Me.txtSearch.Value & "*")
+                                FCList.Add(FC)
+                            End If
+                    End Select
+                Next
+
+
+                Dim rowPasses As Boolean = e.Row.MeetsCriteria(FCList.ToArray(), FilterLogicalOperator.Or)
+
+                If Not rowPasses Then
+                    e.RowFilteredOut = True
+                Else
+                    e.RowFilteredOut = False
+                End If
+
+
+                'End If
+
+            End If
+
+        Catch ex As Exception
+            MsgBox("Error in [grdList_FilterRow] " & vbCrLf & vbCrLf & ex.Message, MsgBoxStyle.Critical, My.Application.Info.ProductName)
+        End Try
+    End Sub
+
+
+#End Region
+
 End Class

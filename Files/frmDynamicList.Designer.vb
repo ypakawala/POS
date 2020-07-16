@@ -23,6 +23,7 @@ Partial Class frmDynamicList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDynamicList))
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance37 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -49,7 +50,7 @@ Partial Class frmDynamicList
         Dim Appearance41 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance24 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -60,13 +61,14 @@ Partial Class frmDynamicList
         Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDynamicList))
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.btnNew = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnUndo = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSave = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnPrint = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnRefresh = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.grdList = New Infragistics.Win.UltraWinGrid.UltraGrid()
         Me.DropData = New Infragistics.Win.UltraWinGrid.UltraCombo()
@@ -74,7 +76,7 @@ Partial Class frmDynamicList
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
         Me.picIcon = New System.Windows.Forms.PictureBox()
         Me.gbxImage = New Infragistics.Win.Misc.UltraGroupBox()
-        Me.btnRefresh = New System.Windows.Forms.ToolStripMenuItem()
+        Me.txtSearch = New Infragistics.Win.UltraWinEditors.UltraTextEditor()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.grdList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DropData, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,6 +86,7 @@ Partial Class frmDynamicList
         CType(Me.picIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gbxImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbxImage.SuspendLayout()
+        CType(Me.txtSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -93,8 +96,8 @@ Partial Class frmDynamicList
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnNew, Me.btnDelete, Me.btnUndo, Me.btnSave, Me.btnPrint, Me.btnRefresh, Me.btnExit})
         Me.MenuStrip1.Location = New System.Drawing.Point(3, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(704, 24)
-        Me.MenuStrip1.TabIndex = 7
+        Me.MenuStrip1.Size = New System.Drawing.Size(875, 24)
+        Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'btnNew
@@ -137,11 +140,19 @@ Partial Class frmDynamicList
         Me.btnPrint.Size = New System.Drawing.Size(83, 20)
         Me.btnPrint.Text = "Print [F6]"
         '
+        'btnRefresh
+        '
+        Me.btnRefresh.Image = CType(resources.GetObject("btnRefresh.Image"), System.Drawing.Image)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.ShortcutKeys = System.Windows.Forms.Keys.F7
+        Me.btnRefresh.Size = New System.Drawing.Size(97, 20)
+        Me.btnRefresh.Text = "Refresh [F7]"
+        '
         'btnExit
         '
         Me.btnExit.Image = Global.POS.My.Resources.Resources.CLOSE_16
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(84, 20)
+        Me.btnExit.Size = New System.Drawing.Size(85, 20)
         Me.btnExit.Text = "Exit [End]"
         '
         'grdList
@@ -199,8 +210,8 @@ Partial Class frmDynamicList
         Me.grdList.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdList.Location = New System.Drawing.Point(0, 28)
         Me.grdList.Name = "grdList"
-        Me.grdList.Size = New System.Drawing.Size(587, 245)
-        Me.grdList.TabIndex = 8
+        Me.grdList.Size = New System.Drawing.Size(758, 361)
+        Me.grdList.TabIndex = 1
         Me.grdList.Text = "UltraGrid1"
         '
         'DropData
@@ -262,7 +273,7 @@ Partial Class frmDynamicList
         Me.DropData.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.DropData.Location = New System.Drawing.Point(134, 106)
         Me.DropData.Name = "DropData"
-        Me.DropData.Size = New System.Drawing.Size(100, 22)
+        Me.DropData.Size = New System.Drawing.Size(100, 23)
         Me.DropData.TabIndex = 9
         Me.DropData.Visible = False
         '
@@ -279,8 +290,8 @@ Partial Class frmDynamicList
         Appearance13.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance13.BorderColor = System.Drawing.SystemColors.Window
         Me.DropData2.DisplayLayout.GroupByBox.Appearance = Appearance13
-        Appearance14.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.DropData2.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance14
+        Appearance7.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.DropData2.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance7
         Me.DropData2.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance15.BackColor = System.Drawing.SystemColors.ControlLightLight
         Appearance15.BackColor2 = System.Drawing.SystemColors.Control
@@ -325,7 +336,7 @@ Partial Class frmDynamicList
         Me.DropData2.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.DropData2.Location = New System.Drawing.Point(134, 134)
         Me.DropData2.Name = "DropData2"
-        Me.DropData2.Size = New System.Drawing.Size(100, 22)
+        Me.DropData2.Size = New System.Drawing.Size(100, 23)
         Me.DropData2.TabIndex = 9
         Me.DropData2.Visible = False
         '
@@ -334,13 +345,14 @@ Partial Class frmDynamicList
         Appearance2.BackColor = System.Drawing.Color.DodgerBlue
         Me.UltraGroupBox1.Appearance = Appearance2
         Me.UltraGroupBox1.BackColorInternal = System.Drawing.Color.White
+        Me.UltraGroupBox1.Controls.Add(Me.txtSearch)
         Me.UltraGroupBox1.Controls.Add(Me.MenuStrip1)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraGroupBox1.ForeColor = System.Drawing.Color.Black
         Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(710, 28)
-        Me.UltraGroupBox1.TabIndex = 130
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(881, 28)
+        Me.UltraGroupBox1.TabIndex = 0
         '
         'picIcon
         '
@@ -361,24 +373,28 @@ Partial Class frmDynamicList
         Me.gbxImage.Controls.Add(Me.picIcon)
         Me.gbxImage.Dock = System.Windows.Forms.DockStyle.Right
         Me.gbxImage.ForeColor = System.Drawing.Color.Black
-        Me.gbxImage.Location = New System.Drawing.Point(587, 28)
+        Me.gbxImage.Location = New System.Drawing.Point(758, 28)
         Me.gbxImage.Name = "gbxImage"
-        Me.gbxImage.Size = New System.Drawing.Size(123, 245)
+        Me.gbxImage.Size = New System.Drawing.Size(123, 361)
         Me.gbxImage.TabIndex = 132
         '
-        'btnRefresh
+        'txtSearch
         '
-        Me.btnRefresh.Image = CType(resources.GetObject("btnRefresh.Image"), System.Drawing.Image)
-        Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.ShortcutKeys = System.Windows.Forms.Keys.F7
-        Me.btnRefresh.Size = New System.Drawing.Size(97, 20)
-        Me.btnRefresh.Text = "Refresh [F7]"
+        Appearance14.ImageAlpha = Infragistics.Win.Alpha.Opaque
+        Appearance14.ImageHAlign = Infragistics.Win.HAlign.Right
+        Me.txtSearch.Appearance = Appearance14
+        Me.txtSearch.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.txtSearch.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtSearch.Location = New System.Drawing.Point(615, 4)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(143, 20)
+        Me.txtSearch.TabIndex = 0
         '
         'frmDynamicList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(710, 273)
+        Me.ClientSize = New System.Drawing.Size(881, 389)
         Me.Controls.Add(Me.DropData2)
         Me.Controls.Add(Me.DropData)
         Me.Controls.Add(Me.grdList)
@@ -386,6 +402,7 @@ Partial Class frmDynamicList
         Me.Controls.Add(Me.UltraGroupBox1)
         Me.DoubleBuffered = True
         Me.Name = "frmDynamicList"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmDynamicList"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
@@ -399,6 +416,7 @@ Partial Class frmDynamicList
         CType(Me.picIcon, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gbxImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbxImage.ResumeLayout(False)
+        CType(Me.txtSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -417,4 +435,5 @@ Partial Class frmDynamicList
     Friend WithEvents picIcon As System.Windows.Forms.PictureBox
     Friend WithEvents gbxImage As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents btnRefresh As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents txtSearch As Infragistics.Win.UltraWinEditors.UltraTextEditor
 End Class

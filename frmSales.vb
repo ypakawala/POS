@@ -12,7 +12,7 @@ Public Class frmSales
 
     Dim DS As New DataSet
     Dim CLS_Sale_Entry As New Sale_Entry
-    Dim CLS_Sale As New Sale
+    Public CLS_Sale As New Sale
     Dim LastEnteredItem As Integer = Nothing
     Dim LastEnteredItemPrice As Decimal = Nothing
     Dim isNewBill As Boolean = True
@@ -28,6 +28,7 @@ Public Class frmSales
     Dim EDITIGN_Old_Amt As Decimal = 0.0
     Dim HOLD_BILL_NO As Integer = 0
     Dim HOLD_BILL_DATE As DateTime
+    Dim CLS_Membership As New Membership
 
     '' ''Dim LastDisplayText As String = Nothing
     '' ''Dim NewDisplayText As String = Nothing
@@ -61,6 +62,9 @@ Public Class frmSales
 
     Private Sub frmSales_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
+            Me.lblMembershipNumber.Text = Nothing
+            Me.lblMembershipName.Text = Nothing
+            Me.lblMemberPoints.Text = Nothing
 
             Me.txtBalance.Appearance.BackColor = Color.SteelBlue
             Me.txtNetBill.Appearance.BackColor = Color.Red
@@ -82,6 +86,7 @@ Public Class frmSales
                 Me.Text = "SALES"
             End If
 
+            KMembership.Visible = TrimBoolean(CLS_Config.MembershipSystem)
 
             'SET DisplayPole
             Select Case CLS_Config.Company
@@ -134,6 +139,7 @@ Public Class frmSales
             KClear.Text = "Clear [" & CLS_Config.K_Clear_S & "]"
             KClose.Text = "Close [" & CLS_Config.K_Close_S & "]"
             KReprint.Text = "Reprint [" & CLS_Config.K_Reprint_S & "]"
+            KMembership.Text = "Membership [" & CLS_Config.K_Membership_S & "]"
             btnShowMenu.Text = "Show/Hide Menu"
 
             FillDrop(Me.DropPurchase_EntryCode, "SerailNum", "Code", Table.Purchase_Entry)
@@ -474,6 +480,8 @@ Public Class frmSales
                     End If
                 Case CLS_Config.K_Reprint
                     Call_Reprint()
+                Case CLS_Config.K_Membership
+                    Call_Membership()
                 Case CLS_Config.K_Remark
                     'Dim Remark As String = InputBox("Remark", "Remarks", CLS_Sale.Remark)
                     'If IsDBNull(Remark) Or IsNothing(Remark) Then
@@ -1248,6 +1256,12 @@ Public Class frmSales
 
             If EDITIGN_BILL <> 0 Then CLS_Sale.Delete(EDITIGN_BILL)
 
+            If CLS_Config.MembershipSystem Then
+                If TrimInt(CLS_Sale.MembershipCode) <> Nothing Then
+                    CLS_Sale.RewardPoint = CLS_Sale.NetBill * CLS_Config.MembershipAmt2Point
+                End If
+            End If
+
             CLS_Sale.Add()
 
             Dim i As Integer = 0
@@ -1523,6 +1537,8 @@ Public Class frmSales
                 CLS_Sale.TransectionType = TransectionType.CashSale
                 'Me.lblRemarks.Text = CLS_Sale.Remark
                 Me.txtRemarks.Value = CLS_Sale.Remark
+                AssignMembership(CLS_Sale.MembershipCode)
+
                 Me.txtPONumber.Value = CLS_Sale.PONumber
                 'Select Case CLS_Config.Company
                 '    Case ZAHRABAKALA
@@ -1695,6 +1711,7 @@ Public Class frmSales
             'Me.lblRemarks.Text = CLS_Sale.Remark
             Me.txtRemarks.Value = CLS_Sale.Remark
             Me.txtPONumber.Value = CLS_Sale.PONumber
+            AssignMembership(TrimInt(CLS_Sale.MembershipCode))
 
             If CLS_Sale.TransectionType = TransectionType.Hold Then
                 RemoveFromHold(CLS_Sale.BillNo & ": " & CLS_Sale.TransectionDate.Day & "/" & CLS_Sale.TransectionDate.Month & ": " & CLS_Sale.Remark)
@@ -1727,6 +1744,54 @@ Public Class frmSales
 
         Catch ex As Exception
             MsgBox("[Call_Edit]" & vbCrLf & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub AssignMembership(MembershipCode As Integer)
+        Try
+            CLS_Membership = New Membership
+            If TrimInt(CLS_Sale.MembershipCode) = 0 Then
+                Me.lblMembershipNumber.Text = Nothing
+                Me.lblMembershipName.Text = Nothing
+                Me.lblMemberPoints.Text = Nothing
+            Else
+
+                Using CONTEXT = New POSEntities
+                    CLS_Membership = (From q In CONTEXT.Memberships Where q.Code = MembershipCode Select q).ToList().SingleOrDefault()
+
+
+                    Dim Query = (From q In CONTEXT.V_MembershipHistory Where q.Code = MembershipCode Select q.Debit - q.Credit)
+                    If Query.ToList.Count > 0 Then
+                        lblMemberPoints.Text = "P:" & ConvertToString(Query.Sum, True) & ", KD " & ConvertToString(Math.Round(CDec(Query.Sum * CLS_Config.MembershipPoint2Amt), 3), True) & ""
+                    Else
+                        lblMemberPoints.Text = "Points [00.000]"
+                    End If
+
+
+                End Using
+                Me.lblMembershipNumber.Text = CLS_Membership.MembershipNumber
+                Me.lblMembershipName.Text = CLS_Membership.MemberName
+            End If
+
+        Catch ex As Exception
+            MsgBox("[AssignMembership]" & vbCrLf & ex.Message)
+        End Try
+    End Sub
+
+    Public Sub Call_Membership()
+        Try
+            If Not TrimBoolean(CLS_Config.MembershipSystem) Then Exit Sub
+
+            Dim frm As New frmMemberhipList(TrimInt(CLS_Sale.MembershipCode))
+            frm.Owner = Me
+            frm.ParentForm = "frmSales"
+            frm.ShowDialog()
+
+            AssignMembership(TrimInt(CLS_Sale.MembershipCode))
+
+        Catch ex As Exception
+            MsgBox("Call_Membership" & vbCrLf & vbCrLf & ex.Message)
+            If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -1774,6 +1839,7 @@ Public Class frmSales
             'Me.lblRemarks.Text = CLS_Sale.Remark
             Me.txtRemarks.Value = CLS_Sale.Remark
             Me.txtPONumber.Value = CLS_Sale.PONumber
+            AssignMembership(TrimInt(CLS_Sale.MembershipCode))
 
             'If CLS_Sale.TransectionType = TransectionType.Hold Then
             '    RemoveFromHold(CLS_Sale.BillNo & ": " & CLS_Sale.Remark)
@@ -2070,6 +2136,7 @@ Public Class frmSales
             'Me.lblRemarks.Text = CLS_Sale.Remark
             Me.txtRemarks.Text = CLS_Sale.Remark
             Me.txtPONumber.Text = CLS_Sale.PONumber
+            AssignMembership(0)
 
             If Cut And Printer_On Then
                 If PrintEmptySpaceType = 2 Then
@@ -2741,6 +2808,50 @@ Public Class frmSales
                     report.SetParameterValue("Address2", FixObjectString(CLS_Config.Address2))
                     report.SetParameterValue("Address3", FixObjectString(CLS_Config.Address3))
                     report.SetParameterValue("Tel", FixObjectString(CLS_Config.Tel))
+                    report.SetParameterValue("MembershipRedemptionCash", FixObjectBoolean(CLS_Config.MembershipRedemptionCash))
+
+                    If TrimInt(CLS_Sale.MembershipCode) = 0 Then
+                        report.SetParameterValue("MembershipNumber", FixObjectString(""))
+                        report.SetParameterValue("MembershipName", FixObjectString(""))
+                        report.SetParameterValue("MembershipPoints", FixObjectString(""))
+                        report.SetParameterValue("MembershipPointsAmt", FixObjectString(""))
+                    Else
+                        Using CONTEXT = New POSEntities
+                            Dim CLS_Membership As New Membership
+                            CLS_Membership = (From q In CONTEXT.Memberships Where q.Code = CLS_Sale.MembershipCode Select q).ToList().SingleOrDefault()
+
+                            If IsDBNull(CLS_Membership) OrElse IsNothing(CLS_Membership) Then
+                                report.SetParameterValue("MembershipNumber", FixObjectString(""))
+                                report.SetParameterValue("MembershipName", FixObjectString(""))
+                                report.SetParameterValue("MembershipPoints", FixObjectString(""))
+                                report.SetParameterValue("MembershipPointsAmt", FixObjectString(""))
+                            Else
+                                Dim MmebershipPoints As Decimal
+                                Dim MmebershipPointsAmt As Decimal
+
+                                Dim Query = (From q In CONTEXT.V_MembershipHistory Where q.Code = CLS_Membership.Code Select q.Debit - q.Credit)
+                                If Query.ToList.Count > 0 Then
+                                    MmebershipPoints = ConvertToString(Query.Sum, True)
+                                    MmebershipPointsAmt = ConvertToString(Query.Sum * CLS_Config.MembershipPoint2Amt, True)
+                                Else
+                                    MmebershipPoints = "00.000"
+                                    MmebershipPointsAmt = "00.000"
+                                End If
+
+                                report.SetParameterValue("MembershipNumber", FixObjectString(CLS_Membership.MembershipNumber))
+                                report.SetParameterValue("MembershipName", FixObjectString(CLS_Membership.MemberName))
+                                report.SetParameterValue("MembershipPoints", FixObjectString(MmebershipPoints))
+                                report.SetParameterValue("MembershipPointsAmt", FixObjectString(MmebershipPointsAmt))
+
+                            End If
+
+                        End Using
+
+                    End If
+
+
+
+                    report.SetParameterValue("Tel", FixObjectString(CLS_Sale.MembershipCode))
 
                     Select Case CLS_Sale.TransectionType
                         Case TransectionType.CreditSale, TransectionType.CreditSaleReturn
@@ -3643,6 +3754,8 @@ Public Class frmSales
         GenerateCategory()
     End Sub
 
+
+
     Private Sub ActiveImageClick_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             Dim Code As Integer = TryCast(sender, Infragistics.Win.Misc.UltraButton).Name
@@ -3660,6 +3773,10 @@ Public Class frmSales
 
     Private Sub KReprint_Click(sender As Object, e As EventArgs) Handles KReprint.Click
         Call_Reprint()
+    End Sub
+    Private Sub KMembership_Click(sender As Object, e As EventArgs) Handles KMembership.Click
+        Call_Membership()
+
     End Sub
 
     Private Sub grdList_InitializeRow(sender As Object, e As InitializeRowEventArgs) Handles grdList.InitializeRow

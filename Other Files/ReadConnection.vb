@@ -57,6 +57,7 @@ Public Class ReadConnection
             CLS_Config.K_Discount_Per = [Enum].Parse(GetType(System.Windows.Forms.Keys), arr(35).Substring(14), False)
             CLS_Config.K_Remark = [Enum].Parse(GetType(System.Windows.Forms.Keys), arr(36).Substring(14), False)
             CLS_Config.K_Reprint = [Enum].Parse(GetType(System.Windows.Forms.Keys), arr(42).Substring(14), False)
+            CLS_Config.K_Membership = [Enum].Parse(GetType(System.Windows.Forms.Keys), arr(43).Substring(14), False)
 
             CLS_Config.K_Add_S = arr(7).Substring(14)
             CLS_Config.K_Add2_S = arr(8).Substring(14)
@@ -108,6 +109,7 @@ Public Class ReadConnection
             'CLS_Config.BarcodeWidth = arr(42).Substring(14)
             CLS_Config.A4Printer = arr(41).Substring(14)
             CLS_Config.K_Reprint_S = arr(42).Substring(14)
+            CLS_Config.K_Membership_S = arr(43).Substring(14)
             'CLS_Config.BarcodeName = arr(45).Substring(14)
             'CLS_Config.BarcodePrice = arr(46).Substring(14)
             'CLS_Config.BarcodeLeft = arr(47).Substring(14)

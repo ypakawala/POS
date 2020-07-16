@@ -23,8 +23,10 @@ Public Class Sale
     Private m_PONumber As String = Nothing
     Private m_PaymentCleared As Boolean = False
     Private m_ReturnSaleCode As Integer = 0
+    Private m_RewardPoint As Decimal = 0.0
+    Private m_MembershipCode As Decimal = 0.0
 
-   
+
     Public Property Code() As Integer
         Get
             Return m_Code
@@ -186,6 +188,25 @@ Public Class Sale
         End Set
     End Property
 
+    Public Property RewardPoint() As Decimal
+        Get
+            Return m_RewardPoint
+        End Get
+        Set(ByVal value As Decimal)
+            m_RewardPoint = value
+        End Set
+    End Property
+
+    Public Property MembershipCode() As Integer
+        Get
+            Return m_MembershipCode
+        End Get
+        Set(ByVal value As Integer)
+            m_MembershipCode = value
+        End Set
+    End Property
+
+
     Public Sub New()
         Try
 
@@ -209,6 +230,8 @@ Public Class Sale
             m_PONumber = Nothing
             m_PaymentCleared = False
             m_ReturnSaleCode = 0
+            m_RewardPoint = 0
+            m_MembershipCode = 0
 
         Catch ex As Exception
             MSG.ErrorOk(ex.Message)
@@ -241,6 +264,8 @@ Public Class Sale
             PARA.Add(FixObjectString(m_Remark))
             PARA.Add(FixObjectString(m_PONumber))
             PARA.Add(FixObjectString(m_ReturnSaleCode))
+            PARA.Add(FixObjectString(m_RewardPoint))
+            PARA.Add(FixObjectString(m_MembershipCode))
 
             m_Code = DBO.ExecuteSP_ReturnSingleValue("SaleInsert", PARA)
             Return m_Code
@@ -388,6 +413,8 @@ Public Class Sale
                 m_Remark = CStr(FixObjectString(DS.Tables(0).Rows(0).Item("Remark")))
                 m_PONumber = CStr(FixObjectString(DS.Tables(0).Rows(0).Item("PONumber")))
                 m_ReturnSaleCode = TrimInt(DS.Tables(0).Rows(0).Item("ReturnSaleCode"))
+                m_RewardPoint = TrimInt(DS.Tables(0).Rows(0).Item("RewardPoint"))
+                m_MembershipCode = TrimInt(DS.Tables(0).Rows(0).Item("MembershipCode"))
 
                 Dim i As Integer = 0
                 For i = 0 To DS.Tables(1).Rows.Count - 1
@@ -427,6 +454,8 @@ Public Class Sale
                 m_Remark = CStr(FixObjectString(DS.Tables(0).Rows(0).Item("Remark")))
                 m_PONumber = CStr(FixObjectString(DS.Tables(0).Rows(0).Item("PONumber")))
                 m_ReturnSaleCode = TrimInt(DS.Tables(0).Rows(0).Item("ReturnSaleCode"))
+                m_RewardPoint = TrimInt(DS.Tables(0).Rows(0).Item("RewardPoint"))
+                m_MembershipCode = TrimInt(DS.Tables(0).Rows(0).Item("MembershipCode"))
 
                 Dim i As Integer = 0
                 For i = 0 To DS.Tables(1).Rows.Count - 1

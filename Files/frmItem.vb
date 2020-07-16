@@ -1091,13 +1091,13 @@ Public Class frmItem
                 b.BarcodeType = CLS_Config.BarcodeType
                 b.BarcodeFontStyle = FontStyle.Regular
                 b.ItemLength = BarcodeItemLength
-                'b.Print()
+                b.Print()
 
-                b.NoOfCopy = 1
-                Dim count As Integer = InputBox("Please give the number of Barcode you wish to print.", "Quantity")
-                For i As Integer = 0 To count - 1
-                    b.Print()
-                Next
+                'b.NoOfCopy = 1
+                'Dim count As Integer = InputBox("Please give the number of Barcode you wish to print.", "Quantity")
+                'For i As Integer = 0 To count - 1
+                '    b.Print()
+                'Next
 
                 'Dim count As Integer = InputBox("Please give the number of Barcode you wish to print.", "Quantity")
                 'If count >= 1 Then

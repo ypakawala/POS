@@ -224,7 +224,7 @@ Public Class frmSailSearch
 
             DT = New DataTable
             'DT = DBO.ReturnDataTableFromSQL("SELECT  SaleCode,BillNo,TransectionDate,( CASE WHEN TransectionTypeCode IN ( 4, 5 ) THEN TotalBill * -1 ELSE TotalBill END ) AS TotalBill ,Discount,( CASE WHEN TransectionTypeCode IN ( 4, 5 ) THEN NetBill * -1 ELSE NetBill END ) AS NetBill ,AccountName AS [Customer Name],Remark,PONumber,PaymentType,TransectionType,TransectionTypeCode,UserName FROM Sales_Full_View " & Where() & " GROUP BY SaleCode,BillNo,TransectionDate,TotalBill,Discount,NetBill,AccountName ,Remark,PONumber,PaymentType,TransectionType,TransectionTypeCode,UserName ORDER BY TransectionDate DESC")
-            DT = DBO.ReturnDataTableFromSQL("SELECT  Code AS SaleCode,BillNo,TransectionDate,( CASE WHEN TransectionTypeCode IN ( 4, 5 ) THEN TotalBill * -1 ELSE TotalBill END ) AS TotalBill ,Discount,( CASE WHEN TransectionTypeCode IN ( 4, 5 ) THEN NetBill * -1 ELSE NetBill END ) AS NetBill ,AccountName AS [Customer Name],Remark,PONumber,PaymentType,TransectionType,TransectionTypeCode,UserName FROM Sale_View " & Where() & " ORDER BY TransectionDate DESC")
+            DT = DBO.ReturnDataTableFromSQL("SELECT  Code AS SaleCode,BillNo,TransectionDate,( CASE WHEN TransectionTypeCode IN ( 4, 5 ) THEN TotalBill * -1 ELSE TotalBill END ) AS TotalBill ,Discount,( CASE WHEN TransectionTypeCode IN ( 4, 5 ) THEN NetBill * -1 ELSE NetBill END ) AS NetBill ,AccountName AS [Customer Name],Remark,PONumber,PaymentType,TransectionType,TransectionTypeCode,UserName,MemberName,MembershipNumber FROM Sale_View " & Where() & " ORDER BY TransectionDate DESC")
 
             Me.grdList.DataSource = DT
             'Me.grdList.DataMember = "Table"
@@ -232,6 +232,8 @@ Public Class frmSailSearch
             Me.grdList.DisplayLayout.Override.RowAlternateAppearance = RowAlternateAppearance
 
 
+            Me.grdList.DisplayLayout.Bands(0).Columns("MemberName").Hidden = Not CLS_Config.MembershipSystem
+            Me.grdList.DisplayLayout.Bands(0).Columns("MembershipNumber").Hidden = Not CLS_Config.MembershipSystem
             Me.grdList.DisplayLayout.Bands(0).Columns("SaleCode").Hidden = True
             Me.grdList.DisplayLayout.Bands(0).Columns("TransectionTypeCode").Hidden = True
             Me.grdList.DisplayLayout.Bands(0).Columns("TransectionDate").MaskInput = "{LOC}dd/mm/yyyy hh:mm"
@@ -336,6 +338,7 @@ Public Class frmSailSearch
         End Try
         Return Result
     End Function
+
     Private Function Get_Item(ByVal Barcode As String) As Item
         Try
             Dim DT As New DataTable
@@ -387,7 +390,7 @@ Public Class frmSailSearch
             Return Nothing
         End Try
     End Function
-    Private Sub LoadReport(ByVal SaleCode As Integer)
+    Private Sub LoadReport(ByVal SaleCode As Integer, Optional Print As Boolean = False)
         Try
             Dim DT As New DataTable
             DT = DBO.ReturnDataTable("SELECT * FROM Sales_Full_View Where SaleCode=" & CInt(SaleCode))
@@ -405,10 +408,62 @@ Public Class frmSailSearch
             report.SetParameterValue("Tel", FixObjectString(CLS_Config.Tel))
             report.SetParameterValue("CustomerBalance", 0)
             report.SetParameterValue("CashAmount", 0)
+            report.SetParameterValue("MembershipRedemptionCash", FixObjectBoolean(CLS_Config.MembershipRedemptionCash))
 
-            Me.CRV_Receipt.ReportSource = report
+
+            Using CONTEXT = New POSEntities
+
+                Dim MembershipCode As Integer = TrimInt(DT.Rows(0).Item("MembershipCode"))
+                If TrimInt(MembershipCode) = 0 Then
+                    report.SetParameterValue("MembershipNumber", FixObjectString(""))
+                    report.SetParameterValue("MembershipName", FixObjectString(""))
+                    report.SetParameterValue("MembershipPoints", FixObjectString(""))
+                    report.SetParameterValue("MembershipPointsAmt", FixObjectString(""))
+                Else
+
+                    Dim CLS_Membership As New Membership
+                    CLS_Membership = (From q In CONTEXT.Memberships Where q.Code = MembershipCode Select q).ToList().SingleOrDefault()
+
+                    If IsDBNull(CLS_Membership) OrElse IsNothing(CLS_Membership) Then
+                        report.SetParameterValue("MembershipNumber", FixObjectString(""))
+                        report.SetParameterValue("MembershipName", FixObjectString(""))
+                        report.SetParameterValue("MembershipPoints", FixObjectString(""))
+                        report.SetParameterValue("MembershipPointsAmt", FixObjectString(""))
+                    Else
+                        Dim MmebershipPoints As Decimal
+                        Dim MmebershipPointsAmt As Decimal
+
+                        Dim Query = (From q In CONTEXT.V_MembershipHistory Where q.Code = CLS_Membership.Code Select q.Debit - q.Credit)
+                        If Query.ToList.Count > 0 Then
+                            MmebershipPoints = ConvertToString(Query.Sum, True)
+                            MmebershipPointsAmt = ConvertToString(Query.Sum * CLS_Config.MembershipPoint2Amt, True)
+                        Else
+                            MmebershipPoints = "00.000"
+                            MmebershipPointsAmt = "00.000"
+                        End If
+
+                        report.SetParameterValue("MembershipNumber", FixObjectString(CLS_Membership.MembershipNumber))
+                        report.SetParameterValue("MembershipName", FixObjectString(CLS_Membership.MemberName))
+                        report.SetParameterValue("MembershipPoints", FixObjectString(MmebershipPoints))
+                        report.SetParameterValue("MembershipPointsAmt", FixObjectString(MmebershipPointsAmt))
 
 
+                    End If
+                End If
+
+
+
+            End Using
+
+
+
+            If Print Then
+                report.PrintOptions.PrinterName = CLS_Config.ReceiptPrinter
+                report.PrintToPrinter(1, False, 1, 2)
+                Exit Sub
+            Else
+                Me.CRV_Receipt.ReportSource = report
+            End If
 
             Dim report2 As New ReportDocument
             report2.Load(CLS_Config.ReportPath & "Bill Detail.rpt", CrystalDecisions.[Shared].OpenReportMethod.OpenReportByTempCopy)
@@ -452,7 +507,7 @@ Public Class frmSailSearch
 
         ' You can explicitly set the width of the row selectors if the default one calculated
         ' by the UltraGrid is not enough.
-        e.Layout.Override.RowSelectorWidth = 25
+        e.Layout.Override.RowSelectorWidth = 35
 
         ' Enable the the filter row user interface by setting the FilterUIType to FilterRow.
         e.Layout.Override.FilterUIType = FilterUIType.FilterRow
@@ -514,4 +569,17 @@ Public Class frmSailSearch
 
     End Sub
 
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+
+        Try
+            If IsDBNull(Me.grdList.ActiveRow) Or IsNothing(Me.grdList.ActiveRow) Then Exit Sub
+            If IsDBNull(Me.grdList.ActiveRow.Cells("SaleCode").Value) Or IsNothing(Me.grdList.ActiveRow.Cells("SaleCode").Value) Then Exit Sub
+            If Me.grdList.ActiveRow.Cells("SaleCode").Value = Nothing Then Exit Sub
+            LoadReport(CInt(Me.grdList.ActiveRow.Cells("SaleCode").Value), True)
+
+        Catch ex As Exception
+            MsgBox("btnPrint_Click" & vbCrLf & ex.Message)
+        End Try
+
+    End Sub
 End Class

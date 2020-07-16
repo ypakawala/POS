@@ -712,7 +712,7 @@
     <value>2</value>
   </data>
   <data name="txtRemarks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>272, 8</value>
+    <value>226, 4</value>
   </data>
   <data name="txtRemarks.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
@@ -754,7 +754,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="lblRemarks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>545, 37</value>
+    <value>239, 37</value>
   </data>
   <data name="lblRemarks.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -858,6 +858,144 @@
   <data name="&gt;&gt;Panel4.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="Appearance4.TextHAlignAsString" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="Appearance4.TextVAlignAsString" xml:space="preserve">
+    <value>Middle</value>
+  </data>
+  <data name="lblMemberPoints.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8pt, style=Bold</value>
+  </data>
+  <data name="lblMemberPoints.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblMemberPoints.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 0</value>
+  </data>
+  <data name="lblMemberPoints.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblMemberPoints.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 14</value>
+  </data>
+  <data name="lblMemberPoints.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="lblMemberPoints.Text" xml:space="preserve">
+    <value>Points : [123456.789]</value>
+  </data>
+  <data name="&gt;&gt;lblMemberPoints.Name" xml:space="preserve">
+    <value>lblMemberPoints</value>
+  </data>
+  <data name="&gt;&gt;lblMemberPoints.Type" xml:space="preserve">
+    <value>Infragistics.Win.Misc.UltraLabel, Infragistics2.Win.Misc.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb</value>
+  </data>
+  <data name="&gt;&gt;lblMemberPoints.Parent" xml:space="preserve">
+    <value>Panel5</value>
+  </data>
+  <data name="&gt;&gt;lblMemberPoints.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Appearance5.TextHAlignAsString" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="Appearance5.TextVAlignAsString" xml:space="preserve">
+    <value>Middle</value>
+  </data>
+  <data name="lblMembershipNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8pt, style=Bold</value>
+  </data>
+  <data name="lblMembershipNumber.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblMembershipNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblMembershipNumber.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblMembershipNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 14</value>
+  </data>
+  <data name="lblMembershipNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lblMembershipNumber.Text" xml:space="preserve">
+    <value>78611000001</value>
+  </data>
+  <data name="&gt;&gt;lblMembershipNumber.Name" xml:space="preserve">
+    <value>lblMembershipNumber</value>
+  </data>
+  <data name="&gt;&gt;lblMembershipNumber.Type" xml:space="preserve">
+    <value>Infragistics.Win.Misc.UltraLabel, Infragistics2.Win.Misc.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb</value>
+  </data>
+  <data name="&gt;&gt;lblMembershipNumber.Parent" xml:space="preserve">
+    <value>Panel5</value>
+  </data>
+  <data name="&gt;&gt;lblMembershipNumber.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Appearance12.TextHAlignAsString" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Appearance12.TextVAlignAsString" xml:space="preserve">
+    <value>Middle</value>
+  </data>
+  <data name="lblMembershipName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8pt, style=Bold</value>
+  </data>
+  <data name="lblMembershipName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblMembershipName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 16</value>
+  </data>
+  <data name="lblMembershipName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblMembershipName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>302, 14</value>
+  </data>
+  <data name="lblMembershipName.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="lblMembershipName.Text" xml:space="preserve">
+    <value>lblMembershipName</value>
+  </data>
+  <data name="&gt;&gt;lblMembershipName.Name" xml:space="preserve">
+    <value>lblMembershipName</value>
+  </data>
+  <data name="&gt;&gt;lblMembershipName.Type" xml:space="preserve">
+    <value>Infragistics.Win.Misc.UltraLabel, Infragistics2.Win.Misc.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb</value>
+  </data>
+  <data name="&gt;&gt;lblMembershipName.Parent" xml:space="preserve">
+    <value>Panel5</value>
+  </data>
+  <data name="&gt;&gt;lblMembershipName.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="Panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 31</value>
+  </data>
+  <data name="Panel5.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;Panel5.Name" xml:space="preserve">
+    <value>Panel5</value>
+  </data>
+  <data name="&gt;&gt;Panel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel5.Parent" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;Panel5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="UltraLabel3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -865,7 +1003,7 @@
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="UltraLabel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
+    <value>314, 10</value>
   </data>
   <data name="UltraLabel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -889,13 +1027,13 @@
     <value>Panel2</value>
   </data>
   <data name="&gt;&gt;UltraLabel3.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="txtDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="txtDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 4</value>
+    <value>363, 6</value>
   </data>
   <data name="txtDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 24</value>
@@ -913,16 +1051,16 @@
     <value>Panel2</value>
   </data>
   <data name="&gt;&gt;txtDate.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="Panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="Panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>706, 0</value>
+    <value>400, 0</value>
   </data>
   <data name="Panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 37</value>
+    <value>464, 37</value>
   </data>
   <data name="Panel2.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1643,6 +1781,15 @@
   </data>
   <data name="ToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 4</value>
+  </data>
+  <data name="KMembership.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 19</value>
+  </data>
+  <data name="KMembership.Text" xml:space="preserve">
+    <value>K_Membership</value>
+  </data>
+  <data name="KMembership.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomLeft</value>
   </data>
   <data name="MenuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
@@ -3916,6 +4063,12 @@
     <value>ToolStripMenuItem3</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;KMembership.Name" xml:space="preserve">
+    <value>KMembership</value>
+  </data>
+  <data name="&gt;&gt;KMembership.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnShowMenu.Name" xml:space="preserve">

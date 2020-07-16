@@ -49,13 +49,13 @@ Partial Class frmUsers
         Dim Appearance51 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance65 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance66 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance23 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance24 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance68 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance26 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance82 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance84 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance85 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance86 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance87 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance88 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance33 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance34 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance35 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -110,8 +110,14 @@ Partial Class frmUsers
         Dim Appearance78 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraTab5 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab()
         Dim Appearance79 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim UltraTab8 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab()
         Dim UltraTab6 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab()
         Dim Appearance80 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance23 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance24 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance68 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl()
         Me.Allow_Print_Barcode = New Infragistics.Win.UltraWinEditors.UltraCheckEditor()
         Me.Allow_Salary = New Infragistics.Win.UltraWinEditors.UltraCheckEditor()
@@ -191,6 +197,12 @@ Partial Class frmUsers
         Me.UltraLabel8 = New Infragistics.Win.Misc.UltraLabel()
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl()
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage()
+        Me.UltraTabPageControl8 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl()
+        Me.Allow_MembershipPrint = New Infragistics.Win.UltraWinEditors.UltraCheckEditor()
+        Me.Allow_MembershipRedeem = New Infragistics.Win.UltraWinEditors.UltraCheckEditor()
+        Me.Allow_MembershipDelete = New Infragistics.Win.UltraWinEditors.UltraCheckEditor()
+        Me.Allow_MembershipEdit = New Infragistics.Win.UltraWinEditors.UltraCheckEditor()
+        Me.Allow_MembershipAdd = New Infragistics.Win.UltraWinEditors.UltraCheckEditor()
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.confirmPass, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pass, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -212,6 +224,7 @@ Partial Class frmUsers
         CType(Me.DropUser, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
+        Me.UltraTabPageControl8.SuspendLayout()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -235,7 +248,7 @@ Partial Class frmUsers
         Me.UltraTabPageControl1.Controls.Add(Me.UltraLabel2)
         Me.UltraTabPageControl1.Controls.Add(Me.Code)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraLabel1)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(77, 1)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(460, 363)
         '
@@ -617,8 +630,8 @@ Partial Class frmUsers
         '
         'Allow_Purchase_Unpost
         '
-        Appearance1.BackColor = System.Drawing.Color.Transparent
-        Me.Allow_Purchase_Unpost.Appearance = Appearance1
+        Appearance26.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_Purchase_Unpost.Appearance = Appearance26
         Me.Allow_Purchase_Unpost.BackColor = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Unpost.BackColorInternal = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Unpost.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
@@ -631,8 +644,8 @@ Partial Class frmUsers
         '
         'Allow_Purchase_Pay
         '
-        Appearance14.BackColor = System.Drawing.Color.Transparent
-        Me.Allow_Purchase_Pay.Appearance = Appearance14
+        Appearance82.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_Purchase_Pay.Appearance = Appearance82
         Me.Allow_Purchase_Pay.BackColor = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Pay.BackColorInternal = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Pay.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
@@ -645,8 +658,8 @@ Partial Class frmUsers
         '
         'Allow_Purchase_Print
         '
-        Appearance22.BackColor = System.Drawing.Color.Transparent
-        Me.Allow_Purchase_Print.Appearance = Appearance22
+        Appearance84.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_Purchase_Print.Appearance = Appearance84
         Me.Allow_Purchase_Print.BackColor = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Print.BackColorInternal = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Print.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
@@ -659,8 +672,8 @@ Partial Class frmUsers
         '
         'Allow_Purchase_Delete
         '
-        Appearance23.BackColor = System.Drawing.Color.Transparent
-        Me.Allow_Purchase_Delete.Appearance = Appearance23
+        Appearance85.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_Purchase_Delete.Appearance = Appearance85
         Me.Allow_Purchase_Delete.BackColor = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Delete.BackColorInternal = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Delete.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
@@ -673,8 +686,8 @@ Partial Class frmUsers
         '
         'Allow_Purchase_Edit
         '
-        Appearance24.BackColor = System.Drawing.Color.Transparent
-        Me.Allow_Purchase_Edit.Appearance = Appearance24
+        Appearance86.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_Purchase_Edit.Appearance = Appearance86
         Me.Allow_Purchase_Edit.BackColor = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Edit.BackColorInternal = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Edit.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
@@ -687,8 +700,8 @@ Partial Class frmUsers
         '
         'Allow_Purchase_Add
         '
-        Appearance25.BackColor = System.Drawing.Color.Transparent
-        Me.Allow_Purchase_Add.Appearance = Appearance25
+        Appearance87.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_Purchase_Add.Appearance = Appearance87
         Me.Allow_Purchase_Add.BackColor = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Add.BackColorInternal = System.Drawing.Color.Transparent
         Me.Allow_Purchase_Add.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
@@ -701,8 +714,8 @@ Partial Class frmUsers
         '
         'Allow_Purchase
         '
-        Appearance68.BackColor = System.Drawing.Color.Transparent
-        Me.Allow_Purchase.Appearance = Appearance68
+        Appearance88.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_Purchase.Appearance = Appearance88
         Me.Allow_Purchase.BackColor = System.Drawing.Color.Transparent
         Me.Allow_Purchase.BackColorInternal = System.Drawing.Color.Transparent
         Me.Allow_Purchase.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
@@ -1204,7 +1217,7 @@ Partial Class frmUsers
         '
         Me.btnExit.Image = Global.POS.My.Resources.Resources.CLOSE_16
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(84, 20)
+        Me.btnExit.Size = New System.Drawing.Size(85, 20)
         Me.btnExit.Text = "Exit [End]"
         '
         'UltraGroupBox1
@@ -1306,6 +1319,7 @@ Partial Class frmUsers
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl5)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl6)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl7)
+        Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl8)
         Me.UltraTabControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 77)
         Me.UltraTabControl1.Name = "UltraTabControl1"
@@ -1339,11 +1353,13 @@ Partial Class frmUsers
         UltraTab5.Appearance = Appearance79
         UltraTab5.TabPage = Me.UltraTabPageControl5
         UltraTab5.Text = "Statements"
+        UltraTab8.TabPage = Me.UltraTabPageControl8
+        UltraTab8.Text = "Membership"
         Appearance80.BackColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(211, Byte), Integer), CType(CType(211, Byte), Integer))
         UltraTab6.Appearance = Appearance80
         UltraTab6.TabPage = Me.UltraTabPageControl6
         UltraTab6.Text = "Reports"
-        Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab7, UltraTab2, UltraTab3, UltraTab4, UltraTab5, UltraTab6})
+        Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab7, UltraTab2, UltraTab3, UltraTab4, UltraTab5, UltraTab8, UltraTab6})
         Me.UltraTabControl1.TextOrientation = Infragistics.Win.UltraWinTabs.TextOrientation.Horizontal
         '
         'UltraTabSharedControlsPage1
@@ -1351,6 +1367,87 @@ Partial Class frmUsers
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(460, 363)
+        '
+        'UltraTabPageControl8
+        '
+        Me.UltraTabPageControl8.Controls.Add(Me.Allow_MembershipPrint)
+        Me.UltraTabPageControl8.Controls.Add(Me.Allow_MembershipRedeem)
+        Me.UltraTabPageControl8.Controls.Add(Me.Allow_MembershipDelete)
+        Me.UltraTabPageControl8.Controls.Add(Me.Allow_MembershipEdit)
+        Me.UltraTabPageControl8.Controls.Add(Me.Allow_MembershipAdd)
+        Me.UltraTabPageControl8.Location = New System.Drawing.Point(77, 1)
+        Me.UltraTabPageControl8.Name = "UltraTabPageControl8"
+        Me.UltraTabPageControl8.Size = New System.Drawing.Size(460, 363)
+        '
+        'Allow_MembershipPrint
+        '
+        Appearance22.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipPrint.Appearance = Appearance22
+        Me.Allow_MembershipPrint.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipPrint.BackColorInternal = System.Drawing.Color.Transparent
+        Me.Allow_MembershipPrint.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
+        Me.Allow_MembershipPrint.ForeColor = System.Drawing.Color.Black
+        Me.Allow_MembershipPrint.Location = New System.Drawing.Point(3, 109)
+        Me.Allow_MembershipPrint.Name = "Allow_MembershipPrint"
+        Me.Allow_MembershipPrint.Size = New System.Drawing.Size(328, 20)
+        Me.Allow_MembershipPrint.TabIndex = 4
+        Me.Allow_MembershipPrint.Text = "Allow_Membership Print"
+        '
+        'Allow_MembershipRedeem
+        '
+        Appearance23.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipRedeem.Appearance = Appearance23
+        Me.Allow_MembershipRedeem.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipRedeem.BackColorInternal = System.Drawing.Color.Transparent
+        Me.Allow_MembershipRedeem.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
+        Me.Allow_MembershipRedeem.ForeColor = System.Drawing.Color.Black
+        Me.Allow_MembershipRedeem.Location = New System.Drawing.Point(3, 83)
+        Me.Allow_MembershipRedeem.Name = "Allow_MembershipRedeem"
+        Me.Allow_MembershipRedeem.Size = New System.Drawing.Size(328, 20)
+        Me.Allow_MembershipRedeem.TabIndex = 3
+        Me.Allow_MembershipRedeem.Text = "Allow_Membership Redeem"
+        '
+        'Allow_MembershipDelete
+        '
+        Appearance24.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipDelete.Appearance = Appearance24
+        Me.Allow_MembershipDelete.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipDelete.BackColorInternal = System.Drawing.Color.Transparent
+        Me.Allow_MembershipDelete.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
+        Me.Allow_MembershipDelete.ForeColor = System.Drawing.Color.Black
+        Me.Allow_MembershipDelete.Location = New System.Drawing.Point(3, 57)
+        Me.Allow_MembershipDelete.Name = "Allow_MembershipDelete"
+        Me.Allow_MembershipDelete.Size = New System.Drawing.Size(328, 20)
+        Me.Allow_MembershipDelete.TabIndex = 2
+        Me.Allow_MembershipDelete.Text = "Allow_Membership Delete"
+        '
+        'Allow_MembershipEdit
+        '
+        Appearance25.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipEdit.Appearance = Appearance25
+        Me.Allow_MembershipEdit.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipEdit.BackColorInternal = System.Drawing.Color.Transparent
+        Me.Allow_MembershipEdit.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
+        Me.Allow_MembershipEdit.ForeColor = System.Drawing.Color.Black
+        Me.Allow_MembershipEdit.Location = New System.Drawing.Point(3, 31)
+        Me.Allow_MembershipEdit.Name = "Allow_MembershipEdit"
+        Me.Allow_MembershipEdit.Size = New System.Drawing.Size(328, 20)
+        Me.Allow_MembershipEdit.TabIndex = 1
+        Me.Allow_MembershipEdit.Text = "Allow_Membership Edit"
+        '
+        'Allow_MembershipAdd
+        '
+        Appearance68.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipAdd.Appearance = Appearance68
+        Me.Allow_MembershipAdd.BackColor = System.Drawing.Color.Transparent
+        Me.Allow_MembershipAdd.BackColorInternal = System.Drawing.Color.Transparent
+        Me.Allow_MembershipAdd.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton
+        Me.Allow_MembershipAdd.ForeColor = System.Drawing.Color.Black
+        Me.Allow_MembershipAdd.Location = New System.Drawing.Point(3, 5)
+        Me.Allow_MembershipAdd.Name = "Allow_MembershipAdd"
+        Me.Allow_MembershipAdd.Size = New System.Drawing.Size(328, 20)
+        Me.Allow_MembershipAdd.TabIndex = 0
+        Me.Allow_MembershipAdd.Text = "Allow Membership Add"
         '
         'frmUsers
         '
@@ -1390,6 +1487,7 @@ Partial Class frmUsers
         CType(Me.DropUser, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
+        Me.UltraTabPageControl8.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1472,4 +1570,10 @@ Partial Class frmUsers
     Friend WithEvents Allow_Sale_Delete As Infragistics.Win.UltraWinEditors.UltraCheckEditor
     Friend WithEvents Allow_Sale_Edit As Infragistics.Win.UltraWinEditors.UltraCheckEditor
     Friend WithEvents Allow_POS As Infragistics.Win.UltraWinEditors.UltraCheckEditor
+    Friend WithEvents UltraTabPageControl8 As Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+    Friend WithEvents Allow_MembershipPrint As Infragistics.Win.UltraWinEditors.UltraCheckEditor
+    Friend WithEvents Allow_MembershipRedeem As Infragistics.Win.UltraWinEditors.UltraCheckEditor
+    Friend WithEvents Allow_MembershipDelete As Infragistics.Win.UltraWinEditors.UltraCheckEditor
+    Friend WithEvents Allow_MembershipEdit As Infragistics.Win.UltraWinEditors.UltraCheckEditor
+    Friend WithEvents Allow_MembershipAdd As Infragistics.Win.UltraWinEditors.UltraCheckEditor
 End Class

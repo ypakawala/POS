@@ -60,6 +60,8 @@ Partial Class frmMain
         Me.SaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSalesReturn = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnPromotion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnMembership = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnQuotation = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SupplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -134,7 +136,7 @@ Partial Class frmMain
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox()
-        Me.btnPromotion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnReward = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         CType(Me.UltraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -204,7 +206,7 @@ Partial Class frmMain
         '
         'FileMenu
         '
-        Me.FileMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnItemList, Me.btnItems, Me.btnItemClass, Me.btnPrintBarcode, Me.ToolStripSeparator4, Me.btnItemCategory, Me.btnItemSubCategory, Me.btnUMC, Me.ToolStripSeparator5, Me.SubscribeToolStripMenuItem, Me.UnsubscribeToolStripMenuItem, Me.SubscriptionPaymentToolStripMenuItem, Me.ToolStripSeparator11, Me.ChangePasswordToolStripMenuItem, Me.UsersToolStripMenuItem, Me.ToolStripSeparator13, Me.Backup, Me.btnConfig})
+        Me.FileMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnItemList, Me.btnItems, Me.btnItemClass, Me.btnReward, Me.btnPrintBarcode, Me.ToolStripSeparator4, Me.btnItemCategory, Me.btnItemSubCategory, Me.btnUMC, Me.ToolStripSeparator5, Me.SubscribeToolStripMenuItem, Me.UnsubscribeToolStripMenuItem, Me.SubscriptionPaymentToolStripMenuItem, Me.ToolStripSeparator11, Me.ChangePasswordToolStripMenuItem, Me.UsersToolStripMenuItem, Me.ToolStripSeparator13, Me.Backup, Me.btnConfig})
         Me.FileMenu.Image = CType(resources.GetObject("FileMenu.Image"), System.Drawing.Image)
         Me.FileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder
         Me.FileMenu.Name = "FileMenu"
@@ -356,7 +358,7 @@ Partial Class frmMain
         '
         'OperationToolStripMenuItem
         '
-        Me.OperationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaleToolStripMenuItem, Me.btnSalesReturn, Me.PurchaseToolStripMenuItem1, Me.btnPromotion, Me.btnQuotation})
+        Me.OperationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaleToolStripMenuItem, Me.btnSalesReturn, Me.PurchaseToolStripMenuItem1, Me.btnPromotion, Me.btnMembership, Me.btnQuotation})
         Me.OperationToolStripMenuItem.Image = CType(resources.GetObject("OperationToolStripMenuItem.Image"), System.Drawing.Image)
         Me.OperationToolStripMenuItem.Name = "OperationToolStripMenuItem"
         Me.OperationToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
@@ -366,28 +368,42 @@ Partial Class frmMain
         '
         Me.SaleToolStripMenuItem.Image = CType(resources.GetObject("SaleToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SaleToolStripMenuItem.Name = "SaleToolStripMenuItem"
-        Me.SaleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaleToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.SaleToolStripMenuItem.Text = "Sale"
         '
         'btnSalesReturn
         '
         Me.btnSalesReturn.Image = CType(resources.GetObject("btnSalesReturn.Image"), System.Drawing.Image)
         Me.btnSalesReturn.Name = "btnSalesReturn"
-        Me.btnSalesReturn.Size = New System.Drawing.Size(152, 22)
+        Me.btnSalesReturn.Size = New System.Drawing.Size(141, 22)
         Me.btnSalesReturn.Text = "Sales Return"
         '
         'PurchaseToolStripMenuItem1
         '
         Me.PurchaseToolStripMenuItem1.Image = CType(resources.GetObject("PurchaseToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.PurchaseToolStripMenuItem1.Name = "PurchaseToolStripMenuItem1"
-        Me.PurchaseToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.PurchaseToolStripMenuItem1.Size = New System.Drawing.Size(141, 22)
         Me.PurchaseToolStripMenuItem1.Text = "Purchase"
+        '
+        'btnPromotion
+        '
+        Me.btnPromotion.Image = CType(resources.GetObject("btnPromotion.Image"), System.Drawing.Image)
+        Me.btnPromotion.Name = "btnPromotion"
+        Me.btnPromotion.Size = New System.Drawing.Size(141, 22)
+        Me.btnPromotion.Text = "Promotion"
+        '
+        'btnMembership
+        '
+        Me.btnMembership.Image = CType(resources.GetObject("btnMembership.Image"), System.Drawing.Image)
+        Me.btnMembership.Name = "btnMembership"
+        Me.btnMembership.Size = New System.Drawing.Size(141, 22)
+        Me.btnMembership.Text = "Membership"
         '
         'btnQuotation
         '
         Me.btnQuotation.Image = CType(resources.GetObject("btnQuotation.Image"), System.Drawing.Image)
         Me.btnQuotation.Name = "btnQuotation"
-        Me.btnQuotation.Size = New System.Drawing.Size(152, 22)
+        Me.btnQuotation.Size = New System.Drawing.Size(141, 22)
         Me.btnQuotation.Text = "Quotation"
         '
         'AccountsToolStripMenuItem
@@ -519,7 +535,7 @@ Partial Class frmMain
         Me.DailySummaryToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.DailySummaryToolStripMenuItem.Image = CType(resources.GetObject("DailySummaryToolStripMenuItem.Image"), System.Drawing.Image)
         Me.DailySummaryToolStripMenuItem.Name = "DailySummaryToolStripMenuItem"
-        Me.DailySummaryToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.DailySummaryToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.DailySummaryToolStripMenuItem.Text = "Daily Summary"
         '
         'SalesSearchToolStripMenuItem
@@ -527,7 +543,7 @@ Partial Class frmMain
         Me.SalesSearchToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.SalesSearchToolStripMenuItem.Image = CType(resources.GetObject("SalesSearchToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SalesSearchToolStripMenuItem.Name = "SalesSearchToolStripMenuItem"
-        Me.SalesSearchToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SalesSearchToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.SalesSearchToolStripMenuItem.Text = "Sales Search"
         '
         'mmSalesReports
@@ -536,7 +552,7 @@ Partial Class frmMain
         Me.mmSalesReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnSalesDiscountInBill, Me.btnSalesDiscountReceipt, Me.btnSalesDiscount, Me.CategoryWiseSaleToolStripMenuItem, Me.SubCategoryWiseSaleToolStripMenuItem, Me.ItemWiseSaleToolStripMenuItem, Me.CustomerWiseSaleToolStripMenuItem, Me.CustomerWiseSaleDetailToolStripMenuItem, Me.SalesBelowCostToolStripMenuItem, Me.btnSaleCancelSearch})
         Me.mmSalesReports.Image = CType(resources.GetObject("mmSalesReports.Image"), System.Drawing.Image)
         Me.mmSalesReports.Name = "mmSalesReports"
-        Me.mmSalesReports.Size = New System.Drawing.Size(176, 22)
+        Me.mmSalesReports.Size = New System.Drawing.Size(174, 22)
         Me.mmSalesReports.Text = "Sales Reports"
         '
         'btnSalesDiscountInBill
@@ -625,7 +641,7 @@ Partial Class frmMain
         Me.mmInventoryReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdjustmentReportToolStripMenuItem, Me.StockBelowLevelToolStripMenuItem, Me.SlowMovementReportToolStripMenuItem, Me.TotalStockValueByCategoryToolStripMenuItem, Me.TotalStockValueBySubCategoryToolStripMenuItem, Me.TotalStockValueToolStripMenuItem})
         Me.mmInventoryReports.Image = Global.POS.My.Resources.Resources.form_red
         Me.mmInventoryReports.Name = "mmInventoryReports"
-        Me.mmInventoryReports.Size = New System.Drawing.Size(176, 22)
+        Me.mmInventoryReports.Size = New System.Drawing.Size(174, 22)
         Me.mmInventoryReports.Text = "Inventory Reports"
         '
         'AdjustmentReportToolStripMenuItem
@@ -633,7 +649,7 @@ Partial Class frmMain
         Me.AdjustmentReportToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.AdjustmentReportToolStripMenuItem.Image = CType(resources.GetObject("AdjustmentReportToolStripMenuItem.Image"), System.Drawing.Image)
         Me.AdjustmentReportToolStripMenuItem.Name = "AdjustmentReportToolStripMenuItem"
-        Me.AdjustmentReportToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.AdjustmentReportToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
         Me.AdjustmentReportToolStripMenuItem.Text = "Adjustment Report"
         Me.AdjustmentReportToolStripMenuItem.Visible = False
         '
@@ -642,7 +658,7 @@ Partial Class frmMain
         Me.StockBelowLevelToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.StockBelowLevelToolStripMenuItem.Image = CType(resources.GetObject("StockBelowLevelToolStripMenuItem.Image"), System.Drawing.Image)
         Me.StockBelowLevelToolStripMenuItem.Name = "StockBelowLevelToolStripMenuItem"
-        Me.StockBelowLevelToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.StockBelowLevelToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
         Me.StockBelowLevelToolStripMenuItem.Text = "Stock Below Level"
         Me.StockBelowLevelToolStripMenuItem.Visible = False
         '
@@ -651,7 +667,7 @@ Partial Class frmMain
         Me.SlowMovementReportToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.SlowMovementReportToolStripMenuItem.Image = CType(resources.GetObject("SlowMovementReportToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SlowMovementReportToolStripMenuItem.Name = "SlowMovementReportToolStripMenuItem"
-        Me.SlowMovementReportToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.SlowMovementReportToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
         Me.SlowMovementReportToolStripMenuItem.Text = "Slow Movement Report"
         '
         'TotalStockValueByCategoryToolStripMenuItem
@@ -659,7 +675,7 @@ Partial Class frmMain
         Me.TotalStockValueByCategoryToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.TotalStockValueByCategoryToolStripMenuItem.Image = CType(resources.GetObject("TotalStockValueByCategoryToolStripMenuItem.Image"), System.Drawing.Image)
         Me.TotalStockValueByCategoryToolStripMenuItem.Name = "TotalStockValueByCategoryToolStripMenuItem"
-        Me.TotalStockValueByCategoryToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.TotalStockValueByCategoryToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
         Me.TotalStockValueByCategoryToolStripMenuItem.Text = "Total Stock Value By Category"
         Me.TotalStockValueByCategoryToolStripMenuItem.Visible = False
         '
@@ -668,7 +684,7 @@ Partial Class frmMain
         Me.TotalStockValueBySubCategoryToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.TotalStockValueBySubCategoryToolStripMenuItem.Image = CType(resources.GetObject("TotalStockValueBySubCategoryToolStripMenuItem.Image"), System.Drawing.Image)
         Me.TotalStockValueBySubCategoryToolStripMenuItem.Name = "TotalStockValueBySubCategoryToolStripMenuItem"
-        Me.TotalStockValueBySubCategoryToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.TotalStockValueBySubCategoryToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
         Me.TotalStockValueBySubCategoryToolStripMenuItem.Text = "Total Stock Value By Sub Category"
         Me.TotalStockValueBySubCategoryToolStripMenuItem.Visible = False
         '
@@ -677,7 +693,7 @@ Partial Class frmMain
         Me.TotalStockValueToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.TotalStockValueToolStripMenuItem.Image = CType(resources.GetObject("TotalStockValueToolStripMenuItem.Image"), System.Drawing.Image)
         Me.TotalStockValueToolStripMenuItem.Name = "TotalStockValueToolStripMenuItem"
-        Me.TotalStockValueToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.TotalStockValueToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
         Me.TotalStockValueToolStripMenuItem.Text = "Total Stock Value"
         Me.TotalStockValueToolStripMenuItem.Visible = False
         '
@@ -687,7 +703,7 @@ Partial Class frmMain
         Me.mmItemReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ItemTurnoverToolStripMenuItem, Me.btnItemMovement, Me.ItemMovementSummaryToolStripMenuItem, Me.ItemMovementSummary2ToolStripMenuItem, Me.ItemSalesMovementToolStripMenuItem, Me.btnItemDrillDownEnquiry})
         Me.mmItemReports.Image = CType(resources.GetObject("mmItemReports.Image"), System.Drawing.Image)
         Me.mmItemReports.Name = "mmItemReports"
-        Me.mmItemReports.Size = New System.Drawing.Size(176, 22)
+        Me.mmItemReports.Size = New System.Drawing.Size(174, 22)
         Me.mmItemReports.Text = "Item Reports"
         '
         'ItemTurnoverToolStripMenuItem
@@ -745,7 +761,7 @@ Partial Class frmMain
         Me.mmCustomerReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnCustomerHistory, Me.CustomerRotationToolStripMenuItem, Me.CustomerStatementToolStripMenuItem, Me.btnCustomerPaid, Me.btnCustomerBalance, Me.btnCustomerBalanceInDuration, Me.btnCustomerMonthlyBalance, Me.btnCustomerSales})
         Me.mmCustomerReports.Image = CType(resources.GetObject("mmCustomerReports.Image"), System.Drawing.Image)
         Me.mmCustomerReports.Name = "mmCustomerReports"
-        Me.mmCustomerReports.Size = New System.Drawing.Size(176, 22)
+        Me.mmCustomerReports.Size = New System.Drawing.Size(174, 22)
         Me.mmCustomerReports.Text = "Customer Reports"
         '
         'btnCustomerHistory
@@ -818,7 +834,7 @@ Partial Class frmMain
         Me.mmAlert.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ItemAlertToolStripMenuItem, Me.ItemExpiryToolStripMenuItem})
         Me.mmAlert.Image = CType(resources.GetObject("mmAlert.Image"), System.Drawing.Image)
         Me.mmAlert.Name = "mmAlert"
-        Me.mmAlert.Size = New System.Drawing.Size(176, 22)
+        Me.mmAlert.Size = New System.Drawing.Size(174, 22)
         Me.mmAlert.Text = "Alert"
         '
         'ItemAlertToolStripMenuItem
@@ -826,7 +842,7 @@ Partial Class frmMain
         Me.ItemAlertToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.ItemAlertToolStripMenuItem.Image = CType(resources.GetObject("ItemAlertToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ItemAlertToolStripMenuItem.Name = "ItemAlertToolStripMenuItem"
-        Me.ItemAlertToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.ItemAlertToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.ItemAlertToolStripMenuItem.Text = "Item Alert"
         '
         'ItemExpiryToolStripMenuItem
@@ -834,7 +850,7 @@ Partial Class frmMain
         Me.ItemExpiryToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.ItemExpiryToolStripMenuItem.Image = CType(resources.GetObject("ItemExpiryToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ItemExpiryToolStripMenuItem.Name = "ItemExpiryToolStripMenuItem"
-        Me.ItemExpiryToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.ItemExpiryToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.ItemExpiryToolStripMenuItem.Text = "Item Expiry"
         '
         'SubscriptionToolStripMenuItem
@@ -842,7 +858,7 @@ Partial Class frmMain
         Me.SubscriptionToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue
         Me.SubscriptionToolStripMenuItem.Image = CType(resources.GetObject("SubscriptionToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SubscriptionToolStripMenuItem.Name = "SubscriptionToolStripMenuItem"
-        Me.SubscriptionToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SubscriptionToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.SubscriptionToolStripMenuItem.Text = "Subscription"
         '
         'btnAccountTypeTotal
@@ -850,7 +866,7 @@ Partial Class frmMain
         Me.btnAccountTypeTotal.BackColor = System.Drawing.Color.DodgerBlue
         Me.btnAccountTypeTotal.Image = CType(resources.GetObject("btnAccountTypeTotal.Image"), System.Drawing.Image)
         Me.btnAccountTypeTotal.Name = "btnAccountTypeTotal"
-        Me.btnAccountTypeTotal.Size = New System.Drawing.Size(176, 22)
+        Me.btnAccountTypeTotal.Size = New System.Drawing.Size(174, 22)
         Me.btnAccountTypeTotal.Text = "Account Type Total"
         '
         'StatementsToolStripMenuItem
@@ -999,12 +1015,13 @@ Partial Class frmMain
         Me.UltraGroupBox2.Size = New System.Drawing.Size(1178, 28)
         Me.UltraGroupBox2.TabIndex = 131
         '
-        'btnPromotion
+        'btnReward
         '
-        Me.btnPromotion.Image = CType(resources.GetObject("btnPromotion.Image"), System.Drawing.Image)
-        Me.btnPromotion.Name = "btnPromotion"
-        Me.btnPromotion.Size = New System.Drawing.Size(152, 22)
-        Me.btnPromotion.Text = "Promotion"
+        Me.btnReward.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnReward.Image = CType(resources.GetObject("btnReward.Image"), System.Drawing.Image)
+        Me.btnReward.Name = "btnReward"
+        Me.btnReward.Size = New System.Drawing.Size(190, 22)
+        Me.btnReward.Text = "Reward"
         '
         'frmMain
         '
@@ -1143,5 +1160,6 @@ Partial Class frmMain
     Friend WithEvents btnQuotation As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnPromotion As System.Windows.Forms.ToolStripMenuItem
-
+    Friend WithEvents btnMembership As ToolStripMenuItem
+    Friend WithEvents btnReward As ToolStripMenuItem
 End Class

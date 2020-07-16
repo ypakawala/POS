@@ -85,6 +85,11 @@ Public Class frmUsers
             PARA.Add(FixControl(Allow_Customer_Pay_Delete))
             PARA.Add(FixControl(Allow_Print_Barcode))
             PARA.Add(FixControl(Allow_Quotation))
+            PARA.Add(FixControl(Allow_MembershipAdd))
+            PARA.Add(FixControl(Allow_MembershipEdit))
+            PARA.Add(FixControl(Allow_MembershipDelete))
+            PARA.Add(FixControl(Allow_MembershipRedeem))
+            PARA.Add(FixControl(Allow_MembershipPrint))
 
             Me.Code.Value = DBO.ExecuteSP_ReturnInteger("P_UserInsert", PARA)
 
@@ -155,6 +160,11 @@ Public Class frmUsers
             Me.Allow_Customer_Pay_Delete.Checked = False
             Me.Allow_Print_Barcode.Checked = False
             Me.Allow_Quotation.Checked = False
+            Me.Allow_MembershipAdd.Checked = False
+            Me.Allow_MembershipEdit.Checked = False
+            Me.Allow_MembershipDelete.Checked = False
+            Me.Allow_MembershipRedeem.Checked = False
+            Me.Allow_MembershipPrint.Checked = False
 
         Catch ex As Exception
             MsgBox("Clear" & vbCrLf & ex.Message)
@@ -241,6 +251,11 @@ Public Class frmUsers
             PARA.Add(FixControl(Allow_Customer_Pay_Delete))
             PARA.Add(FixControl(Allow_Print_Barcode))
             PARA.Add(FixControl(Allow_Quotation))
+            PARA.Add(FixControl(Allow_MembershipAdd))
+            PARA.Add(FixControl(Allow_MembershipEdit))
+            PARA.Add(FixControl(Allow_MembershipDelete))
+            PARA.Add(FixControl(Allow_MembershipRedeem))
+            PARA.Add(FixControl(Allow_MembershipPrint))
 
             DBO.ExecuteSP("P_UserUpdate", PARA)
 
@@ -330,6 +345,11 @@ Public Class frmUsers
             Me.Allow_Customer_Pay_Delete.Checked = FixObjectBoolean(DT.Rows(0).Item("Allow_Customer_Pay_Delete"))
             Me.Allow_Print_Barcode.Checked = FixObjectBoolean(DT.Rows(0).Item("Allow_Print_Barcode"))
             Me.Allow_Quotation.Checked = FixObjectBoolean(DT.Rows(0).Item("Allow_Quotation"))
+            Me.Allow_MembershipAdd.Checked = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipAdd"))
+            Me.Allow_MembershipEdit.Checked = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipEdit"))
+            Me.Allow_MembershipDelete.Checked = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipDelete"))
+            Me.Allow_MembershipRedeem.Checked = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipRedeem"))
+            Me.Allow_MembershipPrint.Checked = FixObjectBoolean(DT.Rows(0).Item("Allow_MembershipPrint"))
 
         Catch ex As Exception
             MsgBox("LoadData" & vbCrLf & ex.Message)

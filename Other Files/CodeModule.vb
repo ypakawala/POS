@@ -75,6 +75,7 @@ Public Module CodeModule
     Public Find_Int As Integer
     Public Find2_Int As Integer
     Public Find_Str As String
+    Public Find_Dec As Decimal
 
     Public DatabaseName, DatabaseLogID, DatabasePass As String
 
@@ -115,6 +116,7 @@ Public Module CodeModule
         Key_List.Add(CLS_Config.K_Discount_Per)
         Key_List.Add(CLS_Config.K_Remark)
         Key_List.Add(CLS_Config.K_Reprint)
+        Key_List.Add(CLS_Config.K_Membership)
         Key_List.Sort()
 
         'Key_No_List.Add(Keys.Decimal)
@@ -465,6 +467,34 @@ Public Module CodeModule
         End Try
         Return TheCode + 1
     End Function
+
+    Public Function GetMembershipNumber() As Int64
+        Dim TheCode As Int64
+        'Dim dr As OdbcDataReader
+        Dim dr As OdbcDataReader
+
+        Dim DBConn As New OdbcConnection(ConnStr)
+        Try
+            If DBConn.State <> ConnectionState.Open Then
+                DBConn.Open()
+            End If
+            Dim Str As String = "SELECT MAX(MembershipNumber) FROM Membership"
+            dr = New OdbcCommand(Str, DBConn).ExecuteReader
+            If dr.Read Then
+                TheCode = IIf(IsDBNull(dr(0)), 0, dr(0))
+                If TheCode = 0 Then TheCode = CLS_Config.MembershipStartNumber
+            End If
+        Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show("___Error___" & ex.Message)
+        Finally
+            'Close DataReader And Connection
+            dr.Close()
+            dr = Nothing
+            DBConn.Close()
+        End Try
+        Return TheCode + 1
+    End Function
+
     Public Function ConvertToString(ByVal Num As Decimal, Optional ByVal Prefix2 As Boolean = True) As String
         Dim Result As String = Nothing
         Try
