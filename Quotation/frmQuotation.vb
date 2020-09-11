@@ -13,6 +13,7 @@ Public Class frmQuotation
         QuotationCode = _QuotationCode
     End Sub
     Private Sub frmQuotation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Me.Text = "Quotation"
 

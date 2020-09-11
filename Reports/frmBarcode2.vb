@@ -21,6 +21,7 @@ Public Class frmBarcode2
         m_ItemCode = _ItemCode
     End Sub
     Private Sub frmBarcode_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
 
     End Sub
 

@@ -8,8 +8,9 @@ Public Class frmItemMovementSummary
         End If
     End Sub
     Private Sub frmItemMovementSummary_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
-            FillDrop(Me.DropCategory, "Title", "Code", Table.D_ItemCategory )
+            FillDrop(Me.DropCategory, "Title", "Code", Table.D_ItemCategory)
 
             btnClearAll_Click(sender, e)
             btnSearch_Click(sender, e)

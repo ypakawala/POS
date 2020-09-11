@@ -22,6 +22,7 @@ Public Class frmMain
         'PlaySoundFile("START.WAV")
     End Sub
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             'frmMainIns.MenuStrip1.BackColor = Color.DodgerBlue
             'Me.StatusStrip.BackColor = Color.DodgerBlue

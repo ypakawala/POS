@@ -397,6 +397,7 @@ Public Class frmUsers
         End Select
     End Sub
     Private Sub frmUsers_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillDrops()
             Clear()

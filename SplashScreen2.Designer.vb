@@ -103,7 +103,7 @@ Partial Class SplashScreen2
         '
         'PictureEdit1
         '
-        Me.PictureEdit1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.PictureEdit1.Cursor = System.Windows.Forms.Cursors.AppStarting
         Me.PictureEdit1.EditValue = CType(resources.GetObject("PictureEdit1.EditValue"), Object)
         Me.PictureEdit1.Location = New System.Drawing.Point(115, 3)
         Me.PictureEdit1.Name = "PictureEdit1"
@@ -129,6 +129,7 @@ Partial Class SplashScreen2
         Me.Controls.Add(Me.labelControl2)
         Me.Controls.Add(Me.Copyright)
         Me.Controls.Add(Me.marqueeProgressBarControl1)
+        Me.Cursor = System.Windows.Forms.Cursors.AppStarting
         Me.Name = "SplashScreen2"
         Me.Text = "Form1"
         CType(Me.pictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()

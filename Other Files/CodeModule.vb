@@ -29,6 +29,13 @@ Public Module CodeModule
     Public ChrWeightPriceLength As Integer = System.Configuration.ConfigurationSettings.AppSettings("ChrWeightPriceLength")
     Public CategoryHighlight As Integer = System.Configuration.ConfigurationSettings.AppSettings("CategoryHighlight")
     Public BarcodeItemLength As Integer = System.Configuration.ConfigurationSettings.AppSettings("BarcodeItemLength")
+    Public YSD As String = System.Configuration.ConfigurationSettings.AppSettings("YSD")
+
+    Public YearStartDate As Date = Now.Date
+    Public BDate As Date = Now.Date
+    Public onTrial As Boolean = False
+    Public showTrial As Boolean = False
+    Public ForceC As Boolean = False
 
 
     Public RowAlternateAppearance As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -1139,6 +1146,18 @@ Public Module CodeModule
                     '    Return False
                     'End If
                 End If
+
+                If onTrial Then
+                    If BDate < Now.Date AndAlso ForceC Then
+                        CONTEXT.Activations.DeleteObject(_Activation)
+                        CONTEXT.SaveChanges()
+                        MsgBox("DATABASE GOT CORRUPTED. PLEASE CONTACT THE SOFTWARE COMPANY.")
+                        Application.Exit()
+                        Return False
+                    End If
+                End If
+
+
             End Using
 
 
@@ -1154,6 +1173,8 @@ Public Module CodeModule
             '        Return False
             '    End If
             'End If
+
+
 
 
             Return True

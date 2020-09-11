@@ -17,6 +17,7 @@ Public Class frmPurchaseReport
         End If
     End Sub
     Private Sub frmPurchaseReport_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillDropWithCondition(Me.DropSupplier, "Title", "AccountNum", Table.Account, "Code", , , , " WHERE AccountType = " & AccountType.Supplier)
 

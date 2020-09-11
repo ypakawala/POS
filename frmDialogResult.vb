@@ -46,6 +46,7 @@
     End Sub
 
     Private Sub frmDialogResult_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.Icon = My.Resources.Cart_Blue
         Select Case CLS_Config.Company
             Case EDEE, CENTURY, BOOKSHOP, OsmanSM, INDIAGATE
                 Me.btnOK.Text = "&CANCEL"

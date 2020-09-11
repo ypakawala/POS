@@ -29,9 +29,9 @@ Partial Class frmLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.UsernameLabel = New System.Windows.Forms.Label()
         Me.PasswordLabel = New System.Windows.Forms.Label()
         Me.btnOK = New System.Windows.Forms.Button()
@@ -41,7 +41,9 @@ Partial Class frmLogin
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.lblVersion = New System.Windows.Forms.Label()
+        Me.lblTrial = New System.Windows.Forms.Label()
         Me.StyleManager1 = New DevComponents.DotNetBar.StyleManager(Me.components)
+        Me.lblTitle = New System.Windows.Forms.Label()
         CType(Me.txtLoginName, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPass, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -52,9 +54,9 @@ Partial Class frmLogin
         '
         Me.UsernameLabel.BackColor = System.Drawing.Color.White
         Me.UsernameLabel.ForeColor = System.Drawing.Color.Black
-        Me.UsernameLabel.Location = New System.Drawing.Point(172, 6)
+        Me.UsernameLabel.Location = New System.Drawing.Point(236, 74)
         Me.UsernameLabel.Name = "UsernameLabel"
-        Me.UsernameLabel.Size = New System.Drawing.Size(220, 23)
+        Me.UsernameLabel.Size = New System.Drawing.Size(69, 23)
         Me.UsernameLabel.TabIndex = 0
         Me.UsernameLabel.Text = "&User name"
         Me.UsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -63,32 +65,36 @@ Partial Class frmLogin
         '
         Me.PasswordLabel.BackColor = System.Drawing.Color.White
         Me.PasswordLabel.ForeColor = System.Drawing.Color.Black
-        Me.PasswordLabel.Location = New System.Drawing.Point(172, 56)
+        Me.PasswordLabel.Location = New System.Drawing.Point(238, 111)
         Me.PasswordLabel.Name = "PasswordLabel"
-        Me.PasswordLabel.Size = New System.Drawing.Size(220, 23)
+        Me.PasswordLabel.Size = New System.Drawing.Size(69, 23)
         Me.PasswordLabel.TabIndex = 2
         Me.PasswordLabel.Text = "&Password"
         Me.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnOK
         '
-        Me.btnOK.BackColor = System.Drawing.Color.White
+        Me.btnOK.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnOK.ForeColor = System.Drawing.Color.Black
-        Me.btnOK.Location = New System.Drawing.Point(187, 117)
+        Me.btnOK.Image = CType(resources.GetObject("btnOK.Image"), System.Drawing.Image)
+        Me.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnOK.Location = New System.Drawing.Point(238, 150)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(94, 34)
+        Me.btnOK.Size = New System.Drawing.Size(109, 34)
         Me.btnOK.TabIndex = 2
         Me.btnOK.Text = "&OK"
         Me.btnOK.UseVisualStyleBackColor = False
         '
         'btnCancel
         '
-        Me.btnCancel.BackColor = System.Drawing.Color.White
+        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.ForeColor = System.Drawing.Color.Black
-        Me.btnCancel.Location = New System.Drawing.Point(290, 117)
+        Me.btnCancel.Image = CType(resources.GetObject("btnCancel.Image"), System.Drawing.Image)
+        Me.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancel.Location = New System.Drawing.Point(348, 150)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(94, 34)
+        Me.btnCancel.Size = New System.Drawing.Size(109, 34)
         Me.btnCancel.TabIndex = 3
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
@@ -101,9 +107,9 @@ Partial Class frmLogin
         Me.txtLoginName.Appearance = Appearance1
         Me.txtLoginName.BackColor = System.Drawing.Color.White
         Me.txtLoginName.ForeColor = System.Drawing.Color.Black
-        Me.txtLoginName.Location = New System.Drawing.Point(174, 28)
+        Me.txtLoginName.Location = New System.Drawing.Point(304, 75)
         Me.txtLoginName.Name = "txtLoginName"
-        Me.txtLoginName.Size = New System.Drawing.Size(220, 22)
+        Me.txtLoginName.Size = New System.Drawing.Size(152, 22)
         Me.txtLoginName.TabIndex = 0
         '
         'txtPass
@@ -114,16 +120,17 @@ Partial Class frmLogin
         Me.txtPass.Appearance = Appearance2
         Me.txtPass.BackColor = System.Drawing.Color.White
         Me.txtPass.ForeColor = System.Drawing.Color.Black
-        Me.txtPass.Location = New System.Drawing.Point(175, 82)
+        Me.txtPass.Location = New System.Drawing.Point(303, 111)
         Me.txtPass.Name = "txtPass"
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPass.Size = New System.Drawing.Size(220, 22)
+        Me.txtPass.Size = New System.Drawing.Size(155, 22)
         Me.txtPass.TabIndex = 1
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Transparent
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.lblTitle)
         Me.Panel1.Controls.Add(Me.LogoPictureBox)
         Me.Panel1.Controls.Add(Me.lblVersion)
         Me.Panel1.Controls.Add(Me.txtLoginName)
@@ -132,11 +139,12 @@ Partial Class frmLogin
         Me.Panel1.Controls.Add(Me.PasswordLabel)
         Me.Panel1.Controls.Add(Me.btnOK)
         Me.Panel1.Controls.Add(Me.btnCancel)
+        Me.Panel1.Controls.Add(Me.lblTrial)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.ForeColor = System.Drawing.Color.Black
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(401, 196)
+        Me.Panel1.Size = New System.Drawing.Size(471, 260)
         Me.Panel1.TabIndex = 5
         '
         'LogoPictureBox
@@ -145,9 +153,9 @@ Partial Class frmLogin
         Me.LogoPictureBox.Dock = System.Windows.Forms.DockStyle.Left
         Me.LogoPictureBox.ForeColor = System.Drawing.Color.Black
         Me.LogoPictureBox.Image = CType(resources.GetObject("LogoPictureBox.Image"), System.Drawing.Image)
-        Me.LogoPictureBox.Location = New System.Drawing.Point(0, 0)
+        Me.LogoPictureBox.Location = New System.Drawing.Point(0, 14)
         Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.LogoPictureBox.Size = New System.Drawing.Size(165, 173)
+        Me.LogoPictureBox.Size = New System.Drawing.Size(232, 223)
         Me.LogoPictureBox.TabIndex = 6
         Me.LogoPictureBox.TabStop = False
         '
@@ -155,18 +163,44 @@ Partial Class frmLogin
         '
         Me.lblVersion.BackColor = System.Drawing.Color.White
         Me.lblVersion.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lblVersion.ForeColor = System.Drawing.Color.Black
-        Me.lblVersion.Location = New System.Drawing.Point(0, 173)
+        Me.lblVersion.ForeColor = System.Drawing.Color.Blue
+        Me.lblVersion.Location = New System.Drawing.Point(0, 237)
         Me.lblVersion.Name = "lblVersion"
-        Me.lblVersion.Size = New System.Drawing.Size(399, 21)
+        Me.lblVersion.Size = New System.Drawing.Size(469, 21)
         Me.lblVersion.TabIndex = 5
         Me.lblVersion.Text = "Version {0}.{1}.{2}.{3}"
         Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblTrial
+        '
+        Me.lblTrial.BackColor = System.Drawing.Color.Transparent
+        Me.lblTrial.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblTrial.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.lblTrial.ForeColor = System.Drawing.Color.Red
+        Me.lblTrial.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.lblTrial.Location = New System.Drawing.Point(0, 0)
+        Me.lblTrial.Name = "lblTrial"
+        Me.lblTrial.Size = New System.Drawing.Size(469, 14)
+        Me.lblTrial.TabIndex = 9
+        Me.lblTrial.Text = "Trial will expire after 7 days"
+        Me.lblTrial.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'StyleManager1
         '
         Me.StyleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Metro
         Me.StyleManager1.MetroColorParameters = New DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.White, System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(198, Byte), Integer)))
+        '
+        'lblTitle
+        '
+        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitle.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTitle.ForeColor = System.Drawing.Color.DeepSkyBlue
+        Me.lblTitle.Location = New System.Drawing.Point(232, 14)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(237, 37)
+        Me.lblTitle.TabIndex = 14
+        Me.lblTitle.Text = "POS System"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'frmLogin
         '
@@ -174,7 +208,7 @@ Partial Class frmLogin
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(401, 196)
+        Me.ClientSize = New System.Drawing.Size(471, 260)
         Me.Controls.Add(Me.Panel1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -199,5 +233,6 @@ Partial Class frmLogin
     Friend WithEvents LogoPictureBox As System.Windows.Forms.PictureBox
     Friend WithEvents lblVersion As System.Windows.Forms.Label
     Friend WithEvents StyleManager1 As DevComponents.DotNetBar.StyleManager
-
+    Friend WithEvents lblTrial As Label
+    Friend WithEvents lblTitle As Label
 End Class

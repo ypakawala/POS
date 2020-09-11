@@ -12,6 +12,7 @@ Public Class frmItemAlert
         End If
     End Sub
     Private Sub frmItemAlert_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillGrid()
             Me.txtSearch.Focus()

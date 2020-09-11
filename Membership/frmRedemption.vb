@@ -14,6 +14,7 @@ Public Class frmRedemption
 
     End Sub
     Private Sub frmRedemption_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillGrid()
         Catch ex As Exception

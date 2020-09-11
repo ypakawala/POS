@@ -10,6 +10,7 @@ Public Class frmSubscription
         End Select
     End Sub
     Private Sub frmSubscription_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Me.Width = Screen.PrimaryScreen.WorkingArea.Width
             Me.Left = 0

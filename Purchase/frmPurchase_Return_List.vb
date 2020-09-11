@@ -19,6 +19,7 @@ Public Class frmPurchase_Return_List
 
     End Sub
     Private Sub frmPurchase_Return_List_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillGrid()
         Catch ex As Exception

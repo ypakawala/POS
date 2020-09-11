@@ -34,6 +34,7 @@ Public Class frmPurchase_Pay
         End Select
     End Sub
     Private Sub frmPurchase_Pay_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             txtTotallDueAmount.MaskInput = Mask_Amount5
             txtPaidAmount.MaskInput = Mask_Amount5

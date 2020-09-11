@@ -1387,7 +1387,7 @@ Public Class SysConfig
                 m_MembershipSystem = FixObjectBoolean(DT.Rows(0).Item("MembershipSystem"))
                 m_MembershipAmt2Point = FixObjectNumber(DT.Rows(0).Item("MembershipAmt2Point"))
                 m_MembershipPoint2Amt = FixObjectNumber(DT.Rows(0).Item("MembershipPoint2Amt"))
-                m_MembershipStartNumber = (DT.Rows(0).Item("MembershipStartNumber"))
+                m_MembershipStartNumber = FixObjectNumber(DT.Rows(0).Item("MembershipStartNumber"))
                 m_MembershipRedemptionCash = FixObjectBoolean(DT.Rows(0).Item("MembershipRedemptionCash"))
                 m_MembershipRedemptionReward = FixObjectBoolean(DT.Rows(0).Item("MembershipRedemptionReward"))
 

@@ -20,6 +20,7 @@ Public Class frmAccountBalance
         End If
     End Sub
     Private Sub frmCustomerBalance_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             btnClearAll_Click(sender, e)
             btnSearch_Click(sender, e)

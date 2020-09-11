@@ -15,6 +15,7 @@ Public Class frmSerialAdd
         SerialCount = _SerialCount
     End Sub
     Private Sub frmSerialAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
 
         Dim DT As DataTable
         DT = DBO.ReturnDataTable("SELECT SerailNum FROM Purchase_Entry WHERE Code = -1")

@@ -61,7 +61,14 @@ Public Class frmSales
     End Sub
 
     Private Sub frmSales_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
+            If onTrial AndAlso BDate < Now.Date Then
+                MsgBox("Invalid description index database driver error.")
+                Application.Exit()
+                Exit Sub
+            End If
+
             Me.lblMembershipNumber.Text = Nothing
             Me.lblMembershipName.Text = Nothing
             Me.lblMemberPoints.Text = Nothing

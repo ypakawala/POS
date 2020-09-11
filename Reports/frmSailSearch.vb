@@ -12,6 +12,7 @@ Public Class frmSailSearch
         End If
     End Sub
     Private Sub frmSailSearch_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Me.txtTotalFrom.InputMask = Mask_Amount5
             Me.txtTotalTo.InputMask = Mask_Amount5
@@ -24,7 +25,7 @@ Public Class frmSailSearch
 
             If Not UserClass.Allow_Sale_Edit Then Me.btnEdit.Visible = False
             If Not UserClass.Allow_Sale_Delete Then Me.btnDelete.Visible = False
-            
+
             Me.txtDateFrom.Value = Now.Date
             Me.txtDateTo.Value = New DateTime(Now.Year, Now.Month, Now.Day, 23, 59, 59)
             Me.txtDateFrom.Focus()

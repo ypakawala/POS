@@ -22,6 +22,7 @@ Public Class frmSalesDiscount
         End If
     End Sub
     Private Sub frmSalesDiscount_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillDropWithCondition(Me.DropCustomer, "Title", "AccountNum", Table.Account, "Code", , , , " WHERE AccountType = " & AccountType.Customer)
             FillDrop(Me.DropUser, "UserName", "Code", Table.P_User)

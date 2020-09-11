@@ -9,6 +9,7 @@ Public Class frmSubscriptionPay
         End Select
     End Sub
     Private Sub frmSubscriptionPay_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillDropWithCondition(Me.DropNewsPaper, "ItemName", "Code", Table.Item, "CostPrice", "SalesPrice", "BarCode", "BarCode2", " WHERE ItemType = " & ItemType.Subscription_Item)
             FillDropWithCondition(Me.DropCustomer, "Title", "AccountNum", Table.Account, "Code", , , , " WHERE AccountType = " & AccountType.Customer & " AND Code<>" & CLS_Config.AccCashCustomer)

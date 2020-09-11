@@ -21,6 +21,7 @@ Public Class frmDailySummary
         End If
     End Sub
     Private Sub frmDailySummary_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
 
             FillDrop(Me.DropUser, "UserName", "Code", Table.P_User)

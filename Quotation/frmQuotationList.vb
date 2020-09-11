@@ -12,6 +12,7 @@ Public Class frmQuotationList
     End Sub
 
     Private Sub frmSales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         btnAllQuote.Checked = True
         FillGrid(False)
     End Sub

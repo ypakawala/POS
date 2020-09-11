@@ -133,6 +133,7 @@ Public Class frmCheque
 
     Private Sub frmDynamicList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
+            Me.Icon = My.Resources.Cart_Blue
             Me.grdList.DisplayLayout.Override.RowAlternateAppearance = RowAlternateAppearance
             Me.txtFromDate.Value = Nothing
             Me.chkCleared.Checked = False

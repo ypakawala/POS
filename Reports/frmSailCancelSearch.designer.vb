@@ -67,24 +67,11 @@ Partial Class frmSailCancelSearch
         Dim Appearance67 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance68 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance69 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance31 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance32 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance33 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance34 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance35 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance36 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance37 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance38 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance39 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance40 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance41 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance42 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance71 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance72 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance44 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.grdList = New Infragistics.Win.UltraWinGrid.UltraGrid()
@@ -96,13 +83,11 @@ Partial Class frmSailCancelSearch
         Me.UltraExpandableGroupBoxPanel1 = New Infragistics.Win.Misc.UltraExpandableGroupBoxPanel()
         Me.DropCounter = New Infragistics.Win.UltraWinGrid.UltraCombo()
         Me.DropUser = New Infragistics.Win.UltraWinGrid.UltraCombo()
-        Me.DropItem = New Infragistics.Win.UltraWinGrid.UltraCombo()
         Me.txtDateTo = New Infragistics.Win.UltraWinEditors.UltraDateTimeEditor()
         Me.UltraLabel2 = New Infragistics.Win.Misc.UltraLabel()
         Me.UltraLabel9 = New Infragistics.Win.Misc.UltraLabel()
         Me.txtDateFrom = New Infragistics.Win.UltraWinEditors.UltraDateTimeEditor()
         Me.UltraLabel16 = New Infragistics.Win.Misc.UltraLabel()
-        Me.UltraLabel10 = New Infragistics.Win.Misc.UltraLabel()
         Me.UltraLabel11 = New Infragistics.Win.Misc.UltraLabel()
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
         CType(Me.grdList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,7 +97,6 @@ Partial Class frmSailCancelSearch
         Me.UltraExpandableGroupBoxPanel1.SuspendLayout()
         CType(Me.DropCounter, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DropUser, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DropItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDateTo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDateFrom, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -197,9 +181,9 @@ Partial Class frmSailCancelSearch
         Me.grdList.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.grdList.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdList.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdList.Location = New System.Drawing.Point(0, 113)
+        Me.grdList.Location = New System.Drawing.Point(0, 109)
         Me.grdList.Name = "grdList"
-        Me.grdList.Size = New System.Drawing.Size(656, 280)
+        Me.grdList.Size = New System.Drawing.Size(656, 284)
         Me.grdList.TabIndex = 0
         Me.grdList.Text = "UltraGrid1"
         '
@@ -236,7 +220,7 @@ Partial Class frmSailCancelSearch
         '
         Me.btnExit.Image = Global.POS.My.Resources.Resources.CLOSE_16
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(84, 20)
+        Me.btnExit.Size = New System.Drawing.Size(85, 20)
         Me.btnExit.Text = "Exit [End]"
         '
         'UltraExpandableGroupBox1
@@ -244,11 +228,11 @@ Partial Class frmSailCancelSearch
         Me.UltraExpandableGroupBox1.BackColorInternal = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.UltraExpandableGroupBox1.Controls.Add(Me.UltraExpandableGroupBoxPanel1)
         Me.UltraExpandableGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(656, 113)
+        Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(656, 81)
         Me.UltraExpandableGroupBox1.ForeColor = System.Drawing.Color.Black
-        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 28)
         Me.UltraExpandableGroupBox1.Name = "UltraExpandableGroupBox1"
-        Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(656, 113)
+        Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(656, 81)
         Me.UltraExpandableGroupBox1.TabIndex = 0
         Me.UltraExpandableGroupBox1.Text = "Criteria"
         Me.UltraExpandableGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
@@ -257,19 +241,17 @@ Partial Class frmSailCancelSearch
         '
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.DropCounter)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.DropUser)
-        Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.DropItem)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtDateTo)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel2)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel9)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtDateFrom)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel16)
-        Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel10)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel11)
         Me.UltraExpandableGroupBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.UltraExpandableGroupBoxPanel1.ForeColor = System.Drawing.Color.Black
         Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(3, 20)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(650, 90)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(650, 58)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'DropCounter
@@ -398,69 +380,6 @@ Partial Class frmSailCancelSearch
         Me.DropUser.Size = New System.Drawing.Size(121, 23)
         Me.DropUser.TabIndex = 8
         '
-        'DropItem
-        '
-        Me.DropItem.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
-        Appearance31.BackColor = System.Drawing.SystemColors.Window
-        Appearance31.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.DropItem.DisplayLayout.Appearance = Appearance31
-        Me.DropItem.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.DropItem.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance32.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Appearance32.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance32.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
-        Appearance32.BorderColor = System.Drawing.SystemColors.Window
-        Me.DropItem.DisplayLayout.GroupByBox.Appearance = Appearance32
-        Appearance33.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.DropItem.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance33
-        Me.DropItem.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Appearance34.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Appearance34.BackColor2 = System.Drawing.SystemColors.Control
-        Appearance34.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance34.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.DropItem.DisplayLayout.GroupByBox.PromptAppearance = Appearance34
-        Me.DropItem.DisplayLayout.MaxColScrollRegions = 1
-        Me.DropItem.DisplayLayout.MaxRowScrollRegions = 1
-        Appearance35.BackColor = System.Drawing.SystemColors.Window
-        Appearance35.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.DropItem.DisplayLayout.Override.ActiveCellAppearance = Appearance35
-        Appearance36.BackColor = System.Drawing.SystemColors.Highlight
-        Appearance36.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.DropItem.DisplayLayout.Override.ActiveRowAppearance = Appearance36
-        Me.DropItem.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
-        Me.DropItem.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
-        Appearance37.BackColor = System.Drawing.SystemColors.Window
-        Me.DropItem.DisplayLayout.Override.CardAreaAppearance = Appearance37
-        Appearance38.BorderColor = System.Drawing.Color.Silver
-        Appearance38.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.DropItem.DisplayLayout.Override.CellAppearance = Appearance38
-        Me.DropItem.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
-        Me.DropItem.DisplayLayout.Override.CellPadding = 0
-        Appearance39.BackColor = System.Drawing.SystemColors.Control
-        Appearance39.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance39.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
-        Appearance39.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance39.BorderColor = System.Drawing.SystemColors.Window
-        Me.DropItem.DisplayLayout.Override.GroupByRowAppearance = Appearance39
-        Appearance40.TextHAlignAsString = "Left"
-        Me.DropItem.DisplayLayout.Override.HeaderAppearance = Appearance40
-        Me.DropItem.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Me.DropItem.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
-        Appearance41.BackColor = System.Drawing.SystemColors.Window
-        Appearance41.BorderColor = System.Drawing.Color.Silver
-        Me.DropItem.DisplayLayout.Override.RowAppearance = Appearance41
-        Me.DropItem.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance42.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.DropItem.DisplayLayout.Override.TemplateAddRowAppearance = Appearance42
-        Me.DropItem.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.DropItem.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.DropItem.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.DropItem.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.DropItem.Location = New System.Drawing.Point(73, 58)
-        Me.DropItem.Name = "DropItem"
-        Me.DropItem.Size = New System.Drawing.Size(488, 23)
-        Me.DropItem.TabIndex = 6
-        '
         'txtDateTo
         '
         Appearance14.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -529,18 +448,6 @@ Partial Class frmSailCancelSearch
         Me.UltraLabel16.TabIndex = 1
         Me.UltraLabel16.Text = "User :"
         '
-        'UltraLabel10
-        '
-        Appearance44.BackColor = System.Drawing.Color.Transparent
-        Me.UltraLabel10.Appearance = Appearance44
-        Me.UltraLabel10.AutoSize = True
-        Me.UltraLabel10.ForeColor = System.Drawing.Color.Black
-        Me.UltraLabel10.Location = New System.Drawing.Point(9, 58)
-        Me.UltraLabel10.Name = "UltraLabel10"
-        Me.UltraLabel10.Size = New System.Drawing.Size(60, 15)
-        Me.UltraLabel10.TabIndex = 1
-        Me.UltraLabel10.Text = "Item in Bill:"
-        '
         'UltraLabel11
         '
         Appearance30.BackColor = System.Drawing.Color.Transparent
@@ -561,7 +468,7 @@ Partial Class frmSailCancelSearch
         Me.UltraGroupBox1.Controls.Add(Me.MenuStrip1)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraGroupBox1.ForeColor = System.Drawing.Color.Black
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 113)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(656, 28)
         Me.UltraGroupBox1.TabIndex = 130
@@ -586,7 +493,6 @@ Partial Class frmSailCancelSearch
         Me.UltraExpandableGroupBoxPanel1.PerformLayout()
         CType(Me.DropCounter, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DropUser, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DropItem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDateTo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDateFrom, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -602,12 +508,10 @@ Partial Class frmSailCancelSearch
     Friend WithEvents UltraExpandableGroupBox1 As Infragistics.Win.Misc.UltraExpandableGroupBox
     Friend WithEvents UltraExpandableGroupBoxPanel1 As Infragistics.Win.Misc.UltraExpandableGroupBoxPanel
     Friend WithEvents DropUser As Infragistics.Win.UltraWinGrid.UltraCombo
-    Friend WithEvents DropItem As Infragistics.Win.UltraWinGrid.UltraCombo
     Friend WithEvents txtDateTo As Infragistics.Win.UltraWinEditors.UltraDateTimeEditor
     Friend WithEvents UltraLabel9 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents txtDateFrom As Infragistics.Win.UltraWinEditors.UltraDateTimeEditor
     Friend WithEvents UltraLabel16 As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents UltraLabel10 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents UltraLabel11 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents grdList As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents DropCounter As Infragistics.Win.UltraWinGrid.UltraCombo

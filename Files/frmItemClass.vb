@@ -64,6 +64,7 @@ Public Class frmItemClass
         End Try
     End Sub
     Private Sub frmItemClass_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             txtSalesPrice.InputMask = Mask_Amount5
 

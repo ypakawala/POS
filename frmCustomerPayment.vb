@@ -36,6 +36,7 @@ Public Class frmCustomerPayment
         End Select
     End Sub
     Private Sub frmCustomerPayment_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
 
             Me.txtBalance.InputMask = Mask_Amount5Nagative
@@ -78,7 +79,7 @@ Public Class frmCustomerPayment
                 'Me.lblPaymentDate.Visible = False
             End If
 
-     
+
             Me.DropCustomer.Focus()
             Me.DropCustomer.Select()
 

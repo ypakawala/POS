@@ -688,6 +688,7 @@ Public Class frmItemList
         If e.KeyCode = Keys.End Then btnExit_Click(sender, e)
     End Sub
     Private Sub frmItemList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
 
             Me.gbxDetail.Visible = CLS_Config.ShowImage

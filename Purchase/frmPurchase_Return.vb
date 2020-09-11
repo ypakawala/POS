@@ -103,6 +103,7 @@ Public Class frmPurchase_Return
         frmPurchase_ReturnIns = Nothing
     End Sub
     Private Sub frmPurchase_Return_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Me.txtAmount.MaskInput = Mask_Amount5
 

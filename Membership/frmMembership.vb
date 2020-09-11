@@ -13,6 +13,7 @@ Public Class frmMembership
         MembershipCode = _MembershipCode
     End Sub
     Private Sub frmMembership_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Me.Text = "Membership"
             FillDrop(Me.DropUserCode, "UserName", "Code", Table.P_User)

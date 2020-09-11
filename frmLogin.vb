@@ -80,11 +80,28 @@ Public Class frmLogin
 
     End Sub
     Private Sub frmLogin_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.Icon = My.Resources.Cart_Blue
 
         'Dim expDate As New DateTime(2016, 6, 1)
         'If Now > expDate Then
         '    Application.Exit()
         'End If
+
+
+        If Not theNext.UC.Pub.Get_Trial_Info(YSD, YearStartDate, BDate, onTrial, showTrial, ForceC) Then
+            MsgBox("INVALID CONFIG VALUE")
+            Application.Exit()
+            Me.Close()
+        End If
+
+        lblTrial.Visible = showTrial
+
+        If BDate <= Now.Date AndAlso onTrial Then
+            lblTrial.Text = "Trial period has expired on " & BDate.ToString("dd/MMM/yyyyy")
+            'Exit Sub
+        Else
+            lblTrial.Text = "Trial period will expire in " & DateDiff(DateInterval.Day, Now.Date, BDate) & " days. " & BDate.ToString("dd/MMM/yyyyy")
+        End If
 
         RowAlternateAppearance.BackColor = System.Drawing.Color.AliceBlue
         Me.btnOK.BackColor = Color.DodgerBlue
@@ -200,6 +217,9 @@ Public Class frmLogin
                 UserClass = clsDB.LogIn(Me.txtLoginName.Value, Me.txtPass.Value)
                 If IsDBNull(UserClass) Or IsNothing(UserClass) Then Exit Sub
                 If UserClass.Code = 0 Then Exit Sub
+
+
+                DBO.ActionQuery("UPDATE dbo.Activation SET LastRun=GETDATE(), LastUserCode=" & UserClass.Code & " WHERE ActivationCode='" & _ActivationCode & "'")
 
                 'Me.DialogResult = Windows.Forms.DialogResult.OK
                 'Me.Close()

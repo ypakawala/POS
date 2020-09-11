@@ -9,8 +9,8 @@ Public Class frmSailCancelSearch
         End If
     End Sub
     Private Sub frmSailCancelSearch_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
-            FillDrop(Me.DropItem, "ItemName", "Code", Table.Item, "CostPrice", "BarCode", "BarCode2")
             FillDrop(Me.DropUser, "UserName", "Code", Table.P_User)
             FillDrop(Me.DropCounter, "Title", "Code", Table.D_Counter)
 
@@ -31,7 +31,6 @@ Public Class frmSailCancelSearch
             Me.txtDateFrom.Value = Now.Date
             Me.txtDateTo.Value = Now
             Me.DropUser.Value = Nothing
-            Me.DropItem.Value = Nothing
 
             Me.grdList.DataSource = Nothing
             Me.grdList.DataBind()
@@ -43,49 +42,6 @@ Public Class frmSailCancelSearch
     Private Sub btnExit_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
-    
-    Private Sub DropItem_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DropItem.KeyDown
-        Try
-            If e.KeyCode = Keys.Enter Then
-                Dim CLS_Item As New Item
-
-                If IsDBNull(Me.DropItem.Value) Or IsNothing(Me.DropItem.Value) Then
-                ElseIf Me.DropItem.Value = Nothing Then
-                Else
-                    CLS_Item = New Item
-                    CLS_Item = Get_Item(CStr(Me.DropItem.Value))
-                    If IsNothing(CLS_Item) Then
-                        MsgBox("Item Dose Not Exists")
-                        Me.DropItem.Focus()
-                    Else
-                        Me.DropItem.Value = CLS_Item.Code
-                        btnSearch_Click(sender, e)
-                    End If
-                    Exit Sub
-                End If
-
-
-                If IsDBNull(Me.DropItem.Text) Or IsNothing(Me.DropItem.Text) Then
-                Else
-                    CLS_Item = New Item
-                    CLS_Item = Get_Item(CStr(Me.DropItem.Text))
-                    If IsNothing(CLS_Item) Then
-                        MsgBox("Item Dose Not Exists")
-                        Me.DropItem.Focus()
-                    Else
-                        Me.DropItem.Value = CLS_Item.Code
-                        btnSearch_Click(sender, e)
-                    End If
-
-                End If
-
-
-            End If
-
-        Catch ex As Exception
-            MsgBox("DropItem_KeyDown" & vbCrLf & ex.Message)
-        End Try
-    End Sub
 
     Private Sub FillGrid()
         Try
@@ -94,11 +50,18 @@ Public Class frmSailCancelSearch
 
             Dim DT As New DataTable
             DT = New DataTable
-            DT = DBO.ReturnDataTableFromSQL("SELECT  Code, TransectionDate,TransectionType,HoldCleared,UserName FROM SaleCancel_View " & Where() & "  GROUP BY Code, TransectionDate,TransectionType,HoldCleared,UserName ORDER BY TransectionDate,TransectionType DESC")
+            'DT = DBO.ReturnDataTableFromSQL("SELECT  Code, TransectionDate,TransectionType,HoldCleared,UserName FROM SaleCancel_View " & Where() & "  GROUP BY Code, TransectionDate,TransectionType,HoldCleared,UserName ORDER BY TransectionDate,TransectionType DESC")
+            DT = DBO.ReturnDataTableFromSQL("SELECT C.Code, C.TransectionDate, C.TransectionType, C.HoldCleared, U.UserName,C.NetBill, C.Remark,C.UserCode,C.CounterCode " &
+                                            " FROM SaleCancel AS C INNER JOIN P_User AS U ON C.UserCode = U.Code" &
+                                            Where() &
+                                            " ORDER BY C.TransectionDate, C.TransectionType DESC")
 
             Dim DT2 As New DataTable
             DT2 = New DataTable
-            DT2 = DBO.ReturnDataTableFromSQL("SELECT  Code, ItemName, UnitPrice, Quantity,TotalPrice FROM    SaleCancel_View " & Where())
+            'DT2 = DBO.ReturnDataTableFromSQL("SELECT  Code, ItemName, UnitPrice, Quantity,TotalPrice FROM    SaleCancel_View " & Where())
+            DT2 = DBO.ReturnDataTableFromSQL("SELECT E.SaleCode, I.ItemName, E.UnitPrice, E.Quantity, E.TotalPrice " &
+                                            " FROM SaleCancel_Entry AS E INNER JOIN Item AS I ON E.ItemCode = I.Code INNER JOIN SaleCancel AS C ON E.SaleCode = C.Code " &
+                                             Where())
 
             Dim ds As New DataSet
             ds.Tables.Add(DT)
@@ -106,13 +69,12 @@ Public Class frmSailCancelSearch
 
             If ds.Tables(1).Rows.Count > 0 Then
                 'Create the Data Relationship
-                ds.Relations.Add("Child", ds.Tables(0).Columns("Code"), _
-                                            ds.Tables(1).Columns("Code"))
+                ds.Relations.Add("Child", ds.Tables(0).Columns("Code"),
+                                            ds.Tables(1).Columns("SaleCode"))
             End If
             Me.grdList.DataSource = ds
             Me.grdList.DataMember = "Table1"
             Me.grdList.DataBind()
-            Me.grdList.DisplayLayout.Override.RowAlternateAppearance = RowAlternateAppearance
 
             'Me.grdList.DisplayLayout.Bands(0).Columns("SaleCode").Hidden = True
             Me.grdList.DisplayLayout.Bands(0).Columns("TransectionDate").MaskInput = "{LOC}dd/mm/yyyy hh:mm"
@@ -121,14 +83,18 @@ Public Class frmSailCancelSearch
             Me.grdList.DisplayLayout.Bands(0).Columns("TransectionDate").Header.VisiblePosition = 1
             Me.grdList.DisplayLayout.Bands(0).Columns("HoldCleared").Header.VisiblePosition = 2
             Me.grdList.DisplayLayout.Bands(0).Columns("UserName").Header.VisiblePosition = 3
+            Me.grdList.DisplayLayout.Bands(0).Columns("NetBill").Header.VisiblePosition = 4
+            Me.grdList.DisplayLayout.Bands(0).Columns("Remark").Header.VisiblePosition = 5
 
             Me.grdList.DisplayLayout.Bands(0).Columns("Code").Width = 100
             Me.grdList.DisplayLayout.Bands(0).Columns("TransectionDate").Width = 100
             Me.grdList.DisplayLayout.Bands(0).Columns("HoldCleared").Width = 100
             Me.grdList.DisplayLayout.Bands(0).Columns("UserName").Width = 100
+            Me.grdList.DisplayLayout.Bands(0).Columns("NetBill").Width = 100
+            Me.grdList.DisplayLayout.Bands(0).Columns("Remark").Width = 250
 
             If ds.Tables(1).Rows.Count > 0 Then
-                Me.grdList.DisplayLayout.Bands(1).Columns("Code").Hidden = True
+                Me.grdList.DisplayLayout.Bands(1).Columns("SaleCode").Hidden = True
 
                 Me.grdList.DisplayLayout.Bands(1).Columns("ItemName").Header.VisiblePosition = 0
                 Me.grdList.DisplayLayout.Bands(1).Columns("UnitPrice").Header.VisiblePosition = 1
@@ -142,11 +108,11 @@ Public Class frmSailCancelSearch
 
 
                 Me.grdList.DisplayLayout.Bands(1).Columns("UnitPrice").MaskInput = Mask_Amount
-                Me.grdList.DisplayLayout.Bands(1).Columns("Quantity").MaskInput = Mask_Qty
+                Me.grdList.DisplayLayout.Bands(1).Columns("Quantity").MaskInput = Mask_Amount
                 Me.grdList.DisplayLayout.Bands(1).Columns("TotalPrice").MaskInput = Mask_Amount
 
             End If
-          
+
         Catch ex As Exception
             MsgBox("FillGrid" & vbCrLf & ex.Message)
         End Try
@@ -183,65 +149,11 @@ Public Class frmSailCancelSearch
 
             If FixControl(Me.DropUser) <> Nothing Then Result &= " AND UserCode = " & FixControl(Me.DropUser)
             If FixControl(Me.DropCounter) <> Nothing Then Result &= " AND CounterCode = " & FixControl(Me.DropCounter)
-            If FixControl(Me.DropItem) <> Nothing Then Result &= " AND ItemCode = " & FixControl(Me.DropItem)
 
         Catch ex As Exception
             MsgBox("Where" & vbCrLf & ex.Message)
         End Try
         Return Result
     End Function
-    Private Function Get_Item(ByVal Barcode As String) As Item
-        Try
-            Dim DT As New DataTable
-            DT = Me.DropItem.DataSource
-
-            Dim CLS As New Item
-            'IF BARCODE IS NULL RETURN EMPTY CLS
-            If FixObjectString(Barcode) = Nothing Then Return Nothing
-
-            'IF BARCODE EXIST IN DS LOAD & RETURN CLS
-            Dim dr() As DataRow = DT.Select(" Barcode='" & Barcode & "'")
-            If dr.Length > 0 Then
-                CLS.Code = IIf(IsDBNull(dr(0).Item("Code")), 0, dr(0).Item("Code"))
-                CLS.ItemName = IIf(IsDBNull(dr(0).Item("ItemName")), 0, dr(0).Item("ItemName"))
-                CLS.Barcode = IIf(IsDBNull(dr(0).Item("Barcode")), 0, dr(0).Item("Barcode"))
-                CLS.Barcode2 = IIf(IsDBNull(dr(0).Item("Barcode2")), 0, dr(0).Item("Barcode2"))
-                Return CLS
-            End If
-            'IF BARCODE DOSE NOT EXIST CONT...
-
-
-            'IF BARCODE IS NOT INTEGER SKIP CHECKING BY CODE
-            If IsNumeric(Barcode) Then
-                'IF CODE IS NUMERIC AND EXIST IN DS LOAD & RETURN CLS
-                Dim dr3() As DataRow = DT.Select(" Code=" & Barcode)
-                If dr3.Length > 0 Then
-                    CLS.Code = IIf(IsDBNull(dr3(0).Item("Code")), 0, dr3(0).Item("Code"))
-                    CLS.ItemName = IIf(IsDBNull(dr3(0).Item("ItemName")), 0, dr3(0).Item("ItemName"))
-                    CLS.Barcode = IIf(IsDBNull(dr3(0).Item("Barcode")), 0, dr3(0).Item("Barcode"))
-                    CLS.Barcode2 = IIf(IsDBNull(dr3(0).Item("Barcode2")), 0, dr3(0).Item("Barcode2"))
-                    Return CLS
-                End If
-            End If
-
-            'IF BARCODE2 EXIST IN DS LOAD & RETURN CLS
-            Dim dr2() As DataRow = DT.Select(" Barcode2='" & Barcode & "'")
-            If dr2.Length > 0 Then
-                CLS.Code = IIf(IsDBNull(dr2(0).Item("Code")), 0, dr2(0).Item("Code"))
-                CLS.ItemName = IIf(IsDBNull(dr2(0).Item("ItemName")), 0, dr2(0).Item("ItemName"))
-                CLS.Barcode = IIf(IsDBNull(dr2(0).Item("Barcode")), 0, dr2(0).Item("Barcode"))
-                CLS.Barcode2 = IIf(IsDBNull(dr2(0).Item("Barcode2")), 0, dr2(0).Item("Barcode2"))
-                Return CLS
-            End If
-
-            'IF BARCODE IS NOT CODE RETURN EMPTY CLS
-            Return Nothing
-        Catch ex As Exception
-            MSG.ErrorOk("[Get_Item]" & vbCrLf & ex.Message)
-            Return Nothing
-        End Try
-    End Function
-    
-
 
 End Class

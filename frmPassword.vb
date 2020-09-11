@@ -8,4 +8,8 @@
         End If
     End Sub
 
+    Private Sub frmPassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
+
+    End Sub
 End Class

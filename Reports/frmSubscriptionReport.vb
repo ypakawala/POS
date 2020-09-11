@@ -9,6 +9,7 @@ Public Class frmSubscriptionReport
         End If
     End Sub
     Private Sub frmSubscriptionReport_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillDrop(Me.DropYear, "Title", "Code", Table.D_Year)
 

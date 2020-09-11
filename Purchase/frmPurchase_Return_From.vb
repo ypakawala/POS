@@ -21,6 +21,7 @@ Public Class frmPurchase_Return_From
 
     End Sub
     Private Sub frmPurchase_Payment_Due_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillGrid(SupplierCode)
         Catch ex As Exception

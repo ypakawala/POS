@@ -177,6 +177,7 @@
 </a2:FontData>
 <a1:UltraGridColumn id="ref-27" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-55"/>
 <Key id="ref-56">Code</Key>
 <TabStop>false</TabStop>
@@ -190,6 +191,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-28" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-57"/>
 <Key id="ref-58">ItemName</Key>
 <Width>300</Width>
@@ -198,6 +200,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-29" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-59"/>
 <Key id="ref-60">Category</Key>
 <Width>182</Width>
@@ -207,6 +210,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-30" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-62"/>
 <Hidden>true</Hidden>
 <Key id="ref-63">SubCategory</Key>
@@ -217,6 +221,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-31" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-65"/>
 <Hidden>true</Hidden>
 <Key id="ref-66">CostPrice</Key>
@@ -227,6 +232,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-32" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-68"/>
 <Key id="ref-69">SalesPrice</Key>
 <MaskInput href="#ref-67"/>
@@ -236,6 +242,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-33" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-70"/>
 <Key id="ref-71">Barcode</Key>
 <Width>130</Width>
@@ -244,6 +251,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-34" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-72"/>
 <Key id="ref-73">Barcode2</Key>
 <Width>125</Width>
@@ -274,6 +282,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-37" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-78"/>
 <Hidden>true</Hidden>
 <Key id="ref-79">StockMin</Key>
@@ -283,6 +292,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-38" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-80"/>
 <Hidden>true</Hidden>
 <Key id="ref-81">ItemType</Key>
@@ -293,6 +303,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-39" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-83"/>
 <Hidden>true</Hidden>
 <Key id="ref-84">Notes</Key>
@@ -302,6 +313,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-40" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-85"/>
 <Hidden>true</Hidden>
 <Key id="ref-86">UMC</Key>
@@ -312,6 +324,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-41" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-88"/>
 <Hidden>true</Hidden>
 <Key id="ref-89">LastSaleDate</Key>
@@ -322,6 +335,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-42" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-91"/>
 <Hidden>true</Hidden>
 <Key id="ref-92">LastPurchaseDate</Key>
@@ -332,6 +346,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-43" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-93"/>
 <Hidden>true</Hidden>
 <Key id="ref-94">ProfitMargin</Key>
@@ -342,6 +357,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-44" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-95"/>
 <Hidden>true</Hidden>
 <Key id="ref-96">CostMethod</Key>
@@ -352,6 +368,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-45" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-98"/>
 <Hidden>true</Hidden>
 <Key id="ref-99">LastPurchaseCost</Key>
@@ -362,6 +379,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-46" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-100"/>
 <Hidden>true</Hidden>
 <Key id="ref-101">Discontinued</Key>
@@ -372,6 +390,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-47" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-102"/>
 <Hidden>true</Hidden>
 <Key id="ref-103">onPromo</Key>
@@ -381,6 +400,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-48" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-104"/>
 <Hidden>true</Hidden>
 <Key id="ref-105">PromoFrom</Key>
@@ -391,6 +411,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-49" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-106"/>
 <Hidden>true</Hidden>
 <Key id="ref-107">PromoTo</Key>
@@ -401,6 +422,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-50" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-108"/>
 <Hidden>true</Hidden>
 <Key id="ref-109">PromoPrice</Key>
@@ -411,6 +433,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-51" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-110"/>
 <Hidden>true</Hidden>
 <Key id="ref-111">PromoStockLimit</Key>
@@ -421,6 +444,7 @@
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-52" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
 <Header href="#ref-113"/>
 <Hidden>true</Hidden>
 <Key id="ref-114">PromoStockSold</Key>

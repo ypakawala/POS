@@ -8,6 +8,7 @@ Public Class frmItemSalesMovement
         End If
     End Sub
     Private Sub frmSailSearch_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillDrop(Me.DropItem, "ItemName", "Code", Table.Item, "CostPrice", "BarCode", "BarCode2")
             FillDropWithCondition(Me.DropCustomer, "Title", "AccountNum", Table.Account, , , , , " WHERE AccountType = " & AccountType.Customer)

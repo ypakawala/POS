@@ -10,6 +10,7 @@ Public Class frmItemMovement
         If e.KeyCode = Keys.End Then Me.Close()
     End Sub
     Private Sub frmItemDrillDownEnquiry_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillDrop(Me.DropItem, "ItemName", "Code", Table.Item, "CostPrice", "BarCode", "BarCode2")
             Me.txtDateFrom.Value = Nothing

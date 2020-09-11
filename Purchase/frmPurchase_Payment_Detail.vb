@@ -23,6 +23,7 @@
         End Select
     End Sub
     Private Sub frmPurchase_Payment_Detail_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillGrid(PurchaseCode)
         Catch ex As Exception

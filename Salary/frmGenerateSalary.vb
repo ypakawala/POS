@@ -12,6 +12,7 @@ Public Class frmGenerateSalary
         End Select
     End Sub
     Private Sub frmGenerateSalary_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Me.Width = Screen.PrimaryScreen.WorkingArea.Width
             Me.Left = 0

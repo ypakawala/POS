@@ -51,6 +51,7 @@ Public Class frmSalaryPayment
         End Select
     End Sub
     Private Sub frmSalaryPayment_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Me.txtAmount.MaskInput = Mask_Amount5
             Me.txtBalance.MaskInput = Mask_Amount5

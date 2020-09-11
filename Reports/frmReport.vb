@@ -19,6 +19,7 @@ Public Class frmReport
         End If
     End Sub
     Private Sub frmReport_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Select Case Report_Type
                 Case ReportType.CategoryWiseSale : Me.Text = "Category Wise Sale Profit Report"

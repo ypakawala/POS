@@ -17,7 +17,7 @@
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>Cart Blue.ico</ApplicationIcon>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -1214,17 +1214,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
+    <Content Include="Cart Blue.ico" />
     <Content Include="OLD Code.txt" />
     <None Include="Resources\no_picture.gif" />
     <None Include="Resources\arrow-94-48.png" />
+    <None Include="Resources\Cart Blue.ico" />
     <Content Include="TASK.txt" />
     <None Include="packages.config" />
     <None Include="Resources\VIEW.PNG" />
     <None Include="Resources\form_red.png" />
     <Content Include="Resource\ADD_16.PNG" />
     <Content Include="Resource\DELETE_16.PNG" />
-    <Content Include="Resource\CASHIER.ICO" />
     <Content Include="Resource\SAVE_16.png" />
     <Content Include="Resource\EDIT_16.PNG" />
     <Content Include="Resource\Close_16.PNG" />
@@ -1262,9 +1262,7 @@
       <Name>theNext.UC</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Activation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

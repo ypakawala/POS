@@ -206,8 +206,9 @@ Public Class frmConfig
     End Sub
 
     Private Sub frmDynamicList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
-            
+
             FillDropWithCondition(Me.DropCustomer, "Title", "Code", Table.Account, "AccountNum", , , , " WHERE AccountType = " & AccountType.Customer)
             FillDropWithCondition(Me.DropSupplier, "Title", "Code", Table.Account, "AccountNum", , , , " WHERE AccountType = " & AccountType.Supplier)
             FillDropWithCondition(Me.DropStock, "Title", "Code", Table.Account, "AccountNum", , , , " WHERE AccountType = " & AccountType.Stock)

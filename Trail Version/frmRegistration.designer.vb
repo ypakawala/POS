@@ -40,7 +40,7 @@ Partial Class frmRegistration
         '
         'UltraGroupBox1
         '
-        Me.UltraGroupBox1.BackColorInternal = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.UltraGroupBox1.BackColorInternal = System.Drawing.Color.White
         Me.UltraGroupBox1.Controls.Add(Me.txtRegValue)
         Me.UltraGroupBox1.Controls.Add(Me.Label2)
         Me.UltraGroupBox1.Controls.Add(Me.TableLayoutPanel1)
@@ -58,12 +58,12 @@ Partial Class frmRegistration
         '
         'txtRegValue
         '
-        Appearance1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Appearance1.BackColor = System.Drawing.Color.White
         Appearance1.ForeColor = System.Drawing.Color.Black
         Appearance1.TextHAlignAsString = "Center"
         Appearance1.TextVAlignAsString = "Middle"
         Me.txtRegValue.Appearance = Appearance1
-        Me.txtRegValue.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtRegValue.BackColor = System.Drawing.Color.White
         Me.txtRegValue.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtRegValue.ForeColor = System.Drawing.Color.Black
         Me.txtRegValue.Location = New System.Drawing.Point(101, 70)
@@ -124,12 +124,12 @@ Partial Class frmRegistration
         '
         'txtUserName
         '
-        Appearance2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Appearance2.BackColor = System.Drawing.Color.White
         Appearance2.ForeColor = System.Drawing.Color.Black
         Appearance2.TextHAlignAsString = "Center"
         Appearance2.TextVAlignAsString = "Middle"
         Me.txtUserName.Appearance = Appearance2
-        Me.txtUserName.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtUserName.BackColor = System.Drawing.Color.White
         Me.txtUserName.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtUserName.ForeColor = System.Drawing.Color.Black
         Me.txtUserName.Location = New System.Drawing.Point(101, 43)

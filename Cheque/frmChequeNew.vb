@@ -44,6 +44,7 @@ Public Class frmChequeNew
     End Sub
 
     Private Sub frmChequeNew_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         txtAmount.MaskInput = Mask_Amount5
 
     End Sub

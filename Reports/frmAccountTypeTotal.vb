@@ -10,6 +10,7 @@ Public Class frmAccountTypeTotal
         End If
     End Sub
     Private Sub frmAccountStatement_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         FillDrop(Me.DropAccount, "Title", "Code", "D_AccountType")
         btnClearAll_Click(sender, e)
     End Sub

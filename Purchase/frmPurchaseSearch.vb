@@ -13,6 +13,7 @@ Public Class frmPurchaseSearch
         End If
     End Sub
     Private Sub frmPurchaseSearch_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
 
             If TrimBoolean(CLS_Config.AddPurchaseDetail) Then

@@ -44,6 +44,7 @@ Public Class frmVoucher_Entry
         End Select
     End Sub
     Private Sub frmPurchase_New_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Me.txtAmount.MaskInput = Mask_Amount5
 

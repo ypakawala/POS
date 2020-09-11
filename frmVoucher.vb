@@ -11,6 +11,7 @@ Public Class frmVoucher
         End Select
     End Sub
     Private Sub frmVoucher_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             FillDropWithCondition(Me.DropTransectionType, "Title", "Code", Table.D_TransectionType, , , , , " WHERE Code IN (" & TransectionType.Capital_Investment & "," & TransectionType.Drawing & "," & TransectionType.Other_Revenue & "," & TransectionType.Expenses & ")")
             Me.txtDateFrom.Value = Now.Date

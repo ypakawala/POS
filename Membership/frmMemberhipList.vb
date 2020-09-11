@@ -17,6 +17,7 @@ Public Class frmMemberhipList
     End Sub
 
     Private Sub frmMemberhipList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Try
             Me.lblDOB.Text = Nothing
             Me.lblMembershipDate.Text = Nothing

@@ -1,6 +1,7 @@
 ﻿Imports POS.FixControls
 Public Class frmChnagePassword
     Private Sub frmChnagePassword_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.Icon = My.Resources.Cart_Blue
         Me.txtCurrentPassword.Focus()
         Me.txtCurrentPassword.SelectAll()
     End Sub

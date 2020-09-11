@@ -18,6 +18,7 @@ Public Class frmSerialList
 
     End Sub
     Private Sub frmSerialList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         FillGrid()
     End Sub
 

@@ -39,6 +39,7 @@ Public Class frmPurchase
         End Select
     End Sub
     Private Sub frmPurchase_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = My.Resources.Cart_Blue
         Me.txtBalance.InputMask = Mask_Amount5
         Permission()
         FillDropWithCondition(Me.DropSupplier, "Title", "AccountNum", Table.Account, "Code", , , , " WHERE AccountType = " & AccountType.Supplier)

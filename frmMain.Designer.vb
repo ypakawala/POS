@@ -41,6 +41,7 @@ Partial Class frmMain
         Me.btnItemList = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnItems = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnItemClass = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnReward = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnPrintBarcode = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnItemCategory = New System.Windows.Forms.ToolStripMenuItem()
@@ -136,7 +137,6 @@ Partial Class frmMain
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox()
-        Me.btnReward = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         CType(Me.UltraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -187,6 +187,10 @@ Partial Class frmMain
         '
         Me.UltraTabbedMdiManager1.AllowMaximize = True
         Me.UltraTabbedMdiManager1.MdiParent = Me
+        Me.UltraTabbedMdiManager1.TabSettings.AllowClose = Infragistics.Win.DefaultableBoolean.[True]
+        Me.UltraTabbedMdiManager1.TabSettings.CloseButtonVisibility = Infragistics.Win.UltraWinTabs.TabCloseButtonVisibility.Always
+        Me.UltraTabbedMdiManager1.TabSettings.DisplayFormIcon = Infragistics.Win.DefaultableBoolean.[True]
+        Me.UltraTabbedMdiManager1.TabSettings.HotTrack = Infragistics.Win.DefaultableBoolean.[True]
         Me.UltraTabbedMdiManager1.ViewStyle = Infragistics.Win.UltraWinTabbedMdi.ViewStyle.Office2007
         '
         'Timer1
@@ -236,6 +240,14 @@ Partial Class frmMain
         Me.btnItemClass.Name = "btnItemClass"
         Me.btnItemClass.Size = New System.Drawing.Size(190, 22)
         Me.btnItemClass.Text = "Item Class"
+        '
+        'btnReward
+        '
+        Me.btnReward.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnReward.Image = CType(resources.GetObject("btnReward.Image"), System.Drawing.Image)
+        Me.btnReward.Name = "btnReward"
+        Me.btnReward.Size = New System.Drawing.Size(190, 22)
+        Me.btnReward.Text = "Reward"
         '
         'btnPrintBarcode
         '
@@ -1014,14 +1026,6 @@ Partial Class frmMain
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
         Me.UltraGroupBox2.Size = New System.Drawing.Size(1178, 28)
         Me.UltraGroupBox2.TabIndex = 131
-        '
-        'btnReward
-        '
-        Me.btnReward.BackColor = System.Drawing.Color.DodgerBlue
-        Me.btnReward.Image = CType(resources.GetObject("btnReward.Image"), System.Drawing.Image)
-        Me.btnReward.Name = "btnReward"
-        Me.btnReward.Size = New System.Drawing.Size(190, 22)
-        Me.btnReward.Text = "Reward"
         '
         'frmMain
         '
