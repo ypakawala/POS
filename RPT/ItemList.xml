@@ -71,6 +71,7 @@
 <Override href="#ref-23"/>
 <Columns href="#ref-24"/>
 <SortedCols href="#ref-25"/>
+<ColumnFilters href="#ref-26"/>
 </a1:UltraGridBand>
 <a2:Appearance id="ref-16" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
 <TextHAlign>1</TextHAlign>
@@ -117,7 +118,7 @@
 <Id>0</Id>
 </a2:Appearance>
 <a2:Appearance id="ref-20" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
-<FontData href="#ref-26"/>
+<FontData href="#ref-27"/>
 <ForeColor xsi:type="a3:Color" xmlns:a3="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
 <name xsi:null="1"/>
 <value>0</value>
@@ -140,46 +141,75 @@
 </a1:UltraGridOverride>
 <a1:ColumnsCollection id="ref-24" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <Count>27</Count>
-<_x0030_ href="#ref-27"/>
-<_x0031_ href="#ref-28"/>
-<_x0032_ href="#ref-29"/>
-<_x0033_ href="#ref-30"/>
-<_x0034_ href="#ref-31"/>
-<_x0035_ href="#ref-32"/>
-<_x0036_ href="#ref-33"/>
-<_x0037_ href="#ref-34"/>
-<_x0038_ href="#ref-35"/>
-<_x0039_ href="#ref-36"/>
-<_x0031_0 href="#ref-37"/>
-<_x0031_1 href="#ref-38"/>
-<_x0031_2 href="#ref-39"/>
-<_x0031_3 href="#ref-40"/>
-<_x0031_4 href="#ref-41"/>
-<_x0031_5 href="#ref-42"/>
-<_x0031_6 href="#ref-43"/>
-<_x0031_7 href="#ref-44"/>
-<_x0031_8 href="#ref-45"/>
-<_x0031_9 href="#ref-46"/>
-<_x0032_0 href="#ref-47"/>
-<_x0032_1 href="#ref-48"/>
-<_x0032_2 href="#ref-49"/>
-<_x0032_3 href="#ref-50"/>
-<_x0032_4 href="#ref-51"/>
-<_x0032_5 href="#ref-52"/>
-<_x0032_6 href="#ref-53"/>
+<_x0030_ href="#ref-28"/>
+<_x0031_ href="#ref-29"/>
+<_x0032_ href="#ref-30"/>
+<_x0033_ href="#ref-31"/>
+<_x0034_ href="#ref-32"/>
+<_x0035_ href="#ref-33"/>
+<_x0036_ href="#ref-34"/>
+<_x0037_ href="#ref-35"/>
+<_x0038_ href="#ref-36"/>
+<_x0039_ href="#ref-37"/>
+<_x0031_0 href="#ref-38"/>
+<_x0031_1 href="#ref-39"/>
+<_x0031_2 href="#ref-40"/>
+<_x0031_3 href="#ref-41"/>
+<_x0031_4 href="#ref-42"/>
+<_x0031_5 href="#ref-43"/>
+<_x0031_6 href="#ref-44"/>
+<_x0031_7 href="#ref-45"/>
+<_x0031_8 href="#ref-46"/>
+<_x0031_9 href="#ref-47"/>
+<_x0032_0 href="#ref-48"/>
+<_x0032_1 href="#ref-49"/>
+<_x0032_2 href="#ref-50"/>
+<_x0032_3 href="#ref-51"/>
+<_x0032_4 href="#ref-52"/>
+<_x0032_5 href="#ref-53"/>
+<_x0032_6 href="#ref-54"/>
 </a1:ColumnsCollection>
 <a1:SortedColumnsCollection id="ref-25" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <Count>1</Count>
-<_x0030_ href="#ref-54"/>
+<_x0030_ href="#ref-55"/>
 </a1:SortedColumnsCollection>
-<a2:FontData id="ref-26" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
+<a1:ColumnFiltersCollection id="ref-26" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<_x0030_ href="#ref-56"/>
+<_x0031_ href="#ref-57"/>
+<_x0032_ href="#ref-58"/>
+<_x0033_ href="#ref-59"/>
+<_x0034_ href="#ref-60"/>
+<_x0035_ href="#ref-61"/>
+<_x0036_ href="#ref-62"/>
+<_x0037_ href="#ref-63"/>
+<_x0038_ href="#ref-64"/>
+<_x0039_ href="#ref-65"/>
+<_x0031_0 href="#ref-66"/>
+<_x0031_1 href="#ref-67"/>
+<_x0031_2 href="#ref-68"/>
+<_x0031_3 href="#ref-69"/>
+<_x0031_4 href="#ref-70"/>
+<_x0031_5 href="#ref-71"/>
+<_x0031_6 href="#ref-72"/>
+<_x0031_7 href="#ref-73"/>
+<_x0031_8 href="#ref-74"/>
+<_x0031_9 href="#ref-75"/>
+<_x0032_0 href="#ref-76"/>
+<_x0032_1 href="#ref-77"/>
+<_x0032_2 href="#ref-78"/>
+<_x0032_3 href="#ref-79"/>
+<_x0032_4 href="#ref-80"/>
+<_x0032_5 href="#ref-81"/>
+<_x0032_6 href="#ref-82"/>
+</a1:ColumnFiltersCollection>
+<a2:FontData id="ref-27" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics2.Win.v8.3">
 <Bold>1</Bold>
 </a2:FontData>
-<a1:UltraGridColumn id="ref-27" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:UltraGridColumn id="ref-28" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-55"/>
-<Key id="ref-56">Code</Key>
+<Header href="#ref-83"/>
+<Key id="ref-84">Code</Key>
 <TabStop>false</TabStop>
 <Width>114</Width>
 <IsBound>true</IsBound>
@@ -189,233 +219,220 @@
 <FilterOperatorLocation>1</FilterOperatorLocation>
 <FilterComparisonType>1</FilterComparisonType>
 </a1:UltraGridColumn>
-<a1:UltraGridColumn id="ref-28" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:UltraGridColumn id="ref-29" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-57"/>
-<Key id="ref-58">ItemName</Key>
+<Header href="#ref-85"/>
+<Key id="ref-86">ItemName</Key>
 <Width>300</Width>
 <IsBound>true</IsBound>
 <TabIndex>3</TabIndex>
 </a1:UltraGridColumn>
-<a1:UltraGridColumn id="ref-29" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
-<CellActivation>3</CellActivation>
-<AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-59"/>
-<Key id="ref-60">Category</Key>
-<Width>182</Width>
-<IsBound>true</IsBound>
-<EditorControlName id="ref-61">DropCategory</EditorControlName>
-<TabIndex>4</TabIndex>
-</a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-30" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-62"/>
-<Hidden>true</Hidden>
-<Key id="ref-63">SubCategory</Key>
-<Width>44</Width>
+<Header href="#ref-87"/>
+<Key id="ref-88">Category</Key>
+<Width>182</Width>
 <IsBound>true</IsBound>
-<EditorControlName id="ref-64">DropSubCategory</EditorControlName>
-<TabIndex>5</TabIndex>
+<EditorControlName id="ref-89">DropCategory</EditorControlName>
+<TabIndex>4</TabIndex>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-31" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-65"/>
+<Header href="#ref-90"/>
 <Hidden>true</Hidden>
-<Key id="ref-66">CostPrice</Key>
-<MaskInput id="ref-67">{double:-9.3}</MaskInput>
-<Width>68</Width>
+<Key id="ref-91">SubCategory</Key>
+<Width>44</Width>
 <IsBound>true</IsBound>
-<TabIndex>7</TabIndex>
+<EditorControlName id="ref-92">DropSubCategory</EditorControlName>
+<TabIndex>5</TabIndex>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-32" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-68"/>
-<Key id="ref-69">SalesPrice</Key>
-<MaskInput href="#ref-67"/>
-<Width>73</Width>
+<Header href="#ref-93"/>
+<Hidden>true</Hidden>
+<Key id="ref-94">CostPrice</Key>
+<MaskInput id="ref-95">{double:-9.3}</MaskInput>
+<Width>68</Width>
 <IsBound>true</IsBound>
-<TabIndex>8</TabIndex>
+<TabIndex>7</TabIndex>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-33" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-70"/>
-<Key id="ref-71">Barcode</Key>
-<Width>130</Width>
+<Header href="#ref-96"/>
+<Key id="ref-97">SalesPrice</Key>
+<MaskInput href="#ref-95"/>
+<Width>73</Width>
 <IsBound>true</IsBound>
-<TabIndex>0</TabIndex>
+<TabIndex>8</TabIndex>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-34" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-72"/>
-<Key id="ref-73">Barcode2</Key>
-<Width>125</Width>
+<Header href="#ref-98"/>
+<Key id="ref-99">Barcode</Key>
+<Width>130</Width>
 <IsBound>true</IsBound>
-<TabIndex>1</TabIndex>
+<TabIndex>0</TabIndex>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-35" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-74"/>
-<Hidden>true</Hidden>
-<Key id="ref-75">StockInHand</Key>
-<Width>84</Width>
+<Header href="#ref-100"/>
+<Key id="ref-101">Barcode2</Key>
+<Width>125</Width>
 <IsBound>true</IsBound>
-<TabIndex>9</TabIndex>
+<TabIndex>1</TabIndex>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-36" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-76"/>
+<Header href="#ref-102"/>
+<Key id="ref-103">StockInHand</Key>
+<Width>168</Width>
+<IsBound>true</IsBound>
+<TabIndex>9</TabIndex>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-37" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
+<Header href="#ref-104"/>
 <Hidden>true</Hidden>
-<Key id="ref-77">StockInStore</Key>
+<Key id="ref-105">StockInStore</Key>
 <TabStop>false</TabStop>
 <Width>44</Width>
 <IsBound>true</IsBound>
 <ExcludeFromColumnChooser>1</ExcludeFromColumnChooser>
 <TabIndex>10</TabIndex>
 </a1:UltraGridColumn>
-<a1:UltraGridColumn id="ref-37" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
-<CellActivation>3</CellActivation>
-<AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-78"/>
-<Hidden>true</Hidden>
-<Key id="ref-79">StockMin</Key>
-<TabStop>false</TabStop>
-<Width>44</Width>
-<IsBound>true</IsBound>
-</a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-38" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-80"/>
+<Header href="#ref-106"/>
 <Hidden>true</Hidden>
-<Key id="ref-81">ItemType</Key>
+<Key id="ref-107">StockMin</Key>
 <TabStop>false</TabStop>
 <Width>44</Width>
 <IsBound>true</IsBound>
-<EditorControlName id="ref-82">DropItemType</EditorControlName>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-39" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-83"/>
-<Hidden>true</Hidden>
-<Key id="ref-84">Notes</Key>
+<Header href="#ref-108"/>
+<Key id="ref-109">ItemType</Key>
 <TabStop>false</TabStop>
-<Width>44</Width>
+<Width>126</Width>
 <IsBound>true</IsBound>
+<EditorControlName id="ref-110">DropItemType</EditorControlName>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-40" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-85"/>
+<Header href="#ref-111"/>
 <Hidden>true</Hidden>
-<Key id="ref-86">UMC</Key>
+<Key id="ref-112">Notes</Key>
 <TabStop>false</TabStop>
 <Width>44</Width>
 <IsBound>true</IsBound>
-<EditorControlName id="ref-87">DropUMC</EditorControlName>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-41" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-88"/>
+<Header href="#ref-113"/>
 <Hidden>true</Hidden>
-<Key id="ref-89">LastSaleDate</Key>
-<MaskInput id="ref-90">{LOC}dd/mm/yyyy</MaskInput>
+<Key id="ref-114">UMC</Key>
 <TabStop>false</TabStop>
-<Width>86</Width>
+<Width>44</Width>
 <IsBound>true</IsBound>
+<EditorControlName id="ref-115">DropUMC</EditorControlName>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-42" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-91"/>
+<Header href="#ref-116"/>
 <Hidden>true</Hidden>
-<Key id="ref-92">LastPurchaseDate</Key>
-<MaskInput href="#ref-90"/>
+<Key id="ref-117">LastSaleDate</Key>
+<MaskInput id="ref-118">{LOC}dd/mm/yyyy</MaskInput>
 <TabStop>false</TabStop>
-<Width>73</Width>
+<Width>86</Width>
 <IsBound>true</IsBound>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-43" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-93"/>
+<Header href="#ref-119"/>
 <Hidden>true</Hidden>
-<Key id="ref-94">ProfitMargin</Key>
-<MaskInput href="#ref-67"/>
+<Key id="ref-120">LastPurchaseDate</Key>
+<MaskInput href="#ref-118"/>
 <TabStop>false</TabStop>
-<Width>53</Width>
+<Width>73</Width>
 <IsBound>true</IsBound>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-44" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-95"/>
+<Header href="#ref-121"/>
 <Hidden>true</Hidden>
-<Key id="ref-96">CostMethod</Key>
-<Width>80</Width>
+<Key id="ref-122">ProfitMargin</Key>
+<MaskInput href="#ref-95"/>
+<TabStop>false</TabStop>
+<Width>53</Width>
 <IsBound>true</IsBound>
-<EditorControlName id="ref-97">DropCostMethod</EditorControlName>
-<TabIndex>11</TabIndex>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-45" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-98"/>
+<Header href="#ref-123"/>
 <Hidden>true</Hidden>
-<Key id="ref-99">LastPurchaseCost</Key>
-<MaskInput href="#ref-67"/>
-<TabStop>false</TabStop>
-<Width>44</Width>
+<Key id="ref-124">CostMethod</Key>
+<Width>80</Width>
 <IsBound>true</IsBound>
+<EditorControlName id="ref-125">DropCostMethod</EditorControlName>
+<TabIndex>11</TabIndex>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-46" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-100"/>
+<Header href="#ref-126"/>
 <Hidden>true</Hidden>
-<Key id="ref-101">Discontinued</Key>
+<Key id="ref-127">LastPurchaseCost</Key>
+<MaskInput href="#ref-95"/>
+<TabStop>false</TabStop>
+<Width>44</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-47" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
+<Header href="#ref-128"/>
+<Hidden>true</Hidden>
+<Key id="ref-129">Discontinued</Key>
 <TabStop>false</TabStop>
 <Width>44</Width>
 <IsBound>true</IsBound>
 <TabIndex>12</TabIndex>
 </a1:UltraGridColumn>
-<a1:UltraGridColumn id="ref-47" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
-<CellActivation>3</CellActivation>
-<AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-102"/>
-<Hidden>true</Hidden>
-<Key id="ref-103">onPromo</Key>
-<TabStop>false</TabStop>
-<Width>44</Width>
-<IsBound>true</IsBound>
-</a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-48" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-104"/>
+<Header href="#ref-130"/>
 <Hidden>true</Hidden>
-<Key id="ref-105">PromoFrom</Key>
-<MaskInput href="#ref-90"/>
+<Key id="ref-131">onPromo</Key>
 <TabStop>false</TabStop>
-<Width>73</Width>
+<Width>44</Width>
 <IsBound>true</IsBound>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-49" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-106"/>
+<Header href="#ref-132"/>
 <Hidden>true</Hidden>
-<Key id="ref-107">PromoTo</Key>
-<MaskInput href="#ref-90"/>
+<Key id="ref-133">PromoFrom</Key>
+<MaskInput href="#ref-118"/>
 <TabStop>false</TabStop>
 <Width>73</Width>
 <IsBound>true</IsBound>
@@ -423,21 +440,21 @@
 <a1:UltraGridColumn id="ref-50" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-108"/>
+<Header href="#ref-134"/>
 <Hidden>true</Hidden>
-<Key id="ref-109">PromoPrice</Key>
-<MaskInput href="#ref-67"/>
+<Key id="ref-135">PromoTo</Key>
+<MaskInput href="#ref-118"/>
 <TabStop>false</TabStop>
-<Width>44</Width>
+<Width>73</Width>
 <IsBound>true</IsBound>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-51" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-110"/>
+<Header href="#ref-136"/>
 <Hidden>true</Hidden>
-<Key id="ref-111">PromoStockLimit</Key>
-<MaskInput id="ref-112">{double:-9.3}</MaskInput>
+<Key id="ref-137">PromoPrice</Key>
+<MaskInput href="#ref-95"/>
 <TabStop>false</TabStop>
 <Width>44</Width>
 <IsBound>true</IsBound>
@@ -445,117 +462,435 @@
 <a1:UltraGridColumn id="ref-52" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<Header href="#ref-113"/>
+<Header href="#ref-138"/>
 <Hidden>true</Hidden>
-<Key id="ref-114">PromoStockSold</Key>
-<MaskInput href="#ref-112"/>
+<Key id="ref-139">PromoStockLimit</Key>
+<MaskInput id="ref-140">{double:-9.3}</MaskInput>
 <TabStop>false</TabStop>
-<Width>45</Width>
+<Width>44</Width>
 <IsBound>true</IsBound>
 </a1:UltraGridColumn>
 <a1:UltraGridColumn id="ref-53" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <CellActivation>3</CellActivation>
 <AutoCompleteMode>2</AutoCompleteMode>
-<DataType id="ref-115">System.Decimal</DataType>
-<Header href="#ref-116"/>
+<Header href="#ref-141"/>
 <Hidden>true</Hidden>
-<Key id="ref-117">StockTotal</Key>
+<Key id="ref-142">PromoStockSold</Key>
+<MaskInput href="#ref-140"/>
+<TabStop>false</TabStop>
+<Width>45</Width>
+<IsBound>true</IsBound>
+</a1:UltraGridColumn>
+<a1:UltraGridColumn id="ref-54" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<CellActivation>3</CellActivation>
+<AutoCompleteMode>2</AutoCompleteMode>
+<DataType id="ref-143">System.Decimal</DataType>
+<Header href="#ref-144"/>
+<Hidden>true</Hidden>
+<Key id="ref-145">StockTotal</Key>
 <TabStop>false</TabStop>
 <Width>44</Width>
 <UnboundRelativePosition>0</UnboundRelativePosition>
 <IsBound>false</IsBound>
-<Formula id="ref-118">[StockInHand] + [StockInStore]</Formula>
+<Formula id="ref-146">[StockInHand] + [StockInStore]</Formula>
 <ExcludeFromColumnChooser>1</ExcludeFromColumnChooser>
 </a1:UltraGridColumn>
-<a1:SerializedColumnID id="ref-54" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
-<Key href="#ref-60"/>
-<RelativeIndex>2</RelativeIndex>
+<a1:SerializedColumnID id="ref-55" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-103"/>
+<RelativeIndex>8</RelativeIndex>
 <Bound>true</Bound>
 <SortIndicator>1</SortIndicator>
 <IsGroupByColumn>false</IsGroupByColumn>
 </a1:SerializedColumnID>
-<a1:ColumnHeader id="ref-55" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnFilter id="ref-56" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-147"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-57" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-148"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-58" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-149"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-59" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-150"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-60" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-151"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-61" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-152"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-62" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-153"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-63" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-154"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-64" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-155"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-65" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-156"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-66" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-157"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-67" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-158"/>
+<FilterConditions href="#ref-159"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-68" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-160"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-69" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-161"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-70" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-162"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-71" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-163"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-72" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-164"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-73" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-165"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-74" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-166"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-75" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-167"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-76" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-168"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-77" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-169"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-78" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-170"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-79" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-171"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-80" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-172"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-81" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-173"/>
+</a1:ColumnFilter>
+<a1:ColumnFilter id="ref-82" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-22"/>
+<Column href="#ref-174"/>
+</a1:ColumnFilter>
+<a1:ColumnHeader id="ref-83" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>0</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-57" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-85" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>3</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-59" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-87" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>4</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-62" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-90" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>5</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-65" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-93" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>6</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-68" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-96" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>8</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-70" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-98" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>1</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-72" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-100" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>2</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-74" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
-<Caption id="ref-119">Stock</Caption>
+<a1:ColumnHeader id="ref-102" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-175">Stock</Caption>
 <VisiblePosition>9</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-76" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
-<Caption id="ref-120">In Store</Caption>
+<a1:ColumnHeader id="ref-104" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Caption id="ref-176">In Store</Caption>
 <VisiblePosition>10</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-78" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-106" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>12</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-80" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-108" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>14</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-83" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-111" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>16</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-85" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-113" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>15</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-88" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-116" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>17</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-91" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-119" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>18</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-93" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-121" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>7</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-95" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-123" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>13</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-98" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-126" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>19</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-100" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-128" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>26</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-102" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-130" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>20</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-104" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-132" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>21</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-106" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-134" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>22</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-108" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-136" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>23</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-110" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-138" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>24</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-113" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-141" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>25</VisiblePosition>
 </a1:ColumnHeader>
-<a1:ColumnHeader id="ref-116" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<a1:ColumnHeader id="ref-144" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
 <VisiblePosition>11</VisiblePosition>
 </a1:ColumnHeader>
+<a1:SerializedColumnID id="ref-147" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-84"/>
+<RelativeIndex>0</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-148" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-86"/>
+<RelativeIndex>1</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-149" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-88"/>
+<RelativeIndex>2</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-150" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-91"/>
+<RelativeIndex>3</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-151" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-94"/>
+<RelativeIndex>4</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-152" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-97"/>
+<RelativeIndex>5</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-153" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-99"/>
+<RelativeIndex>6</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-154" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-101"/>
+<RelativeIndex>7</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-155" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-103"/>
+<RelativeIndex>8</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>1</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-156" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-105"/>
+<RelativeIndex>9</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-157" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-107"/>
+<RelativeIndex>10</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-158" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-109"/>
+<RelativeIndex>11</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:FilterConditionsCollection id="ref-159" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<_x0030_ href="#ref-177"/>
+</a1:FilterConditionsCollection>
+<a1:SerializedColumnID id="ref-160" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-112"/>
+<RelativeIndex>12</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-161" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-114"/>
+<RelativeIndex>13</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-162" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-117"/>
+<RelativeIndex>14</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-163" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-120"/>
+<RelativeIndex>15</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-164" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-122"/>
+<RelativeIndex>16</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-165" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-124"/>
+<RelativeIndex>17</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-166" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-127"/>
+<RelativeIndex>18</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-167" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-129"/>
+<RelativeIndex>19</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-168" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-131"/>
+<RelativeIndex>20</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-169" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-133"/>
+<RelativeIndex>21</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-170" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-135"/>
+<RelativeIndex>22</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-171" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-137"/>
+<RelativeIndex>23</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-172" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-139"/>
+<RelativeIndex>24</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-173" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-142"/>
+<RelativeIndex>25</RelativeIndex>
+<Bound>true</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:SerializedColumnID id="ref-174" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<Key href="#ref-145"/>
+<RelativeIndex>0</RelativeIndex>
+<Bound>false</Bound>
+<SortIndicator>0</SortIndicator>
+<IsGroupByColumn>false</IsGroupByColumn>
+</a1:SerializedColumnID>
+<a1:FilterCondition id="ref-177" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinGrid/Infragistics2.Win.UltraWinGrid.v8.3">
+<ComparisionOperator>14</ComparisionOperator>
+<CompareValue xsi:type="a5:ObjectWrapper" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics2.Shared.v8.3">
+<objectValue id="ref-179" xsi:type="SOAP-ENC:string">Weighed Item</objectValue>
+</CompareValue>
+</a1:FilterCondition>
 </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

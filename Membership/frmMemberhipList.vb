@@ -127,7 +127,8 @@ Public Class frmMemberhipList
 
                 Dim Query = (From q In CONTEXT.V_MembershipHistory Where q.Code = CLS.Code Select q.Debit - q.Credit)
                 If Query.ToList.Count > 0 Then
-                    lblPoints.Text = ConvertToString(Query.Sum, True)
+                    'lblPoints.Text = ConvertToString(Query.Sum, True)
+                    lblPoints.Text = ConvertToString(Math.Round(CDec(Query.Sum), 3), True)
                     lblPointsAmt.Text = ConvertToString(Math.Round(CDec(Query.Sum * CLS_Config.MembershipPoint2Amt), 3), True)
                 Else
                     lblPoints.Text = "00.000"
@@ -246,6 +247,11 @@ Public Class frmMemberhipList
                 Exit Try
             End If
 
+            If frmSalesIns.grdList.Rows.Count = 0 Then
+                MsgBox("Sale item missing.")
+                Exit Try
+            End If
+
             Select Case ParentForm
                 Case "frmSales"
                     frmSalesIns.CLS_Sale.MembershipCode = CLS.Code
@@ -256,11 +262,33 @@ Public Class frmMemberhipList
                     End If
 
 
+
+
+
+                    Dim Discount As Decimal = 0.0
                     If Amt > frmSalesIns.txtTotalBill.Value Then
-                        frmSalesIns.txtDiscount.Value = TrimDec(frmSalesIns.txtTotalBill.Value)
+                        Discount = TrimDec(frmSalesIns.txtTotalBill.Value)
                     Else
-                        frmSalesIns.txtDiscount.Value = Amt
+                        Discount = Amt
                     End If
+
+                    If Discount > 0 Then
+                        frmSalesIns.CLS_Cash_Redemption = New Redemption
+                        frmSalesIns.CLS_Cash_Redemption.Code = GetNewCode("code", "Redemption")
+                        frmSalesIns.CLS_Cash_Redemption.CashRedemption = True
+
+                        If Amt > frmSalesIns.txtTotalBill.Value Then
+                            frmSalesIns.CLS_Cash_Redemption.RewardPoint = ConvertToString(Math.Round(CDec(Discount / CLS_Config.MembershipPoint2Amt), 3), True)
+                        Else
+                            frmSalesIns.CLS_Cash_Redemption.RewardPoint = TrimDec(Me.lblPoints.Text)
+                        End If
+                        frmSalesIns.txtDiscount.Value = Discount
+                    End If
+
+
+                    'frmSalesIns.CLS_Cash_Redemption.ItemCode = CLS_Reward.ItemCode
+
+
                     Me.Close()
             End Select
 
@@ -306,7 +334,7 @@ Public Class frmMemberhipList
                 LoadData(CLS.Code)
 
 
-                PrintRedemtion(CLS_Redemption.Code)
+                PrintRedemtion(CLS_Redemption.Code, TrimDec(lblPoints.Text) - CLS_Redemption.RewardPoint)
 
             End Using
 
@@ -380,7 +408,7 @@ Public Class frmMemberhipList
             Dim Credit As Decimal = TrimDec(Me.grdList.ActiveRow.Cells("Credit").Value)
 
             If Source = "Redemption" Then
-                PrintRedemtion(Ref)
+                PrintRedemtion(Ref, TrimDec(lblPoints.Text))
             Else
                 PrintSale(Ref)
             End If
@@ -391,32 +419,32 @@ Public Class frmMemberhipList
         End Try
     End Sub
 
-    Private Sub PrintRedemtion(Code As Integer)
-        Try
-            Dim DT As New DataTable
-            DT.Clear()
-            Dim Query As String = "SELECT  * FROM V_MembershipHistory WHERE (Ref=" & Code & " AND Source='Redemption' )"
-            DT = DBO.ReturnDataTableFromSQL(Query)
+    'Private Sub PrintRedemtion(Code As Integer)
+    '    Try
+    '        Dim DT As New DataTable
+    '        DT.Clear()
+    '        Dim Query As String = "SELECT  * FROM V_MembershipHistory WHERE (Ref=" & Code & " AND Source='Redemption' )"
+    '        DT = DBO.ReturnDataTableFromSQL(Query)
 
-            Dim report2 As New ReportDocument
-            report2.Load(CLS_Config.ReportPath & "Redemption.rpt", CrystalDecisions.[Shared].OpenReportMethod.OpenReportByTempCopy)
-            report2.SetDataSource(DT)
+    '        Dim report2 As New ReportDocument
+    '        report2.Load(CLS_Config.ReportPath & "Redemption.rpt", CrystalDecisions.[Shared].OpenReportMethod.OpenReportByTempCopy)
+    '        report2.SetDataSource(DT)
 
-            report2.SetParameterValue("CompanyName", TrimStr(CLS_Config.CompanyName))
-            report2.SetParameterValue("Address1", TrimStr(CLS_Config.Address1))
-            report2.SetParameterValue("Address2", TrimStr(CLS_Config.Address2))
-            report2.SetParameterValue("Address3", TrimStr(CLS_Config.Address3))
-            report2.SetParameterValue("Tel", TrimStr(CLS_Config.Tel))
-            report2.SetParameterValue("PointBalance", TrimDec(lblPoints.Text))
+    '        report2.SetParameterValue("CompanyName", TrimStr(CLS_Config.CompanyName))
+    '        report2.SetParameterValue("Address1", TrimStr(CLS_Config.Address1))
+    '        report2.SetParameterValue("Address2", TrimStr(CLS_Config.Address2))
+    '        report2.SetParameterValue("Address3", TrimStr(CLS_Config.Address3))
+    '        report2.SetParameterValue("Tel", TrimStr(CLS_Config.Tel))
+    '        report2.SetParameterValue("PointBalance", TrimDec(lblPoints.Text))
 
-            report2.PrintOptions.PrinterName = CLS_Config.ReceiptPrinter
-            report2.PrintToPrinter(1, False, 1, 2)
+    '        report2.PrintOptions.PrinterName = CLS_Config.ReceiptPrinter
+    '        report2.PrintToPrinter(1, False, 1, 2)
 
-        Catch ex As Exception
-            MsgBox("Print" & vbCrLf & ex.Message)
-            If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
-        End Try
-    End Sub
+    '    Catch ex As Exception
+    '        MsgBox("Print" & vbCrLf & ex.Message)
+    '        If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
+    '    End Try
+    'End Sub
     Private Sub PrintSale(ByVal SaleCode As Integer)
         Try
             Dim DT As New DataTable

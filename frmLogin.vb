@@ -147,6 +147,12 @@ Public Class frmLogin
 
 
 
+        _WhatsApp.FTP_Client.Hostname = ftpHostname
+        _WhatsApp.FTP_Client.Username = ftpUsername
+        _WhatsApp.FTP_Client.Password = theNext.UC.Encrypt.DYC(ftpPassword)
+        _WhatsApp.FTP_Client.CurrentDirectory = ftpCurrentDirectory
+        _WhatsApp.CountryCode = WAM_CountryCode
+        _WhatsApp.Number = WAM_Number
 
 
 

@@ -29,6 +29,7 @@ Public Class frmSales
     Dim HOLD_BILL_NO As Integer = 0
     Dim HOLD_BILL_DATE As DateTime
     Dim CLS_Membership As New Membership
+    Public CLS_Cash_Redemption As New Redemption
 
     '' ''Dim LastDisplayText As String = Nothing
     '' ''Dim NewDisplayText As String = Nothing
@@ -96,16 +97,17 @@ Public Class frmSales
             KMembership.Visible = TrimBoolean(CLS_Config.MembershipSystem)
 
             'SET DisplayPole
-            Select Case CLS_Config.Company
-                Case INDIAGATE : Pole.CompanyName = "INDIA GATE"
-                Case OsmanSM : Pole.CompanyName = "OSMAN SUPER MARKET"
-                Case EDEE : Pole.CompanyName = "EDEE SUPER MARKET"
-                Case BOOKSHOP : Pole.CompanyName = "EDEE BOOK SHOP"
-                Case ZAHRABAKALA : Pole.CompanyName = "NOOR AL ZAHRA BAKALA"
-                Case CENTURY : Pole.CompanyName = "CENTURY BAZAAR"
-                Case MoveNPick : Pole.CompanyName = "M & P"
-            End Select
-
+            'Select Case CLS_Config.Company
+            '    Case INDIAGATE : Pole.CompanyName = "INDIA GATE"
+            '    Case OsmanSM : Pole.CompanyName = "OSMAN SUPER MARKET"
+            '    Case EDEE : Pole.CompanyName = "EDEE SUPER MARKET"
+            '    Case BOOKSHOP : Pole.CompanyName = "EDEE BOOK SHOP"
+            '    Case ZAHRABAKALA : Pole.CompanyName = "NOOR AL ZAHRA BAKALA"
+            '    Case CENTURY : Pole.CompanyName = "CENTURY BAZAAR"
+            '    Case MoveNPick : Pole.CompanyName = "M & P"
+            '    Case Else : Pole.CompanyName = CLS_Config.CompanyName
+            'End Select
+            Pole.CompanyName = CLS_Config.CompanyName
             Pole.DisplayMethod = CLS_Config.DisplayPole_Method
             Pole.ComPort = CLS_Config.ComPort
             Pole.PortMax = PortMax
@@ -834,7 +836,7 @@ Public Class frmSales
                 If (CLS_Config.DecimalPlace = 3 Or CLS_Config.DecimalPlace = 2) And (CInt(Me.txtBarcode.Value) Mod 5 <> 0 Or CInt(Me.txtBarcode.Value) < 5) Then
                     Me.txtNotes.Text = "Invaid Price !!!."
                     DY_Price = False
-                    'play sound
+
                     PlaySoundFile("notify.WAV")
                 Else
                     Me.txtPrice.Value = CInt(Me.txtBarcode.Value)
@@ -859,45 +861,39 @@ Public Class frmSales
             If IsNothing(CLS_Item) Then
                 Dim br As String = CStr(IIf(IsNothing(Me.txtBarcode.Value), 0, Me.txtBarcode.Value))
                 If br.Length = ChrWeightItemBarcodeLength Then
-                    'Dim Type As String = br.Substring(0, 4)
                     Dim ItemCode As String = Nothing
-                    'Select Case CLS_Config.Company
-                    '    Case MoveNPick
-                    '        ItemCode = br.Substring(1, 2)
-                    '        CLS_Item = Get_Item(CStr(ItemCode), True)
-                    '        If IsNothing(CLS_Item) Then
-                    '           ItemCode = br.Substring(0, 7)
-                    '        End If
-                    '    Case Else
-                    '        ItemCode = br.Substring(0, 7)
-                    'End Select
-                    'ItemCode = br.Substring(0, 7)
                     ItemCode = br.Substring(ChrWeightItemStrat, ChrWeightItemLength)
 
                     CLS_Item = Get_Item(CStr(ItemCode), False)
                     If IsNothing(CLS_Item) Then
-                        'play sound
                         PlaySoundFile("notify.wav")
                         Me.txtBarcode.Value = Nothing
-                        'MsgBox("Item Not Found !!!!!")
                         Dim frm As New frmDialogResult("Item Not Found !!!!!", True)
                         frm.ShowDialog()
-
                         Pole.Send_To_Port("Item Not Found !!!!", "")
                         Exit Try
-                    Else
-                        'Me.txtPrice.Value = CType(br.Substring(7, 5), Decimal)
-                        Me.txtPrice.Value = CType(br.Substring(ChrWeightPriceStart, ChrWeightPriceLength), Decimal)
 
-                        '1 is in case if they dont consider Sales Price in DB else below formula will work for calculating qty 
-                        Me.txtQuantity.Value = 1 'Math.Round((CType(Me.txtPrice.Value, Decimal) / (CLS_Item.SalesPrice * 1000)), 3)
+                    ElseIf CLS_Item.ItemType = ItemType.WeighedItem Then
+                        Me.txtPrice.Value = CType(br.Substring(ChrWeightPriceStart, ChrWeightPriceLength), Decimal)
+                        If WeightItemQty = 1 Then
+                            Me.txtQuantity.Value = Math.Round((CType(Me.txtPrice.Value, Decimal) / (CLS_Item.SalesPrice * 1000)), 3) 'Else below formula will work for calculating qty 
+                        Else
+                            Me.txtQuantity.Value = 1 '1 is in case if they dont consider Sales Price in DB 
+                    End If
                         DY_Price = True
+
+                    Else
+                        PlaySoundFile("notify.wav")
+                        Me.txtBarcode.Value = Nothing
+                        Dim frm As New frmDialogResult("Item Not Found !!!!!", True)
+                        frm.ShowDialog()
+                        Pole.Send_To_Port("Item Not Found !!!!", "")
+                        Exit Try
                     End If
                 Else
-                    'play sound
+
                     PlaySoundFile("notify.wav")
                     Me.txtBarcode.Value = Nothing
-                    'MsgBox("Item Not Found !!!!!")
                     Dim frm As New frmDialogResult("Item Not Found !!!!!", True)
                     frm.ShowDialog()
 
@@ -923,7 +919,6 @@ Public Class frmSales
                     Find_Int = Nothing
                     Dim frm As New frmSerialList(CLS_Item.Code, isSalesReturn)
                     If frm.ShowDialog() <> Windows.Forms.DialogResult.Yes Then
-                        'play sound
                         PlaySoundFile("notify.wav")
                         Me.txtBarcode.Value = Nothing
                         Me.txtQuantity.Value = 1
@@ -937,7 +932,6 @@ Public Class frmSales
 
                     For Each Row In Me.grdList.Rows
                         If Find_Int = TrimInt(Row.Cells("Purchase_EntryCode").Value) Then
-                            'play sound
                             PlaySoundFile("notify.wav")
                             Me.txtBarcode.Value = Nothing
                             Me.txtQuantity.Value = 1
@@ -953,8 +947,6 @@ Public Class frmSales
 
                 End If
 
-
-                'play sound
                 PlaySoundFile("ding.wav")
 
                 CLS_Sale_Entry.ItemCode = CLS_Item.Code
@@ -990,7 +982,7 @@ Public Class frmSales
                         IsNothing(CLS_Sale_Entry.UnitPrice) Or
                         IsNothing(CLS_Sale_Entry.Quantity) Or CLS_Sale_Entry.Quantity = 0 Or
                         IsNothing(CLS_Sale_Entry.TotalPrice) Then
-                        'play sound
+
                         PlaySoundFile("notify.wav")
                         Me.txtBarcode.Value = Nothing
                         MsgBox("Invalid Entry !!!")
@@ -1004,7 +996,7 @@ Public Class frmSales
                     IsNothing(CLS_Sale_Entry.UnitPrice) Or CLS_Sale_Entry.UnitPrice = 0 Or
                     IsNothing(CLS_Sale_Entry.Quantity) Or CLS_Sale_Entry.Quantity = 0 Or
                     IsNothing(CLS_Sale_Entry.TotalPrice) Or CLS_Sale_Entry.TotalPrice = 0 Then
-                        'play sound
+
                         PlaySoundFile("notify.wav")
                         Me.txtBarcode.Value = Nothing
                         MsgBox("Invalid Entry !!!")
@@ -1093,6 +1085,7 @@ Public Class frmSales
                     End If
             End Select
 
+            Dim CLS_ACC As New Account
             If CLS_Sale.PaymentType = PaymentType.Credit Then
                 If FixControl(Me.txtBarcode) = Nothing Then
                     MsgBox("Customer Accout Missing !!!")
@@ -1106,7 +1099,6 @@ Public Class frmSales
                     Exit Sub
                 End If
 
-                Dim CLS_ACC As New Account
                 If CLS_Config.CompanyName = ZAHRABAKALA Then
                     If Not CLS_ACC.Select_Customer(Me.txtBarcode.Value, CLS_Sale.TransectionDate) Then
                         MsgBox("Invalid Customer Accout !!!")
@@ -1263,11 +1255,55 @@ Public Class frmSales
 
             If EDITIGN_BILL <> 0 Then CLS_Sale.Delete(EDITIGN_BILL)
 
+#Region " Membership "
             If CLS_Config.MembershipSystem Then
                 If TrimInt(CLS_Sale.MembershipCode) <> Nothing Then
                     CLS_Sale.RewardPoint = CLS_Sale.NetBill * CLS_Config.MembershipAmt2Point
+
+                    If Not IsDBNull(CLS_Cash_Redemption) AndAlso Not IsNothing(CLS_Cash_Redemption) AndAlso CLS_Cash_Redemption.CashRedemption Then
+                        If TrimDec(txtDiscount.Value) <> 0 Then
+
+
+
+                            Dim frm As New frmDialogResult("Cash redemption of [" & txtDiscount.Value & "]. Are you sure?")
+                            If frm.ShowDialog = Windows.Forms.DialogResult.OK Then
+                                Using CONTEXT = New POSEntities
+
+
+                                    CLS_Cash_Redemption.Code = GetNewCode("code", "Redemption")
+                                    CLS_Cash_Redemption.MembershipCode = CLS_Sale.MembershipCode
+                                    CLS_Cash_Redemption.TransectionDate = Now()
+                                    'CLS_Cash_Redemption.CashRedemption = True
+                                    'CLS_Cash_Redemption.RewardPoint = 0.0
+                                    CLS_Cash_Redemption.RewardCash = txtDiscount.Value
+
+                                    CONTEXT.Redemptions.AddObject(CLS_Cash_Redemption)
+                                    CONTEXT.SaveChanges()
+
+                                    Dim Points As Decimal = 0.0
+                                    Dim Query = (From q In CONTEXT.V_MembershipHistory Where q.Code = CLS_Sale.MembershipCode Select q.Debit - q.Credit)
+                                    If Query.ToList.Count > 0 Then
+                                        Points = ConvertToString(Math.Round(CDec(Query.Sum), 3), True)
+                                    Else
+                                        Points = "00.000"
+                                    End If
+
+
+                                    PrintRedemtion(CLS_Cash_Redemption.Code, Points)
+
+                                End Using
+                            End If
+
+                        End If
+
+                    End If
+
+
+
                 End If
             End If
+#End Region
+
 
             CLS_Sale.Add()
 
@@ -1310,10 +1346,64 @@ Public Class frmSales
                 Case Else
                     PrintFooter()
             End Select
+
             Select Case CLS_Sale.TransectionType
                 Case TransectionType.CashSale, TransectionType.CreditSale, TransectionType.CashSaleReturn, TransectionType.CreditSaleReturn
                     Print_Big_Bill(CLS_Sale.Code)
             End Select
+
+
+            Select Case CLS_Sale.TransectionType
+                'Case TransectionType.CashSale
+                    'If TrimStr(WAM_PaymentReceipt) <> Nothing Then
+
+                    '    Dim PaymentTypeText As String = "Cash"
+                    '    Select Case CType(CLS_Sale.PaymentType, PaymentType)
+                    '        Case 1 : PaymentTypeText = "Cash"
+                    '        Case 2 : PaymentTypeText = "KNet"
+                    '        Case 3 : PaymentTypeText = "MasterCard"
+                    '        Case 4 : PaymentTypeText = "Cheque"
+                    '        Case 5 : PaymentTypeText = "Credit"
+                    '        Case 6 : PaymentTypeText = "KNet_Cash"
+                    '        Case 7 : PaymentTypeText = "MasterCard_Cash"
+                    '        Case Else : PaymentTypeText = "Cash"
+                    '    End Select
+
+
+                    '    Dim Message As String = WAM_PaymentReceipt
+                    '    Message = Message.Replace("@CompanyName", CLS_Config.CompanyName)
+                    '    Message = Message.Replace("@CustomerName", CLS_ACC.Title)
+                    '    Message = Message.Replace("@Amount", ConvertToString(CDec(Me.txtTotalBill.Value), True))
+                    '    Message = Message.Replace("@PaymentType", PaymentTypeText)
+                    '    Message = Message.Replace("$", "KD")
+
+                    '    _WhatsApp.SendMessage(CLS_ACC.Mobile, Message, _WhatsApp.Type.text)
+
+                    'End If
+                Case TransectionType.CreditSale
+                    If TrimStr(WAM_CreditSale) <> Nothing Then
+
+
+                        Dim Balance As Decimal = 0.0
+                        Using CONTEXT = New POSEntities
+                            Balance = (From q In CONTEXT.Voucher_Entry Where q.AccountCode = CLS_ACC.Code Select q.Debit - q.Credit).Sum
+                            Balance = TrimDec(Math.Round(Balance, 3))
+                        End Using
+
+                        Dim Message As String = WAM_CreditSale
+                        Message = Message.Replace("@CompanyName", CLS_Config.CompanyName)
+                        Message = Message.Replace("@CustomerName", CLS_ACC.Title)
+                        Message = Message.Replace("@Amount", ConvertToString(CDec(Me.txtTotalBill.Value), True))
+                        Message = Message.Replace("@Balance", ConvertToString(Balance, True))
+                        Message = Message.Replace("$", "KD")
+
+                        _WhatsApp.SendMessage(CLS_ACC.Mobile, Message, _WhatsApp.Type.text)
+
+
+                    End If
+            End Select
+
+
             'If CLS_Sale.TransectionType = TransectionType.CashSale Or CLS_Sale.TransectionType = TransectionType.CreditSale Then
             '    Print_Big_Bill(CLS_Sale.Code)
             'End If
@@ -1641,7 +1731,7 @@ Public Class frmSales
 
 
                     If ItemType = CodeModule.ItemType.Serail_Item AndAlso TrimInt(Row.Cells("Purchase_EntryCode").Value) <> 0 Then
-                        'play sound
+
                         PlaySoundFile("notify.wav")
                         Me.txtBarcode.Value = Nothing
                         Me.txtQuantity.Value = 1
@@ -1769,7 +1859,7 @@ Public Class frmSales
 
                     Dim Query = (From q In CONTEXT.V_MembershipHistory Where q.Code = MembershipCode Select q.Debit - q.Credit)
                     If Query.ToList.Count > 0 Then
-                        lblMemberPoints.Text = "P:" & ConvertToString(Query.Sum, True) & ", KD " & ConvertToString(Math.Round(CDec(Query.Sum * CLS_Config.MembershipPoint2Amt), 3), True) & ""
+                        lblMemberPoints.Text = "P:" & ConvertToString(Math.Round(CDec(Query.Sum), 3), True) & ", KD " & ConvertToString(Math.Round(CDec(Query.Sum * CLS_Config.MembershipPoint2Amt), 3), True) & ""
                     Else
                         lblMemberPoints.Text = "Points [00.000]"
                     End If
@@ -1778,6 +1868,7 @@ Public Class frmSales
                 End Using
                 Me.lblMembershipNumber.Text = CLS_Membership.MembershipNumber
                 Me.lblMembershipName.Text = CLS_Membership.MemberName
+
             End If
 
         Catch ex As Exception
@@ -1788,6 +1879,8 @@ Public Class frmSales
     Public Sub Call_Membership()
         Try
             If Not TrimBoolean(CLS_Config.MembershipSystem) Then Exit Sub
+
+            CLS_Cash_Redemption = New Redemption
 
             Dim frm As New frmMemberhipList(TrimInt(CLS_Sale.MembershipCode))
             frm.Owner = Me
@@ -2838,8 +2931,8 @@ Public Class frmSales
 
                                 Dim Query = (From q In CONTEXT.V_MembershipHistory Where q.Code = CLS_Membership.Code Select q.Debit - q.Credit)
                                 If Query.ToList.Count > 0 Then
-                                    MmebershipPoints = ConvertToString(Query.Sum, True)
-                                    MmebershipPointsAmt = ConvertToString(Query.Sum * CLS_Config.MembershipPoint2Amt, True)
+                                    MmebershipPoints = ConvertToString(Math.Round(CDec(Query.Sum), 3), True)
+                                    MmebershipPointsAmt = ConvertToString(Math.Round(CDec(Query.Sum * CLS_Config.MembershipPoint2Amt), 3), True)
                                 Else
                                     MmebershipPoints = "00.000"
                                     MmebershipPointsAmt = "00.000"
@@ -3807,13 +3900,13 @@ Public Class frmSales
 
                 Select Case CLS_Config.Company
                     Case INDIAGATE
-                        If Not IsDBNull(e.Row.Cells("Barcode").Value) AndAlso Not IsNothing(e.Row.Cells("Barcode").Value) Then
+                        If TrimStr(e.Row.Cells("Barcode").Value) <> Nothing Then
                             Dim Barcode As String = TrimStr(e.Row.Cells("Barcode").Value)
                             If Barcode.Substring(0, 1).ToUpper = "P" Then
                                 e.Row.Appearance.BackColor = Color.LightGreen
                             End If
                         End If
-                        If Not IsDBNull(Barcode2) AndAlso Not IsNothing(Barcode2) AndAlso Barcode2 <> "" Then
+                        If Barcode2 <> Nothing Then
                             If Barcode2.Substring(0, 1).ToUpper = "P" Then
                                 e.Row.Appearance.BackColor = Color.LightGreen
                             End If

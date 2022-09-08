@@ -1,35 +1,52 @@
-﻿
+﻿Imports CrystalDecisions.CrystalReports.Engine
+
 Imports System.Math
 Imports System.Data.Odbc
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Imports System.Drawing.Printing
 Imports System.IO
+Imports System.Configuration
 
 Public Module CodeModule
 
     Public ProjectKey As String = "theNextPOS"
 
-    Public UpdateFilePath As String = System.Configuration.ConfigurationSettings.AppSettings("UpdateFilePath")
-    Public CashdrawerPath As String = System.Configuration.ConfigurationSettings.AppSettings("CashdrawerPath")
-    Public PrinterPort As String = System.Configuration.ConfigurationSettings.AppSettings("PrinterPort")
-    Public PortMax As Integer = System.Configuration.ConfigurationSettings.AppSettings("PortMax")
-    Public CategoryWidth As String = System.Configuration.ConfigurationSettings.AppSettings("CategoryWidth")
-    Public CategoryHeight As String = System.Configuration.ConfigurationSettings.AppSettings("CategoryHeight")
-    Public ItemWidth As String = System.Configuration.ConfigurationSettings.AppSettings("ItemWidth")
-    Public ItemHeight As String = System.Configuration.ConfigurationSettings.AppSettings("ItemHeight")
-    Public CategoryImagePath As String = System.Configuration.ConfigurationSettings.AppSettings("CategoryImagePath")
-    Public ItemImagePath As String = System.Configuration.ConfigurationSettings.AppSettings("ItemImagePath")
-    Public ImageFontSize As Single = System.Configuration.ConfigurationSettings.AppSettings("ImageFontSize")
-    Public GeneralItemCode As Single = System.Configuration.ConfigurationSettings.AppSettings("GeneralItemCode")
-    Public PrintEmptySpaceType As Integer = System.Configuration.ConfigurationSettings.AppSettings("PrintEmptySpaceType")
-    Public ChrWeightItemBarcodeLength As Integer = System.Configuration.ConfigurationSettings.AppSettings("ChrWeightItemBarcodeLength")
-    Public ChrWeightItemStrat As Integer = System.Configuration.ConfigurationSettings.AppSettings("ChrWeightItemStrat")
-    Public ChrWeightItemLength As Integer = System.Configuration.ConfigurationSettings.AppSettings("ChrWeightItemLength")
-    Public ChrWeightPriceStart As Integer = System.Configuration.ConfigurationSettings.AppSettings("ChrWeightPriceStart")
-    Public ChrWeightPriceLength As Integer = System.Configuration.ConfigurationSettings.AppSettings("ChrWeightPriceLength")
-    Public CategoryHighlight As Integer = System.Configuration.ConfigurationSettings.AppSettings("CategoryHighlight")
-    Public BarcodeItemLength As Integer = System.Configuration.ConfigurationSettings.AppSettings("BarcodeItemLength")
-    Public YSD As String = System.Configuration.ConfigurationSettings.AppSettings("YSD")
+    Public UpdateFilePath As String = ConfigurationSettings.AppSettings("UpdateFilePath")
+    Public CashdrawerPath As String = ConfigurationSettings.AppSettings("CashdrawerPath")
+    Public PrinterPort As String = ConfigurationSettings.AppSettings("PrinterPort")
+    Public PortMax As Integer = ConfigurationSettings.AppSettings("PortMax")
+    Public CategoryWidth As String = ConfigurationSettings.AppSettings("CategoryWidth")
+    Public CategoryHeight As String = ConfigurationSettings.AppSettings("CategoryHeight")
+    Public ItemWidth As String = ConfigurationSettings.AppSettings("ItemWidth")
+    Public ItemHeight As String = ConfigurationSettings.AppSettings("ItemHeight")
+    Public CategoryImagePath As String = ConfigurationSettings.AppSettings("CategoryImagePath")
+    Public ItemImagePath As String = ConfigurationSettings.AppSettings("ItemImagePath")
+    Public ImageFontSize As Single = ConfigurationSettings.AppSettings("ImageFontSize")
+    Public GeneralItemCode As Single = ConfigurationSettings.AppSettings("GeneralItemCode")
+    Public PrintEmptySpaceType As Integer = ConfigurationSettings.AppSettings("PrintEmptySpaceType")
+    Public ChrWeightItemBarcodeLength As Integer = ConfigurationSettings.AppSettings("ChrWeightItemBarcodeLength")
+    Public ChrWeightItemStrat As Integer = ConfigurationSettings.AppSettings("ChrWeightItemStrat")
+    Public ChrWeightItemLength As Integer = ConfigurationSettings.AppSettings("ChrWeightItemLength")
+    Public ChrWeightPriceStart As Integer = ConfigurationSettings.AppSettings("ChrWeightPriceStart")
+    Public ChrWeightPriceLength As Integer = ConfigurationSettings.AppSettings("ChrWeightPriceLength")
+    Public CategoryHighlight As Integer = ConfigurationSettings.AppSettings("CategoryHighlight")
+    Public BarcodeItemLength As Integer = ConfigurationSettings.AppSettings("BarcodeItemLength")
+    Public YSD As String = ConfigurationSettings.AppSettings("YSD")
+    Public WeightItemQty As Integer = ConfigurationSettings.AppSettings("WeightItemQty")
+
+    Public ftpHostname As String = ConfigurationManager.AppSettings("ftpHostname")
+    Public ftpUsername As String = ConfigurationManager.AppSettings("ftpUsername")
+    Public ftpPassword As String = ConfigurationManager.AppSettings("ftpPassword")
+    Public ftpCurrentDirectory As String = ConfigurationManager.AppSettings("ftpCurrentDirectory")
+
+    Public WAM_CountryCode As String = ConfigurationManager.AppSettings("WAM_CountryCode")
+    Public WAM_Number As String = ConfigurationManager.AppSettings("WAM_Number")
+    Public WAM_PaymentDue As String = ConfigurationManager.AppSettings("WAM_PaymentDue")
+    Public WAM_PaymentReceipt As String = ConfigurationManager.AppSettings("WAM_PaymentReceipt")
+    Public WAM_CreditSale As String = ConfigurationManager.AppSettings("WAM_CreditSale")
+    Public WAM_InvoiceURL As String = ConfigurationManager.AppSettings("WAM_InvoiceURL")
+
+    Public _WhatsApp As New theNext.UC.WhatsApp
 
     Public YearStartDate As Date = Now.Date
     Public BDate As Date = Now.Date
@@ -531,7 +548,7 @@ Public Module CodeModule
             End If
 
             Select Case CLS_Config.DecimalPlace
-                  Case 1
+                Case 1
                     Select Case Sufix.Length
                         Case 0 : Sufix = Sufix & "0"
                         Case 1 : Sufix = Sufix
@@ -561,7 +578,7 @@ Public Module CodeModule
         End Try
         Return Result
     End Function
-    
+
     Public Function Get_Grid_Total(ByVal Grid As Infragistics.Win.UltraWinGrid.UltraGrid, ByVal ColName As String) As Double
         Try
             Dim Result As Decimal = 0.0
@@ -784,13 +801,13 @@ Public Module CodeModule
             MsgBox("ConvertSize" & vbCrLf & ex.Message)
         End Try
     End Function
-    Public Function VoucherTotal(ByVal DateFrom As DateTime, _
-                                 ByVal DateTo As DateTime, _
-                                 ByVal Account As Integer, _
-                                 ByVal TransType As TransectionType, _
-                                 ByVal PayType As PaymentType, _
-                                 ByVal isDebit As Boolean, _
-                                 ByVal User As Integer, _
+    Public Function VoucherTotal(ByVal DateFrom As DateTime,
+                                 ByVal DateTo As DateTime,
+                                 ByVal Account As Integer,
+                                 ByVal TransType As TransectionType,
+                                 ByVal PayType As PaymentType,
+                                 ByVal isDebit As Boolean,
+                                 ByVal User As Integer,
                                  ByVal Counter As Integer) As Decimal
         Try
 
@@ -822,10 +839,10 @@ Public Module CodeModule
             MsgBox("VoucherTotal" & vbCrLf & ex.Message)
         End Try
     End Function
-    Public Function Sale_Profit(ByVal DateFrom As DateTime, _
-                                     ByVal DateTo As DateTime, _
-                                     ByVal isCash As Boolean, _
-                                     ByVal Card As Boolean, _
+    Public Function Sale_Profit(ByVal DateFrom As DateTime,
+                                     ByVal DateTo As DateTime,
+                                     ByVal isCash As Boolean,
+                                     ByVal Card As Boolean,
                                      ByVal Counter As Integer) As Decimal
         Try
 
@@ -854,10 +871,10 @@ Public Module CodeModule
             MsgBox("Sale_Profit" & vbCrLf & ex.Message)
         End Try
     End Function
-    Public Function SaleTotal(ByVal DateFrom As DateTime, _
-                                 ByVal DateTo As DateTime, _
-                                 ByVal TransType As TransectionType, _
-                                 ByVal User As Integer, _
+    Public Function SaleTotal(ByVal DateFrom As DateTime,
+                                 ByVal DateTo As DateTime,
+                                 ByVal TransType As TransectionType,
+                                 ByVal User As Integer,
                                  ByVal Counter As Integer) As Decimal
         Try
 
@@ -883,17 +900,17 @@ Public Module CodeModule
             MsgBox("VoucherTotal" & vbCrLf & ex.Message)
         End Try
     End Function
-    Public Function Sale_Count(ByVal DateFrom As DateTime, _
-                               ByVal DateTo As DateTime, _
-                                     ByRef Counter As Integer, _
-                                     ByRef User As Integer, _
-                                     ByRef CNTCash As Integer, _
-                                     ByRef CNTKnet As Integer, _
-                                     ByRef CNTMaster As Integer, _
-                                     ByRef CNTCheque As Integer, _
-                                     ByRef CNTCredit As Integer, _
-                                     ByRef CNTKnetCash As Integer, _
-                                     ByRef CNTMasterCash As Integer, _
+    Public Function Sale_Count(ByVal DateFrom As DateTime,
+                               ByVal DateTo As DateTime,
+                                     ByRef Counter As Integer,
+                                     ByRef User As Integer,
+                                     ByRef CNTCash As Integer,
+                                     ByRef CNTKnet As Integer,
+                                     ByRef CNTMaster As Integer,
+                                     ByRef CNTCheque As Integer,
+                                     ByRef CNTCredit As Integer,
+                                     ByRef CNTKnetCash As Integer,
+                                     ByRef CNTMasterCash As Integer,
                                      ByRef CNTCancel As Integer) As Decimal
         Try
 
@@ -942,7 +959,7 @@ Public Module CodeModule
 
         If nNumber < 1000 Then
             If nNumber \ 100 > 0 Then
-                NumToString = NumToString & _
+                NumToString = NumToString &
                      NumToString(nNumber \ 100) & " Hundred"
                 bHundred = True
             End If
@@ -992,7 +1009,7 @@ Public Module CodeModule
             End Select
             If Not bNoFirstDigit Then
                 If nNumber Mod 10 <> 0 Then
-                    NumToString = NumToString & "-" & _
+                    NumToString = NumToString & "-" &
                                   Mid(NumToString(nNumber Mod 10), 2)
                 End If
             End If
@@ -1001,7 +1018,7 @@ Public Module CodeModule
             nTemp = 10 ^ 12 'trillion
             Do While nTemp >= 1
                 If nNumber >= nTemp Then
-                    NumToString = NumToString & _
+                    NumToString = NumToString &
                                   NumToString(Int(nNumber / nTemp))
                     Select Case Int(Log(nTemp) / Log(10) + 0.5)
                         Case 12 : NumToString = NumToString & " Trillion"
@@ -1035,7 +1052,7 @@ Public Module CodeModule
             DollarToString = DollarToString & "s"
         End If
 
-        DollarToString = DollarToString & " And" & _
+        DollarToString = DollarToString & " And" &
                          NumToString(Fils) & " Fils"
 
         If Abs(Fils) <> 1 Then
@@ -1319,10 +1336,10 @@ Public Module CodeModule
         Using CONTEXT = New POSEntities
 
             Dim sql = (From q In CONTEXT.Item_Set
-                                           Where If(q.PromoFrom, New DateTime(1900, 1, 1)) <= DateTime.Now _
-                                           AndAlso If(q.PromoTo, New DateTime(1900, 1, 1)) > DateTime.Now _
-                                           AndAlso If(q.PromoStockSold, 0.0) < If(q.PromoStockLimit, 0.0)
-                                           Order By q.Code Select q)
+                       Where If(q.PromoFrom, New DateTime(1900, 1, 1)) <= DateTime.Now _
+                       AndAlso If(q.PromoTo, New DateTime(1900, 1, 1)) > DateTime.Now _
+                       AndAlso If(q.PromoStockSold, 0.0) < If(q.PromoStockLimit, 0.0)
+                       Order By q.Code Select q)
             If sql.Count > 0 Then
                 Dim NewPromoCode As Integer = 0
                 Dim a = (From s In CONTEXT.Promotions Select s.Code)
@@ -1356,15 +1373,15 @@ Public Module CodeModule
                 Next
 
             End If
-          
+
 
             Dim sql2 = (From q In CONTEXT.Item_Set
-                        Where ( _
+                        Where (
                             (If(q.PromoFrom, New DateTime(1900, 1, 1)) < DateTime.Now AndAlso If(q.PromoTo, New DateTime(1900, 1, 1)) < DateTime.Now) _
-                            OrElse (If(q.PromoStockSold, 0.0) >= If(q.PromoStockLimit, 0.0)) _
+                            OrElse (If(q.PromoStockSold, 0.0) >= If(q.PromoStockLimit, 0.0))
                             ) _
                         AndAlso If(q.PromoTo, New DateTime(1900, 1, 1)) <> Null_Date _
-                        AndAlso If(q.onPromo, False) = True _
+                        AndAlso If(q.onPromo, False) = True
                         Order By q.Code Select q)
             If sql2.Count > 0 Then
                 Dim UList As List(Of Item_) = sql2.ToList
@@ -1380,7 +1397,7 @@ Public Module CodeModule
                 Next
             End If
 
-            
+
             'Dim sql3 = (From q In CONTEXT.Item_Set Where If(q.PromoStockSold, 0.0) >= If(q.PromoStockLimit, 0.0) AndAlso If(q.onPromo, False) = True Order By q.Code Select q)
             'If sql3.Count > 0 Then
             '    Dim U2List As List(Of Item_) = sql3.ToList
@@ -1418,6 +1435,34 @@ Public Module CodeModule
 
         End Using
 
+    End Sub
+
+    Public Sub PrintRedemtion(Code As Integer, Points As Decimal)
+        Try
+            Dim DT As New DataTable
+            DT.Clear()
+            Dim Query As String = "SELECT  * FROM V_MembershipHistory WHERE (Ref=" & Code & " AND Source='Redemption' )"
+            DT = DBO.ReturnDataTableFromSQL(Query)
+
+            Dim report2 As New ReportDocument
+            report2.Load(CLS_Config.ReportPath & "Redemption.rpt", CrystalDecisions.[Shared].OpenReportMethod.OpenReportByTempCopy)
+            report2.SetDataSource(DT)
+
+            report2.SetParameterValue("CompanyName", TrimStr(CLS_Config.CompanyName))
+            report2.SetParameterValue("Address1", TrimStr(CLS_Config.Address1))
+            report2.SetParameterValue("Address2", TrimStr(CLS_Config.Address2))
+            report2.SetParameterValue("Address3", TrimStr(CLS_Config.Address3))
+            report2.SetParameterValue("Tel", TrimStr(CLS_Config.Tel))
+            report2.SetParameterValue("PointBalance", TrimDec(Points))
+            report2.SetParameterValue("MembershipRedemptionCash", TrimBoolean(CLS_Config.MembershipRedemptionCash))
+
+            report2.PrintOptions.PrinterName = CLS_Config.ReceiptPrinter
+            report2.PrintToPrinter(1, False, 1, 2)
+
+        Catch ex As Exception
+            MsgBox("Print" & vbCrLf & ex.Message)
+            If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
+        End Try
     End Sub
 
 End Module

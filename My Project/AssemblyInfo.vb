@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("Schon Global")> 
 <Assembly: AssemblyProduct("POS System")>
-<Assembly: AssemblyCopyright("Copyright ©  2020")>
+<Assembly: AssemblyCopyright("Copyright ©  2022")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)> 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2020.8.31.0")>
-<Assembly: AssemblyFileVersion("2020.8.31.0")>
+<Assembly: AssemblyVersion("2022.5.17.0")>
+<Assembly: AssemblyFileVersion("2022.5.17.0")>
