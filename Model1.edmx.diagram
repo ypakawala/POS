@@ -105,6 +105,7 @@
         <AssociationConnector Association="POSModel.FK_Redemption_Membership" />
         <EntityTypeShape EntityType="POSModel.V_MembershipHistory" Width="1.5" PointX="7.375" PointY="26.75" />
         <AssociationConnector Association="POSModel.FK_Sale_Membership" />
+        <EntityTypeShape EntityType="POSModel.ScriptExecute" Width="1.5" PointX="23.375" PointY="26.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -234,7 +234,7 @@
             <PropertyRef Name="Code" />
           </Key>
           <Property Name="Code" Type="int" Nullable="false" />
-          <Property Name="ItemName" Type="varchar" MaxLength="50" />
+          <Property Name="ItemName" Type="varchar(max)" />
           <Property Name="Category" Type="int" />
           <Property Name="SubCategory" Type="int" />
           <Property Name="CostPrice" Type="float" />
@@ -363,6 +363,11 @@
           <Property Name="Allow_Customer_Pay_Delete" Type="bit" />
           <Property Name="Allow_Print_Barcode" Type="bit" />
           <Property Name="Allow_Quotation" Type="bit" />
+          <Property Name="Allow_MembershipAdd" Type="bit" />
+          <Property Name="Allow_MembershipEdit" Type="bit" />
+          <Property Name="Allow_MembershipDelete" Type="bit" />
+          <Property Name="Allow_MembershipRedeem" Type="bit" />
+          <Property Name="Allow_MembershipPrint" Type="bit" />
         </EntityType>
         <EntityType Name="Promotion">
           <Key>
@@ -625,6 +630,22 @@
           <Property Name="SaleCredit" Type="float" />
           <Property Name="SalesCreditReturn" Type="float" />
           <Property Name="TotalTendered" Type="float" />
+        </EntityType>
+        <EntityType Name="ScriptExecute">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="ExecutionDate" Type="datetime" />
+          <Property Name="Query" Type="nvarchar(max)" />
+          <Property Name="Executed" Type="bit" />
+          <Property Name="UserCode" Type="int" />
+          <Property Name="L1" Type="bit" />
+          <Property Name="L2" Type="bit" />
+          <Property Name="L3" Type="bit" />
+          <Property Name="L4" Type="bit" />
+          <Property Name="L5" Type="bit" />
+          <Property Name="L6" Type="bit" />
         </EntityType>
         <EntityType Name="Voucher">
           <Key>
@@ -1106,6 +1127,9 @@ warning 6002: The table/view 'POS.dbo.Sale_View' does not have a primary key def
           <Property Name="Remark" Type="varchar" MaxLength="5000" />
           <Property Name="PaymentCleared" Type="bit" />
           <Property Name="PONumber" Type="varchar" MaxLength="50" />
+          <Property Name="MembershipCode" Type="int" />
+          <Property Name="MemberName" Type="nvarchar" MaxLength="500" />
+          <Property Name="MembershipNumber" Type="bigint" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'POS.dbo.SaleCancel_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1183,7 +1207,8 @@ warning 6002: The table/view 'POS.dbo.V_MembershipHistory' does not have a prima
           <Property Name="Credit" Type="float" />
           <Property Name="Source" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Ref" Type="int" Nullable="false" />
-          <Property Name="ItemName" Type="varchar" MaxLength="50" />
+          <Property Name="ItemName" Type="varchar(max)" />
+          <Property Name="RewardCash" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'POS.dbo.Voucher_Main_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1723,6 +1748,7 @@ warning 6002: The table/view 'POS.dbo.VoucherDiscountView' does not have a prima
           <EntitySet Name="SaleCancel" EntityType="Self.SaleCancel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleCancel_Entry" EntityType="Self.SaleCancel_Entry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sales_Batch" EntityType="Self.Sales_Batch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScriptExecute" EntityType="Self.ScriptExecute" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Voucher_Entry" EntityType="Self.Voucher_Entry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChequeView" EntityType="Self.ChequeView" store:Type="Views" store:Schema="dbo">
@@ -2106,7 +2132,10 @@ FROM [dbo].[Sale_Entry_View] AS [Sale_Entry_View]</DefiningQuery>
 [Sale_View].[Balance] AS [Balance], 
 [Sale_View].[Remark] AS [Remark], 
 [Sale_View].[PaymentCleared] AS [PaymentCleared], 
-[Sale_View].[PONumber] AS [PONumber]
+[Sale_View].[PONumber] AS [PONumber], 
+[Sale_View].[MembershipCode] AS [MembershipCode], 
+[Sale_View].[MemberName] AS [MemberName], 
+[Sale_View].[MembershipNumber] AS [MembershipNumber]
 FROM [dbo].[Sale_View] AS [Sale_View]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="SaleCancel_View" EntityType="Self.SaleCancel_View" store:Type="Views" store:Schema="dbo">
@@ -2173,7 +2202,8 @@ FROM [dbo].[Sales_Full_View_Sub] AS [Sales_Full_View_Sub]</DefiningQuery>
 [V_MembershipHistory].[Credit] AS [Credit], 
 [V_MembershipHistory].[Source] AS [Source], 
 [V_MembershipHistory].[Ref] AS [Ref], 
-[V_MembershipHistory].[ItemName] AS [ItemName]
+[V_MembershipHistory].[ItemName] AS [ItemName], 
+[V_MembershipHistory].[RewardCash] AS [RewardCash]
 FROM [dbo].[V_MembershipHistory] AS [V_MembershipHistory]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Voucher_Main_View" EntityType="Self.Voucher_Main_View" store:Type="Views" store:Schema="dbo">
@@ -2581,6 +2611,7 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
             <End Role="Membership" EntitySet="Memberships" />
             <End Role="Sale_" EntitySet="Sale_Set" />
           </AssociationSet>
+          <EntitySet Name="ScriptExecutes" EntityType="POSModel.ScriptExecute" />
         </EntityContainer>
         <EntityType Name="Account_">
           <Key>
@@ -2764,7 +2795,7 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
             <PropertyRef Name="Code" />
           </Key>
           <Property Name="Code" Type="Int32" Nullable="false" />
-          <Property Name="ItemName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ItemName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Category" Type="Int32" />
           <Property Name="SubCategory" Type="Int32" />
           <Property Name="CostPrice" Type="Double" />
@@ -2896,6 +2927,11 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <Property Name="Allow_Print_Barcode" Type="Boolean" />
           <Property Type="Boolean" Name="Allow_Quotation" />
           <NavigationProperty Name="Quotations" Relationship="POSModel.FK_Quotation_P_User" FromRole="P_User" ToRole="Quotation" />
+          <Property Name="Allow_MembershipAdd" Type="Boolean" />
+          <Property Name="Allow_MembershipEdit" Type="Boolean" />
+          <Property Name="Allow_MembershipDelete" Type="Boolean" />
+          <Property Name="Allow_MembershipRedeem" Type="Boolean" />
+          <Property Name="Allow_MembershipPrint" Type="Boolean" />
         </EntityType>
         <EntityType Name="Purchase_">
           <Key>
@@ -3398,6 +3434,9 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <Property Name="Remark" Type="String" MaxLength="5000" Unicode="false" FixedLength="false" />
           <Property Name="PaymentCleared" Type="Boolean" />
           <Property Type="String" Name="PONumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MembershipCode" Type="Int32" />
+          <Property Name="MemberName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MembershipNumber" Type="Int64" />
         </EntityType>
         <EntityType Name="SaleCancel_View">
           <Key>
@@ -4262,7 +4301,8 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <Property Name="Credit" Type="Double" />
           <Property Name="Source" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Ref" Type="Int32" Nullable="false" />
-          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ItemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RewardCash" Type="Double" />
         </EntityType>
         <Association Name="FK_Sale_Membership">
           <End Type="POSModel.Membership" Role="Membership" Multiplicity="0..1" />
@@ -4276,6 +4316,22 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ScriptExecute">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="ExecutionDate" Type="DateTime" Precision="3" />
+          <Property Name="Query" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Executed" Type="Boolean" />
+          <Property Name="UserCode" Type="Int32" />
+          <Property Name="L1" Type="Boolean" />
+          <Property Name="L2" Type="Boolean" />
+          <Property Name="L3" Type="Boolean" />
+          <Property Name="L4" Type="Boolean" />
+          <Property Name="L5" Type="Boolean" />
+          <Property Name="L6" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4530,6 +4586,11 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <EntitySetMapping Name="P_User">
             <EntityTypeMapping TypeName="POSModel.P_User">
               <MappingFragment StoreEntitySet="P_User">
+                <ScalarProperty Name="Allow_MembershipPrint" ColumnName="Allow_MembershipPrint" />
+                <ScalarProperty Name="Allow_MembershipRedeem" ColumnName="Allow_MembershipRedeem" />
+                <ScalarProperty Name="Allow_MembershipDelete" ColumnName="Allow_MembershipDelete" />
+                <ScalarProperty Name="Allow_MembershipEdit" ColumnName="Allow_MembershipEdit" />
+                <ScalarProperty Name="Allow_MembershipAdd" ColumnName="Allow_MembershipAdd" />
                 <ScalarProperty Name="Allow_Quotation" ColumnName="Allow_Quotation" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="LoginName" ColumnName="LoginName" />
@@ -5053,6 +5114,9 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <EntitySetMapping Name="Sale_View">
             <EntityTypeMapping TypeName="POSModel.Sale_View">
               <MappingFragment StoreEntitySet="Sale_View">
+                <ScalarProperty Name="MembershipNumber" ColumnName="MembershipNumber" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="MembershipCode" ColumnName="MembershipCode" />
                 <ScalarProperty Name="PONumber" ColumnName="PONumber" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="BillNo" ColumnName="BillNo" />
@@ -5524,6 +5588,7 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
           <EntitySetMapping Name="V_MembershipHistory">
             <EntityTypeMapping TypeName="POSModel.V_MembershipHistory">
               <MappingFragment StoreEntitySet="V_MembershipHistory">
+                <ScalarProperty Name="RewardCash" ColumnName="RewardCash" />
                 <ScalarProperty Name="ItemName" ColumnName="ItemName" />
                 <ScalarProperty Name="Ref" ColumnName="Ref" />
                 <ScalarProperty Name="Source" ColumnName="Source" />
@@ -5534,6 +5599,23 @@ FROM [dbo].[VoucherDiscountView] AS [VoucherDiscountView]</DefiningQuery>
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="MemberName" ColumnName="MemberName" />
                 <ScalarProperty Name="MembershipNumber" ColumnName="MembershipNumber" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScriptExecutes">
+            <EntityTypeMapping TypeName="POSModel.ScriptExecute">
+              <MappingFragment StoreEntitySet="ScriptExecute">
+                <ScalarProperty Name="L6" ColumnName="L6" />
+                <ScalarProperty Name="L5" ColumnName="L5" />
+                <ScalarProperty Name="L4" ColumnName="L4" />
+                <ScalarProperty Name="L3" ColumnName="L3" />
+                <ScalarProperty Name="L2" ColumnName="L2" />
+                <ScalarProperty Name="L1" ColumnName="L1" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="Executed" ColumnName="Executed" />
+                <ScalarProperty Name="Query" ColumnName="Query" />
+                <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>

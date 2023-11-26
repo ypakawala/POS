@@ -160,6 +160,7 @@ Partial Class frmSailSearch
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl()
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage()
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
+        Me.btnExcel = New System.Windows.Forms.ToolStripMenuItem()
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.grdList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
@@ -187,7 +188,7 @@ Partial Class frmSailSearch
         Me.UltraTabPageControl1.Controls.Add(Me.grdList)
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(1, 22)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
-        Me.UltraTabPageControl1.Size = New System.Drawing.Size(654, 157)
+        Me.UltraTabPageControl1.Size = New System.Drawing.Size(913, 339)
         '
         'grdList
         '
@@ -251,7 +252,7 @@ Partial Class frmSailSearch
         Me.grdList.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grdList.Location = New System.Drawing.Point(0, 0)
         Me.grdList.Name = "grdList"
-        Me.grdList.Size = New System.Drawing.Size(654, 157)
+        Me.grdList.Size = New System.Drawing.Size(913, 339)
         Me.grdList.TabIndex = 0
         '
         'UltraTabPageControl2
@@ -300,10 +301,10 @@ Partial Class frmSailSearch
         Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
         Me.MenuStrip1.ForeColor = System.Drawing.Color.Black
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnSearch, Me.btnClearAll, Me.btnEdit, Me.btnDelete, Me.btnPrint, Me.btnExit})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnSearch, Me.btnClearAll, Me.btnEdit, Me.btnDelete, Me.btnPrint, Me.btnExcel, Me.btnExit})
         Me.MenuStrip1.Location = New System.Drawing.Point(3, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(650, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(909, 24)
         Me.MenuStrip1.TabIndex = 2
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -359,11 +360,11 @@ Partial Class frmSailSearch
         Me.UltraExpandableGroupBox1.BackColorInternal = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.UltraExpandableGroupBox1.Controls.Add(Me.UltraExpandableGroupBoxPanel1)
         Me.UltraExpandableGroupBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(656, 185)
+        Me.UltraExpandableGroupBox1.ExpandedSize = New System.Drawing.Size(915, 185)
         Me.UltraExpandableGroupBox1.ForeColor = System.Drawing.Color.Black
         Me.UltraExpandableGroupBox1.Location = New System.Drawing.Point(0, 28)
         Me.UltraExpandableGroupBox1.Name = "UltraExpandableGroupBox1"
-        Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(656, 185)
+        Me.UltraExpandableGroupBox1.Size = New System.Drawing.Size(915, 185)
         Me.UltraExpandableGroupBox1.TabIndex = 0
         Me.UltraExpandableGroupBox1.Text = "Criteria"
         Me.UltraExpandableGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
@@ -398,7 +399,7 @@ Partial Class frmSailSearch
         Me.UltraExpandableGroupBoxPanel1.ForeColor = System.Drawing.Color.Black
         Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(3, 20)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(650, 162)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(909, 162)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'txtSerailNum
@@ -920,7 +921,7 @@ Partial Class frmSailSearch
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 213)
         Me.UltraTabControl1.Name = "UltraTabControl1"
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
-        Me.UltraTabControl1.Size = New System.Drawing.Size(656, 180)
+        Me.UltraTabControl1.Size = New System.Drawing.Size(915, 362)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.Office2007Ribbon
         Me.UltraTabControl1.TabIndex = 1
         Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(211, Byte), Integer), CType(CType(211, Byte), Integer))
@@ -942,7 +943,7 @@ Partial Class frmSailSearch
         '
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
-        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(654, 157)
+        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(913, 339)
         '
         'UltraGroupBox1
         '
@@ -954,14 +955,22 @@ Partial Class frmSailSearch
         Me.UltraGroupBox1.ForeColor = System.Drawing.Color.Black
         Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(656, 28)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(915, 28)
         Me.UltraGroupBox1.TabIndex = 130
+        '
+        'btnExcel
+        '
+        Me.btnExcel.Image = CType(resources.GetObject("btnExcel.Image"), System.Drawing.Image)
+        Me.btnExcel.Name = "btnExcel"
+        Me.btnExcel.ShortcutKeys = System.Windows.Forms.Keys.F6
+        Me.btnExcel.Size = New System.Drawing.Size(85, 20)
+        Me.btnExcel.Text = "Excel [F6]"
         '
         'frmSailSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(656, 393)
+        Me.ClientSize = New System.Drawing.Size(915, 575)
         Me.Controls.Add(Me.UltraTabControl1)
         Me.Controls.Add(Me.UltraExpandableGroupBox1)
         Me.Controls.Add(Me.UltraGroupBox1)
@@ -1036,4 +1045,5 @@ Partial Class frmSailSearch
     Friend WithEvents txtPONumber As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents btnPrint As ToolStripMenuItem
+    Friend WithEvents btnExcel As ToolStripMenuItem
 End Class

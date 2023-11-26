@@ -9,6 +9,8 @@ Public Class Item
     Private m_CostPrice As Decimal = 0.0
     Private m_ProfitMargin As Decimal = 0.0
     Private m_SalesPrice As Decimal = 0.0
+    Private m_ProfitMarginOnline As Decimal = 0.0
+    Private m_OnlinePrice As Decimal = 0.0
     Private m_Barcode As String = ""
     Private m_Barcode2 As String = ""
     Private m_StockInHand As Decimal = 0.0
@@ -88,6 +90,22 @@ Public Class Item
         End Get
         Set(ByVal value As Decimal)
             m_SalesPrice = value
+        End Set
+    End Property
+    Public Property ProfitMarginOnline() As Decimal
+        Get
+            Return m_ProfitMargin
+        End Get
+        Set(ByVal value As Decimal)
+            m_ProfitMargin = value
+        End Set
+    End Property
+    Public Property OnlinePrice() As Decimal
+        Get
+            Return m_OnlinePrice
+        End Get
+        Set(ByVal value As Decimal)
+            m_OnlinePrice = value
         End Set
     End Property
     Public Property Barcode() As String
@@ -276,6 +294,9 @@ Public Class Item
             m_SubCategory = CLS_Config.DefaultSubCategory
             m_CostPrice = 0.0
             m_SalesPrice = 0.0
+            m_ProfitMargin = 0.0
+            m_OnlinePrice = 0.0
+            m_ProfitMarginOnline = 0.0
             m_Barcode = Nothing
             m_Barcode2 = Nothing
             m_StockInHand = 0.0
@@ -430,6 +451,8 @@ Public Class Item
                 m_CostPrice = Decimal.Round(CDec(FixObjectNumber(DT.Rows(0).Item("CostPrice"))), 3)
                 m_ProfitMargin = Decimal.Round(CDec(FixObjectNumber(DT.Rows(0).Item("ProfitMargin"))), 3)
                 m_SalesPrice = Decimal.Round(CDec(FixObjectNumber(DT.Rows(0).Item("SalesPrice"))), 3)
+                m_OnlinePrice = Decimal.Round(CDec(FixObjectNumber(DT.Rows(0).Item("OnlinePrice"))), 3)
+                m_ProfitMarginOnline = Decimal.Round(CDec(FixObjectNumber(DT.Rows(0).Item("ProfitMarginOnline"))), 3)
                 m_Barcode = CStr(FixObjectString(DT.Rows(0).Item("Barcode")))
                 m_Barcode2 = CStr(FixObjectString(DT.Rows(0).Item("Barcode2")))
                 m_StockInHand = CDec(FixObjectNumber(DT.Rows(0).Item("StockInHand")))

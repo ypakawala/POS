@@ -316,6 +316,9 @@ Public Class frmPurchase
             End If
 
             Me.grdList.DisplayLayout.Override.RowAlternateAppearance = RowAlternateAppearance
+            Me.grdList.DisplayLayout.Override.AllowAddNew = AllowAddNew.No
+            Me.grdList.DisplayLayout.Override.AllowDelete = DefaultableBoolean.False
+            Me.grdList.DisplayLayout.Override.AllowUpdate = DefaultableBoolean.False
 
             Me.grdList.DataSource = DS
             Me.grdList.DataMember = "Table"

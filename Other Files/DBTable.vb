@@ -33,5 +33,6 @@
     Public V_Promotion As String = "V_Promotion"
     Public Membership As String = "Membership"
     Public Reward As String = "Reward"
+    Public Const ScriptExecute As String = "ScriptExecute"
 
 End Module

@@ -1,11 +1,13 @@
-﻿Imports CrystalDecisions.CrystalReports.Engine
-
+﻿Imports theNext.UC
+Imports CrystalDecisions.CrystalReports.Engine
+Imports System.Data.SqlClient
 Imports System.Math
 Imports System.Data.Odbc
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Imports System.Drawing.Printing
 Imports System.IO
 Imports System.Configuration
+Imports DevExpress.XtraSplashScreen
 
 Public Module CodeModule
 
@@ -45,6 +47,14 @@ Public Module CodeModule
     Public WAM_PaymentReceipt As String = ConfigurationManager.AppSettings("WAM_PaymentReceipt")
     Public WAM_CreditSale As String = ConfigurationManager.AppSettings("WAM_CreditSale")
     Public WAM_InvoiceURL As String = ConfigurationManager.AppSettings("WAM_InvoiceURL")
+    Public Sync As Boolean = ConfigurationManager.AppSettings("Sync")
+    Public SyncTimer As Decimal = ConfigurationManager.AppSettings("SyncTimer")
+    Public ScriptExecuteDuration As Decimal = ConfigurationManager.AppSettings("ScriptExecuteDuration")
+    Public CurrentLocation As Integer = ConfigurationManager.AppSettings("CurrentLocation")
+
+    Public SyncRunning As Boolean = False
+    Public SyncPriceRunning As Boolean = False
+    Public Server_ConnectionString As String
 
     Public _WhatsApp As New theNext.UC.WhatsApp
 
@@ -62,6 +72,7 @@ Public Module CodeModule
 
     Public Printer_On As Boolean = True
     Public CostPrice_On As Boolean = False
+    Public Online_On As Boolean = False
     Public BillNumber As Integer = 0
 
     Public ConnStr As String = Nothing
@@ -101,7 +112,18 @@ Public Module CodeModule
     Public Find_Str As String
     Public Find_Dec As Decimal
 
-    Public DatabaseName, DatabaseLogID, DatabasePass As String
+    Public Instance As String = Nothing
+    Public DatabaseName As String
+    Public DatabaseLogID As String
+    Public DatabasePass As String
+    Public SqlConnectionStr As String = Nothing
+
+    Public SRV_Instance As String = Nothing
+    Public SRV_DatabaseName As String = Nothing
+    Public SRV_DatabaseLogID As String = Nothing
+    Public SRV_DatabasePass As String = Nothing
+    Public SRV_SqlConnectionStr As String = Nothing
+
 
     Public CurrencyBase As Integer = 1000
 
@@ -492,6 +514,116 @@ Public Module CodeModule
         Return TheCode + 1
     End Function
 
+#Region " SYNC WITH SERVER "
+
+    Public Function checkScriptExecute() As Boolean
+        Try
+
+            If SyncPriceRunning Then Return False
+            SyncPriceRunning = True
+
+            'Dim SERVER_ConnectionString As String
+            Try
+                Using SourceConnection As SqlConnection = New SqlConnection(SqlConnectionStr)
+                    SourceConnection.Open()
+                    SourceConnection.Close()
+                End Using
+                'SERVER_ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("POS_LiteEntities2").ConnectionString
+            Catch ex As Exception
+                Exit Function
+            End Try
+
+
+
+            Using CONTEXT = New POSEntities(Server_ConnectionString)
+
+                Dim ScriptList As List(Of ScriptExecute)
+                Select Case CurrentLocation
+                    Case 1 : ScriptList = (From s In CONTEXT.ScriptExecutes Where (s.L1.HasValue = False OrElse s.L1 = False) Order By s.ExecutionDate Select s).ToList
+                    Case 2 : ScriptList = (From s In CONTEXT.ScriptExecutes Where (s.L2.HasValue = False OrElse s.L2 = False) Order By s.ExecutionDate Select s).ToList
+                    Case 3 : ScriptList = (From s In CONTEXT.ScriptExecutes Where (s.L3.HasValue = False OrElse s.L3 = False) Order By s.ExecutionDate Select s).ToList
+                    Case 4 : ScriptList = (From s In CONTEXT.ScriptExecutes Where (s.L4.HasValue = False OrElse s.L4 = False) Order By s.ExecutionDate Select s).ToList
+                    Case 5 : ScriptList = (From s In CONTEXT.ScriptExecutes Where (s.L5.HasValue = False OrElse s.L5 = False) Order By s.ExecutionDate Select s).ToList
+                    Case 6 : ScriptList = (From s In CONTEXT.ScriptExecutes Where (s.L6.HasValue = False OrElse s.L6 = False) Order By s.ExecutionDate Select s).ToList
+                    Case Else : Exit Function
+                End Select
+
+                Dim HasRow As Boolean = False
+                For Each Script In ScriptList
+                    HasRow = True
+                    RunSQL(Script.Query)
+                    Select Case CurrentLocation
+                        Case 1 : Script.L1 = True
+                        Case 2 : Script.L2 = True
+                        Case 3 : Script.L3 = True
+                        Case 4 : Script.L4 = True
+                        Case 5 : Script.L5 = True
+                        Case 6 : Script.L6 = True
+                        Case Else : Exit Function
+                    End Select
+                    CONTEXT.SaveChanges()
+
+                Next
+
+                If HasRow Then
+                    Dim Msg As String = "<br/><span style=""text-decoration:underline_x003B_"">Price auto updated scuessfully.</span><br/><br/>"
+                    frmMainIns.Notification(Msg)
+                    SyncPriceRunning = False
+                    Return True
+                End If
+
+            End Using
+
+            SyncPriceRunning = False
+
+        Catch ex As Exception
+            frmMainIns.Notification("checkMessage" & vbCrLf & ex.Message)
+            If Not IsNothing(ex.InnerException) Then frmMainIns.Notification(ex.InnerException.Message)
+            SyncPriceRunning = False
+        End Try
+
+    End Function
+
+
+    Public Function [RunSQL](ByVal SQL As System.String) As Boolean
+        Try
+            Dim COM As New Odbc.OdbcCommand()
+            Dim CON As New Odbc.OdbcConnection()
+            Dim nRes As Integer
+            CON.ConnectionString = ConnStr
+            CON.Open()
+
+            COM.CommandText = SQL
+            COM.CommandType = CommandType.Text
+            COM.Connection = CON
+            nRes = COM.ExecuteNonQuery
+
+            CON.Close()
+            CON.Dispose()
+
+            COM.Dispose()
+
+            Return True 'nRes > 0
+        Catch ex As Exception
+            MsgBox("[RunSQL]" & vbCrLf & ex.Message)
+            If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
+        End Try
+
+    End Function
+    Public Function AutoSyncPrice() As Boolean
+        Try
+
+            Dim BW1 As New System.ComponentModel.BackgroundWorker
+            AddHandler BW1.DoWork, AddressOf checkScriptExecute
+            BW1.RunWorkerAsync()
+            Return True
+        Catch ex As Exception
+            'MsgBox("UPLOAD_SERVER_Click" & vbCrLf & vbCrLf & ex.Message, MsgBoxStyle.Critical)
+            'If Not IsNothing(ex.InnerException) Then MsgBox(ex.InnerException.Message, MsgBoxStyle.Critical)
+        End Try
+    End Function
+
+#End Region
     Public Function GetMembershipNumber() As Int64
         Dim TheCode As Int64
         'Dim dr As OdbcDataReader
@@ -1465,5 +1597,149 @@ Public Module CodeModule
         End Try
     End Sub
 
+    Public Sub Read_XLS_SalePrice()
+        Try
+            'Open Wait Form
+            SplashScreenManager.ShowForm(frmMainIns, GetType(WaitForm1), True, True, False)
+            SplashScreenManager.Default.SetWaitFormCaption("Reading Excel File")
+            SplashScreenManager.Default.SetWaitFormDescription("PleaseWait")
+
+
+            Dim DT As New DataTable
+            DT = ImportExcelIntoDT()
+
+
+            If IsDBNull(DT) OrElse IsNothing(DT) Then Exit Sub
+
+            If DT.Rows.Count = 0 Then
+                MsgBox("No record found")
+                Exit Sub
+            End If
+
+            Dim _Barcode As String = Nothing
+            Dim _SalesPrice As Decimal = 0.0
+            Try
+                _Barcode = TrimStr(DT.Rows(0).Item(0).ToString)
+                _SalesPrice = TrimDec(DT.Rows(0).Item(1).ToString)
+            Catch ex As Exception
+                MsgBox("Invalid file")
+                Exit Sub
+            End Try
+
+            Dim Err_Missing As String = Nothing
+            Dim Count As Integer = 1
+            'Dim MovementCode As Integer = GetNewCode(DBTable.Movement)
+
+            Using CONTEXT = New POSEntities
+                For Each Row As DataRow In DT.Rows
+
+                    _Barcode = TrimStr(Row.Item(0))
+                    _SalesPrice = TrimDec(Row.Item(1))
+
+                    SplashScreenManager.Default.SetWaitFormCaption("Updating Data")
+                    SplashScreenManager.Default.SetWaitFormDescription(Count & "-" & _Barcode)
+
+
+                    Dim CLS As New Item_
+                    CLS = (From s In CONTEXT.Item_Set Where s.Barcode = _Barcode Select s).ToList.SingleOrDefault
+
+                    If IsDBNull(CLS) OrElse IsNothing(CLS) Then
+                        Err_Missing = Err_Missing & _Barcode & vbCrLf
+                    Else
+                        If CLS.SalesPrice <> _SalesPrice Then
+                            CLS.SalesPrice = _SalesPrice
+                        End If
+                    End If
+
+                    Count = Count + 1
+                    CONTEXT.SaveChanges()
+                Next
+            End Using
+            SplashScreenManager.CloseForm(False)
+            If Err_Missing <> Nothing Then
+                Dim frm As New frmTextBox
+                frm.TextBox1.Text = "MISSING LIST:" & vbCrLf & Err_Missing
+                frm.ShowDialog()
+            End If
+
+        Catch ex As Exception
+            SplashScreenManager.CloseForm(False)
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
+    Public Sub Read_XLS__CostPrice()
+        Try
+            'Open Wait Form
+            SplashScreenManager.ShowForm(frmMainIns, GetType(WaitForm1), True, True, False)
+            SplashScreenManager.Default.SetWaitFormCaption("Reading Excel File")
+            SplashScreenManager.Default.SetWaitFormDescription("PleaseWait")
+
+
+            Dim DT As New DataTable
+            DT = ImportExcelIntoDT()
+
+
+            If IsDBNull(DT) OrElse IsNothing(DT) Then Exit Sub
+
+            If DT.Rows.Count = 0 Then
+                MsgBox("No record found")
+                Exit Sub
+            End If
+
+            Dim _Barcode As String = Nothing
+            Dim _CostPrice As Decimal = 0.0
+            Try
+                _Barcode = TrimStr(DT.Rows(0).Item(0).ToString)
+                _CostPrice = TrimDec(DT.Rows(0).Item(1).ToString)
+            Catch ex As Exception
+                MsgBox("Invalid file")
+                Exit Sub
+            End Try
+
+            Dim Err_Missing As String = Nothing
+            Dim Count As Integer = 1
+            'Dim MovementCode As Integer = GetNewCode(DBTable.Movement)
+
+            Using CONTEXT = New POSEntities
+                For Each Row As DataRow In DT.Rows
+
+                    _Barcode = TrimStr(Row.Item(0))
+                    _CostPrice = TrimDec(Row.Item(1))
+
+                    SplashScreenManager.Default.SetWaitFormCaption("Updating Data")
+                    SplashScreenManager.Default.SetWaitFormDescription(Count & "-" & _Barcode)
+
+
+                    Dim CLS As New Item_
+                    CLS = (From s In CONTEXT.Item_Set Where s.Barcode = _Barcode Select s).ToList.SingleOrDefault
+
+                    If IsDBNull(CLS) OrElse IsNothing(CLS) Then
+                        Err_Missing = Err_Missing & _Barcode & vbCrLf
+                    Else
+                        If CLS.CostPrice <> _CostPrice Then
+                            CLS.CostPrice = _CostPrice
+                        End If
+                    End If
+
+                    Count = Count + 1
+                    CONTEXT.SaveChanges()
+                Next
+            End Using
+            SplashScreenManager.CloseForm(False)
+            If Err_Missing <> Nothing Then
+                Dim frm As New frmTextBox
+                frm.TextBox1.Text = "MISSING LIST:" & vbCrLf & Err_Missing
+                frm.ShowDialog()
+            End If
+
+        Catch ex As Exception
+            SplashScreenManager.CloseForm(False)
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
 End Module
 

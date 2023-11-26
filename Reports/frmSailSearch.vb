@@ -583,4 +583,9 @@ Public Class frmSailSearch
         End Try
 
     End Sub
+
+    Private Sub btnExcel_Click(sender As Object, e As EventArgs) Handles btnExcel.Click
+        Export(Me.grdList)
+
+    End Sub
 End Class

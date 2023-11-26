@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports Infragistics.Win.Misc
+Imports System.Windows.Forms
 
 Public Class frmMain
 
@@ -85,6 +86,7 @@ Public Class frmMain
 
     Private Sub Permission()
         Try
+            Me.btnSyncPrice.Visible = Sync
             Me.btnItems.Visible = UserClass.Allow_Item
             Me.btnItemList.Visible = UserClass.Allow_Item
             Me.btnPrintBarcode.Visible = UserClass.Allow_Print_Barcode
@@ -93,6 +95,8 @@ Public Class frmMain
             Me.btnUMC.Visible = UserClass.Allow_Files
             Me.btnConfig.Visible = UserClass.IsAdmin
             Me.Backup.Visible = UserClass.IsAdmin
+            Me.btnImportCostPrice.Visible = UserClass.IsAdmin
+            Me.btnImportSalesPrice.Visible = UserClass.IsAdmin
             Me.SubscribeToolStripMenuItem.Visible = UserClass.Allow_Subscription_Add
             Me.UnsubscribeToolStripMenuItem.Visible = UserClass.Allow_Subscription_Delete
             Me.SubscriptionPaymentToolStripMenuItem.Visible = UserClass.Allow_Subscription_Pay
@@ -101,6 +105,7 @@ Public Class frmMain
             Me.btnSalesReturn.Visible = UserClass.Allow_Sale_Delete
             Me.btnQuotation.Visible = UserClass.Allow_Quotation
             Me.CostPriceToolStripMenuItem.Visible = UserClass.Allow_POS
+            Me.btnOnline.Visible = UserClass.Allow_POS
             Me.PrintToolStripMenuItem.Visible = UserClass.Allow_POS
             Me.HelpToolStripMenuItem.Visible = UserClass.Allow_POS
             Me.PurchaseToolStripMenuItem1.Visible = UserClass.Allow_Purchase
@@ -335,9 +340,24 @@ Public Class frmMain
         Try
             If Me.CostPriceToolStripMenuItem.Checked = True Then
                 CostPrice_On = True
+                Online_On = False
                 Me.MenuStrip1.BackColor = Color.OrangeRed
             Else
                 CostPrice_On = False
+                Me.MenuStrip1.BackColor = Color.DodgerBlue
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub btnOnline_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOnline.Click
+        Try
+            If Me.btnOnline.Checked = True Then
+                CostPrice_On = False
+                Online_On = True
+                Me.MenuStrip1.BackColor = Color.Yellow
+            Else
+                Online_On = False
                 Me.MenuStrip1.BackColor = Color.DodgerBlue
             End If
         Catch ex As Exception
@@ -676,4 +696,81 @@ Public Class frmMain
         FRM.Show()
     End Sub
 
+    Private Sub btnSyncPrice_Click(sender As Object, e As EventArgs) Handles btnSyncPrice.Click
+        AutoSyncPrice()
+    End Sub
+    Public Sub Notification(ByVal Message As String)
+        '  If a window with the same key as the one we are about to
+        '  show is currently open, return
+
+
+        Dim MessageAlert As New Infragistics.Win.Misc.UltraDesktopAlert
+        MessageAlert = New Infragistics.Win.Misc.UltraDesktopAlert(Me.components)
+        'MessageAlert = New Infragistics.Win.Misc.UltraDesktopAlert()
+        MessageAlert.AllowMove = Infragistics.Win.DefaultableBoolean.[True]
+        MessageAlert.AutoClose = Infragistics.Win.DefaultableBoolean.False
+        'MessageAlert.AutoCloseDelay =30000
+        MessageAlert.MultipleWindowDisplayStyle = Infragistics.Win.Misc.MultipleWindowDisplayStyle.Tiled
+
+        'If (Me.MessageAlert2.IsOpen("myWindow")) Then Return
+
+        '  Create a new instance of the UltraDesktopAlertShowWindowInfo class.
+        Dim showInfo As UltraDesktopAlertShowWindowInfo = New UltraDesktopAlertShowWindowInfo()
+
+        '  Set the key to uniquely identify this desktop alert window
+        showInfo.Key = "myWindow" & Now.ToString
+
+        '  Set the Caption, Text, and FooterText properties using formatting
+        '  characters that are recognized by the FormattedTextUIElement.
+        showInfo.Caption = "<span style=""font-weight:bold_x003B_"">New Message <br/>" & Now.ToString("dd/MMM HH:mm") & "</span><br/>"
+        'showInfo.Text = "<span style=""text-decoration:underline_x003B_"">Line one of the Text is underlined</span><br/><span style=""font-style:italic_x003B_"">Line two is italicized</span><br/>"
+        showInfo.Text = Message
+        'showInfo.FooterText = "Check Your Inbox"
+
+        '  Use the ScreenPosition property to make the desktop alert
+        '  window appear at the top left corner of the screen
+        showInfo.ScreenPosition = ScreenPosition.BottomRight
+
+        '  Use the Screen property to specify which screen the desktop alert
+        '  appears in...in the case where the end user has amultiple monitor
+        '  setup, this will make the alert appear on the last screen
+        'showInfo.Screen = Screen.AllScreens(Screen.AllScreens.Length - 1)
+
+        '  Set the image that is displayed in the desktop alert window's
+        '  client area, and the sound that is played as the window appears.
+        showInfo.Image = My.Resources.alarm24 ' New Icon("C:\Icons\DesktopAlert.ico").ToBitmap()
+        showInfo.Sound = Application.StartupPath() & "\NOTIFY.WAV"
+
+        '  The Pinned property can be used to circumvent the auto-close
+        '  functionality for a particular desktop alert window. When
+        '  Pinned is set to true, a pushpin graphic appears in the close
+        '  button area to indicate that the window will stay open.
+        'showInfo.Pinned = Me.pinWindows
+
+        '  The VisibleAlertButtons collection can be used to hide buttons
+        '  for a particular desktop alert window, while not affecting the
+        '  contents of the UltraDesktopAlert's AlertButtons collection.
+        'If (Me.allowAppClose = False) Then
+
+        '    '  Since the UltraDesktopAlertShowWindowInfo is not yet associated
+        '    '  with an UltraDesktopAlert, we must first populate the VisibleAlertButtons
+        '    '  collection with its buttons
+        '    showInfo.VisibleAlertButtons.InitializeFrom(Me.desktopAlert)
+
+        '    '  Use the VisibleAlertButtons collection's Remove method to remove
+        '    '  the close button for this particular window.
+        '    showInfo.VisibleAlertButtons.Remove(showInfo.VisibleAlertButtons("close"))
+        'End If
+
+        '   Show the window
+        MessageAlert.Show(showInfo)
+    End Sub
+
+    Private Sub btnImportCostPrice_Click(sender As Object, e As EventArgs) Handles btnImportCostPrice.Click
+        Read_XLS__CostPrice()
+    End Sub
+
+    Private Sub btnImportSalesPrice_Click(sender As Object, e As EventArgs) Handles btnImportSalesPrice.Click
+        Read_XLS_SalePrice()
+    End Sub
 End Class

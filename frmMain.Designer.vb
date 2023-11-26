@@ -55,6 +55,8 @@ Partial Class frmMain
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
+        Me.btnImportSalesPrice = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnImportCostPrice = New System.Windows.Forms.ToolStripMenuItem()
         Me.Backup = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnConfig = New System.Windows.Forms.ToolStripMenuItem()
         Me.OperationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,6 +66,7 @@ Partial Class frmMain
         Me.btnPromotion = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnMembership = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnQuotation = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnSyncPrice = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SupplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -137,6 +140,7 @@ Partial Class frmMain
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox()
+        Me.btnOnline = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         CType(Me.UltraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -201,7 +205,7 @@ Partial Class frmMain
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
         Me.MenuStrip1.ForeColor = System.Drawing.Color.Black
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.OperationToolStripMenuItem, Me.AccountsToolStripMenuItem, Me.ReportsToolStripMenuItem, Me.StatementsToolStripMenuItem, Me.SalaryToolStripMenuItem, Me.PrintToolStripMenuItem, Me.CostPriceToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.OperationToolStripMenuItem, Me.AccountsToolStripMenuItem, Me.ReportsToolStripMenuItem, Me.StatementsToolStripMenuItem, Me.SalaryToolStripMenuItem, Me.PrintToolStripMenuItem, Me.btnOnline, Me.CostPriceToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(3, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1172, 24)
@@ -210,7 +214,7 @@ Partial Class frmMain
         '
         'FileMenu
         '
-        Me.FileMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnItemList, Me.btnItems, Me.btnItemClass, Me.btnReward, Me.btnPrintBarcode, Me.ToolStripSeparator4, Me.btnItemCategory, Me.btnItemSubCategory, Me.btnUMC, Me.ToolStripSeparator5, Me.SubscribeToolStripMenuItem, Me.UnsubscribeToolStripMenuItem, Me.SubscriptionPaymentToolStripMenuItem, Me.ToolStripSeparator11, Me.ChangePasswordToolStripMenuItem, Me.UsersToolStripMenuItem, Me.ToolStripSeparator13, Me.Backup, Me.btnConfig})
+        Me.FileMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnItemList, Me.btnItems, Me.btnItemClass, Me.btnReward, Me.btnPrintBarcode, Me.ToolStripSeparator4, Me.btnItemCategory, Me.btnItemSubCategory, Me.btnUMC, Me.ToolStripSeparator5, Me.SubscribeToolStripMenuItem, Me.UnsubscribeToolStripMenuItem, Me.SubscriptionPaymentToolStripMenuItem, Me.ToolStripSeparator11, Me.ChangePasswordToolStripMenuItem, Me.UsersToolStripMenuItem, Me.ToolStripSeparator13, Me.btnImportSalesPrice, Me.btnImportCostPrice, Me.Backup, Me.btnConfig})
         Me.FileMenu.Image = CType(resources.GetObject("FileMenu.Image"), System.Drawing.Image)
         Me.FileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder
         Me.FileMenu.Name = "FileMenu"
@@ -350,6 +354,24 @@ Partial Class frmMain
         Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
         Me.ToolStripSeparator13.Size = New System.Drawing.Size(187, 6)
         '
+        'btnImportSalesPrice
+        '
+        Me.btnImportSalesPrice.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnImportSalesPrice.Image = CType(resources.GetObject("btnImportSalesPrice.Image"), System.Drawing.Image)
+        Me.btnImportSalesPrice.ImageTransparentColor = System.Drawing.Color.Black
+        Me.btnImportSalesPrice.Name = "btnImportSalesPrice"
+        Me.btnImportSalesPrice.Size = New System.Drawing.Size(190, 22)
+        Me.btnImportSalesPrice.Text = "Import Sales Price"
+        '
+        'btnImportCostPrice
+        '
+        Me.btnImportCostPrice.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnImportCostPrice.Image = CType(resources.GetObject("btnImportCostPrice.Image"), System.Drawing.Image)
+        Me.btnImportCostPrice.ImageTransparentColor = System.Drawing.Color.Black
+        Me.btnImportCostPrice.Name = "btnImportCostPrice"
+        Me.btnImportCostPrice.Size = New System.Drawing.Size(190, 22)
+        Me.btnImportCostPrice.Text = "Import CostPrice"
+        '
         'Backup
         '
         Me.Backup.BackColor = System.Drawing.Color.DodgerBlue
@@ -370,7 +392,7 @@ Partial Class frmMain
         '
         'OperationToolStripMenuItem
         '
-        Me.OperationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaleToolStripMenuItem, Me.btnSalesReturn, Me.PurchaseToolStripMenuItem1, Me.btnPromotion, Me.btnMembership, Me.btnQuotation})
+        Me.OperationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaleToolStripMenuItem, Me.btnSalesReturn, Me.PurchaseToolStripMenuItem1, Me.btnPromotion, Me.btnMembership, Me.btnQuotation, Me.btnSyncPrice})
         Me.OperationToolStripMenuItem.Image = CType(resources.GetObject("OperationToolStripMenuItem.Image"), System.Drawing.Image)
         Me.OperationToolStripMenuItem.Name = "OperationToolStripMenuItem"
         Me.OperationToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
@@ -417,6 +439,13 @@ Partial Class frmMain
         Me.btnQuotation.Name = "btnQuotation"
         Me.btnQuotation.Size = New System.Drawing.Size(141, 22)
         Me.btnQuotation.Text = "Quotation"
+        '
+        'btnSyncPrice
+        '
+        Me.btnSyncPrice.Image = CType(resources.GetObject("btnSyncPrice.Image"), System.Drawing.Image)
+        Me.btnSyncPrice.Name = "btnSyncPrice"
+        Me.btnSyncPrice.Size = New System.Drawing.Size(141, 22)
+        Me.btnSyncPrice.Text = "Sync Price"
         '
         'AccountsToolStripMenuItem
         '
@@ -1027,6 +1056,14 @@ Partial Class frmMain
         Me.UltraGroupBox2.Size = New System.Drawing.Size(1178, 28)
         Me.UltraGroupBox2.TabIndex = 131
         '
+        'btnOnline
+        '
+        Me.btnOnline.CheckOnClick = True
+        Me.btnOnline.Image = CType(resources.GetObject("btnOnline.Image"), System.Drawing.Image)
+        Me.btnOnline.Name = "btnOnline"
+        Me.btnOnline.Size = New System.Drawing.Size(70, 20)
+        Me.btnOnline.Text = "Online"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1166,4 +1203,8 @@ Partial Class frmMain
     Friend WithEvents btnPromotion As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnMembership As ToolStripMenuItem
     Friend WithEvents btnReward As ToolStripMenuItem
+    Friend WithEvents btnSyncPrice As ToolStripMenuItem
+    Friend WithEvents btnImportCostPrice As ToolStripMenuItem
+    Friend WithEvents btnImportSalesPrice As ToolStripMenuItem
+    Friend WithEvents btnOnline As ToolStripMenuItem
 End Class

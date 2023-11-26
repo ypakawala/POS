@@ -716,6 +716,12 @@ Public Class frmSales
                                     Me.lblItemName2.Text = CLS_Item.Notes
                                     If CostPrice_On Then
                                         Me.txtPrice.Value = CLS_Item.CostPrice * CurrencyBase
+                                    ElseIf Online_On Then
+                                        If TrimDec(CLS_Item.OnlinePrice) = Nothing Then
+                                            Me.txtPrice.Value = CLS_Item.SalesPrice * CurrencyBase
+                                        Else
+                                            Me.txtPrice.Value = CLS_Item.OnlinePrice * CurrencyBase
+                                        End If
                                     Else
                                         If TrimBoolean(CLS_Item.onPromo) Then
                                             Me.txtPrice.Value = CLS_Item.PromoPrice * CurrencyBase
@@ -908,7 +914,11 @@ Public Class frmSales
                 If TrimBoolean(CLS_Item.onPromo) Then
                     If (CLS_Item.PromoPrice <= 0.01) And (FixControl(Me.txtPrice) = Nothing Or FixControl(Me.txtPrice) <= 10) Then Exit Try
                 Else
-                    If (CLS_Item.SalesPrice <= 0.01) And (FixControl(Me.txtPrice) = Nothing Or FixControl(Me.txtPrice) <= 10) Then Exit Try
+                    If Online_On Then
+                        If (CLS_Item.OnlinePrice <= 0.01 And CLS_Item.SalesPrice <= 0.01) And (FixControl(Me.txtPrice) = Nothing Or FixControl(Me.txtPrice) <= 10) Then Exit Try
+                    Else
+                        If (CLS_Item.SalesPrice <= 0.01) And (FixControl(Me.txtPrice) = Nothing Or FixControl(Me.txtPrice) <= 10) Then Exit Try
+                    End If
                 End If
 
 
@@ -955,6 +965,12 @@ Public Class frmSales
                 Else
                     If CostPrice_On Then
                         CLS_Sale_Entry.UnitPrice = Decimal.Round(CLS_Item.CostPrice, 3)
+                    ElseIf Online_On Then
+                        If TrimDec(CLS_Item.OnlinePrice) = Nothing Then
+                            CLS_Sale_Entry.UnitPrice = Decimal.Round(CLS_Item.SalesPrice, 3)
+                        Else
+                            CLS_Sale_Entry.UnitPrice = Decimal.Round(CLS_Item.OnlinePrice, 3)
+                        End If
                     Else
                         If TrimBoolean(CLS_Item.onPromo) Then
                             CLS_Sale_Entry.UnitPrice = Decimal.Round(CLS_Item.PromoPrice, 3)
@@ -1381,7 +1397,7 @@ Public Class frmSales
 
                     'End If
                 Case TransectionType.CreditSale
-                    If TrimStr(WAM_CreditSale) <> Nothing Then
+                    If TrimStr(WAM_Number) <> Nothing AndAlso TrimStr(WAM_CreditSale) <> Nothing Then
 
 
                         Dim Balance As Decimal = 0.0
@@ -2323,6 +2339,7 @@ Public Class frmSales
                     CLS.ItemName = IIf(IsDBNull(dr3(0).Item("ItemName")), 0, dr3(0).Item("ItemName"))
                     CLS.CostPrice = IIf(IsDBNull(dr3(0).Item("CostPrice")), 0, dr3(0).Item("CostPrice"))
                     CLS.SalesPrice = CType(Barcode.Substring(1), Decimal) / 1000 'IIf(IsDBNull(dr3(0).Item("SalesPrice")), 0, dr3(0).Item("SalesPrice"))
+                    CLS.OnlinePrice = CType(Barcode.Substring(1), Decimal) / 1000 'IIf(IsDBNull(dr3(0).Item("SalesPrice")), 0, dr3(0).Item("SalesPrice"))
                     CLS.Barcode = IIf(IsDBNull(dr3(0).Item("Barcode")), 0, dr3(0).Item("Barcode"))
                     CLS.Barcode2 = IIf(IsDBNull(dr3(0).Item("Barcode2")), 0, dr3(0).Item("Barcode2"))
                     CLS.CostMethod = IIf(IsDBNull(dr3(0).Item("CostMethod")), 0, dr3(0).Item("CostMethod"))
@@ -2351,6 +2368,7 @@ Public Class frmSales
                 CLS.ItemName = IIf(IsDBNull(dr(0).Item("ItemName")), 0, dr(0).Item("ItemName"))
                 CLS.CostPrice = IIf(IsDBNull(dr(0).Item("CostPrice")), 0, dr(0).Item("CostPrice"))
                 CLS.SalesPrice = IIf(IsDBNull(dr(0).Item("SalesPrice")), 0, dr(0).Item("SalesPrice"))
+                CLS.OnlinePrice = IIf(IsDBNull(dr(0).Item("OnlinePrice")), 0, dr(0).Item("OnlinePrice"))
                 CLS.Barcode = IIf(IsDBNull(dr(0).Item("Barcode")), 0, dr(0).Item("Barcode"))
                 CLS.Barcode2 = IIf(IsDBNull(dr(0).Item("Barcode2")), 0, dr(0).Item("Barcode2"))
                 CLS.CostMethod = IIf(IsDBNull(dr(0).Item("CostMethod")), 0, dr(0).Item("CostMethod"))
@@ -2382,6 +2400,7 @@ Public Class frmSales
                     CLS.ItemName = IIf(IsDBNull(dr2(0).Item("ItemName")), 0, dr2(0).Item("ItemName"))
                     CLS.CostPrice = IIf(IsDBNull(dr2(0).Item("CostPrice")), 0, dr2(0).Item("CostPrice"))
                     CLS.SalesPrice = IIf(IsDBNull(dr2(0).Item("SalesPrice")), 0, dr2(0).Item("SalesPrice"))
+                    CLS.OnlinePrice = IIf(IsDBNull(dr2(0).Item("OnlinePrice")), 0, dr2(0).Item("OnlinePrice"))
                     CLS.Barcode = IIf(IsDBNull(dr2(0).Item("Barcode")), 0, dr2(0).Item("Barcode"))
                     CLS.Barcode2 = IIf(IsDBNull(dr2(0).Item("Barcode2")), 0, dr2(0).Item("Barcode2"))
                     CLS.CostMethod = IIf(IsDBNull(dr2(0).Item("CostMethod")), 0, dr2(0).Item("CostMethod"))
@@ -2409,6 +2428,7 @@ Public Class frmSales
                         CLS.ItemName = IIf(IsDBNull(dr3(0).Item("ItemName")), 0, dr3(0).Item("ItemName"))
                         CLS.CostPrice = IIf(IsDBNull(dr3(0).Item("CostPrice")), 0, dr3(0).Item("CostPrice"))
                         CLS.SalesPrice = IIf(IsDBNull(dr3(0).Item("SalesPrice")), 0, dr3(0).Item("SalesPrice"))
+                        CLS.OnlinePrice = IIf(IsDBNull(dr3(0).Item("OnlinePrice")), 0, dr3(0).Item("OnlinePrice"))
                         CLS.Barcode = IIf(IsDBNull(dr3(0).Item("Barcode")), 0, dr3(0).Item("Barcode"))
                         CLS.Barcode2 = IIf(IsDBNull(dr3(0).Item("Barcode2")), 0, dr3(0).Item("Barcode2"))
                         CLS.CostMethod = IIf(IsDBNull(dr3(0).Item("CostMethod")), 0, dr3(0).Item("CostMethod"))
@@ -2438,6 +2458,7 @@ Public Class frmSales
                         CLS.ItemName = IIf(IsDBNull(dr3(0).Item("ItemName")), 0, dr3(0).Item("ItemName"))
                         CLS.CostPrice = IIf(IsDBNull(dr3(0).Item("CostPrice")), 0, dr3(0).Item("CostPrice"))
                         CLS.SalesPrice = IIf(IsDBNull(dr3(0).Item("SalesPrice")), 0, dr3(0).Item("SalesPrice"))
+                        CLS.OnlinePrice = IIf(IsDBNull(dr3(0).Item("OnlinePrice")), 0, dr3(0).Item("OnlinePrice"))
                         CLS.Barcode = IIf(IsDBNull(dr3(0).Item("Barcode")), 0, dr3(0).Item("Barcode"))
                         CLS.Barcode2 = IIf(IsDBNull(dr3(0).Item("Barcode2")), 0, dr3(0).Item("Barcode2"))
                         CLS.CostMethod = IIf(IsDBNull(dr3(0).Item("CostMethod")), 0, dr3(0).Item("CostMethod"))
@@ -2463,6 +2484,7 @@ Public Class frmSales
                     CLS.ItemName = IIf(IsDBNull(dr2(0).Item("ItemName")), 0, dr2(0).Item("ItemName"))
                     CLS.CostPrice = IIf(IsDBNull(dr2(0).Item("CostPrice")), 0, dr2(0).Item("CostPrice"))
                     CLS.SalesPrice = IIf(IsDBNull(dr2(0).Item("SalesPrice")), 0, dr2(0).Item("SalesPrice"))
+                    CLS.OnlinePrice = IIf(IsDBNull(dr2(0).Item("OnlinePrice")), 0, dr2(0).Item("OnlinePrice"))
                     CLS.Barcode = IIf(IsDBNull(dr2(0).Item("Barcode")), 0, dr2(0).Item("Barcode"))
                     CLS.Barcode2 = IIf(IsDBNull(dr2(0).Item("Barcode2")), 0, dr2(0).Item("Barcode2"))
                     CLS.CostMethod = IIf(IsDBNull(dr2(0).Item("CostMethod")), 0, dr2(0).Item("CostMethod"))
@@ -3032,6 +3054,12 @@ Public Class frmSales
 
                     If CostPrice_On Then
                         Me.txtPrice.Value = CLS_Item.CostPrice * CurrencyBase
+                    ElseIf Online_On Then
+                        If TrimDec(CLS_Item.OnlinePrice) = Nothing Then
+                            Me.txtPrice.Value = CLS_Item.SalesPrice * CurrencyBase
+                        Else
+                            Me.txtPrice.Value = CLS_Item.OnlinePrice * CurrencyBase
+                        End If
                     Else
                         If TrimBoolean(CLS_Item.onPromo) Then
                             Me.txtPrice.Value = CLS_Item.PromoPrice * CurrencyBase

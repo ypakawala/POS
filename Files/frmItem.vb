@@ -3,6 +3,7 @@ Imports System.Drawing.Printing
 Imports System.IO
 
 Public Class frmItem
+
     Implements IDataEntry
 #Region "Member Variables"
     Private m_tableName As String = Table.Item
@@ -43,6 +44,8 @@ Public Class frmItem
             PARA.Add(FixControl(Me.txtCostPrice))
             PARA.Add(FixControl(Me.txtProfitMargin))
             PARA.Add(FixControl(Me.txtSalesPrice))
+            PARA.Add(FixControl(Me.txtProfitMarginOnline))
+            PARA.Add(FixControl(Me.txtOnlinePrice))
             PARA.Add(FixControl(Me.txtBarcode))
             PARA.Add(FixControl(Me.txtBarcode2))
             PARA.Add(FixControl(Me.txtStockInHand))
@@ -110,6 +113,9 @@ Public Class frmItem
                 Me.txtSalesPrice.Focus()
                 Me.txtSalesPrice.SelectAll()
                 Return False
+            End If
+            If FixControl(Me.txtOnlinePrice) = Nothing Then
+                Me.txtOnlinePrice.Value = txtSalesPrice.Value
             End If
 
             If Me.txtCostPrice.Value > Me.txtSalesPrice.Value Then
@@ -214,6 +220,8 @@ Public Class frmItem
             Me.txtCostPrice.Value = Nothing
             Me.txtProfitMargin.Value = 0
             Me.txtSalesPrice.Value = Nothing
+            Me.txtProfitMarginOnline.Value = 0
+            Me.txtOnlinePrice.Value = Nothing
             Me.txtBarcode.Value = Nothing
             Me.txtBarcode2.Value = Nothing
             Me.txtStockInHand.Value = Nothing
@@ -266,6 +274,8 @@ Public Class frmItem
             PARA.Add(FixControl(Me.txtCostPrice))
             PARA.Add(FixControl(Me.txtProfitMargin))
             PARA.Add(FixControl(Me.txtSalesPrice))
+            PARA.Add(FixControl(Me.txtProfitMarginOnline))
+            PARA.Add(FixControl(Me.txtOnlinePrice))
             PARA.Add(FixControl(Me.txtBarcode))
             PARA.Add(FixControl(Me.txtBarcode2))
             PARA.Add(FixControl(Me.txtStockInHand))
@@ -347,6 +357,8 @@ Public Class frmItem
             Me.txtCostPrice.Value = CLS.CostPrice
             Me.txtSalesPrice.Value = CLS.SalesPrice
             Me.txtProfitMargin.Value = CLS.ProfitMargin
+            Me.txtOnlinePrice.Value = CLS.OnlinePrice
+            Me.txtProfitMarginOnline.Value = CLS.ProfitMarginOnline
             Me.txtBarcode.Value = CLS.Barcode
             Me.txtBarcode2.Value = CLS.Barcode2
             Me.txtStockInHand.Value = CLS.StockInHand
@@ -448,6 +460,7 @@ Public Class frmItem
             Me.DropSubCategory.Value = CLS_Config.DefaultSubCategory
             Me.txtCostPrice.Value = 0
             Me.txtSalesPrice.Value = 0
+            Me.txtOnlinePrice.Value = 0
             Me.txtStockInHand.Value = 0
             Me.txtStockInStore.Value = 0
             Me.txtStockMin.Value = 0
@@ -486,6 +499,8 @@ Public Class frmItem
             txtCostPrice.InputMask = Mask_Amount5
             txtProfitMargin.InputMask = Mask_Amount5Nagative
             txtSalesPrice.InputMask = Mask_Amount5
+            txtProfitMarginOnline.InputMask = Mask_Amount5Nagative
+            txtOnlinePrice.InputMask = Mask_Amount5
             txtPromoPrice.InputMask = Mask_Amount5
 
             FillDrops()
@@ -713,7 +728,7 @@ Public Class frmItem
             MsgBox("[txtCostPrice_KeyDown]" & vbCrLf & ex.Message)
         End Try
     End Sub
-    Private Sub txtPercentage_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtProfitMargin.KeyDown
+    Private Sub txtProfitMargin_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtProfitMargin.KeyDown
         Try
             Select Case e.KeyCode
                 Case Keys.Enter
@@ -747,8 +762,8 @@ Public Class frmItem
         Try
             Select Case e.KeyCode
                 Case Keys.Enter
-                    Me.txtBarcode.Focus()
-                    Me.txtBarcode.SelectAll()
+                    Me.txtProfitMarginOnline.Focus()
+                    Me.txtProfitMarginOnline.SelectAll()
                 Case Keys.Divide
                     Me.txtSalesPrice.Focus()
                     Me.txtSalesPrice.SelectAll()
@@ -758,6 +773,38 @@ Public Class frmItem
             MsgBox("[DropCostMethod_KeyDown]" & vbCrLf & ex.Message)
         End Try
     End Sub
+    Private Sub txtProfitMarginOnline_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtProfitMarginOnline.KeyDown
+        Try
+            Select Case e.KeyCode
+                Case Keys.Enter
+                    Get_OnlineSP_by_Percentage()
+                    Me.txtOnlinePrice.Focus()
+                    Me.txtOnlinePrice.SelectAll()
+                Case Keys.Divide
+                    Me.DropCostMethod.Focus()
+            End Select
+
+        Catch ex As Exception
+            MsgBox("[txtPercentage_KeyDown]" & vbCrLf & ex.Message)
+        End Try
+    End Sub
+    Private Sub txtOnlinePrice_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtOnlinePrice.KeyDown
+        Try
+            Select Case e.KeyCode
+                Case Keys.Enter
+                    txtOnlinePrice_ValueChanged(sender, e)
+                    Me.txtBarcode.Focus()
+                    Me.txtBarcode.SelectAll()
+                Case Keys.Divide
+                    Me.txtProfitMarginOnline.Focus()
+                    Me.txtProfitMarginOnline.SelectAll()
+            End Select
+
+        Catch ex As Exception
+            MsgBox("[txtOnlinePrice_KeyDown]" & vbCrLf & ex.Message)
+        End Try
+    End Sub
+
     Private Sub txtBarcode_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtBarcode.KeyDown
         Try
             Select Case e.KeyCode
@@ -765,7 +812,8 @@ Public Class frmItem
                     Me.txtBarcode2.Focus()
                     Me.txtBarcode2.SelectAll()
                 Case Keys.Divide
-                    Me.DropCostMethod.Focus()
+                    Me.txtProfitMarginOnline.Focus()
+                    Me.txtProfitMarginOnline.SelectAll()
             End Select
 
         Catch ex As Exception
@@ -1050,6 +1098,17 @@ Public Class frmItem
             MsgBox("[Get_SP_by_Percentage]" & vbCrLf & ex.Message)
         End Try
     End Sub
+    Private Sub Get_OnlineSP_by_Percentage()
+        Try
+            Dim CP As Decimal = Decimal.Round(CDec(FixControl(Me.txtCostPrice)), 3)
+            Dim Percent As Decimal = Decimal.Round(CDec(FixControl(Me.txtProfitMarginOnline)), 3) / 100
+            If CP = 0 Or Percent = 0 Then Exit Sub
+            Me.txtOnlinePrice.Value = Decimal.Round(CDec((CP * Percent) + CP), 3)
+
+        Catch ex As Exception
+            MsgBox("[Get_OnlineSP_by_Percentage]" & vbCrLf & ex.Message)
+        End Try
+    End Sub
     Private Sub txtSalesPrice_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtSalesPrice.ValueChanged, txtCostPrice.ValueChanged
         Try
             Dim CP As Decimal = Decimal.Round(CDec(FixControl(Me.txtCostPrice)), 3)
@@ -1061,8 +1120,19 @@ Public Class frmItem
             MsgBox("[txtSalesPrice_ValueChanged]" & vbCrLf & ex.Message)
         End Try
     End Sub
+    Private Sub txtOnlinePrice_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtOnlinePrice.ValueChanged, txtCostPrice.ValueChanged
+        Try
+            Dim CP As Decimal = Decimal.Round(CDec(FixControl(Me.txtCostPrice)), 3)
+            Dim SP As Decimal = Decimal.Round(CDec(FixControl(Me.txtOnlinePrice)), 3)
+            If CP = 0 Or SP = 0 Then Exit Sub
+            Me.txtProfitMarginOnline.Value = Decimal.Round(CDec(((SP - CP) * 100) / CP), 3)
 
-    Private Sub DropSearch_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DropSearch.KeyUp, txtItemName.KeyUp, DropCategory.KeyUp, DropSubCategory.KeyUp, txtCostPrice.KeyUp, txtProfitMargin.KeyUp, txtSalesPrice.KeyUp, txtBarcode.KeyUp, txtBarcode2.KeyUp, txtStockInHand.KeyUp, txtStockInStore.KeyUp, txtStockMin.KeyUp, DropItemType.KeyUp, txtNotes.KeyUp, DropUMC.KeyUp, DropCostMethod.KeyUp, txtPromoFrom.KeyUp, txtPromoTo.KeyUp, txtPromoPrice.KeyUp, txtPromoStockLimit.KeyUp, chkOnPromo.KeyUp, txtPromoStockSold.KeyUp, txtPromoStockAvailable.KeyUp
+        Catch ex As Exception
+            MsgBox("[txtOnlinePrice_ValueChanged]" & vbCrLf & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub DropSearch_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DropSearch.KeyUp, txtItemName.KeyUp, DropCategory.KeyUp, DropSubCategory.KeyUp, txtCostPrice.KeyUp, txtProfitMargin.KeyUp, txtSalesPrice.KeyUp, txtProfitMarginOnline.KeyUp, txtOnlinePrice.KeyUp, txtBarcode.KeyUp, txtBarcode2.KeyUp, txtStockInHand.KeyUp, txtStockInStore.KeyUp, txtStockMin.KeyUp, DropItemType.KeyUp, txtNotes.KeyUp, DropUMC.KeyUp, DropCostMethod.KeyUp, txtPromoFrom.KeyUp, txtPromoTo.KeyUp, txtPromoPrice.KeyUp, txtPromoStockLimit.KeyUp, chkOnPromo.KeyUp, txtPromoStockSold.KeyUp, txtPromoStockAvailable.KeyUp
         If e.KeyCode = Keys.End Then
             btnExit_Click(sender, e)
         End If
@@ -1217,4 +1287,34 @@ Public Class frmItem
             MsgBox(ex.Message)
         End Try
     End Sub
+
+
+    Private Sub btnPurchase_Click(sender As Object, e As EventArgs) Handles btnPurchase.Click
+        FillPurchase(TrimInt(Me.DropSearch.Value))
+    End Sub
+
+    Private Sub FillPurchase(ItemCode As Integer)
+        Try
+            Dim DT As New DataTable
+            DT = DBO.ReturnDataTable("SELECT  Purchase.EffectiveDate, Account.Title AS Supplier,dbo.Purchase_Entry.Qty,Purchase_Entry.UnitPrice FROM Purchase INNER JOIN Purchase_Entry ON Purchase.Code=Purchase_Entry.PurchaseCode INNER JOIN Account ON Purchase.SupplierCode=Account.Code INNER JOIN Item ON Purchase_Entry.ItemCode=Item.Code WHERE Purchase_Entry.ItemCode = " & ItemCode & "  ORDER BY EffectiveDate")
+            Me.grdList.DataSource = DT
+            Me.grdList.DataBind()
+
+            Me.grdList.DisplayLayout.Override.RowAlternateAppearance = RowAlternateAppearance
+            Me.grdList.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortSingle
+            Me.grdList.DisplayLayout.Bands(0).Columns("UnitPrice").MaskInput = Mask_Amount
+            Me.grdList.DisplayLayout.Bands(0).Columns("EffectiveDate").MaskInput = Mask_Date
+
+            Me.grdList.DisplayLayout.Bands(0).Columns("EffectiveDate").Width = 75
+            Me.grdList.DisplayLayout.Bands(0).Columns("Supplier").Width = 250
+            Me.grdList.DisplayLayout.Bands(0).Columns("Qty").Width = 75
+            Me.grdList.DisplayLayout.Bands(0).Columns("UnitPrice").Width = 75
+
+
+
+        Catch ex As Exception
+            MsgBox("FillGrid" & vbCrLf & ex.Message)
+        End Try
+    End Sub
+
 End Class
